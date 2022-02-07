@@ -1,8 +1,8 @@
 
 const Slider = () => {
     return (
-        <div>
-            This will be a slider inside homepage
+        <div className=" p-20 text-center text-2xl">
+            Slider goes here
         </div>
     );
 };
