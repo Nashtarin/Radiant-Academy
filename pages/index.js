@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Slider from "../components/HomeComponents/Slider";
 
 export default function Home() {
   return (
@@ -8,7 +9,12 @@ export default function Home() {
         <meta name="Your learning partner" content="Best learning app for the curious learners" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1 className='text-4xl text-blue-600 font-bold text-center mt-5'>This is a heading</h1>
+
+      {/* HOMEPAGE CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
+
+      <Slider />
+
+
     </div>
   )
 }
