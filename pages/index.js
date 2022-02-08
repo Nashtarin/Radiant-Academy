@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Remotefeatures from "../components/HomeComponents/Remotefeatures";
 import Slider from "../components/HomeComponents/Slider";
 
 export default function Home() {
@@ -11,7 +12,7 @@ export default function Home() {
       </Head>
 
       {/* HOMEPAGE CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
-
+      <Remotefeatures/>
       <Slider />
 
 
