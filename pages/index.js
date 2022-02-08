@@ -1,4 +1,5 @@
 import Head from "next/head";
+import QuizSection from "../components/HomeComponents/QuizSection";
 import Slider from "../components/HomeComponents/Slider";
 
 export default function Home() {
@@ -13,7 +14,7 @@ export default function Home() {
       {/* HOMEPAGE CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
 
       <Slider />
-
+      <QuizSection />
 
     </div>
   )
