@@ -7,7 +7,7 @@ const QuizSection = () => {
             <div className="container grid py-20 px-5 lg:grid-cols-4 gap-2 h-full ">
                 <div style={{ color: '#3B058E' }} className="flex justify-center items-start flex-col">
                     <h2 className="text-4xl font-bold">The next Quiz is about to start</h2>
-                        <p className="text-lg pt-3">Learn how it works</p>
+                    <p className="text-lg pt-3">Learn how it works</p>
                 </div>
                 <div className="flex justify-center">
                     <div className="text-center">
