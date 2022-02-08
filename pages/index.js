@@ -1,6 +1,7 @@
 import Head from "next/head";
+import SliderSection from "../components/HomeComponents/Slider";
+import Talenthunt from "../components/HomeComponents/Talenthunt";
 import QuizSection from "../components/HomeComponents/QuizSection";
-import Slider from "../components/HomeComponents/Slider";
 
 export default function Home() {
   return (
@@ -13,7 +14,8 @@ export default function Home() {
 
       {/* HOMEPAGE CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
 
-      <Slider />
+      <SliderSection />
+      <Talenthunt />
       <QuizSection />
 
     </div>
