@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Slider from "../components/HomeComponents/Slider";
+import SliderSection from "../components/HomeComponents/Slider";
 import Talenthunt from "../components/HomeComponents/Talenthunt";
 
 export default function Home() {
@@ -13,8 +13,8 @@ export default function Home() {
 
       {/* HOMEPAGE CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
 
-      <Slider />
-      <Talenthunt/>
+      <SliderSection />
+      <Talenthunt />
 
     </div>
   )
