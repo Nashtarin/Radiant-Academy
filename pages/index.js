@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Slider from "../components/HomeComponents/Slider";
 import Talenthunt from "../components/HomeComponents/Talenthunt";
+import Testimonial from "../components/Testimonial/Testimonial";
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
 
       <Slider />
       <Talenthunt/>
-
+      <Testimonial />
     </div>
   )
 }
