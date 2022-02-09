@@ -33,4 +33,8 @@ const SliderSection = () => {
     );
 };
 
+<<<<<<< HEAD
 export default SliderSection;
+=======
+export default SliderSection;
+>>>>>>> secondary
