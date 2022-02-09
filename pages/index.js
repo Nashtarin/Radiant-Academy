@@ -17,6 +17,7 @@ export default function Home() {
 
       <SliderSection />
       <Talenthunt />
+      <QuizSection />
       <Testimonial />
     </div>
   )
