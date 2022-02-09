@@ -4,7 +4,7 @@ const Testimonial = () => {
     return (
         <div className="container mx-auto my-8">
             <h1 className="text-6xl	font-bold text-violet-900 my-5 text-center">What others are saying</h1>
-            <div class="mx-6 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4">
+            <div className="mx-6 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4">
                 <div className="rounded border border-slate-400 hover:shadow-lg hover:shadow-slate-400 px-3">
                         <p className="text-black text-xl my-5">I received my certificate, and I would like to thank you for your support. Your course was challenging, but you were always there supporting me and ready to help. I enjoyed your class tremendously. I look forward to taking another class with you.</p>
                     <div className="grid place-content-center my-4">
