@@ -4,7 +4,7 @@ import React from 'react';
 const QuizSection = () => {
     return (
         <div className="bg-slate-200 h-full p-20">
-            <div className="container grid py-20 px-5 lg:grid-cols-4 gap-2 h-full ">
+            <div className="w-5/6 mx-auto grid py-20 px-5 lg:grid-cols-4 gap-2 h-full ">
                 <div style={{ color: '#3B058E' }} className="flex justify-center items-start flex-col">
                     <h2 className="text-4xl font-bold">The next Quiz is about to start</h2>
                     <p className="text-lg pt-3">Learn how it works</p>
