@@ -10,7 +10,7 @@ const QuizSection = () => {
                     <p className="text-lg pt-3">Learn how it works</p>
                 </div>
                 <div className="flex justify-center">
-                    <div className="text-center">
+                    <div className="text-center hover:-translate-y-2 hover:duration-700 ease-in-out delay-300">
                         <div className="h-[180px] flex items-center justify-center">
                             <Image src="/img/quiz1.webp" alt="quiz-feature-photo" width="123px" height="127px" />
                         </div>
@@ -20,7 +20,7 @@ const QuizSection = () => {
                     </div>
                 </div>
                 <div className="flex justify-center">
-                    <div className="text-center">
+                    <div className="text-center hover:-translate-y-2 hover:duration-700 ease-in-out delay-300">
                         <div className="h-[180px]">
                             <Image src="/img/quiz2.webp" alt="quiz-feature-photo" width="167px" height="167px" />
                         </div>
@@ -30,7 +30,7 @@ const QuizSection = () => {
                     </div>
                 </div>
                 <div className="flex justify-center">
-                    <div className="text-center">
+                    <div className="text-center hover:-translate-y-2 hover:duration-700 ease-in-out delay-300">
                         <div className="h-[180px]">
                             <Image src="/img/quiz3.webp" alt="quiz-feature-photo" width="167px" height="167px" />
                         </div>
