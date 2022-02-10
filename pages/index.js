@@ -1,7 +1,8 @@
 import Head from "next/head";
-import Talenthunt from "../components/HomeComponents/Talenthunt";
+import PriceCart from "../components/HomeComponents/PriceCart";
 import QuizSection from "../components/HomeComponents/QuizSection";
 import SliderSection from "../components/HomeComponents/Slider";
+import Talenthunt from "../components/HomeComponents/Talenthunt";
 import Testimonial from "../components/Testimonial/Testimonial";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
       <SliderSection />
       <Talenthunt />
       <QuizSection />
+      <PriceCart/>
       <Testimonial />
     </div>
   )
