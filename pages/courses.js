@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
-import Course from '../components/Course/Course';
+import Course from './course';
 
-export const getServerSideProps = async ()=>{
+export const getStaticProps = async ()=>{
     const url = 'https://api.itbook.store/1.0/new';
+    const url1 = "https://jsonplaceholder.typicode.com/posts"
     const res = await fetch(url);
     const data = await res.json();
 
     return{
         props:{
             data:data.books
+            // data
         }
     }
 }
@@ -21,31 +23,6 @@ const Courses = ({data}) => {
                     key={course.id}
                     course={course}/>)}
             </div>
-            {/* <div className="grid container mx-auto grid-rows-auto lg:grid-cols-3 md:grid-cols-2 xs:grid-cols-1 gap-4">
-                <div>01</div>
-                <div>02</div>
-                <div>03</div>
-                <div>04</div>
-                <div>05</div>
-                <div>06</div>
-                <div>07</div>
-                <div>08</div>
-                <div>09</div>
-                <div>017</div>
-                <div>071</div>
-                <div>09</div>
-                <div>02</div>
-                <div>03</div>
-                <div>04</div>
-                <div>05</div>
-                <div>06</div>
-                <div>07</div>
-                <div>08</div>
-                <div>09</div>
-                <div>017</div>
-                <div>071</div>
-                <div>09</div>
-            </div> */}
         </div>
     );
 };

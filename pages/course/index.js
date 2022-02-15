@@ -2,7 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Course = ({course}) => {
-    const {image,price,subtitle,title,url} = course;
+    const {image,price,subtitle,title,url,isbn13} = course;
+    // const {id,title,body} = course;
     console.log(course)
     return (
         <div className="border-2 rounded-lg text-center hover:bg-violet-200 pb-6">
@@ -14,6 +15,9 @@ const Course = ({course}) => {
             <img src={image} width="100%"/>
             <h1 className='text-2xl	font-bold text-violet-900 mb-5'>{title}</h1>
             <h1 className="mb-6">{subtitle}</h1>
+            {/* <Link href={`/course/${id}`}>
+                <a className="bg-violet-900 rounded-lg text-white p-3 mx-8 hover:bg-white hover:text-violet-900">Learn More</a>
+            </Link> */}
             <Link href={url}>
                 <a className="bg-violet-900 rounded-lg text-white p-3 mx-8 hover:bg-white hover:text-violet-900">Learn More</a>
             </Link>
