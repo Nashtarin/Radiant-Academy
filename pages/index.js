@@ -8,13 +8,17 @@ import SliderSection from "../components/HomeComponents/Slider";
 import Talenthunt from "../components/HomeComponents/Talenthunt";
 import Testimonial from "../components/Testimonial/Testimonial";
 import Remotefeatures from "../components/HomeComponents/Remotefeatures";
+// import { useSelector } from "react-redux";
 
 export default function Home() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchCourses());
   }, [dispatch]);
-  
+
+  // const data = useSelector((state) => state.courses.coursesList);
+  // console.log(data);
+
   return (
     <div>
       <Head>
