@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "name": "Non-Dimmable",
+        "price": "300",
+        "description": " look great, like old-timey light bulbs with filaments and put off a nice, warm light. I’m using them in my outdoor fixtures and don’t have to worry about CFL’s and their terrible cold weather performance, plus they look better and I don’t have to feel guilty about leaving them on all night.” Another notes the 'pretty elements in the bulb' and says the lower-intensity 25-watt equivalence was just right for their kitchen light fixture.",
+        "img": "https://images.unsplash.com/photo-1496688519089-de7d4b5c05d7?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8ZGVjZW50JTIwbGlnaHR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        "id": 2,
+        "name": "LED Smart Bulb",
+        "price": "100",
+        "description": "It’s really amazing to touch a button on an app and change the whole room (or house) to a certain color, and with Hue Labs you can do experimental features like colors blending into one another, one reviewer explains. Others add that the simplicity and easy installation is a big draw. The bulb featured here is a single smart bulb, capable of displaying a wide array of colors — 16 million, according to the company’s literature — and connecting to Alexa.",
+        "img": "https://images.unsplash.com/photo-1478826160983-e6db8c7d537a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGRlY2VudCUyMGxpZ2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        "id": 3,
+        "name": "Best Globe Light Bulbs",
+        "price": "150",
+        "description": "These globe-style LED bulbs come with a standard base, and many reviewers buy them to outfit their bathroom vanities. They’re available in a range of color temperatures, and the choice mostly comes down to personal preference. Regardless of which version they have, reviewers praise the performance of these bulbs. “I ordered them for my bathroom and then my wife ended up doing her makeup in my bathroom because the light was so much better.",
+        "img": "https://images.unsplash.com/photo-1486090476046-a389583471fe?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTh8fGRlY2VudCUyMGxpZ2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        "id": 4,
+        "name": "Best LED Track Light Bulbs",
+        "price": "180",
+        "description": "Ah-mazing quality of light. Brighter than the halogen GU 10s they replaced,” writes one, adding,These are [a warmer color] than your average LED lights and seem quite natural. All six of mine are installed in a ceiling track light situation and have consistent color of light, no noticeable variation. In addition to the quality of the light itself, another reason is that they generate significantly less heat than their halogen counterparts.",
+        "img": "https://images.unsplash.com/photo-1502872364588-894d7d6ddfab?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjB8fGRlY2VudCUyMGxpZ2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        "id": 5,
+        "name": "Best LED Floodlight Bulbs",
+        "price": "300",
+        "description": "Wow these lights are great, remarks one five-star reviewer. They are nice and bright, instant on (love LEDs), and the dimmable functionality is great too. They don’t make the buzzing noise that some of the cheaper dimmable LEDs do. Will be buying more for the rest of our recessed lighting. After replacing their incandescent floodlights with these, one purchaser noticed. a marked improvement in light quality and heat output: These bulbs run much cooler.",
+        "img": "https://images.unsplash.com/photo-1492201525730-cfe83d133645?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTA5fHxkZWNlbnQlMjBsaWdodHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        "id": 6,
+        "name": "Best Frosted LED Light Bulbs With Candelabra Base",
+        "price": "100",
+        "description": "I’m slowly switching out regular incandescent bulbs for these new LED bulbs on the chandelier in my living room, writes one reviewer. The LED lights are so much brighter than the regular ones, and they last a lot longer.Chandelier is LED-lit, I’m already planning a celebration party also mentions the long life of LED bulbs.",
+        "img": "https://images.unsplash.com/photo-1501275578-61eff411d8bf?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTE2fHxkZWNlbnQlMjBsaWdodHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        "id": 7,
+        "name": "Best dimmable LED light bulbs",
+        "price": "150",
+        "description": "Nearly 15 percent of all five-star reviewers comment on how much they like they way these LED bulbs dim. This bulb, unlike many other dimmable LEDs, will actually smoothly dim all the way from full bright to off, says one customer. Another is so happy with these bulbs, they’re considering replacing all the bulbs in his house with them: The savings is so great that we can well afford to throw away the old light bulbs in favor of these.",
+        "img": "https://images.unsplash.com/photo-1498958745763-9497311780a4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTM3fHxkZWNlbnQlMjBsaWdodHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        "id": 8,
+        "name": "soft light bulbs",
+        "price": "180",
+        "description": "Purchasers recommend this 16-pack of LED bulbs on account of the trustworthiness of the AmazonBasics brand and the strong value for their money, as mentioned by one reviewer who reports being happy after “finally decided to buy bulk.” They’re available in a range of color temperatures, but many like the soft white. Reviewers do note that like many LED bulbs, but if you’re fine with that, these come endorsed by over 1,500 five-star reviews.",
+        "img": "https://images.unsplash.com/photo-1508705854614-be8c5cfdf17e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTYwfHxkZWNlbnQlMjBsaWdodHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        "id": 9,
+        "name": "Great Eagle A19 LED Bulb",
+        "price": "100",
+        "description": "Over 90 percent of the reviewers give these bulbs five-stars, with many highlighting the brightness of the light they put out and the affordability of this four-pack. “Great value for the cost per bulb,” writes one reviwer, one of dozens who uses the word “value” in their review. Another shares a more nuanced review: I have a love-hate relationship with these lights. They are so bright and light up so well, I love it. Oh yeah, the hate relationship part.",
+        "img": "https://images.unsplash.com/photo-1492037766660-2a56f9eb3fcb?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzJ8fGRlY2VudCUyMGxpZ2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        "id": 10,
+        "name": "Frosted Light Bulb",
+        "price": "300",
+        "description": "Over 2,500 purchasers give a five-star rating to this multipack of standard-sized LED bulbs from Philips. They’re available in two different color temperatures: soft white and daylight. Both have their own draw, but in general, purchasers seem to prefer the slightly brighter daylight bulb for general use in their homes. One reviewer explains, “We had warm or soft white incandescent bulbs throughout the house.",
+        "img": "https://images.unsplash.com/photo-1494386346843-e12284507169?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fGRlY2VudCUyMGxpZ2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+    }
+]
