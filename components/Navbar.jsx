@@ -28,11 +28,13 @@ const Navbar = () => {
 
                             </a>
                             </Link>
+                            <Link href="/forum">
                             <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-3">
 
                                 FORUM
 
                             </a>
+                            </Link>
 
                             <button href="#contact" className="btn border-0 px-7 py-2 rounded bg-rose-500 text-white transition duration-500 mx-3">
 
