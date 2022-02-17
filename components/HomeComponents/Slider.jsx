@@ -43,19 +43,19 @@ const SliderSection = () => {
                         <div>
                             <Slider {...settings}>
                                 <div>
-                                    <h2 className="text-6xl font-bold">Problem Solving</h2>
+                                    <h2 className="text-6xl font-bold text-violet-800">Problem Solving</h2>
                                     <p className="py-5 text-2xl lg:w-3/4 xl:w-1/2">We have got 20+ online solutions for programmers, who is excited?</p>
                                 </div>
 
-                                
+
                                 <div>
-                                    <h2 className="text-6xl font-bold">Quiz System</h2>
+                                    <h2 className="text-6xl font-bold text-violet-800">Quiz System</h2>
                                     <p className="py-5 text-2xl lg:w-3/4 xl:w-1/2">We have got 20+ online solutions for programmers, who is excited?</p>
                                 </div>
 
-                                
+
                                 <div>
-                                    <h2 className="text-6xl font-bold">Code Editor</h2>
+                                    <h2 className="text-6xl font-bold text-violet-800">Code Editor</h2>
                                     <p className="py-5 text-2xl lg:w-3/4 xl:w-1/2">We have got 20+ online solutions for programmers, who is excited?</p>
                                 </div>
                             </Slider>
