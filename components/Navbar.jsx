@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 const Navbar = () => {
     return (
@@ -5,22 +6,28 @@ const Navbar = () => {
             <nav className="sticky top-0 w-full z-50 text-gray-800">
                 <div className="navbar bg-slate-200 h-[70px]">
                     <div className="flex-1 pl-10 mx-2">
+                        <Link href="/">
                         <a><span className=" font-bold pl-2 text-lg md:text-2xl ">
                             Radiant Academy
                         </span></a>
+                        </Link>
                     </div>
                     <div className=" hidden px-2 mx-2 lg:flex pr-10">
                         <div className="flex items-center">
+                            <Link href='/'>
                             <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-2">
 
                                 HOME
 
                             </a>
+                            </Link>
+                            <Link href="/courses">
                             <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-3">
 
                                 COURSES
 
                             </a>
+                            </Link>
                             <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-3">
 
                                 FORUM
