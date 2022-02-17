@@ -7,32 +7,34 @@ const Navbar = () => {
                 <div className="navbar bg-slate-200 h-[70px]">
                     <div className="flex-1 pl-10 mx-2">
                         <Link href="/">
-                        <a><span className=" font-bold pl-2 text-lg md:text-2xl ">
-                            Radiant Academy
-                        </span></a>
+                            <a><span className=" font-bold pl-2 text-lg md:text-2xl ">
+                                Radiant Academy
+                            </span></a>
                         </Link>
                     </div>
                     <div className=" hidden px-2 mx-2 lg:flex pr-10">
                         <div className="flex items-center">
                             <Link href='/'>
-                            <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-2">
+                                <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-2">
 
-                                HOME
+                                    HOME
 
-                            </a>
+                                </a>
                             </Link>
                             <Link href="/courses">
-                            <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-3">
+                                <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-3">
 
-                                COURSES
+                                    COURSES
 
-                            </a>
+                                </a>
                             </Link>
-                            <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-3">
+                            <Link href="/forum">
+                                <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-3">
 
-                                FORUM
+                                    FORUM
 
-                            </a>
+                                </a>
+                            </Link>
 
                             <button href="#contact" className="btn border-0 px-7 py-2 rounded bg-rose-500 text-white transition duration-500 mx-3">
 
