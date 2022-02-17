@@ -1,5 +1,5 @@
 
-import { getAuth, createUserWithEmailAndPassword, getIdToken, updateProfile, signInWithPopup, signOut, onAuthStateChanged, signInWithEmailAndPassword, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword,FacebookAuthProvider ,GithubAuthProvider, getIdToken, updateProfile, signInWithPopup, signOut, onAuthStateChanged, signInWithEmailAndPassword, GoogleAuthProvider } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeAuthentication from "../Firebase/FirebaseInit";
 
@@ -11,7 +11,10 @@ const useFirebase = () => {
     const [admin, setAdmin] = useState(false);
     const auth = getAuth();
     const googleprovider = new GoogleAuthProvider();
-    const googleSignin=(location,history)=>{  
+    const githubprovider = new GithubAuthProvider();
+    const facebookprovider = new FacebookAuthProvider();
+    
+    const googleSignin=()=>{  
         setIsLoading(true);
         signInWithPopup(auth, googleprovider)
       .then((result) => {
@@ -20,8 +23,46 @@ const useFirebase = () => {
         const user = result.user;
         setUser(user);
         //history.replace('/');
-        const destination = location?.state?.from || '/';
-        history.replace(destination);
+        // const destination = location?.state?.from || '/';
+        // history.replace(destination);
+        setAuthError('');
+      
+      }).catch((error) => {
+      
+       setAuthError(error.message)
+      })
+
+     .finally(() => setIsLoading(false))}
+    const githubSignin=()=>{  
+        setIsLoading(true);
+        signInWithPopup(auth, githubprovider)
+      .then((result) => {
+     
+        // The signed-in user info.
+        const user = result.user;
+        setUser(user);
+        //history.replace('/');
+        // const destination = location?.state?.from || '/';
+        // history.replace(destination);
+        setAuthError('');
+      
+      }).catch((error) => {
+      
+       setAuthError(error.message)
+      })
+
+     .finally(() => setIsLoading(false))}
+    const facebookSignin=()=>{  
+        setIsLoading(true);
+        signInWithPopup(auth, facebookprovider)
+      .then((result) => {
+     
+        // The signed-in user info.
+        const user = result.user;
+        setUser(user);
+        //history.replace('/');
+        // const destination = location?.state?.from || '/';
+        // history.replace(destination);
         setAuthError('');
       
       }).catch((error) => {
@@ -84,11 +125,7 @@ const useFirebase = () => {
         });
         return () => unsubscribed;
     }, [auth])
-    useEffect(() => {
-        fetch(`https://secure-garden-78114.herokuapp.com/users/${user.email}`)
-            .then(res => res.json())
-            .then(data => setAdmin(data.admin))
-    }, [user.email])
+  
 
     const logout = () => {
         setIsLoading(true);
@@ -117,7 +154,8 @@ const useFirebase = () => {
         loginUser,
        
         logout,
-        googleSignin
+        googleSignin,githubSignin,
+        facebookSignin
 
     }
 
