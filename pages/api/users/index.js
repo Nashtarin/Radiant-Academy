@@ -1,4 +1,4 @@
-import Course from '../../../models/CourseModel'
+import Users from '../../../models/UserModel'
 import dbConnect from '../../../utilities/mongoose';
 
 export default async function handler(req, res) {
@@ -8,8 +8,8 @@ export default async function handler(req, res) {
 
     if (method === "GET") {
         try {
-            const courses = await Course.find();
-            res.status(200).json(courses);
+            const users = await Users.find();
+            res.status(200).json(users);
 
         } catch (err) {
             res.status(500).json(err);
@@ -18,8 +18,8 @@ export default async function handler(req, res) {
 
     if (method === "POST") {
         try {
-            const course = await Course.create(req.body);
-            res.status(201).json(course);
+            const user = await Users.create(req.body);
+            res.status(201).json(user);
 
         } catch (err) {
             res.status(500).json(err);
