@@ -6,7 +6,7 @@ const Course = ({course}) => {
     // const {id,title,body} = course;
     console.log(course)
     return (
-        <div className="border-2 rounded-lg text-center hover:bg-violet-200 pb-6">
+        <div className=" rounded-lg text-center hover:shadow-2xl hover:shadow-slate-900 pb-6">
             {/* <Image 
             src={image}
             height="400"
@@ -18,10 +18,12 @@ const Course = ({course}) => {
             {/* <Link href={`/course/${id}`}>
                 <a className="bg-violet-900 rounded-lg text-white p-3 mx-8 hover:bg-white hover:text-violet-900">Learn More</a>
             </Link> */}
-            <Link href={url}>
-                <a className="bg-violet-900 rounded-lg text-white p-3 mx-8 hover:bg-white hover:text-violet-900">Learn More</a>
-            </Link>
-            <span>{price}</span>
+            <div className="flex justify-between mx-12">
+                <Link href={url}>
+                    <a className="bg-violet-900 rounded-lg text-white p-3 mx-8 hover:bg-white hover:text-violet-900">Learn More</a>
+                </Link>
+                <span className="bg-slate-200 p-2 rounded-lg">{price}</span>
+            </div>
         </div>
     );
 };
