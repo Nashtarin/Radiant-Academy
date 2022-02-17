@@ -16,9 +16,6 @@ export default function Home() {
     dispatch(fetchCourses());
   }, [dispatch]);
 
-  // const data = useSelector((state) => state.courses.coursesList);
-  // console.log(data);
-
   return (
     <div>
       <Head>
