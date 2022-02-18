@@ -3,6 +3,7 @@ import React from 'react';
 import { FaRegEnvelope, FaUnlockAlt, FaFacebook, FaGithub, FaGooglePlus } from 'react-icons/fa';
 
 const login = () => {
+    
     return (
         <div className='flex min-h-screen flex-col items-center justify-center py-2 bg-gray-100'>
             <div className=' flex flex-col items-center justify-center w-full flex-1 px-20 text-center'>
