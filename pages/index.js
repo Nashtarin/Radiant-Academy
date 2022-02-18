@@ -1,8 +1,10 @@
 import Head from "next/head";
-import Talenthunt from "../components/HomeComponents/Talenthunt";
+import PriceCart from "../components/HomeComponents/PriceCart";
 import QuizSection from "../components/HomeComponents/QuizSection";
 import SliderSection from "../components/HomeComponents/Slider";
+import Talenthunt from "../components/HomeComponents/Talenthunt";
 import Testimonial from "../components/Testimonial/Testimonial";
+import Remotefeatures from "../components/HomeComponents/Remotefeatures";
 
 export default function Home() {
   return (
@@ -16,9 +18,13 @@ export default function Home() {
       {/* HOMEPAGE CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
 
       <SliderSection />
+      <Remotefeatures/>
       <Talenthunt />
       <QuizSection />
+      <PriceCart/>
       <Testimonial />
+
+
     </div>
   )
 }
