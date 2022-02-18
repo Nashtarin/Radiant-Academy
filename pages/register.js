@@ -1,8 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
 import { FaRegEnvelope, FaUnlockAlt, FaEdit, FaGithub, FaFacebook, FaGooglePlus } from 'react-icons/fa';
+import useFirebase from '../components/Hooks/useFirebase';
 
-const register = () => {
+const Register = () => {
+    const {user, isLoading,authError, googleSignin, loginUser,logout,githubSignin,
+        facebookSignin}=useFirebase()
     return (
         <div className='flex min-h-screen flex-col items-center justify-center py-2 bg-gray-100'>
             <div className=' flex flex-col items-center justify-center w-full flex-1 px-20 text-center'>
@@ -34,19 +37,19 @@ const register = () => {
                         <p className='text-xl font-bold'> Or Sign In With</p>
                         <div className='w-4/5 border-2 border-white rounded-full px-12 py-2 inline-block  mt-2 hover:bg-white hover:text-violet-500 font-semibold'>
                             <a href="#" className='flex items-center  justify-center'>
-                                <FaFacebook className='text-2xl mr-2'></FaFacebook>
+                                <FaFacebook className='text-2xl mr-2'><button onClick={facebookSignin}></button></FaFacebook>
                                 Facebook
                             </a>
                         </div>
                         <div className='w-4/5 border-2 border-white rounded-full px-12 py-2 inline-block  mt-2 hover:bg-white hover:text-violet-500 font-semibold'>
                             <a href="#" className='flex items-center  justify-center'>
-                                <FaGithub className='text-2xl mr-2'></FaGithub>
+                                <FaGithub className='text-2xl mr-2'><button onClick={githubSignin}></button></FaGithub>
                                 Github
                             </a>
                         </div>
                         <div className='w-4/5 border-2 border-white rounded-full px-12 py-2 inline-block  mt-2 hover:bg-white hover:text-violet-500 font-semibold'>
                             <a href="#" className='flex items-center  justify-center'>
-                                <FaGooglePlus className='text-2xl mr-2'></FaGooglePlus>
+                                <FaGooglePlus className='text-2xl mr-2'><button onClick={googleSignin}></button></FaGooglePlus>
                                 Google
                             </a>
                         </div>
@@ -58,4 +61,4 @@ const register = () => {
     );
 };
 
-export default register;
+export default Register;
