@@ -4,7 +4,7 @@ import { FaRegEnvelope, FaUnlockAlt, FaFacebook, FaGithub, FaGooglePlus } from '
 import useFirebase from '../components/Hooks/useFirebase';
 
 const Login = () => {
-    const {user, isLoading,authError, googleSignin, loginUser,logout,githubSignin,
+    const {user,logout, isLoading,authError, googleSignin, loginUser,githubSignin,
         facebookSignin}=useFirebase()
     
     return (
