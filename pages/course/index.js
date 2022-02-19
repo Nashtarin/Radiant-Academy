@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const Course = ({course}) => {
-    const {image,price,subtitle,title,url,isbn13} = course;
+const Course = ({ course }) => {
+    const { image, price, subtitle, title, url, isbn13 } = course;
     // const {id,title,body} = course;
     console.log(course)
     return (
@@ -12,7 +12,7 @@ const Course = ({course}) => {
             height="400"
             width="400"
             /> */}
-            <img src={image} width="100%"/>
+            <img src={image} width="100%" />
             <h1 className='text-2xl	font-bold text-violet-900 mb-5'>{title}</h1>
             <h1 className="mb-6">{subtitle}</h1>
             {/* <Link href={`/course/${id}`}>
