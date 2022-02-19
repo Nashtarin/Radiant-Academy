@@ -8,6 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fortawesome/react-fontawesome": "^0.1.17",
     "axios": "^0.25.0",
     "daisyui": "^1.25.4",
     "mongoose": "^6.2.0",
