@@ -6,6 +6,7 @@ import Talenthunt from "../components/HomeComponents/Talenthunt";
 import Testimonial from "../components/Testimonial/Testimonial";
 import Remotefeatures from "../components/HomeComponents/Remotefeatures";
 import CounterSection from "../components/HomeComponents/CounterSection"
+import AuthProvider from "../components/context/AuthProvider/AuthProvider";
 
 export default function Home() {
   return (
@@ -17,14 +18,16 @@ export default function Home() {
       </Head>
 
       {/* HOMEPAGE CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
+      <AuthProvider>
+        <SliderSection />
+        <Remotefeatures />
+        <Talenthunt />
+        <QuizSection />
+        <PriceCart />
+        <Testimonial />
+        <CounterSection />
+      </AuthProvider>
 
-      <SliderSection />
-      <Remotefeatures/>
-      <Talenthunt />
-      <QuizSection />
-      <PriceCart/>
-      <Testimonial />
-      <CounterSection />
 
     </div>
   )
