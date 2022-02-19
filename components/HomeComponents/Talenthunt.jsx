@@ -16,7 +16,10 @@ const Talenthunt = () => {
                 <div className="w-5/6 lg:w-[50%] py-14 lg:pl-20">
                     <h1 className='text-5xl font-bold text-violet-800 my-5'>Grab your place</h1>
                     <p className='text-black text-xl mb-5'>Enjoy the thrilling experience of our Live talent hunt <br /> with Radiant Academy. </p>
-                    <button className="bg-rose-500 rounded-md text-white px-7 py-3 my-5">
+                    {/* <button className="bg-rose-500 rounded-md text-white px-7 py-3 my-5">
+                        Create Account
+                    </button> */}
+                    <button href="#contact" className="btn border-0 px-7 py-2 rounded-md bg-rose-500 text-white transition duration-500 mx-3">
                         Create Account
                     </button>
                 </div>
