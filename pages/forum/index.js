@@ -14,7 +14,7 @@ const index = () => {
       <h1 className='text-5xl font-bold text-center'>
         Welcome to our forum
       </h1>
-      <button className='rounded-md bg-rose-500 text-white font-semibold p-2'>New Topic 🖋 </button>
+      <button className='rounded-md bg-rose-500 text-white font-semibold p-2 hover:bg-slate-700 duration-300'>New Topic 🖋 </button>
       {/* <div className='grid container mx-auto my-4 grid-rows-auto lg:grid-cols-3 md:grid-cols-2 xs:grid-cols-1 gap-4'>
        <div className='overflow-hidden border rounded-md my-5'>
           <div className="bg-[url('https://www.themebeta.com/files/windows/images/202009/16/b17482d63e757954009b0fb3ea4654ae.jpeg')] hover:scale-110 duration-300 bg-cover h-40 ">
@@ -43,7 +43,7 @@ const index = () => {
                   <h1 className='font-bold'>Author</h1>
                 </div>
               </div>
-              <div className='grid grid-cols-5 border bg-slate-100 border-slate-400 mb-1 rounded'>
+              <div className='grid grid-cols-5 border bg-slate-100 border-slate-400 mb-1 rounded hover:drop-shadow-md'>
                 <div className='col-span-2 mt-1'>
                   <h1 className='text-lg font-semibold text-slate-600 ml-1'>Node js tutorial</h1>
                   <p className='ml-1 text-slate-500'>To learn node js you firstly need to lear...</p>
@@ -63,7 +63,7 @@ const index = () => {
                 </div>
               </div>
               {/* individual forum post */}
-              <div className='grid grid-cols-5 border bg-slate-100 border-slate-400 mb-1 rounded'>
+              <div className='grid grid-cols-5 border bg-slate-100 border-slate-400 mb-1 rounded hover:drop-shadow-md'>
                 <div className='col-span-2 mt-1'>
                   <h1 className='text-lg font-semibold text-slate-600 ml-1'>Learning React js</h1>
                   <p className='ml-1 text-slate-500'>To learn react js follow this book to lear...</p>
@@ -83,7 +83,7 @@ const index = () => {
                 </div>
               </div>
               {/* individual forum post */}
-              <div className='grid grid-cols-5 border bg-slate-100 border-slate-400 mb-1 rounded'>
+              <div className='grid grid-cols-5 border bg-slate-100 border-slate-400 mb-1 rounded hover:drop-shadow-md'>
                 <div className='col-span-2 mt-1'>
                   <h1 className='text-lg font-semibold text-slate-600 ml-1'>Mongoose Fundamentals</h1>
                   <p className='ml-1 text-slate-500'>Ok you want to learn mongoose for your...</p>
@@ -103,7 +103,7 @@ const index = () => {
                 </div>
               </div>
               {/* individual forum post */}
-              <div className='grid grid-cols-5 border bg-slate-100 border-slate-400 mb-1 rounded'>
+              <div className='grid grid-cols-5 border bg-slate-100 border-slate-400 mb-1 rounded hover:drop-shadow-md'>
                 <div className='col-span-2 mt-1'>
                   <h1 className='text-lg font-semibold text-slate-600 ml-1'>JavaScript discussion</h1>
                   <p className='ml-1 text-slate-500'>To learn js you firstly need to prepare yours...</p>
