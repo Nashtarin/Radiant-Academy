@@ -5,6 +5,7 @@ import SliderSection from "../components/HomeComponents/Slider";
 import Talenthunt from "../components/HomeComponents/Talenthunt";
 import Testimonial from "../components/Testimonial/Testimonial";
 import Remotefeatures from "../components/HomeComponents/Remotefeatures";
+import CounterSection from "../components/HomeComponents/CounterSection"
 
 export default function Home() {
   return (
@@ -23,7 +24,7 @@ export default function Home() {
       <QuizSection />
       <PriceCart/>
       <Testimonial />
-
+      <CounterSection />
 
     </div>
   )

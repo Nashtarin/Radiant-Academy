@@ -1,5 +1,5 @@
 
-import { getAuth, createUserWithEmailAndPassword,FacebookAuthProvider ,GithubAuthProvider, getIdToken, updateProfile, signInWithPopup, signOut, onAuthStateChanged, signInWithEmailAndPassword, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, FacebookAuthProvider, GithubAuthProvider, getIdToken, updateProfile, signInWithPopup, signOut, onAuthStateChanged, signInWithEmailAndPassword, GoogleAuthProvider } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeAuthentication from "../Firebase/FirebaseInit";
 
@@ -10,72 +10,75 @@ const useFirebase = () => {
     const [authError, setAuthError] = useState('');
     const [admin, setAdmin] = useState(false);
     const auth = getAuth();
-    const googleprovider = new GoogleAuthProvider();
-    const githubprovider = new GithubAuthProvider();
-    const facebookprovider = new FacebookAuthProvider();
-    
-    const googleSignin=()=>{  
-        setIsLoading(true);
-        signInWithPopup(auth, googleprovider)
-      .then((result) => {
-     
-        // The signed-in user info.
-        const user = result.user;
-        setUser(user);
-        //history.replace('/');
-        // const destination = location?.state?.from || '/';
-        // history.replace(destination);
-        setAuthError('');
-      
-      }).catch((error) => {
-      
-       setAuthError(error.message)
-      })
+    const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
+    const facebookProvider = new FacebookAuthProvider();
 
-     .finally(() => setIsLoading(false))}
-    const githubSignin=()=>{  
+    const googleSignIn = () => {
         setIsLoading(true);
-        signInWithPopup(auth, githubprovider)
-      .then((result) => {
-     
-        // The signed-in user info.
-        const user = result.user;
-        setUser(user);
-        //history.replace('/');
-        // const destination = location?.state?.from || '/';
-        // history.replace(destination);
-        setAuthError('');
-      
-      }).catch((error) => {
-      
-       setAuthError(error.message)
-      })
 
-     .finally(() => setIsLoading(false))}
-    const facebookSignin=()=>{  
+        signInWithPopup(auth, googleProvider)
+            .then((result) => {
+                // The signed-in user info.
+                const user = result.user;
+                setUser(user);
+                //history.replace('/');
+                // const destination = location?.state?.from || '/';
+                // history.replace(destination);
+                setAuthError('');
+            })
+            .catch((error) => {
+                setAuthError(error.message)
+            })
+            .finally(() => setIsLoading(false))
+    }
+
+    const githubSignIn = () => {
         setIsLoading(true);
-        signInWithPopup(auth, facebookprovider)
-      .then((result) => {
-     
-        // The signed-in user info.
-        const user = result.user;
-        setUser(user);
-        //history.replace('/');
-        // const destination = location?.state?.from || '/';
-        // history.replace(destination);
-        setAuthError('');
-      
-      }).catch((error) => {
-      
-       setAuthError(error.message)
-      })
 
-     .finally(() => setIsLoading(false))}
-     
-    
-    
+        signInWithPopup(auth, githubProvider)
+            .then((result) => {
+                // The signed-in user info.
+                const user = result.user;
+                setUser(user);
+                //history.replace('/');
+                // const destination = location?.state?.from || '/';
+                // history.replace(destination);
+                setAuthError('');
+            })
+            .catch((error) => {
+                setAuthError(error.message)
+            })
+
+            .finally(() => setIsLoading(false))
+    }
+
+    const facebookSignIn = () => {
+        setIsLoading(true);
+
+        signInWithPopup(auth, facebookProvider)
+            .then((result) => {
+
+                // The signed-in user info.
+                const user = result.user;
+                setUser(user);
+                //history.replace('/');
+                // const destination = location?.state?.from || '/';
+                // history.replace(destination);
+                setAuthError('');
+
+            })
+            .catch((error) => {
+
+                setAuthError(error.message)
+            })
+            .finally(() => setIsLoading(false))
+    }
+
+
     const registerUser = (email, password, name, history) => {
         setIsLoading(true);
+
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 setAuthError('');
@@ -86,9 +89,9 @@ const useFirebase = () => {
                 // send name to firebase after creation
                 updateProfile(auth.currentUser, {
                     displayName: name
-                }).then(() => {
-                }).catch((error) => {
-                });
+                })
+                    .then(() => { })
+                    .catch((error) => { });
                 history.replace('/');
             })
             .catch((error) => {
@@ -97,8 +100,10 @@ const useFirebase = () => {
             })
             .finally(() => setIsLoading(false));
     }
+
     const loginUser = (email, password, location, history) => {
         setIsLoading(true);
+        
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const destination = location?.state?.from || '/';
@@ -110,6 +115,7 @@ const useFirebase = () => {
             })
             .finally(() => setIsLoading(false));
     }
+
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
@@ -118,45 +124,42 @@ const useFirebase = () => {
                 //     .then(idToken => {
                 //         setToken(idToken);
                 //     })
-            } else {
+            }
+            else {
                 setUser({})
             }
             setIsLoading(false);
         });
+
         return () => unsubscribed;
     }, [auth])
-  
 
     const logout = () => {
         setIsLoading(true);
-        signOut(auth).then(() => {
-            // Sign-out successful.
-        }).catch((error) => {
-            // An error happened.
-        })
+        signOut(auth)
+            .then(() => {
+                // Sign-out successful.
+            })
+            .catch((error) => {
+                // An error happened.
+            })
             .finally(() => setIsLoading(false));
     }
-
-
-
-
-
-
 
 
     return {
         user,
         admin,
-       
+
         isLoading,
         authError,
         registerUser,
         loginUser,
-       
-        logout,
-        googleSignin,githubSignin,
-        facebookSignin
 
+        logout,
+        googleSignIn,
+        githubSignIn,
+        facebookSignIn
     }
 
 }
