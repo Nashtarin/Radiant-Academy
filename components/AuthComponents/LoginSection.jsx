@@ -1,10 +1,10 @@
 import Link from "next/link";
 import React from "react";
 import { FaRegEnvelope, FaUnlockAlt, FaFacebook, FaGithub, FaGooglePlus } from "react-icons/fa";
-import useFirebase from '../../utilities/Hooks/useFirebase';
+import useAuth from '../../utilities/Hooks/useAuth';
 
 const LoginSection = () => {
-    const { user, isLoading, authError, googleSignIn, loginUser, logout, githubSignIn, facebookSignIn } = useFirebase();
+    const { user, isLoading, authError, googleSignIn, loginUser, logout, githubSignIn, facebookSignIn } = useAuth();
 
     return (
         <div className="flex flex-col items-center justify-center bg-gray-100">
