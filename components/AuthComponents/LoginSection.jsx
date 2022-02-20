@@ -7,7 +7,7 @@ const LoginSection = () => {
     const { user, isLoading, authError, googleSignIn, loginUser, logout, githubSignIn, facebookSignIn } = useFirebase();
 
     return (
-        <div className="flex pt-16 flex-col items-center justify-center bg-gray-100">
+        <div className="flex flex-col items-center justify-center bg-gray-100">
             <div className="flex flex-col items-center justify-center w-full flex-1 p-5 md:px-20 text-center sm:p-20">
                 <div className="bg-white rounded-2xl shadow-2xl flex flex-col md:w-2/3 md:max-w-4xl sm:flex-col sm:w-full sm:p-5 md:flex-row md:p-0">
                     <div className="w-full md:w-3/5 p-5 sm:w-full">
