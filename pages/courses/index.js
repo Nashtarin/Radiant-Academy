@@ -1,19 +1,19 @@
 import Head from "next/head";
 import CourseSection from "../../components/CourseComponents/CourseSection";
 
-export const getServerSideProps = async () => {
-    const url = 'https://api.itbook.store/1.0/new';
-    const res = await fetch(url);
-    const data = await res.json();
+// export const getServerSideProps = async () => {
+//     const url = 'https://api.itbook.store/1.0/new';
+//     const res = await fetch(url);
+//     const data = await res.json();
 
-    return {
-        props: {
-            courses: data.books
-        }
-    }
-}
+//     return {
+//         props: {
+//             courses: data.books
+//         }
+//     }
+// }
 
-const Courses = ({ courses }) => {
+const Courses = () => {
   return (
     <div>
       <Head>
@@ -23,7 +23,7 @@ const Courses = ({ courses }) => {
       </Head>
 
       {/* COURSES CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
-      <CourseSection courses={courses}/>
+      <CourseSection/>
 
     </div>
   );

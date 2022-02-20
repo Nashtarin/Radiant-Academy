@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const CourseCard = ({ course }) => {
     const { image, price, subtitle, title, url } = course;
-    console.log(course)
+    
     return (
         <div className="border-2 rounded-lg text-center hover:bg-violet-100 transition duration-300 pb-6">
             {/* <Image
