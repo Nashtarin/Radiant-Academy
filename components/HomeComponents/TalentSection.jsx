@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-const Talenthunt = () => {
+const TalentSection = () => {
     return (
         <div className='w-5/6 mx-auto my-5'>
             <div className='flex flex-col-reverse justify-center items-center lg:flex-row gap-4'>
@@ -28,4 +28,4 @@ const Talenthunt = () => {
     );
 };
 
-export default Talenthunt;
+export default TalentSection;

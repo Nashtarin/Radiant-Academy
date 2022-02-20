@@ -1,9 +1,7 @@
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import Link from "next/link";
 
-const Course = ({ course }) => {
+const CourseCard = ({ course }) => {
     const { image, price, subtitle, title, url } = course;
     console.log(course)
     return (
@@ -27,4 +25,4 @@ const Course = ({ course }) => {
     );
 };
 
-export default Course;
+export default CourseCard;

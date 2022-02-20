@@ -1,12 +1,11 @@
 import Head from "next/head";
-import PriceCart from "../components/HomeComponents/PriceCart";
+import PackageSection from "../components/HomeComponents/PackageSection";
 import QuizSection from "../components/HomeComponents/QuizSection";
-import SliderSection from "../components/HomeComponents/Slider";
-import Talenthunt from "../components/HomeComponents/Talenthunt";
-import Testimonial from "../components/Testimonial/Testimonial";
-import Remotefeatures from "../components/HomeComponents/Remotefeatures";
-import CounterSection from "../components/HomeComponents/CounterSection"
-import AuthProvider from "../components/context/AuthProvider/AuthProvider";
+import HeroSection from "../components/HomeComponents/HeroSection";
+import TalentSection from "../components/HomeComponents/TalentSection";
+import TestimonialSection from "../components/HomeComponents/TestimonialSection";
+import FeatureSection from "../components/HomeComponents/FeatureSection";
+import CounterSection from "../components/HomeComponents/CounterSection";
 
 export default function Home() {
   return (
@@ -18,16 +17,13 @@ export default function Home() {
       </Head>
 
       {/* HOMEPAGE CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
-      <AuthProvider>
-        <SliderSection />
-        <Remotefeatures />
-        <Talenthunt />
+        <HeroSection />
+        <FeatureSection />
+        <TalentSection />
         <QuizSection />
-        <PriceCart />
-        <Testimonial />
+        <PackageSection />
+        <TestimonialSection />
         <CounterSection />
-      </AuthProvider>
-
 
     </div>
   )

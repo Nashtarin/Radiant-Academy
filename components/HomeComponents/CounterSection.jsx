@@ -1,22 +1,9 @@
 import React from 'react';
 // import { useSelector } from 'react-redux';
 
-// export const getServerSideProps = async () => {
-//     const url = 'https://api.itbook.store/1.0/new';
-//     const res = await fetch(url);
-//     const data = await res.json();
-
-//     return {
-//         props: {
-//             data: data?.books
-//         }
-//     }
-// }
-
 
 const CounterSection = () => {
     // const data = useSelector((state) => state.courses.coursesList);
-    // console.log(data);
 
     return (
         <div className="h-full p-20">

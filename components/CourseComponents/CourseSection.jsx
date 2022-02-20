@@ -1,24 +1,13 @@
-import React, { useEffect } from 'react';
-import Course from '../components/Course/Course';
+import React from 'react';
+import CourseCard from './CourseCard';
 
-export const getServerSideProps = async () => {
-    const url = 'https://api.itbook.store/1.0/new';
-    const res = await fetch(url);
-    const data = await res.json();
-
-    return {
-        props: {
-            data: data.books
-        }
-    }
-}
-const Courses = ({ data }) => {
+const CourseSection = ({ courses }) => {
     return (
         <div className='container mx-auto'>
             <h1 className='text-5xl	font-bold text-violet-900 mb-5 pt-14 text-center'>Our Awesome Courses</h1>
-            <h2 className='text-center text-2xl pb-8'> Course found: {data.length}</h2>
+            <h2 className='text-center text-2xl pb-8'> Course found: {courses.length}</h2>
             <div className="grid w-5/6 mx-auto my-4 grid-rows-auto lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
-                {data.map(course => <Course
+                {courses.map(course => <CourseCard
                     key={course.id}
                     course={course} />)}
             </div>
@@ -51,4 +40,4 @@ const Courses = ({ data }) => {
     );
 };
 
-export default Courses;
+export default CourseSection;

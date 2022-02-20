@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-const Testimonial = () => {
+const TestimonialSection = () => {
     return (
         <div className="w-5/6 mx-auto mt-14 mb-20">
             <h1 className="text-4xl	font-bold text-violet-800 pt-7 pb-16 text-center">What others are saying</h1>
@@ -49,4 +49,4 @@ const Testimonial = () => {
     );
 };
 
-export default Testimonial;
+export default TestimonialSection;

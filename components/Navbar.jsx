@@ -36,11 +36,13 @@ const Navbar = () => {
                                 </a>
                             </Link>
 
-                            <button href="#contact" className="btn border-0 px-7 py-2 rounded bg-rose-500 text-white transition duration-500 mx-3">
+                            <Link passHref href="/register">
+                                <button className="btn border-0 px-7 py-2 rounded bg-rose-500 text-white transition duration-500 mx-3">
 
-                                FREE TRIAL
+                                    FREE TRIAL
 
-                            </button>
+                                </button>
+                            </Link>
                         </div>
                     </div>
                     <div className="flex-none md:hidden dropdown dropdown-end">
