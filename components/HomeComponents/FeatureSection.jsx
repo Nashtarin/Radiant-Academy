@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import p1 from '../images/1.png'
-import p2 from '../images/2.png'
-import p3 from '../images/3.png'
+import p1 from '../../public/img/1.png'
+import p2 from '../../public/img/2.png'
+import p3 from '../../public/img/3.png'
 
-const Remotefeatures = () => {
+const FeatureSection = () => {
     return (
         <div className="w-5/6 mx-auto" >
             <h1 className="text-violet-800 text-5xl font-bold text-center py-7 ">Remote Features</h1>
@@ -60,4 +60,4 @@ const Remotefeatures = () => {
     );
 };
 
-export default Remotefeatures;
+export default FeatureSection;

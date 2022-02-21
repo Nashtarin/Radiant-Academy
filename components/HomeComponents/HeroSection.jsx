@@ -2,8 +2,9 @@ import Image from "next/image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Link from 'next/link';
 
-const SliderSection = () => {
+const HeroSection = () => {
     var settings = {
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -60,9 +61,11 @@ const SliderSection = () => {
                                 </div>
                             </Slider>
                         </div>
-                        <button className="bg-rose-500 rounded-md text-white px-7 py-3 my-5">
-                            Try it out
-                        </button>
+                        <Link passHref href="/register">
+                            <button className="bg-rose-500 rounded-md text-white px-7 py-3 my-5">
+                                Try it out
+                            </button>
+                        </Link>
                     </div>
                     <div className="w-5/6 lg:w-[50%] py-5">
                         <div className="w-5/6 mx-auto">
@@ -79,4 +82,4 @@ const SliderSection = () => {
     );
 };
 
-export default SliderSection;
+export default HeroSection;

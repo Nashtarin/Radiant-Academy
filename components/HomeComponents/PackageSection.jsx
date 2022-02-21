@@ -1,4 +1,7 @@
-export default function PriceCart() {
+import React from 'react';
+import Link from 'next/link';
+
+const PackageSection = () => {
     return (
         <div>
             <div className="w-5/6 xl:w-3/5 mx-auto" >
@@ -17,7 +20,9 @@ export default function PriceCart() {
                             <li className="my-2 ml-2 text-slate-400 line-through">Vote Solution</li>
                             <li className="my-2 ml-2 text-slate-400 line-through">suggest Courses</li>
                         </ol>
-                        <button className="w-full text-white font-bold bg-rose-500 border rounded-lg hover:bg-slate-700 hover:text-white hover:shadow-xl transition duration-300 ease-in-out py-3 mt-4">Try it out</button>
+                        <Link passHref href="/register">
+                            <button className="w-full text-white font-bold bg-rose-500 border rounded-lg hover:bg-slate-700 hover:text-white hover:shadow-xl transition duration-300 ease-in-out py-3 mt-4">Try it out</button>
+                        </Link>
                     </div>
                     <div className="w-full md:w-1/3  rounded-lg bg-slate-100 shadow hover:shadow-xl hover:bg-slate-200 transition duration-100 ease-in-out p-6 md:mr-4 mb-10 md:mb-0">
                         <h3 className="text-gray-700 text-xl font-bold text-center">PRO</h3>
@@ -29,7 +34,9 @@ export default function PriceCart() {
                             <li className="my-2 ml-2">Vote Solution</li>
                             <li className="my-2 ml-2 text-slate-400 line-through">suggest Courses</li>
                         </ol>
-                        <button className="w-full text-white font-bold bg-rose-500 border rounded-lg hover:bg-slate-700 hover:text-white hover:shadow-xl transition duration-300 ease-in-out py-3 mt-4">Try it out</button>
+                        <Link passHref href="/register">
+                            <button className="w-full text-white font-bold bg-rose-500 border rounded-lg hover:bg-slate-700 hover:text-white hover:shadow-xl transition duration-300 ease-in-out py-3 mt-4">Try it out</button>
+                        </Link>
                     </div>
                     <div className="w-full md:w-1/3  rounded-lg bg-slate-100 shadow hover:shadow-xl hover:bg-slate-200 transition duration-100 ease-in-out p-6 md:mr-4 mb-10 md:mb-0">
                         <h3 className="text-gray-700 text-xl font-bold text-center">SUPER PRO</h3>
@@ -41,10 +48,14 @@ export default function PriceCart() {
                             <li className="my-2 ml-2 ">Vote Solution</li>
                             <li className="my-2 ml-2 ">suggest Courses</li>
                         </ol>
-                        <button className="w-full text-white font-bold bg-rose-500 border rounded-lg hover:bg-slate-700 hover:text-white hover:shadow-xl transition duration-300 ease-in-out py-3 mt-4">Try it out</button>
+                        <Link passHref href="/register">
+                            <button className="w-full text-white font-bold bg-rose-500 border rounded-lg hover:bg-slate-700 hover:text-white hover:shadow-xl transition duration-300 ease-in-out py-3 mt-4">Try it out</button>
+                        </Link>
                     </div>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
+
+export default PackageSection;
