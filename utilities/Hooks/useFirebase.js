@@ -1,14 +1,15 @@
 
-import { getAuth, createUserWithEmailAndPassword, FacebookAuthProvider, GithubAuthProvider, getIdToken, updateProfile, signInWithPopup, signOut, onAuthStateChanged, signInWithEmailAndPassword, GoogleAuthProvider } from "firebase/auth";
 import { useEffect, useState } from "react";
-import initializeAuthentication from "../Firebase/FirebaseInit";
+import initializeFirebase from "../Firebase/firebase.init";
+import { getAuth, createUserWithEmailAndPassword, FacebookAuthProvider, GithubAuthProvider, getIdToken, updateProfile, signInWithPopup, signOut, onAuthStateChanged, signInWithEmailAndPassword, GoogleAuthProvider } from "firebase/auth";
 
-initializeAuthentication()
+initializeFirebase();
 const useFirebase = () => {
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
     const [admin, setAdmin] = useState(false);
+
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
@@ -16,7 +17,6 @@ const useFirebase = () => {
 
     const googleSignIn = () => {
         setIsLoading(true);
-
         signInWithPopup(auth, googleProvider)
             .then((result) => {
                 // The signed-in user info.
