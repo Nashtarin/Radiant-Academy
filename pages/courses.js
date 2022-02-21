@@ -17,8 +17,7 @@ const Courses = () => {
             </div>
             <div className='container text-center my-8'>
                 {[...Array(pageNumber).keys()].map(number=><button  className='bg-violet-500 hover:bg-violet-900  text-white rounded-lg mx-5 px-5' 
-                key={number}>
-                    {number + 1}</button>)}
+                key={number}>{number + 1}</button>)}
             </div>  
         </div>
     );
