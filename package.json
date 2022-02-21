@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.25.0",
     "daisyui": "^1.25.4",
+    "firebase": "^9.6.7",
     "mongoose": "^6.2.0",
     "next": "12.0.10",
     "react": "17.0.2",
