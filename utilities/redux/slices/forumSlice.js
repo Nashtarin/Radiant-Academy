@@ -1,13 +1,13 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-// export const fetchForums = createAsyncThunk(
-//     'course/fetchForums',
-//     async () => {
-//       const response = await fetch('https://api.itbook.store/1.0/new')
-//       .then(res => res.json())
-//       return response
-//     }
-// )
+export const fetchForums = createAsyncThunk(
+    'course/fetchForums',
+    async () => {
+      const response = await fetch('https://api.itbook.store/1.0/new')
+      .then(res => res.json())
+      return response
+    }
+)
 
 const forumSlice = createSlice({
     name: 'forum',
