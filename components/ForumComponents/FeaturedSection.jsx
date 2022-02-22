@@ -10,12 +10,10 @@ const FeaturedSection = () => {
 
     return (
         <section className='container mx-auto mt-10'>
-        <h1 className='text-5xl font-bold text-center mt-20 mb-5 text-violet-800'>Featured Topic</h1>
-
-        {forumData.map(forum=><TopicCard
-                    key={forum.no}
-                    forum={forum} />)}
-        
+            <h1 className='text-5xl font-bold text-center mt-20 mb-5 text-violet-800'>Featured Topic</h1>
+            {forumData.map(forum=><TopicCard
+                        key={forum.no}
+                        forum={forum} />)}
         </section>
     );
 };
