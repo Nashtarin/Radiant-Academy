@@ -1,57 +1,67 @@
+import Image from 'next/image';
+import Link from 'next/link';
 
 const Footer = () => {
     return (
-        <div className=" bg-slate-900 text-white text-center w-full">
-            <div className="flex flex-col lg:flex-row justify-between items-center w-4/6 mx-auto pt-10">
-                <div>
-                    <h2 className="title-font text-rose-500 font-medium tracking-widest text-sm mb-3">Our Branches</h2>
-                    <nav className="list-none mb-10">
-                        <li>
-                            <a className="text-gray-400 hover:text-white">Dhaka</a>
-                        </li>
-                        <li>
-                            <a className="text-gray-400 hover:text-white">Chattagram</a>
-                        </li>
-                        <li>
-                            <a className="text-gray-400 hover:text-white">Sylhet</a>
-                        </li>
-                        <li>
-                            <a className="text-gray-400 hover:text-white">Rajshahi</a>
-                        </li>
-                    </nav>
-                </div>
-                <div>
-                    <h2 className="title-font font-medium text-rose-500 tracking-widest text-sm mb-3">Important Links</h2>
-                    <nav className="list-none mb-10">
-                        <li>
-                            <a className="text-gray-400 hover:text-white">About Us</a>
-                        </li>
-                        <li>
-                            <a className="text-gray-400 hover:text-white">Contact US</a>
-                        </li>
-                        <li>
-                            <a className="text-gray-400 hover:text-white">Newsletter</a>
-                        </li>
-                        <li>
-                            <a className="text-gray-400 hover:text-white">Career</a>
-                        </li>
-                    </nav>
-                </div>
-                <div>
-                    <h2 className="title-font font-medium text-white tracking-widest text-sm mb-3">SUBSCRIBE</h2>
-                    <div className="flex xl:flex-nowrap md:flex-nowrap lg:flex-wrap flex-wrap justify-center items-end md:justify-start">
-                        <div className="relative w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">
-                            <label htmlFor="footer-field" className="leading-7 text-sm text-gray-400">E-mail</label>
-                            <input type="text" id="footer-field" name="footer-field" className="w-full bg-gray-800 rounded border bg-opacity-40 border-gray-700 focus:bg-transparent focus:ring-2 focus:ring-slate-500 focus:border-rose-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+        <div>
+            <div className="px-20 mt-12 h-[200px]">
+                <div className="grid md:grid-cols-[200px_minmax(600px,_1fr)]">
+                    <div className="flex justify-center items-start">
+                        <div className="shadow-md">
+                            <Image src="https://i.postimg.cc/sDvkgk3h/logo.png" alt="Logo" width="80px" height="80px" />
                         </div>
-                        <button className="lg:mt-2 xl:mt-0 flex-shrink-0 inline-flex text-white bg-rose-500 border-0 py-2 px-6 focus:outline-none hover:custom-pink-lite rounded">Subscribe</button>
                     </div>
-                    <p className="text-gray-500 text-sm mt-2 md:text-left text-center">Weekly newsletter & so on
-                    </p>
+                    <div>
+                        <div>
+                            <h2 className="text-2xl font-bold">Join Radiant Academy to unleash your unstoppable coding potential</h2>
+                        </div>
+                        <div className="grid md:grid-cols-[350px_minmax(600px,_1fr)]">
+                            <div className="pt-8 pr-5">
+                                <p>
+                                    1 thousand+ Junior Developers
+                                    from 140 countries
+                                    have already joined Radiant Academy.
+                                </p>
+                            </div>
+                            <div className="pt-7">
+                                <h3 className="text-purple-800 text-lg font-bold">Important Links</h3>
+                                <div className="grid grid-cols-4 pt-3">
+                                    <div>
+                                        <Link href="#" className="mb-1">Home</Link><br />
+                                        <Link href="#">Problem Solving</Link>
+                                    </div>
+                                    <div className="pl-5">
+                                        <Link href="#" className="mb-1">Blogs</Link>
+                                        <br />
+                                        <Link href="#">Forum</Link>
+                                    </div>
+                                    <div>
+                                        <Link href="#" className="mb-1">Account</Link><br />
+                                        <Link href="#">Payment</Link>
+                                    </div>
+                                    <div>
+                                        <Link href="#">Privacy Policy</Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <p className="pt-20 pb-5"> <small className="text-gray-400">© Copyright Protected | <span className="text-rose-500">Radiant Academy</span> </small> </p>
-        </div>
+            <div className="h-[60px] flex justify-around items-end px-5" style={{ backgroundColor: '#32007E' }}>
+                <div className="flex justify-center items-center">
+                    <Image src="https://i.postimg.cc/W4PCStgG/search-logo.png" alt="Logo" width="90px" height="90px" className="mb-4" />
+                    <div className="px-4 pt-7">
+                        <p className="text-white font-sm">Search for H2H coding competitions to win 100% bonus up to 100 Radiant points*</p>
+                    </div>
+                </div>
+                <div className="h-full flex items-center">
+                    <button className="px-8 py-1.5 text-md font-bold rounded-full shadow-md" style={{ backgroundColor: '#FFCA30' }}>
+                        Start Now!
+                    </button>
+                </div>
+            </div>
+        </div >
     );
 };
 
