@@ -7,6 +7,7 @@ const CourseSection = () => {
     const data = useSelector((state) => state.courses.coursesList);
     const totalPage = Math.ceil(data?.total/size)
     const pageNumber = totalPage;
+    
     return (
         <div className='container mx-auto'>
             <h1 className='text-5xl	font-bold text-violet-900 mb-5 pt-14 text-center'>Our Awesome Courses</h1>

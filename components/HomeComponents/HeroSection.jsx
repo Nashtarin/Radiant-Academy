@@ -70,7 +70,7 @@ const HeroSection = () => {
                     <div className="w-5/6 lg:w-[50%] py-5">
                         <div className="w-5/6 mx-auto">
                             <Image
-                                src="/img/hero.png"
+                                src="https://i.postimg.cc/qR1FkLYw/hero.png"
                                 width="500"
                                 height="432"
                                 alt="" />

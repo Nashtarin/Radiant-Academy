@@ -5,6 +5,10 @@ import useAuth from '../../utilities/Hooks/useAuth';
 
 const RegisterSection = () => {
     const { user, isLoading, authError, googleSignIn, loginUser, logout, githubSignIn, facebookSignIn } = useAuth();
+
+    const checkMarkValidation = () => {
+        //will do some validation here
+    }
     
     return (
         <div className="flex pt-1 flex-col items-center justify-center bg-gray-100">
@@ -42,7 +46,7 @@ const RegisterSection = () => {
                         <div className="flex flex-col items-center mt-2">
                             <div className="w-64 flex items-center justify-between">
                                 <label className="flex items-center text-xs">
-                                    <input type="checkbox" name="remember" className="mr-1" checked />
+                                    <input type="checkbox" name="remember" className="mr-1" checked onChange={checkMarkValidation}/>
                                     Remember Me
                                 </label>
                                 <p className="text-xs">
