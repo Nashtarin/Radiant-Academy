@@ -1,12 +1,21 @@
 import Head from "next/head";
-import PriceCart from "../components/HomeComponents/PriceCart";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchCourses } from "../utilities/Redux/slices/courseSlice";
+import PackageSection from "../components/HomeComponents/PackageSection";
 import QuizSection from "../components/HomeComponents/QuizSection";
-import SliderSection from "../components/HomeComponents/Slider";
-import Talenthunt from "../components/HomeComponents/Talenthunt";
-import Testimonial from "../components/Testimonial/Testimonial";
-import Remotefeatures from "../components/HomeComponents/Remotefeatures";
+import HeroSection from "../components/HomeComponents/HeroSection";
+import TalentSection from "../components/HomeComponents/TalentSection";
+import TestimonialSection from "../components/HomeComponents/TestimonialSection";
+import FeatureSection from "../components/HomeComponents/FeatureSection";
+import CounterSection from "../components/HomeComponents/CounterSection";
 
 export default function Home() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchCourses());
+  }, [dispatch]);
+
   return (
     <div>
       <Head>
@@ -16,14 +25,13 @@ export default function Home() {
       </Head>
 
       {/* HOMEPAGE CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
-
-      <SliderSection />
-      <Remotefeatures/>
-      <Talenthunt />
-      <QuizSection />
-      <PriceCart/>
-      <Testimonial />
-
+        <HeroSection />
+        <FeatureSection />
+        <TalentSection />
+        <QuizSection />
+        <PackageSection />
+        <TestimonialSection />
+        <CounterSection />
 
     </div>
   )
