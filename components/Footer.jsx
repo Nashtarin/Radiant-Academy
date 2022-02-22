@@ -4,7 +4,7 @@ import Link from 'next/link';
 const Footer = () => {
     return (
         <div>
-            <div className="px-20 mt-12 h-[200px]">
+            <div className="px-20 pt-20 pb-60 h-[200px] bg-slate-200">
                 <div className="grid md:grid-cols-[200px_minmax(600px,_1fr)]">
                     <div className="flex justify-center items-start">
                         <div className="shadow-md">

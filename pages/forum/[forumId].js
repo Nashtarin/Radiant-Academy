@@ -1,5 +1,5 @@
 import Head from "next/head";
-import SingleForumSection from "../../components/ForumComponents/SingleForumSection/SingleForumSection";
+import ForumPostDetails from "../../components/ForumComponents/ForumPostDetails";
 
 const SingleForumPage = () => {
     return (
@@ -11,10 +11,8 @@ const SingleForumPage = () => {
             </Head>
 
             {/* SINGLE FORUM CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
-
-            <SingleForumSection />
+            <ForumPostDetails />
             
-            {/* JUST FOR DESIGNING PURPOSE I CREATE THIS PAGE @IFTAKHER_HOSSEN */}
         </div>
     );
 };
