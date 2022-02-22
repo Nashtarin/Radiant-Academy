@@ -19,7 +19,7 @@ const ForumPostDetails = () => {
                     <div className="px-5 pb-5">
                         <div className="bg-slate-100 drop-shadow-md p-10 flex justify-center items-center flex-col rounded-lg">
                             <div>
-                                <Image src="/img/people-3.png" alt="User Profile Picture" width="100px" height="100px" />
+                                <Image src="/img/people-3.png" alt="User Profile Picture" width="100px" height="100px" draggable="false" />
                             </div>
                             <div className="mt-3">
                                 <h3 className="text-xl text-center">Author Name</h3>

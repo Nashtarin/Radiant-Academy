@@ -2,6 +2,7 @@ import Image from "next/image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { FaArrowRight } from 'react-icons/fa';
 import Link from 'next/link';
 
 const HeroSection = () => {
@@ -21,7 +22,7 @@ const HeroSection = () => {
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     infinite: true,
-                    dots: true
+                    dots: true, 
                 },
             },
             {
@@ -62,8 +63,8 @@ const HeroSection = () => {
                             </Slider>
                         </div>
                         <Link passHref href="/register">
-                            <button className="bg-rose-500 rounded-md text-white px-7 py-3 my-5">
-                                Try it out
+                            <button className="bg-rose-500 rounded-md text-white px-7 py-3 my-5 flex justify-center items-center">
+                                Try it out &nbsp; <FaArrowRight style={{ fontSize: '14px', marginTop: '2px' }} />
                             </button>
                         </Link>
                     </div>
@@ -73,7 +74,9 @@ const HeroSection = () => {
                                 src="https://i.postimg.cc/qR1FkLYw/hero.png"
                                 width="500"
                                 height="432"
-                                alt="" />
+                                alt="Hero Image"
+                                draggable="false"
+                            />
                         </div>
                     </div>
                 </div>

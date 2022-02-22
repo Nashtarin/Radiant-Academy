@@ -7,6 +7,7 @@
 //   )
 // }
 import React from 'react';
+import Link from 'next/link';
 
 const index = () => {
   return (
@@ -14,7 +15,9 @@ const index = () => {
       <h1 className='text-5xl font-bold text-center'>
         Welcome to our forum
       </h1>
-      <button className='rounded-md bg-rose-500 text-white font-semibold p-2 hover:bg-slate-700 duration-300'>New Topic 🖋 </button>
+      <button className='rounded-md bg-rose-500 text-white font-semibold p-2 hover:bg-slate-700 duration-300'>
+        <Link href="/forum/create-topic">New Topic 🖋</Link>
+      </button>
       {/* <div className='grid container mx-auto my-4 grid-rows-auto lg:grid-cols-3 md:grid-cols-2 xs:grid-cols-1 gap-4'>
        <div className='overflow-hidden border rounded-md my-5'>
           <div className="bg-[url('https://www.themebeta.com/files/windows/images/202009/16/b17482d63e757954009b0fb3ea4654ae.jpeg')] hover:scale-110 duration-300 bg-cover h-40 ">

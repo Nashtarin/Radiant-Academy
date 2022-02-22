@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { FaArrowRight } from "react-icons/fa";
 
 const PackageSection = () => {
     return (
@@ -21,7 +22,9 @@ const PackageSection = () => {
                             <li className="my-2 ml-2 text-slate-400 line-through">suggest Courses</li>
                         </ol>
                         <Link passHref href="/register">
-                            <button className="w-full text-white font-bold bg-rose-500 border rounded-lg hover:bg-slate-700 hover:text-white hover:shadow-xl transition duration-300 ease-in-out py-3 mt-4">Try it out</button>
+                            <button className="w-full text-white font-bold bg-rose-500 border rounded-lg hover:bg-slate-700 hover:text-white hover:shadow-xl transition duration-300 ease-in-out py-3 mt-4 flex items-center justify-center">
+                                Try it out &nbsp; <FaArrowRight style={{ marginTop: '2px' }} />
+                            </button>
                         </Link>
                     </div>
                     <div className="w-full md:w-1/3  rounded-lg bg-slate-100 shadow hover:shadow-xl hover:bg-slate-200 transition duration-100 ease-in-out p-6 md:mr-4 mb-10 md:mb-0">
@@ -35,7 +38,9 @@ const PackageSection = () => {
                             <li className="my-2 ml-2 text-slate-400 line-through">suggest Courses</li>
                         </ol>
                         <Link passHref href="/register">
-                            <button className="w-full text-white font-bold bg-rose-500 border rounded-lg hover:bg-slate-700 hover:text-white hover:shadow-xl transition duration-300 ease-in-out py-3 mt-4">Try it out</button>
+                            <button className="w-full text-white font-bold bg-rose-500 border rounded-lg hover:bg-slate-700 hover:text-white hover:shadow-xl transition duration-300 ease-in-out py-3 mt-4 flex items-center justify-center">
+                                Try it out &nbsp; <FaArrowRight style={{ marginTop: '2px' }} />
+                            </button>
                         </Link>
                     </div>
                     <div className="w-full md:w-1/3  rounded-lg bg-slate-100 shadow hover:shadow-xl hover:bg-slate-200 transition duration-100 ease-in-out p-6 md:mr-4 mb-10 md:mb-0">
@@ -49,7 +54,9 @@ const PackageSection = () => {
                             <li className="my-2 ml-2 ">suggest Courses</li>
                         </ol>
                         <Link passHref href="/register">
-                            <button className="w-full text-white font-bold bg-rose-500 border rounded-lg hover:bg-slate-700 hover:text-white hover:shadow-xl transition duration-300 ease-in-out py-3 mt-4">Try it out</button>
+                            <button className="w-full text-white font-bold bg-rose-500 border rounded-lg hover:bg-slate-700 hover:text-white hover:shadow-xl transition duration-300 ease-in-out py-3 mt-4 flex items-center justify-center">
+                                Try it out &nbsp; <FaArrowRight style={{ marginTop: '2px' }} />
+                            </button>
                         </Link>
                     </div>
                 </div>

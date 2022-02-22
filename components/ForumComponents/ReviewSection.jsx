@@ -49,7 +49,7 @@ const ReviewSection = () => {
                 {/* Add Comment */}
                 <div className="px-6 lg:px-12 py-8 h-full">
                     <form>
-                        <textarea className="bg-stone-200 border-2 w-full h-[100px] outline-none py-2 px-3" placeholder="Type your comment here!"></textarea>
+                        <textarea className="bg-stone-200 border-2 w-full h-[100px] outline-none py-2 px-3 resize-none" placeholder="Type your comment here!" required></textarea>
                         <button type="submit" className="text-lg px-8 py-1.5 rounded-full mt-3 float-right" style={{ backgroundColor: '#FFCA30' }}>Comment</button>
                     </form>
                 </div>
