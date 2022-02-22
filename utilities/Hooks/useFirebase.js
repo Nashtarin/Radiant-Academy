@@ -32,6 +32,29 @@ const useFirebase = () => {
             })
             .finally(() => setIsLoading(false))
     }
+    const registerUser = (name,username,email, password) => {
+        setIsLoading(true);
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                setAuthError('');
+                const newUser = { email, displayName: name };
+                setUser(newUser);
+                // save user to the database
+                // saveUser(email, name, 'POST');
+                // send name to firebase after creation
+                updateProfile(auth.currentUser, {
+                    displayName: name
+                }).then(() => {
+                }).catch((error) => {
+                });
+                
+            })
+            .catch((error) => {
+                setAuthError(error.message);
+                console.log(error);
+            })
+            .finally(() => setIsLoading(false));
+    }
 
     const githubSignIn = () => {
         setIsLoading(true);
@@ -76,32 +99,9 @@ const useFirebase = () => {
     }
 
 
-    const registerUser = (email, password, name, history) => {
-        setIsLoading(true);
+        
 
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                setAuthError('');
-                const newUser = { email, displayName: name };
-                setUser(newUser);
-                // save user to the database
-                // saveUser(email, name, 'POST');
-                // send name to firebase after creation
-                updateProfile(auth.currentUser, {
-                    displayName: name
-                })
-                    .then(() => { })
-                    .catch((error) => { });
-                history.replace('/');
-            })
-            .catch((error) => {
-                setAuthError(error.message);
-                console.log(error);
-            })
-            .finally(() => setIsLoading(false));
-    }
-
-    const loginUser = (email, password, location, history) => {
+    const loginUser = (email,password) => {
         setIsLoading(true);
         
         signInWithEmailAndPassword(auth, email, password)
