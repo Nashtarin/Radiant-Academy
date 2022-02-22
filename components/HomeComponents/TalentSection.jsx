@@ -8,7 +8,7 @@ const TalentSection = () => {
             <div className='flex flex-col-reverse justify-center items-center lg:flex-row gap-4'>
                 <div className="w-5/6 lg:w-[50%] py-14">
                     <div className="w-5/6 mx-auto">
-                        <Image src="/talent.webp" alt="talent hunt image"
+                        <Image src="https://i.postimg.cc/xCf7D7sq/talent.webp" alt="talent hunt image"
                             width="562"
                             height="438"
                         />

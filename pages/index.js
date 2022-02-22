@@ -12,6 +12,7 @@ import CounterSection from "../components/HomeComponents/CounterSection";
 
 export default function Home() {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchCourses());
   }, [dispatch]);
