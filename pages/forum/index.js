@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   BsEyeFill,
   BsFillClockFill,
@@ -8,6 +8,7 @@ import {
   BsSearch,
   BsUmbrella
 } from "react-icons/bs";
+import FeaturedSection from '../../components/ForumComponents/FeaturedSection';
 
 const index = () => {
   return (
@@ -81,81 +82,7 @@ const index = () => {
       </section>
       
       {/* Featured Topic section  */}
-      <section className='container mx-auto mt-10'>
-        <h1 className='text-5xl font-bold text-center mt-20 mb-5 text-violet-800'>Featured Topic</h1>
-        <div className='grid grid-cols-3 my-5 py-5 mx-5 bg-slate-100 drop-shadow-md rounded-md'>
-          <div className='col-span-2 mx-5'>
-            <h1 className='text-2xl font-bold text-violet-800 my-2'>Radiant Academy Turned 0 Today</h1>
-            <p className='text-slate-500'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, saepe.</p>
-            <div className='flex-auto md:space-x-10 my-2'>
-              <h1 className='inline-flex font-semibold text-slate-700 mr-5'> <span className='my-auto mr-1'><BsFillClockFill/></span> Jan 22, 2022</h1>
-              <h1 className='inline-flex font-semibold text-slate-700 mr-5'><span className='my-auto mr-1'><BsHash/></span>Welcome</h1>
-              <h1 className='inline-flex font-semibold text-slate-700 mr-5'><span className='my-auto mr-1'><BsEyeFill/></span>1234</h1>
-              <h1 className='inline-flex font-semibold text-slate-700 mr-5'><span className='my-auto mr-1 text-rose-500'><BsHeartFill/></span>1234</h1>
-            </div>
-          </div>
-          <div className='my-auto text-center'>
-            <button className='rounded-3xl bg-yellow-500 text-white font-semibold p-2 hover:bg-slate-700 duration-300 inline-flex px-4'>
-              Read More 
-            </button>
-          </div>
-        </div>
-        {/* individual topic rows */}
-        <div className='grid grid-cols-3 my-5 py-5 mx-5 bg-slate-100 drop-shadow-md rounded-md'>
-          <div className='col-span-2 mx-5'>
-            <h1 className='text-2xl font-bold text-violet-800 my-2'>Radiant Academy Turned 0 Today</h1>
-            <p className='text-slate-500'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, saepe.</p>
-            <div className='flex-auto md:space-x-10 my-2'>
-              <h1 className='inline-flex font-semibold text-slate-700 mr-5'> <span className='my-auto mr-1'><BsFillClockFill/></span> Jan 22, 2022</h1>
-              <h1 className='inline-flex font-semibold text-slate-700 mr-5'><span className='my-auto mr-1'><BsHash/></span>Welcome</h1>
-              <h1 className='inline-flex font-semibold text-slate-700 mr-5'><span className='my-auto mr-1'><BsEyeFill/></span>1234</h1>
-              <h1 className='inline-flex font-semibold text-slate-700 mr-5'><span className='my-auto mr-1 text-rose-500'><BsHeartFill/></span>1234</h1>
-            </div>
-          </div>
-          <div className='my-auto text-center'>
-            <button className='rounded-3xl bg-yellow-500 text-white font-semibold p-2 hover:bg-slate-700 duration-300 inline-flex px-4'>
-              Read More 
-            </button>
-          </div>
-        </div>
-        {/* individual topic rows */}
-        <div className='grid grid-cols-3 my-5 py-5 mx-5 bg-slate-100 drop-shadow-md rounded-md'>
-          <div className='col-span-2 mx-5'>
-            <h1 className='text-2xl font-bold text-violet-800 my-2'>Radiant Academy Turned 0 Today</h1>
-            <p className='text-slate-500'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, saepe.</p>
-            <div className='flex-auto md:space-x-10 my-2'>
-              <h1 className='inline-flex font-semibold text-slate-700 mr-5'> <span className='my-auto mr-1'><BsFillClockFill/></span> Jan 22, 2022</h1>
-              <h1 className='inline-flex font-semibold text-slate-700 mr-5'><span className='my-auto mr-1'><BsHash/></span>Welcome</h1>
-              <h1 className='inline-flex font-semibold text-slate-700 mr-5'><span className='my-auto mr-1'><BsEyeFill/></span>1234</h1>
-              <h1 className='inline-flex font-semibold text-slate-700 mr-5'><span className='my-auto mr-1 text-rose-500'><BsHeartFill/></span>1234</h1>
-            </div>
-          </div>
-          <div className='my-auto text-center'>
-            <button className='rounded-3xl bg-yellow-500 text-white font-semibold p-2 hover:bg-slate-700 duration-300 inline-flex px-4'>
-              Read More 
-            </button>
-          </div>
-        </div>
-        {/* individual topic rows */}
-        <div className='grid grid-cols-3 my-5 py-5 mx-5 bg-slate-100 drop-shadow-md rounded-md'>
-          <div className='col-span-2 mx-5'>
-            <h1 className='text-2xl font-bold text-violet-800 my-2'>Radiant Academy Turned 0 Today</h1>
-            <p className='text-slate-500'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, saepe.</p>
-            <div className='flex-auto md:space-x-10 my-2'>
-              <h1 className='inline-flex font-semibold text-slate-700 mr-5'> <span className='my-auto mr-1'><BsFillClockFill/></span> Jan 22, 2022</h1>
-              <h1 className='inline-flex font-semibold text-slate-700 mr-5'><span className='my-auto mr-1'><BsHash/></span>Welcome</h1>
-              <h1 className='inline-flex font-semibold text-slate-700 mr-5'><span className='my-auto mr-1'><BsEyeFill/></span>1234</h1>
-              <h1 className='inline-flex font-semibold text-slate-700 mr-5'><span className='my-auto mr-1 text-rose-500'><BsHeartFill/></span>1234</h1>
-            </div>
-          </div>
-          <div className='my-auto text-center'>
-            <button className='rounded-3xl bg-yellow-500 text-white font-semibold p-2 hover:bg-slate-700 duration-300 inline-flex px-4'>
-              Read More 
-            </button>
-          </div>
-        </div>
-        {/* individual topic rows */}
-      </section>
+      <FeaturedSection/>
       {/* <div className='   lg:grid-cols-3 md:grid-cols-2 xs:grid-cols-1 gap-4'>
        <div className='overflow-hidden border rounded-md my-5'>
           <div className="bg-[url('https://www.themebeta.com/files/windows/images/202009/16/b17482d63e757954009b0fb3ea4654ae.jpeg')] hover:scale-110 duration-300 bg-cover h-40 ">

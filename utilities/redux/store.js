@@ -2,10 +2,12 @@ import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from "redux";
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import outletReducer from './slices/courseSlice';
+import courseReducer from './slices/courseSlice';
+import forumReducer from './slices/forumSlice';
 
 const rootReducer = combineReducers({
-  courses: outletReducer,
+  courses: courseReducer,
+  forums: forumReducer,
 })
 
 const persistConfig = {
