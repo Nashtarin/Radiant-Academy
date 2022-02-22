@@ -1,0 +1,16 @@
+import React from 'react';
+
+const ArticleSection = () => {
+    return (
+        <div className="px-4 pb-3 lg:pb-0 lg:px-2 bg-gray-100 shadow-md rounded-lg">
+            <div className="p-5">
+                <h1 className="text-3xl mt-2 mb-4 font-bold text-purple-900">Radiant Academy turned 1 today!</h1>
+                <article>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus sapien ultricies pretium massa arcu commodo, facilisis tellus. Placerat cras nisi, nisi, tellus ut diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus sapien ultricies pretium massa arcu commodo, facilisis tellus. Placerat cras nisi, nisi, tellus ut diam.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus sapien ultricies pretium massa arcu commodo, facilisis tellus. Placerat cras nisi, nisi, tellus ut diam.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus sapien ultricies pretium massa arcu commodo, facilisis tellus. Placerat cras nisi, nisi, tellus ut diam.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus sapien ultricies pretium massa arcu commodo, facilisis tellus. Placerat cras nisi, nisi, tellus ut diam.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus sapien ultricies pretium massa arcu commodo, facilisis tellus. Placerat cras nisi, nisi, tellus ut diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus sapien ultricies pretium massa arcu commodo, facilisis tellus. Placerat cras nisi, nisi, tellus ut diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus sapien ultricies pretium massa arcu commodo, facilisis tellus. Placerat cras nisi, nisi, tellus ut diam.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus sapien ultricies pretium massa arcu commodo, facilisis tellus. Placerat cras nisi, nisi, tellus ut diam.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus sapien ultricies pretium massa arcu commodo, facilisis tellus. Placerat cras nisi, nisi, tellus ut diam.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus sapien ultricies pretium massa arcu commodo, facilisis tellus. Placerat cras nisi, nisi, tellus ut diam.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus sapien ultricies pretium massa arcu commodo, facilisis tellus. Placerat cras nisi, nisi, tellus ut diam.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus sapien ultricies pretium massa arcu commodo, facilisis tellus. Placerat cras nisi, nisi, tellus ut diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus sapien ultricies pretium massa arcu commodo, facilisis tellus. Placerat cras nisi, nisi, tellus ut diam.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus sapien ultricies pretium massa arcu commodo, facilisis tellus. Placerat cras nisi, nisi, tellus ut diam.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus sapien ultricies pretium massa arcu commodo, facilisis tellus. Placerat cras nisi, nisi, tellus ut diam.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus sapien ultricies pretium massa arcu commodo, facilisis tellus. Placerat cras nisi, nisi, tellus ut diam.Lorem
+                </article>
+            </div>
+        </div>
+    );
+};
+
+export default ArticleSection;

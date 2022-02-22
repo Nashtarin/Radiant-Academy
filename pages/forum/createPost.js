@@ -11,7 +11,7 @@ const CreatePost = () => {
                 <link rel="icon" href="/favicon.ico" />                
             </Head>
 
-            {/* LOGIN CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
+            {/* CREATE POST CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
             <CreatePostSection />
 
         </div>

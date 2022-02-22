@@ -8,7 +8,9 @@ const Footer = () => {
                 <div className="grid md:grid-cols-[200px_minmax(600px,_1fr)]">
                     <div className="flex justify-center items-start">
                         <div className="shadow-md">
-                            <Image src="https://i.postimg.cc/sDvkgk3h/logo.png" alt="Logo" width="80px" height="80px" />
+                            <Link href="/" passHref>
+                                <Image src="https://i.postimg.cc/sDvkgk3h/logo.png" alt="Logo" width="80px" height="80px" className="cursor-pointer" />
+                            </Link>
                         </div>
                     </div>
                     <div>
@@ -27,20 +29,34 @@ const Footer = () => {
                                 <h3 className="text-purple-800 text-lg font-bold">Important Links</h3>
                                 <div className="grid grid-cols-4 pt-3">
                                     <div>
-                                        <Link href="#" className="mb-1">Home</Link><br />
-                                        <Link href="#">Problem Solving</Link>
+                                        <Link href="/" passHref>
+                                            <span className="mb-1 hover:text-rose-600 cursor-pointer">Home</span>
+                                        </Link><br />
+                                        <Link href="/problem-solving" passHref>
+                                            <span className="mb-1 hover:text-rose-600 cursor-pointer">Problem Solving</span>
+                                        </Link>
                                     </div>
                                     <div className="pl-5">
-                                        <Link href="#" className="mb-1">Blogs</Link>
+                                        <Link href="/blogs" passHref>
+                                            <span className="mb-1 hover:text-rose-600 cursor-pointer">Blogs</span>
+                                        </Link>
                                         <br />
-                                        <Link href="#">Forum</Link>
+                                        <Link href="/forum" passHref>
+                                            <span className="mb-1 hover:text-rose-600 cursor-pointer">Forum</span>
+                                        </Link>
                                     </div>
                                     <div>
-                                        <Link href="#" className="mb-1">Account</Link><br />
-                                        <Link href="#">Payment</Link>
+                                        <Link href="/profile" passHref>
+                                            <span className="mb-1 hover:text-rose-600 cursor-pointer">Account</span>
+                                        </Link><br />
+                                        <Link href="" passHref>
+                                            <span className="mb-1 hover:text-rose-600 cursor-pointer">Payment</span>
+                                        </Link>
                                     </div>
                                     <div>
-                                        <Link href="#">Privacy Policy</Link>
+                                        <Link href="/privacy-policy" passHref>
+                                            <span className="mb-1 hover:text-rose-600 cursor-pointer">Privacy Policy</span>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
@@ -57,7 +73,7 @@ const Footer = () => {
                 </div>
                 <div className="h-full flex items-center">
                     <button className="px-8 py-1.5 text-md font-bold rounded-full shadow-md" style={{ backgroundColor: '#FFCA30' }}>
-                        Start Now!
+                        <Link href="/course">Start Now!</Link>
                     </button>
                 </div>
             </div>
