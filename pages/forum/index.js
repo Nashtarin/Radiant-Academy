@@ -1,73 +1,161 @@
 import React from 'react';
-import { BsPencil, BsSearch, BsUmbrella } from "react-icons/bs";
+import {
+  BsEyeFill,
+  BsFillClockFill,
+  BsHash,
+  BsHeartFill,
+  BsPencil,
+  BsSearch,
+  BsUmbrella
+} from "react-icons/bs";
 
 const index = () => {
   return (
-    <div className='container mx-auto'>
+    <section className='container mx-auto'>
       <h1 className='text-5xl font-bold text-center my-5 text-violet-800'>
         Welcome to our forum
       </h1>
 
       <div className=''>
-        <div className='input-group relative flex flex-wrap justify-center'>
+        <div className='input-group justify-center'>
           <input type="search" className='py-2 px-4 w-2/5 focus:outline-none border rounded-sm' placeholder="Let's find out your interested topic" aria-label="Search" ></input>
           <button className="btn border-0 px-7 py-2 rounded bg-rose-500 text-white transition duration-500 text-xl font-bold">
              <BsSearch/>
           </button>
         </div>
       </div>
-    
-      <h1 className='text-5xl font-bold text-center mt-20 mb-5 text-violet-800'>Brows By Category</h1>  
-      <button className='rounded-md bg-rose-500 text-white font-semibold p-2 hover:bg-slate-700 duration-300 inline-flex'>
+
+      {/* Brows By category section  */}
+      <section className='container mx-auto px-5'>
+        <h1 className='text-5xl font-bold text-center mt-20 mb-5 text-violet-800'>Brows By Category</h1>  
+        <button className='rounded-md bg-rose-500 text-white font-semibold p-2 hover:bg-slate-700 duration-300 inline-flex'>
         {/* this button will link to the forum post page if there is a registerd user */}
         New Topic <span className='ml-2 mt-1'><BsPencil/></span> 
         </button>
         
 
-      <div className='container grid container mx-auto my-4 grid-rows-auto lg:grid-cols-3 md:grid-cols-2 xs:grid-cols-1 gap-4'>
-        <div className=' bg-slate-200 rounded-md'>
-        <div className='flex m-5 px-5'>
-            <span className='mt-1 mr-2 text-2xl'><BsUmbrella/></span>
-            <h1 className='font-bold text-lg'>Welcome</h1>
+        <section className='grid container mx-auto my-4 lg:grid-cols-3 md:grid-cols-2 xs:grid-cols-1 gap-4'>
+          <div className=' bg-slate-200 rounded-md drop-shadow-md'>
+          <div className='flex m-5 px-5'>
+              <span className='mt-1 mr-2 text-2xl'><BsUmbrella/></span>
+              <h1 className='font-bold text-lg'>Welcome</h1>
+          </div>
+          <p className='font-semifold text-base m-5 px-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus tempore rerum voluptatum, maxime ipsum ut.</p>
+          </div>
+          <div className=' bg-slate-200 rounded-md drop-shadow-md'>
+            <div className='flex m-5 px-5'>
+              <span className='mt-1 mr-2 text-2xl'><BsUmbrella/></span>
+              <h1 className='font-bold text-lg'>Welcome</h1>
+            </div>
+          <p className='font-semifold text-base m-5 px-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus tempore rerum voluptatum, maxime ipsum ut.</p>
+          </div>
+          <div className=' bg-slate-200 rounded-md drop-shadow-md'>
+            <div className='flex m-5 px-5'>
+              <span className='mt-1 mr-2 text-2xl'><BsUmbrella/></span>
+              <h1 className='font-bold text-lg'>Welcome</h1>
+            </div>
+          <p className='font-semifold text-base m-5 px-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus tempore rerum voluptatum, maxime ipsum ut.</p>
+          </div>
+            <div className=' bg-slate-200 rounded-md drop-shadow-md'>
+              <div className='flex m-5 px-5'>
+                <span className='mt-1 mr-2 text-2xl'><BsUmbrella/></span>
+                <h1 className='font-bold text-lg'>Welcome</h1>
+              </div>
+          <p className='font-semifold text-base m-5 px-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus tempore rerum voluptatum, maxime ipsum ut.</p>
+            </div>
+          <div className=' bg-slate-200 rounded-md drop-shadow-md'>
+            <div className='flex m-5 px-5'>
+              <span className='mt-1 mr-2 text-2xl'><BsUmbrella/></span>
+              <h1 className='font-bold text-lg'>Welcome</h1>
+            </div>
+          <p className='font-semifold text-base m-5 px-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus tempore rerum voluptatum, maxime ipsum ut.</p>
+          </div>
+          <div className=' bg-slate-200 rounded-md drop-shadow-md'>
+            <div className='flex m-5 px-5'>
+              <span className='mt-1 mr-2 text-2xl'><BsUmbrella/></span>
+              <h1 className='font-bold text-lg'>Welcome</h1>
+            </div>
+          <p className='font-semifold text-base m-5 px-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus tempore rerum voluptatum, maxime ipsum ut.</p>
+          </div>
+        </section>
+      </section>
+      
+      {/* Featured Topic section  */}
+      <section className='container mx-auto mt-10'>
+        <h1 className='text-5xl font-bold text-center mt-20 mb-5 text-violet-800'>Featured Topic</h1>
+        <div className='grid grid-cols-3 my-5 py-5 mx-5 bg-slate-100 drop-shadow-md rounded-md'>
+          <div className='col-span-2 mx-5'>
+            <h1 className='text-2xl font-bold text-violet-800 my-2'>Radiant Academy Turned 0 Today</h1>
+            <p className='text-slate-500'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, saepe.</p>
+            <div className='flex-auto md:space-x-10 my-2'>
+              <h1 className='inline-flex font-semibold text-slate-700 mr-5'> <span className='my-auto mr-1'><BsFillClockFill/></span> Jan 22, 2022</h1>
+              <h1 className='inline-flex font-semibold text-slate-700 mr-5'><span className='my-auto mr-1'><BsHash/></span>Welcome</h1>
+              <h1 className='inline-flex font-semibold text-slate-700 mr-5'><span className='my-auto mr-1'><BsEyeFill/></span>1234</h1>
+              <h1 className='inline-flex font-semibold text-slate-700 mr-5'><span className='my-auto mr-1 text-rose-500'><BsHeartFill/></span>1234</h1>
+            </div>
+          </div>
+          <div className='my-auto text-center'>
+            <button className='rounded-3xl bg-yellow-500 text-white font-semibold p-2 hover:bg-slate-700 duration-300 inline-flex px-4'>
+              Read More 
+            </button>
+          </div>
         </div>
-        <p className='font-semifold text-base m-5 px-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus tempore rerum voluptatum, maxime ipsum ut.</p>
+        {/* individual topic rows */}
+        <div className='grid grid-cols-3 my-5 py-5 mx-5 bg-slate-100 drop-shadow-md rounded-md'>
+          <div className='col-span-2 mx-5'>
+            <h1 className='text-2xl font-bold text-violet-800 my-2'>Radiant Academy Turned 0 Today</h1>
+            <p className='text-slate-500'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, saepe.</p>
+            <div className='flex-auto md:space-x-10 my-2'>
+              <h1 className='inline-flex font-semibold text-slate-700 mr-5'> <span className='my-auto mr-1'><BsFillClockFill/></span> Jan 22, 2022</h1>
+              <h1 className='inline-flex font-semibold text-slate-700 mr-5'><span className='my-auto mr-1'><BsHash/></span>Welcome</h1>
+              <h1 className='inline-flex font-semibold text-slate-700 mr-5'><span className='my-auto mr-1'><BsEyeFill/></span>1234</h1>
+              <h1 className='inline-flex font-semibold text-slate-700 mr-5'><span className='my-auto mr-1 text-rose-500'><BsHeartFill/></span>1234</h1>
+            </div>
+          </div>
+          <div className='my-auto text-center'>
+            <button className='rounded-3xl bg-yellow-500 text-white font-semibold p-2 hover:bg-slate-700 duration-300 inline-flex px-4'>
+              Read More 
+            </button>
+          </div>
         </div>
-        <div className=' bg-slate-200 rounded-md'>
-        <div className='flex m-5 px-5'>
-            <span className='mt-1 mr-2 text-2xl'><BsUmbrella/></span>
-            <h1 className='font-bold text-lg'>Welcome</h1>
+        {/* individual topic rows */}
+        <div className='grid grid-cols-3 my-5 py-5 mx-5 bg-slate-100 drop-shadow-md rounded-md'>
+          <div className='col-span-2 mx-5'>
+            <h1 className='text-2xl font-bold text-violet-800 my-2'>Radiant Academy Turned 0 Today</h1>
+            <p className='text-slate-500'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, saepe.</p>
+            <div className='flex-auto md:space-x-10 my-2'>
+              <h1 className='inline-flex font-semibold text-slate-700 mr-5'> <span className='my-auto mr-1'><BsFillClockFill/></span> Jan 22, 2022</h1>
+              <h1 className='inline-flex font-semibold text-slate-700 mr-5'><span className='my-auto mr-1'><BsHash/></span>Welcome</h1>
+              <h1 className='inline-flex font-semibold text-slate-700 mr-5'><span className='my-auto mr-1'><BsEyeFill/></span>1234</h1>
+              <h1 className='inline-flex font-semibold text-slate-700 mr-5'><span className='my-auto mr-1 text-rose-500'><BsHeartFill/></span>1234</h1>
+            </div>
+          </div>
+          <div className='my-auto text-center'>
+            <button className='rounded-3xl bg-yellow-500 text-white font-semibold p-2 hover:bg-slate-700 duration-300 inline-flex px-4'>
+              Read More 
+            </button>
+          </div>
         </div>
-        <p className='font-semifold text-base m-5 px-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus tempore rerum voluptatum, maxime ipsum ut.</p>
+        {/* individual topic rows */}
+        <div className='grid grid-cols-3 my-5 py-5 mx-5 bg-slate-100 drop-shadow-md rounded-md'>
+          <div className='col-span-2 mx-5'>
+            <h1 className='text-2xl font-bold text-violet-800 my-2'>Radiant Academy Turned 0 Today</h1>
+            <p className='text-slate-500'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, saepe.</p>
+            <div className='flex-auto md:space-x-10 my-2'>
+              <h1 className='inline-flex font-semibold text-slate-700 mr-5'> <span className='my-auto mr-1'><BsFillClockFill/></span> Jan 22, 2022</h1>
+              <h1 className='inline-flex font-semibold text-slate-700 mr-5'><span className='my-auto mr-1'><BsHash/></span>Welcome</h1>
+              <h1 className='inline-flex font-semibold text-slate-700 mr-5'><span className='my-auto mr-1'><BsEyeFill/></span>1234</h1>
+              <h1 className='inline-flex font-semibold text-slate-700 mr-5'><span className='my-auto mr-1 text-rose-500'><BsHeartFill/></span>1234</h1>
+            </div>
+          </div>
+          <div className='my-auto text-center'>
+            <button className='rounded-3xl bg-yellow-500 text-white font-semibold p-2 hover:bg-slate-700 duration-300 inline-flex px-4'>
+              Read More 
+            </button>
+          </div>
         </div>
-        <div className=' bg-slate-200 rounded-md'>
-        <div className='flex m-5 px-5'>
-            <span className='mt-1 mr-2 text-2xl'><BsUmbrella/></span>
-            <h1 className='font-bold text-lg'>Welcome</h1>
-        </div>
-        <p className='font-semifold text-base m-5 px-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus tempore rerum voluptatum, maxime ipsum ut.</p>
-        </div>
-        <div className=' bg-slate-200 rounded-md'>
-        <div className='flex m-5 px-5'>
-            <span className='mt-1 mr-2 text-2xl'><BsUmbrella/></span>
-            <h1 className='font-bold text-lg'>Welcome</h1>
-        </div>
-        <p className='font-semifold text-base m-5 px-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus tempore rerum voluptatum, maxime ipsum ut.</p>
-        </div>
-        <div className=' bg-slate-200 rounded-md'>
-        <div className='flex m-5 px-5'>
-            <span className='mt-1 mr-2 text-2xl'><BsUmbrella/></span>
-            <h1 className='font-bold text-lg'>Welcome</h1>
-        </div>
-        <p className='font-semifold text-base m-5 px-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus tempore rerum voluptatum, maxime ipsum ut.</p>
-        </div>
-        <div className=' bg-slate-200 rounded-md'>
-        <div className='flex m-5 px-5'>
-            <span className='mt-1 mr-2 text-2xl'><BsUmbrella/></span>
-            <h1 className='font-bold text-lg'>Welcome</h1>
-        </div>
-        <p className='font-semifold text-base m-5 px-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus tempore rerum voluptatum, maxime ipsum ut.</p>
-        </div>
-      </div>
+        {/* individual topic rows */}
+      </section>
       {/* <div className='   lg:grid-cols-3 md:grid-cols-2 xs:grid-cols-1 gap-4'>
        <div className='overflow-hidden border rounded-md my-5'>
           <div className="bg-[url('https://www.themebeta.com/files/windows/images/202009/16/b17482d63e757954009b0fb3ea4654ae.jpeg')] hover:scale-110 duration-300 bg-cover h-40 ">
@@ -139,7 +227,7 @@ const index = () => {
               </div>
           </div>
       </div> */}
-    </div>
+    </section>
   );
 };
 
