@@ -8,17 +8,19 @@ import {
     BsSearch,
     BsUmbrella
   } from "react-icons/bs";
+import Link from "next/link";
 
 const BrowseCategory = () => {
     return (
         <section className='container mx-auto'>
             <div className='container mx-auto px-5'>
             <h1 className='text-5xl font-bold text-center mt-20 mb-5 text-violet-800'>Browse By Category</h1>  
-            <button className='rounded-md bg-rose-500 text-white font-semibold p-2 hover:bg-slate-700 duration-300 inline-flex'>
-            {/* this button will link to the forum post page if there is a registerd user */}
-            New Topic <span className='ml-2 mt-1'><BsPencil/></span> 
-            </button>
             
+            <Link href="/forum/create-topic">
+              <button className='rounded-md bg-rose-500 text-white font-semibold p-2 hover:bg-slate-700 duration-300 inline-flex'>
+                New Topic <span className='ml-2 mt-1'><BsPencil/></span> 
+              </button>          
+             </Link>
 
             <div className='grid container mx-auto my-4 lg:grid-cols-3 md:grid-cols-2 xs:grid-cols-1 gap-4'>
               <div className=' bg-slate-200 rounded-md drop-shadow-md'>
