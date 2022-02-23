@@ -47,8 +47,20 @@ export default function Home() {
 
 
       {/* GO TOP BUTTON */}
-      {/* <button className="btn btn-ghost rounded-btn" id="sticky">
-        <BsArrowUpCircleFill style={{fontSize: 25}} />
+      {/* <button className="stickyGoToTop btn btn-ghost rounded-btn float-right m-5" id="sticky2">
+        <style jsx global>
+          {`
+            .stickyGoToTop {
+                bottom: 0px;
+                -webkit-transition: bottom .2s ease-in-out;
+                transition: bottom .2s ease-in-out;
+            }
+            .popup2 {
+                bottom: calc(0px);
+            }
+          `}
+        </style>
+        <BsArrowUpCircleFill style={{ fontSize: 25 }} />
       </button> */}
     </div>
   )

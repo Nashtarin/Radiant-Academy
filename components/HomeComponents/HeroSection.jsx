@@ -76,6 +76,7 @@ const HeroSection = () => {
                                 height="432"
                                 alt="Hero Image"
                                 draggable="false"
+                                priority
                             />
                         </div>
                     </div>
