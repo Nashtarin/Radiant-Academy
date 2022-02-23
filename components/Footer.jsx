@@ -99,7 +99,7 @@ const Footer = () => {
                     </div>
                     <div className="h-full flex items-center">
                         <button className="px-4 md:px-8 py-2 text-md font-bold rounded-full shadow-md sm:w-[120px] md:w-[150px]  lg:w-full" style={{ backgroundColor: '#FFCA30' }}>
-                            <Link href="/course">Start Now!</Link>
+                            <Link href="/courses">Start Now!</Link>
                         </button>
                     </div>
                 </div>`
