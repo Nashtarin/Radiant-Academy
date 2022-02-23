@@ -1,7 +1,7 @@
 import Head from "next/head";
 import RegisterSection from "../components/AuthComponents/RegisterSection";
 
-const Login = () => {
+const register = () => {
   return (
     <div>
       <Head>
@@ -17,4 +17,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default register;

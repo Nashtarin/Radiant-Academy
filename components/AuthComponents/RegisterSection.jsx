@@ -1,15 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useRouter } from 'next/router'
 import Link from 'next/link';
 import { FaRegEnvelope, FaUnlockAlt, FaEdit, FaGithub, FaFacebook, FaGooglePlus, FaAt } from 'react-icons/fa';
 import useAuth from '../../utilities/Hooks/useAuth';
 
 const RegisterSection = () => {
-    const { user, isLoading, authError, googleSignIn, loginUser, logout, githubSignIn, facebookSignIn } = useAuth();
+    const router=useRouter()
+   
+    const { user, isLoading, authError, googleSignIn, loginUser, logout, githubSignIn, facebookSignIn, registerUser } = useAuth();
+    console.log(user)
+    const [logindata, setLoginData] = useState({})
+    const handleOnBlur = e => {
+        const field = e.target.name;
+        const value = e.target.value;
+        const newLoginData = { ...logindata }
+        newLoginData[field] = value
+        setLoginData(newLoginData)
 
-    const checkMarkValidation = () => {
-        //will do some validation here
     }
-    
+    const handleRegisterSubmit = e => {
+        e.preventDefault()
+
+        console.log(logindata)
+        registerUser(logindata.name, logindata.username, logindata.email, logindata.password)
+
+          router.push("/login")
+    }
+
+
     return (
         <div className="flex pt-1 flex-col items-center justify-center bg-gray-100">
             <div className="flex flex-col items-center justify-center w-full flex-1 p-5 md:px-20 text-center sm:p-20">
@@ -19,44 +37,49 @@ const RegisterSection = () => {
                             <h2 className="text-3xl font-bold text-violet-500 mb-2">Sign Up</h2>
                             <div className="border-2 w-10 border-violet-500 inline-block mb-2 bg-violet-500"></div>
                         </div>
-                        <div className="flex flex-col items-center mb-3">
-                            <div className="bg-gray-100 w-64 pb-2 flex items-center">
-                                <FaEdit className="text-gray-400 mr-2" />
-                                <input type="text" name="name" placeholder="Name" className="bg-gray-100 outline-none text-sm flex-1 p-1" />
+                        {!isLoading && <form onSubmit={handleRegisterSubmit}>
+                            <div className="flex flex-col items-center mb-3">
+                                <div className="bg-gray-100 w-64 pb-2 flex items-center">
+                                    <FaEdit className="text-gray-400 mr-2" />
+                                    <input type="text" name="name" placeholder="Name" onBlur={handleOnBlur} className="bg-gray-100 outline-none text-sm flex-1 p-1" />
+                                </div>
                             </div>
-                        </div>
-                        <div className="flex flex-col items-center mb-3">
-                            <div className="bg-gray-100 w-64 pb-2 flex items-center">
-                                <FaAt className="text-gray-400 mr-2" />
-                                <input type="text" name="username" placeholder="Username" className="bg-gray-100 outline-none text-sm flex-1 p-1" />
+                            <div className="flex flex-col items-center mb-3">
+                                <div className="bg-gray-100 w-64 pb-2 flex items-center">
+                                    <FaAt className="text-gray-400 mr-2" />
+                                    <input type="text" name="username" placeholder="Username" onBlur={handleOnBlur} className="bg-gray-100 outline-none text-sm flex-1 p-1" />
+                                </div>
                             </div>
-                        </div>
-                        <div className="flex flex-col items-center mb-3">
-                            <div className="bg-gray-100 w-64 pb-2 flex items-center">
-                                <FaRegEnvelope className="text-gray-400 mr-2" />
-                                <input type="email" name="email" placeholder="Email" className="bg-gray-100 outline-none text-sm flex-1 p-1" />
+                            <div className="flex flex-col items-center mb-3">
+                                <div className="bg-gray-100 w-64 pb-2 flex items-center">
+                                    <FaRegEnvelope className="text-gray-400 mr-2" />
+                                    <input type="email" name="email" placeholder="Email" onBlur={handleOnBlur} className="bg-gray-100 outline-none text-sm flex-1 p-1" />
+                                </div>
                             </div>
-                        </div>
-                        <div className="flex flex-col items-center mt-2">
-                            <div className="bg-gray-100 w-64 pb-2 flex items-center">
-                                <FaUnlockAlt className="text-gray-400 mr-2" />
-                                <input type="password" name="password" placeholder="Password" className="bg-gray-100 outline-none text-sm flex-1 p-1" />
+                            <div className="flex flex-col items-center mt-2">
+                                <div className="bg-gray-100 w-64 pb-2 flex items-center">
+                                    <FaUnlockAlt className="text-gray-400 mr-2" />
+                                    <input type="password" name="password" placeholder="Password" onBlur={handleOnBlur} className="bg-gray-100 outline-none text-sm flex-1 p-1" />
+                                </div>
                             </div>
-                        </div>
-                        <div className="flex flex-col items-center mt-2">
-                            <div className="w-64 flex items-center justify-between">
-                                <label className="flex items-center text-xs">
-                                    <input type="checkbox" name="remember" className="mr-1" checked onChange={checkMarkValidation}/>
-                                    Remember Me
-                                </label>
-                                <p className="text-xs">
-                                    Forgot Password?
-                                </p>
+
+                            <div className="flex flex-col items-center mt-2">
+                                <div className="w-64 flex items-center justify-between">
+                                    <label className="flex items-center text-xs">
+                                        <input type="checkbox" name="remember" className="mr-1" checked />
+                                        Remember Me
+                                    </label>
+                                    <p className="text-xs">
+                                        Forgot Password?
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                        <button className="border-2 border-violet-500 text-violet-500 rounded-full text-center py-2 inline-block w-2/5 mt-10 sm:mt-10 hover:bg-violet-500 hover:text-white font-semibold">
-                            Sign Up
-                        </button>
+                            <button type="submit" className="border-2 border-violet-500 text-violet-500 rounded-full text-center py-2 inline-block w-2/5 mt-10 sm:mt-10 hover:bg-violet-500 hover:text-white font-semibold">
+                                Sign Up
+                            </button>
+                        </form>}
+                        {/* {user?.displayName && <p className="text-lime-600 text-2xl">User Created successfully!</p>}
+                        {authError && <p className="text-red-600">{authError}</p>} */}
                         <p className="mt-10 mb-5 font-semibold text-sm">Already an User? <Link passHref href="/login"><span className="text-violet-500 cursor-pointer">Sign in</span></Link></p>
                     </div>
                     <div className="w-full md:w-2/5 bg-violet-500 text-white rounded-bl-2xl md:rounded-tr-2xl rounded-br-2xl md:rounded-bl-none py-36 px-12 sm:w-full">
