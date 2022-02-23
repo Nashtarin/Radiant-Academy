@@ -6,6 +6,7 @@ import {
     BsHeartFill,
     BsArrowRight
 } from "react-icons/bs";
+import Link from 'next/link';
 
 const TopicCard = ({ forum }) => {
     const { no, title, desc, date, category, loves, views } = forum;
@@ -39,9 +40,11 @@ const TopicCard = ({ forum }) => {
                 </div>
             </div>
             <div className='col-span-2 sm:col-span-1 pt-5 ps-12 sm:pr-8 flex justify-center sm:justify-end items-center'>
-                <button className='rounded-3xl bg-yellow-500 text-black font-semibold py-2 px-6 hover:bg-slate-700 hover:text-white duration-300 inline-flex items-center justify-center'>
-                    Read More <BsArrowRight className='ml-1' />
-                </button>
+                <Link href={`/forum/${no}`} passHref>
+                    <button className='rounded-3xl bg-yellow-500 text-black font-semibold py-2 px-6 hover:bg-slate-700 hover:text-white duration-300 inline-flex items-center justify-center'>
+                        Read More <BsArrowRight className='ml-1' />
+                    </button>
+                </Link>
             </div>
         </div>
     );

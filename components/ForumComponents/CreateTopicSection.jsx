@@ -60,7 +60,7 @@ const CreateTopicSection = () => {
                             type="text"
                             name="title"
                             placeholder="Topic Title"
-                            className="bg-slate-200 w-full py-2 px-3 outline-none mt-3.5 text-lg rounded-lg font-bold"
+                            className="bg-slate-200 w-full py-2 px-3 outline-none mt-3.5 text-lg rounded-lg font-semibold"
                             required
                         />
                         <select

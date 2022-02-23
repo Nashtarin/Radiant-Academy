@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 const BrowseCategorySection = () => {
   return (
-    <section className='container mx-auto'>
+    <section className='container mx-auto px-2 lg:px-4'>
       <div className='container mx-auto px-5'>
         <h1 className='text-5xl font-bold text-center mt-[5rem] mb-8 text-violet-800'>Browse By Category</h1>
         <Link href="/forum/create-topic" passHref>
