@@ -1,7 +1,9 @@
 import Link from "next/link";
+import useAuth from "../utilities/Hooks/useAuth";
 import Image from "next/image";
 
 const Navbar = () => {
+    const {user,logout}=useAuth()
     return (
         <>
             <nav className="sticky top-0 w-full z-50 text-gray-800">
@@ -27,6 +29,7 @@ const Navbar = () => {
                             <Link passHref href="/register">
                                 <button className="btn border-0 px-7 py-2 rounded bg-rose-500 text-white transition duration-500 mx-3">FREE TRIAL</button>
                             </Link>
+                            { user.email &&
                             <div className="flex-none dropdown dropdown-end mx-1 sm:mx-2 my-auto">
                                 <label tabIndex="0" className="btn btn-ghost btn-circle avatar hover:border-purple-800">
                                     <div className="rounded-full">
@@ -49,11 +52,12 @@ const Navbar = () => {
                                     </li>
                                     <li>
                                         <a>
-                                            <button>Logout</button>
+                                            <button onClick={logout}>Logout</button>
                                         </a>
                                     </li>
                                 </ul>
                             </div>
+                         }
                         </div>
                     </div>
                     <div className="flex-none lg:hidden dropdown dropdown-left">
