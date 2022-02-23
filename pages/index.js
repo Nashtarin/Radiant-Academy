@@ -21,9 +21,9 @@ export default function Home() {
 
   window.onscroll = (function () {
     if (window.scrollY > 10) {
-      document.getElementById("sticky").classList.add("popup");
+      document.getElementById("sticky2").classList.add("popup");
     } else {
-      document.getElementById("sticky").classList.remove("popup");
+      document.getElementById("sticky2").classList.remove("popup");
     }
   });
 
@@ -47,7 +47,7 @@ export default function Home() {
 
 
       {/* GO TOP BUTTON */}
-      <button className="stickyGoToTop btn btn-ghost rounded-btn float-right m-5" id="sticky">
+      <button className="stickyGoToTop btn btn-ghost rounded-btn float-right m-5" id="sticky2">
         <style jsx global>
           {`
             .stickyGoToTop {
