@@ -1,6 +1,8 @@
 import Link from "next/link";
+import useAuth from "../utilities/Hooks/useAuth";
 
 const Navbar = () => {
+    const {user,logout}=useAuth()
     return (
         <>
             <nav className="sticky top-0 w-full z-50 text-gray-800">
@@ -43,6 +45,7 @@ const Navbar = () => {
 
                                 </button>
                             </Link>
+                        { user.email && <button onClick={logout}  className="btn border-0 px-7 py-2 rounded bg-purple-500 text-white  mx-3">Logout</button>}
                         </div>
                     </div>
                     <div className="flex-none md:hidden dropdown dropdown-end">

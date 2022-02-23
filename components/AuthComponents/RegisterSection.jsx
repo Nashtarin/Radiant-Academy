@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router'
 import Link from 'next/link';
 import { FaRegEnvelope, FaUnlockAlt, FaEdit, FaGithub, FaFacebook, FaGooglePlus, FaAt } from 'react-icons/fa';
 import useAuth from '../../utilities/Hooks/useAuth';
 
 const RegisterSection = () => {
+    const router=useRouter()
+   
     const { user, isLoading, authError, googleSignIn, loginUser, logout, githubSignIn, facebookSignIn, registerUser } = useAuth();
     console.log(user)
     const [logindata, setLoginData] = useState({})
@@ -21,7 +24,7 @@ const RegisterSection = () => {
         console.log(logindata)
         registerUser(logindata.name, logindata.username, logindata.email, logindata.password)
 
-
+          router.push("/login")
     }
 
 
