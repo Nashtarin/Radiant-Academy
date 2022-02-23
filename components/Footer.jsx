@@ -1,14 +1,21 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { BsArrowUpCircleFill } from 'react-icons/bs';
 
 const Footer = () => {
     window.onscroll = (function () {
-        if (window.scrollY > 10) {
+        if (window.scrollY > 15) {
             document.getElementById("sticky").classList.add("popup");
-        } else {
+            document.getElementById("sticky2").classList.add("popup2");
+        }else {
             document.getElementById("sticky").classList.remove("popup");
+            document.getElementById("sticky2").classList.remove("popup2");
         }
     });
+  
+    function topFunction() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
 
     return (
         <div>
@@ -97,6 +104,23 @@ const Footer = () => {
                     </div>
                 </div>`
             </div>
+
+            <button className="stickyGoToTop fixed right-5 btn btn-ghost rounded-btn m-5" id="sticky2" onClick={topFunction}>
+            <style jsx global>
+            {`
+                .stickyGoToTop {
+                    bottom: -60px;
+                    -webkit-transition: bottom .2s ease-in-out;
+                    transition: bottom .2s ease-in-out;
+                    z-index: 9999;
+                }
+                .popup2 {
+                    bottom: 60px;
+                }
+            `}
+            </style>
+            <BsArrowUpCircleFill style={{ fontSize: 25 }} />
+        </button>
         </div >
     );
 };
