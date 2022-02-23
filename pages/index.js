@@ -47,9 +47,9 @@ export default function Home() {
 
 
       {/* GO TOP BUTTON */}
-      <button className="btn btn-ghost rounded-btn" id="sticky">
+      {/* <button className="btn btn-ghost rounded-btn" id="sticky">
         <BsArrowUpCircleFill style={{fontSize: 25}} />
-      </button>
+      </button> */}
     </div>
   )
 }

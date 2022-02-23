@@ -29,11 +29,12 @@ const BrowseCategorySection = () => {
             categoryData.map(category =>
               <Link href="/forum/result-page" key={category.no} passHref>
                 <div className=' bg-slate-200 rounded-md drop-shadow-md cursor-pointer'>
-                  <div className='flex m-5 px-5'>
+                  <div className='flex m-5 px-5 align center'>
                     <span className='mt-1 mr-2 text-2xl'>
-                      {category.icon}
+                      <img src={category.icon} alt="" className="w-7"/>
+                      {/* <BsPencil /> */}
                     </span>
-                    <h1 className='font-bold text-lg'>{category.title}</h1>
+                    <h1 className='font-bold text-2xl pl-3'>{category.title}</h1>
                   </div>
                   <p className='font-semifold text-base m-5 px-5'>{category.desc}</p>
                 </div>
