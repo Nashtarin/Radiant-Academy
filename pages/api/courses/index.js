@@ -4,25 +4,25 @@ import dbConnect from '../../../utilities/mongoose';
 export default async function handler(req, res) {
     const { method } = req;
 
-    dbConnect();
+    await dbConnect()
 
     if (method === "GET") {
         try {
-            const courses = await Course.find();
-            res.status(200).json(courses);
+            const courses = await Course.find({});
+            res.status(200).json({ success: true, data: courses });
 
-        } catch (err) {
-            res.status(500).json(err);
+        } catch (error) {
+            res.status(500).json({ success: false });
         }
     }
 
     if (method === "POST") {
         try {
             const course = await Course.create(req.body);
-            res.status(201).json(course);
+            res.status(201).json({ success: true, data: course });
 
-        } catch (err) {
-            res.status(500).json(err);
+        } catch (error) {
+            res.status(500).json({ success: false });
         }
     }
 
