@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { FaCalendarAlt, FaEye, FaHashtag, FaHeart } from "react-icons/fa";
 import ReviewSection from './ReviewSection';
+import RelatedTopicSection from './RelatedTopicSection';
 
 const ForumPostDetails = ({forum}) => {
     const { name, email, phone } = forum;
@@ -58,6 +59,7 @@ const ForumPostDetails = ({forum}) => {
             <div className="px-12 lg:px-20">
                 <ReviewSection />
             </div>
+            <RelatedTopicSection />
         </div>
     );
 };

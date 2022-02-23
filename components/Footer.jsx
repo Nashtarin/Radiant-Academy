@@ -25,7 +25,7 @@ const Footer = () => {
                             </div>
                             <div className="pt-3.5 md:pt-7">
                                 <h3 className="text-purple-800 text-lg font-bold">Important Links</h3>
-                                <div className="grid sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-4 pt-3">
+                                <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-4 pt-3">
                                     <div className="text-left">
                                         <Link href="/" passHref>
                                             <span className="mb-1 hover:text-rose-600 cursor-pointer">Home</span>
