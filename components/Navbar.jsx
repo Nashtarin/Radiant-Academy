@@ -34,7 +34,7 @@ const Navbar = () => {
                         </div>
                     </div>
                     {
-                        user.email ? <div className="flex-none dropdown dropdown-left my-auto pr-2 sm:mr-3 lg:mr-12">
+                        user.email && <div className="flex-none dropdown dropdown-left my-auto pr-2 sm:mr-3 lg:mr-12">
                             <label tabIndex="0" className="btn btn-ghost btn-circle avatar hover:border-purple-800">
                                 <div className="rounded-full">
                                     <Image src="https://i.postimg.cc/vZHk7RPL/1645616273912.png" alt="User Profile" width="100px" height="100px" draggable="false" />
@@ -60,12 +60,6 @@ const Navbar = () => {
                                     </a>
                                 </li>
                             </ul>
-                        </div> : <div className="flex-none my-auto pr-2 sm:mr-3 lg:mr-12">
-                            <label tabIndex="0" className="btn btn-ghost text-rose-500 btn-circle avatar hover:bg-transparent">
-                                <div className="rounded-full">
-                                    <FaUserCircle className="text-4xl" />
-                                </div>
-                            </label>
                         </div>
                     }
                     <div className="flex-none lg:hidden dropdown dropdown-left">
