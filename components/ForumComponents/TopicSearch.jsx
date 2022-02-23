@@ -10,10 +10,11 @@ const TopicSearch = () => {
             <div className='input-group justify-center'>
                 <input
                     type="search"
-                    className='py-2 px-4 w-4/6 sm:w-2/3 md:w-2/5 focus:outline-none border rounded-sm'
+                    className='py-2 px-4 w-4/6 sm:w-2/3 md:w-2/4 lg:2/5 focus:outline-none border rounded-sm'
                     placeholder="Let's find out your interested topic"
                     aria-label="Search"
-                    required />
+                    required
+                />
                 <button className="btn border-0 px-7 py-2 rounded bg-rose-500 text-white transition duration-500 text-xl font-bold">
                     <BsSearch />
                 </button>
