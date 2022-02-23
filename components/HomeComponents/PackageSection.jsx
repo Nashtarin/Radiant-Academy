@@ -27,7 +27,7 @@ const PackageSection = () => {
                             </button>
                         </Link>
                     </div>
-                    <div className="w-full md:w-1/3  rounded-lg bg-slate-100 shadow hover:shadow-xl hover:bg-slate-200 transition duration-100 ease-in-out p-6 md:mr-4 mb-10 md:mb-0">
+                    <div className="w-full md:w-1/3 rounded-lg bg-slate-100 shadow hover:shadow-xl hover:bg-slate-200 transition duration-100 ease-in-out p-6 md:mr-4 mb-10 md:mb-0">
                         <h3 className="text-gray-700 text-xl font-bold text-center">PRO</h3>
                         <p className="text-sm text-gray-600 mt-2 py-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente ipsum ipsam dicta temporibus possimus voluptatibus?</p>
                         <ol className="text-sm text-gray-600 mt-4 ml-3 list-decimal">
@@ -43,7 +43,7 @@ const PackageSection = () => {
                             </button>
                         </Link>
                     </div>
-                    <div className="w-full md:w-1/3  rounded-lg bg-slate-100 shadow hover:shadow-xl hover:bg-slate-200 transition duration-100 ease-in-out p-6 md:mr-4 mb-10 md:mb-0">
+                    <div className="w-full md:w-1/3 rounded-lg bg-slate-100 shadow hover:shadow-xl hover:bg-slate-200 transition duration-100 ease-in-out p-6 md:mr-4 mb-10 md:mb-0">
                         <h3 className="text-gray-700 text-xl font-bold text-center">SUPER PRO</h3>
                         <p className="text-sm text-gray-600 mt-2 py-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente ipsum ipsam dicta temporibus possimus voluptatibus?</p>
                         <ol className="text-sm text-gray-600 mt-4 ml-3 list-decimal">

@@ -2,8 +2,8 @@ import React from 'react';
 
 const PrivacyPolicySection = () => {
     return (
-        <div className="pb-20">
-            <div className="h-[300px] w-3/6 bg-slate-200 mx-auto overflow-auto px-2.5 border-[2rem] border-slate-200">
+        <div className="pt-12 pb-[10.5rem]">
+            <div className="h-[300px] w-5/6 sm:4/6 lg:w-3/6 bg-slate-200 mx-auto overflow-auto px-2.5 border-[2rem] border-slate-200">
                 <div>
                     <h2 className="text-xl"><strong>Terms and Conditions</strong></h2>
                     <br />
