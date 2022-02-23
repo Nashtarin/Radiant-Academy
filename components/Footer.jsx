@@ -7,14 +7,14 @@ const Footer = () => {
         if (window.scrollY > 15) {
             document.getElementById("sticky").classList.add("popup");
             document.getElementById("sticky2").classList.add("popup2");
-        }else {
+        } else {
             document.getElementById("sticky").classList.remove("popup");
             document.getElementById("sticky2").classList.remove("popup2");
         }
     });
-  
+
     function topFunction() {
-      window.scrollTo({top: 0, behavior: 'smooth'});
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     return (
@@ -22,9 +22,7 @@ const Footer = () => {
             <div className="px-1 sm:px-10 md:px-20 pt-8 md:pt-20 pb-[28.5rem] sm:pb-[16rem] md:pb-[17rem] h-[200px] bg-slate-200 block">
                 <div className="grid grid-row-2 sm:grid-cols-[110px_minmax(300px,_1fr)] md:grid-cols-[100px_minmax(300px,_1fr)] lg:grid-cols-[200px_minmax(600px,_1fr)]">
                     <div className="flex justify-center items-start">
-                        <Link href="/" passHref>
-                            <Image src="https://i.postimg.cc/sDvkgk3h/logo.png" alt="Logo" width="80px" height="80px" className="cursor-pointer shadow-md" draggable="false" />
-                        </Link>
+                        <Image src="https://i.postimg.cc/sDvkgk3h/logo.png" alt="Logo" width="80px" height="80px" className="cursor-pointer shadow-md" draggable="false" />
                     </div>
                     <div className="px-9 pt-5 text-center sm:text-left sm:px-0 sm:pt-0">
                         <div>
@@ -106,8 +104,8 @@ const Footer = () => {
             </div>
 
             <button className="stickyGoToTop fixed right-5 btn btn-ghost rounded-btn m-5" id="sticky2" onClick={topFunction}>
-            <style jsx global>
-            {`
+                <style jsx global>
+                    {`
                 .stickyGoToTop {
                     bottom: -60px;
                     -webkit-transition: bottom .2s ease-in-out;
@@ -118,9 +116,9 @@ const Footer = () => {
                     bottom: 60px;
                 }
             `}
-            </style>
-            <BsArrowUpCircleFill style={{ fontSize: 25 }} />
-        </button>
+                </style>
+                <BsArrowUpCircleFill style={{ fontSize: 25 }} />
+            </button>
         </div >
     );
 };

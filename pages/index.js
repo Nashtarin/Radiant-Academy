@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { fetchCourses } from "../utilities/Redux/slices/courseSlice";
+import { fetchCourses } from "../utilities/redux/slices/courseSlice";
 import PackageSection from "../components/HomeComponents/PackageSection";
 import QuizSection from "../components/HomeComponents/QuizSection";
 import HeroSection from "../components/HomeComponents/HeroSection";

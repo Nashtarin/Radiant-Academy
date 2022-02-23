@@ -1,5 +1,5 @@
 import { Provider } from 'react-redux';
-import { store } from '../utilities/Redux/Store';
+import { store } from '../utilities/redux/store';
 import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 import Layout from '../components/Layout';
@@ -13,10 +13,10 @@ function MyApp({ Component, pageProps }) {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <AuthProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </AuthProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </AuthProvider>
       </PersistGate>
     </Provider>
   )
