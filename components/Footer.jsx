@@ -71,17 +71,19 @@ const Footer = () => {
                 </div>
             </div>
             <div className="sticky-footer w-full fixed left-0 right-0" id="sticky">
-                <style jsx global>{`
-                    .sticky-footer {
-                        bottom: -204px;
-                        -webkit-transition: bottom .2s ease-in-out;
-                        transition: bottom .2s ease-in-out;
-                    }
-                    .popup {
-                        bottom: calc(0px);
-                    }
-                `}</style>
-                  <div className="h-[150px] sm:h-[60px] flex justify-around items-end px-5 md:px-12 lg:px-5 flex-col sm:flex-row" style={{ backgroundColor: '#32007E' }}>
+                <style jsx global>
+                    {`
+                        .sticky-footer {
+                            bottom: -204px;
+                            -webkit-transition: bottom .2s ease-in-out;
+                            transition: bottom .2s ease-in-out;
+                        }
+                        .popup {
+                            bottom: calc(-24px);
+                        }
+                    `}
+                </style>
+                <div className="h-[150px] sm:h-[60px] flex justify-around items-end px-5 md:px-12 lg:px-5 flex-col sm:flex-row" style={{ backgroundColor: '#32007E' }}>
                     <div className="flex justify-center items-center">
                         <Image src="https://i.postimg.cc/W4PCStgG/search-logo.png" alt="Logo" width="90px" height="90px" className="mb-4" draggable="false" />
                         <div className="px-4 pt-3 md:pt-5 lg:pt-7">

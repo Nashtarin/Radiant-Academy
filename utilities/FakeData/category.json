@@ -4,41 +4,41 @@
       "title": "Welcome",
       "subTitle": "welcome",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipi scing elit. Risus sapien ultricies pretium massa arcu commodo, facilisis tellus.",
-      "icon": "<MdEmojiPeople />"
+      "icon": "https://i.ibb.co/PD69KM4/umblella.png"
    },
    {
       "no": 2,
       "title": "Learning And Growth",
       "subTitle": "learning",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipi scing elit. Risus sapien ultricies pretium massa arcu commodo, facilisis tellus.",
-      "icon": "FaChalkboardTeacher"
+      "icon": "https://i.ibb.co/SKm93XH/stat.png"
    },
    {
       "no": 3,
       "title": "General Discussion",
       "subTitle": "general",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipi scing elit. Risus sapien ultricies pretium massa arcu commodo, facilisis tellus.",
-      "icon": "GiDiscussion"
+      "icon": "https://i.ibb.co/PFgHgzj/general.png"
    },
    {
       "no": 4,
       "title": "Product Feedback",
       "subTitle": "feedback",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipi scing elit. Risus sapien ultricies pretium massa arcu commodo, facilisis tellus.",
-      "icon": "VscFeedback"
+      "icon": "https://i.ibb.co/RyjCwpB/screen.png"
    },
    {
       "no": 5,
       "title": "Question And Answers",
       "subTitle": "question",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipi scing elit. Risus sapien ultricies pretium massa arcu commodo, facilisis tellus.",
-      "icon": "BsQuestionCircle"
+      "icon": "https://i.ibb.co/wyvjFjQ/question.png"
    },
    {
       "no": 6,
       "title": "Tips And Tricks",
       "subTitle": "tips",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipi scing elit. Risus sapien ultricies pretium massa arcu commodo, facilisis tellus.",
-      "icon": "MdTipsAndUpdates"
+      "icon": "https://i.ibb.co/09qpYSd/tips.png"
    }
 ]
