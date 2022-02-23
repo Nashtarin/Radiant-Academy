@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import initializeFirebase from "../Firebase/firebase.init";
 import { getAuth, createUserWithEmailAndPassword, FacebookAuthProvider, GithubAuthProvider, getIdToken, updateProfile, signInWithPopup, signOut, onAuthStateChanged, signInWithEmailAndPassword, GoogleAuthProvider } from "firebase/auth";
+import { useRouter } from "next/router";
 
 initializeFirebase();
 const useFirebase = () => {
@@ -14,6 +15,7 @@ const useFirebase = () => {
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
     const facebookProvider = new FacebookAuthProvider();
+    const router = useRouter();
 
     const googleSignIn = () => {
         setIsLoading(true);
@@ -22,9 +24,7 @@ const useFirebase = () => {
                 // The signed-in user info.
                 const user = result.user;
                 setUser(user);
-                //history.replace('/');
-                // const destination = location?.state?.from || '/';
-                // history.replace(destination);
+                router.replace('/profile');
                 setAuthError('');
             })
             .catch((error) => {
@@ -41,9 +41,7 @@ const useFirebase = () => {
                 // The signed-in user info.
                 const user = result.user;
                 setUser(user);
-                //history.replace('/');
-                // const destination = location?.state?.from || '/';
-                // history.replace(destination);
+                router.replace('/profile');
                 setAuthError('');
             })
             .catch((error) => {
@@ -62,9 +60,7 @@ const useFirebase = () => {
                 // The signed-in user info.
                 const user = result.user;
                 setUser(user);
-                //history.replace('/');
-                // const destination = location?.state?.from || '/';
-                // history.replace(destination);
+                router.replace('/profile');
                 setAuthError('');
 
             })

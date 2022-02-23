@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useEffect } from "react";
 import CourseSection from "../../components/CourseComponents/CourseSection";
 
 // export const getServerSideProps = async () => {

@@ -6,11 +6,9 @@ import useAuth from '../../utilities/Hooks/useAuth';
 const LoginSection = () => {
     const { googleSignIn, githubSignIn, facebookSignIn } = useAuth();
 
-    //google login
-    const handleGoogleSignIn = () => {
-        googleSignIn();
+    const checkMarkValidation = () => {
+        //will do some validation here
     }
-
 
     return (
         <div className="flex flex-col items-center justify-center bg-gray-100">
@@ -36,7 +34,7 @@ const LoginSection = () => {
                         <div className="flex flex-col items-center mt-2">
                             <div className="w-64 flex items-center justify-between">
                                 <label className="flex items-center text-xs">
-                                    <input type="checkbox" name="remember" className="mr-1" checked />
+                                    <input type="checkbox" name="remember" className="mr-1" checked onChange={checkMarkValidation}/>
                                     Remember Me
                                 </label>
                                 <p className="text-xs">Forgot Password?</p>
@@ -56,7 +54,7 @@ const LoginSection = () => {
                             <button onClick={githubSignIn} className="w-full sm:w-3/5 md:w-4/5 border-2 border-white rounded-full px-8 py-2 mt-2 text-lg text-center flex items-center justify-center hover:bg-slate-100 hover:text-black">
                                 <FaGithub className="text-2xl mr-2" /> Github
                             </button>
-                            <button onClick={handleGoogleSignIn} className="w-full sm:w-3/5 md:w-4/5 border-2 border-white rounded-full px-8 py-2 mt-2 text-lg text-center flex items-center justify-center hover:bg-slate-100 hover:text-red-500">
+                            <button onClick={googleSignIn} className="w-full sm:w-3/5 md:w-4/5 border-2 border-white rounded-full px-8 py-2 mt-2 text-lg text-center flex items-center justify-center hover:bg-slate-100 hover:text-red-500">
                                 <FaGooglePlus className="text-2xl mr-2" /> Google
                             </button>
                         </div>
