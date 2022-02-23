@@ -2,9 +2,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const Footer = () => {
+    window.onscroll = (function () {
+        if (window.scrollY > 10) {
+            document.getElementById("sticky").classList.add("popup");
+        } else {
+            document.getElementById("sticky").classList.remove("popup");
+        }
+    });
+
     return (
         <div>
-            <div className="px-1 sm:px-10 md:px-20 pt-8 md:pt-20 pb-[28.5rem] sm:pb-[16rem] md:pb-[17rem] lg:pb-[13.5rem] h-[200px] bg-slate-200 block">
+            <div className="px-1 sm:px-10 md:px-20 pt-8 md:pt-20 pb-[28.5rem] sm:pb-[16rem] md:pb-[17rem] h-[200px] bg-slate-200 block">
                 <div className="grid grid-row-2 sm:grid-cols-[110px_minmax(300px,_1fr)] md:grid-cols-[100px_minmax(300px,_1fr)] lg:grid-cols-[200px_minmax(600px,_1fr)]">
                     <div className="flex justify-center items-start">
                         <Link href="/" passHref>
@@ -62,18 +70,30 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="h-[150px] sm:h-[60px] flex justify-around items-end px-5 md:px-12 lg:px-5 flex-col sm:flex-row" style={{ backgroundColor: '#32007E' }}>
-                <div className="flex justify-center items-center">
-                    <Image src="https://i.postimg.cc/W4PCStgG/search-logo.png" alt="Logo" width="90px" height="90px" className="mb-4" draggable="false" />
-                    <div className="px-4 pt-3 md:pt-5 lg:pt-7">
-                        <p className="text-white font-sm">Search for H2H coding competitions to win 100% bonus up to 100 Radiant points*</p>
+            <div className="sticky-footer w-full fixed left-0 right-0" id="sticky">
+                <style jsx global>{`
+                    .sticky-footer {
+                        bottom: -204px;
+                        -webkit-transition: bottom .2s ease-in-out;
+                        transition: bottom .2s ease-in-out;
+                    }
+                    .popup {
+                        bottom: calc(0px);
+                    }
+                `}</style>
+                  <div className="h-[150px] sm:h-[60px] flex justify-around items-end px-5 md:px-12 lg:px-5 flex-col sm:flex-row" style={{ backgroundColor: '#32007E' }}>
+                    <div className="flex justify-center items-center">
+                        <Image src="https://i.postimg.cc/W4PCStgG/search-logo.png" alt="Logo" width="90px" height="90px" className="mb-4" draggable="false" />
+                        <div className="px-4 pt-3 md:pt-5 lg:pt-7">
+                            <p className="text-white font-sm">Search for H2H coding competitions to win 100% bonus up to 100 Radiant points*</p>
+                        </div>
                     </div>
-                </div>
-                <div className="h-full flex items-center">
-                    <button className="px-4 md:px-8 py-2 text-md font-bold rounded-full shadow-md sm:w-[120px] md:w-[150px]  lg:w-full" style={{ backgroundColor: '#FFCA30' }}>
-                        <Link href="/course">Start Now!</Link>
-                    </button>
-                </div>
+                    <div className="h-full flex items-center">
+                        <button className="px-4 md:px-8 py-2 text-md font-bold rounded-full shadow-md sm:w-[120px] md:w-[150px]  lg:w-full" style={{ backgroundColor: '#FFCA30' }}>
+                            <Link href="/course">Start Now!</Link>
+                        </button>
+                    </div>
+                </div>`
             </div>
         </div >
     );
