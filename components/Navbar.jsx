@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const Navbar = () => {
     return (
@@ -12,7 +13,7 @@ const Navbar = () => {
                             </span></a>
                         </Link>
                     </div>
-                    <div className=" hidden px-2 mx-2 lg:flex pr-10">
+                    <div className="hidden px-2 mx-2 lg:flex pr-10">
                         <div className="flex items-center">
                             <Link href='/'>
                                 <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-2">HOME </a>
@@ -26,6 +27,38 @@ const Navbar = () => {
                             <Link passHref href="/register">
                                 <button className="btn border-0 px-7 py-2 rounded bg-rose-500 text-white transition duration-500 mx-3">FREE TRIAL</button>
                             </Link>
+                            <div className="flex-none dropdown dropdown-end mx-1 sm:mx-2 my-auto">
+                                <label tabIndex="0" className="btn btn-ghost btn-circle avatar hover:border-purple-800">
+                                    <div className="rounded-full">
+                                        <Image src="/img/people-3.png" alt="User Profile" width="100px" height="100px" draggable="false" />
+                                    </div>
+                                </label>
+                                <ul tabIndex="0" className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                                    <li>
+                                        <Link href="/profile">
+                                            <a className="justify-between">
+                                                Profile
+                                                <span className="badge">New</span>
+                                            </a>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="">
+                                            <a>Leader Board</a>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="">
+                                            <a>My Course</a>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <button>Logout</button>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <div className="flex-none lg:hidden dropdown dropdown-left">
