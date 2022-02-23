@@ -1,6 +1,6 @@
 import Head from "next/head";
 import React, { useEffect, useState } from 'react';
-import BrowseCategory from "../../components/ForumComponents/BrowseCategory";
+import BrowseCategorySection from "../../components/ForumComponents/BrowseCategorySection";
 import FeaturedTopicSection from '../../components/ForumComponents/FeaturedTopicSection';
 import TopicSearch from "../../components/ForumComponents/TopicSearch";
 
@@ -15,7 +15,7 @@ const index = () => {
 
       {/* FORUM CONTENTS GOES HERE (WITHOUT NAVBAR & FOOTER) */}
       <TopicSearch />
-      <BrowseCategory />
+      <BrowseCategorySection />
       <FeaturedTopicSection />
 
     </div>

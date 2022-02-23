@@ -4,7 +4,7 @@ import { BsSearch } from "react-icons/bs";
 const TopicSearch = () => {
     return (
         <section className='container mx-auto'>
-            <h1 className='text-5xl font-bold text-center my-5 text-violet-800'>
+            <h1 className='text-5xl font-bold text-center mt-12 mb-5 text-violet-800'>
                 Welcome to our forum
             </h1>
             <div className=''>
