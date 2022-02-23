@@ -7,9 +7,9 @@ const CounterSection = () => {
 
     return (
         <div className="h-full p-20">
-            <div className="container grid pb-10 px-5 lg:grid-cols-4 gap-2 h-full ">
+            <div className="container grid pb-10 px-5 lg:grid-cols-4 gap-2 h-full mx-auto">
                 <div className="flex justify-center">
-                    <div className="text-center px-3 sm:mb-5">
+                    <div className="text-center px-3 mb-8 sm:mb-3">
                         <h1 className="text-6xl font-bold mb-3">
                             20
                         </h1>
@@ -19,7 +19,7 @@ const CounterSection = () => {
                     </div>
                 </div>
                 <div className="flex justify-center">
-                    <div className="text-center px-3 sm:mb-5">
+                    <div className="text-center px-3 mb-8 sm:mb-3">
                         <h1 className="text-6xl font-bold mb-3">
                             {data.length}
                         </h1>
@@ -29,7 +29,7 @@ const CounterSection = () => {
                     </div>
                 </div>
                 <div className="flex justify-center">
-                    <div className="text-center px-3 sm:mb-5">
+                    <div className="text-center px-3 mb-8 sm:mb-3">
                         <h1 className="text-6xl font-bold mb-3">
                             5k+
                         </h1>
@@ -39,7 +39,7 @@ const CounterSection = () => {
                     </div>
                 </div>
                 <div className="flex justify-center">
-                    <div className="text-center px-3 sm:mb-5">
+                    <div className="text-center px-3 mb-3 sm:mb-3">
                         <h1 className="text-6xl font-bold mb-3">
                             2k+
                         </h1>

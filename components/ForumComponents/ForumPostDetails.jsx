@@ -2,8 +2,11 @@ import React from 'react';
 import Image from 'next/image';
 import { FaCalendarAlt, FaEye, FaHashtag, FaHeart } from "react-icons/fa";
 import ReviewSection from './ReviewSection';
+import RelatedTopicSection from './RelatedTopicSection';
 
-const ForumPostDetails = () => {
+const ForumPostDetails = ({forum}) => {
+    const { name, email, phone } = forum;
+
     return (
         <div>
             <div className="grid grid-rows-1 sm:grid-rows-none sm:gid-cols-2 lg:grid-cols-[minmax(600px,_1fr)_350px] gap-2 pt-10 pb-12 px-8 sm:px-20 md:px-20">
@@ -19,10 +22,10 @@ const ForumPostDetails = () => {
                     <div className="px-5 pb-5">
                         <div className="bg-slate-100 drop-shadow-md p-10 flex justify-center items-center flex-col rounded-lg">
                             <div>
-                                <Image src="/img/people-3.png" alt="User Profile Picture" width="100px" height="100px" />
+                                <Image src="/img/people-3.png" alt="User Profile Picture" width="100px" height="100px" draggable="false" />
                             </div>
                             <div className="mt-3">
-                                <h3 className="text-xl text-center">Author Name</h3>
+                                <h3 className="text-xl text-center">{name}</h3>
                                 <div>
                                     <p className="mt-2 flex items-center"><FaCalendarAlt /> &nbsp; Publishing Date</p>
                                     <p className="flex items-center"><FaHashtag /> &nbsp; Welcome, RadiantAcademy</p>
@@ -56,6 +59,7 @@ const ForumPostDetails = () => {
             <div className="px-12 lg:px-20">
                 <ReviewSection />
             </div>
+            <RelatedTopicSection />
         </div>
     );
 };

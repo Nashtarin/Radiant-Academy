@@ -9,6 +9,8 @@ import TalentSection from "../components/HomeComponents/TalentSection";
 import TestimonialSection from "../components/HomeComponents/TestimonialSection";
 import FeatureSection from "../components/HomeComponents/FeatureSection";
 import CounterSection from "../components/HomeComponents/CounterSection";
+import PrivacyPolicySection from "../components/HomeComponents/PrivacyPolicySection";
+import { BsArrowUpCircleFill } from 'react-icons/bs';
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -16,6 +18,14 @@ export default function Home() {
   useEffect(() => {
     dispatch(fetchCourses());
   }, [dispatch]);
+
+  window.onscroll = (function () {
+    if (window.scrollY > 10) {
+      document.getElementById("sticky").classList.add("popup");
+    } else {
+      document.getElementById("sticky").classList.remove("popup");
+    }
+  });
 
   return (
     <div>
@@ -26,14 +36,20 @@ export default function Home() {
       </Head>
 
       {/* HOMEPAGE CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
-        <HeroSection />
-        <FeatureSection />
-        <TalentSection />
-        <QuizSection />
-        <PackageSection />
-        <TestimonialSection />
-        <CounterSection />
+      <HeroSection />
+      <FeatureSection />
+      <TalentSection />
+      <QuizSection />
+      <PackageSection />
+      <TestimonialSection />
+      <CounterSection />
+      <PrivacyPolicySection />
 
+
+      {/* GO TOP BUTTON */}
+      {/* <button className="btn btn-ghost rounded-btn" id="sticky">
+        <BsArrowUpCircleFill style={{fontSize: 25}} />
+      </button> */}
     </div>
   )
 }
