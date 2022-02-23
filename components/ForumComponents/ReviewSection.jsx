@@ -31,7 +31,7 @@ const ReviewSection = () => {
                     <div className="p-2 sm:p-5 flex items-start">
                         <div className="px-2 pt-1.5 block w-[70px]">
                             <Image
-                                src="https://i.postimg.cc/4dNK0r0W/people-1.png"
+                                src="https://i.postimg.cc/mgXq8dJx/1645616273884.png"
                                 alt="User Picture"
                                 height="100px"
                                 width="100px"
@@ -61,7 +61,7 @@ const ReviewSection = () => {
                     <div className="p-2 sm:p-5 flex items-start">
                         <div className="px-2 pt-1.5 block w-[70px]">
                             <Image
-                                src="https://i.postimg.cc/26cqN0Rr/people-2.png"
+                                src="https://i.postimg.cc/xdXZ7vVX/1645616273853.png"
                                 alt="User Picture"
                                 height="100px"
                                 width="100px"

@@ -12,7 +12,7 @@ const TestimonialSection = () => {
                     <div>
                         <div className="grid place-content-center my-5">
                             <Image
-                                src="https://i.postimg.cc/4dNK0r0W/people-1.png"
+                                src="https://i.postimg.cc/mgXq8dJx/1645616273884.png"
                                 height="100"
                                 width="100"
                                 alt="User"
@@ -30,7 +30,7 @@ const TestimonialSection = () => {
                     <div>
                         <div className="grid place-content-center my-5">
                             <Image
-                                src="https://i.postimg.cc/26cqN0Rr/people-2.png"
+                                src="https://i.postimg.cc/xdXZ7vVX/1645616273853.png"
                                 height="100"
                                 width="100"
                                 alt="User"
@@ -46,7 +46,7 @@ const TestimonialSection = () => {
                     <div>
                         <div className="grid place-content-center my-5">
                             <Image
-                                src="https://i.postimg.cc/zfkb0JxL/people-3.png"
+                                src="https://i.postimg.cc/vZHk7RPL/1645616273912.png"
                                 height="100"
                                 width="100"
                                 alt="User"

@@ -24,7 +24,7 @@ const FeatureSection = () => {
                     <p className="text-center w-5/6 mx-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quo consectetur quis facere, pariatur quibusdam!</p>
                     <Link href="/quiz" passHref>
                         <p className="text-center text-1xl font-bold text-violet-600 my-4 flex justify-center items-center cursor-pointer">
-                            Learn More &nbsp; <FaArrowRight style={{ fontSize: '12px', marginTop: '4px' }} />
+                            Learn More &nbsp; <FaArrowRight style={{ fontSize: '12px', marginTop: '3px' }} />
                         </p>
                     </Link>
                 </div>
@@ -42,7 +42,7 @@ const FeatureSection = () => {
                     <p className="text-center w-5/6 mx-auto">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta eligendi, sequi voluptates odio architecto ex.</p>
                     <Link href="/codeeditor" passHref>
                         <p className="text-center text-1xl font-bold text-violet-600 my-4 flex justify-center items-center cursor-pointer">
-                            Learn More &nbsp; <FaArrowRight style={{ fontSize: '12px', marginTop: '4px' }} />
+                            Learn More &nbsp; <FaArrowRight style={{ fontSize: '12px', marginTop: '3px' }} />
                         </p>
                     </Link>
                 </div>
@@ -60,7 +60,7 @@ const FeatureSection = () => {
                     <p className="text-center w-5/6 mx-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur pariatur eaque velit praesentium nulla officiis!</p>
                     <Link href="/forum" passHref>
                         <p className="text-center text-1xl font-bold text-violet-600 my-4 flex justify-center items-center">
-                            Learn More &nbsp; <FaArrowRight style={{fontSize: '12px', marginTop: '4px'}} />
+                            Learn More &nbsp; <FaArrowRight style={{fontSize: '12px', marginTop: '3px'}} />
                         </p>
                     </Link>
                 </div>
