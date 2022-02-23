@@ -75,7 +75,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="sticky-footer w-full fixed left-0 right-0" id="sticky">
+            <div className="sticky-footer w-full fixed left-0 right-0 h-full" id="sticky">
                 <style jsx global>
                     {`
                         .sticky-footer {
