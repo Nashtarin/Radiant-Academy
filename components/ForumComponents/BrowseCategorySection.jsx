@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import {
-  BsPencil,
-  BsUmbrella
+  BsPencil
 } from "react-icons/bs";
 import Link from 'next/link';
-import category from "../../utilities/FakeData/category.json";
+import Image from 'next/image';
+import categoryData from "../../utilities/FakeData/category.json";
 
 const BrowseCategorySection = () => {
-  const [categoryData, setCategory] = useState([]);
+  const [category, setCategory] = useState([]);
 
   useEffect(() => {
-    setCategory(category)
+    setCategory(categoryData)
   }, []);
 
   return (
@@ -27,17 +27,24 @@ const BrowseCategorySection = () => {
 
         <div className='grid container mx-auto my-4 lg:grid-cols-3 md:grid-cols-2 xs:grid-cols-1 gap-4'>
           {
-            categoryData.map(category => (<div className='bg-slate-200 rounded-md drop-shadow-md' key={category.id}>
-              <div className='flex m-5 px-5'>
-                <span className='mt-1 mr-2 text-2xl'><BsUmbrella /></span>
-                <h1 className='font-bold text-lg'>{category.heading}</h1>
-              </div>
-              <p className='font-semifold text-base m-5 px-5'>{category.desc}</p>
-            </div>))
+            categoryData.map(category =>
+              <Link href="/forum/result-page" key={category.no} passHref>
+                <div className=' bg-slate-200 rounded-md drop-shadow-md cursor-pointer'>
+                  <div className='flex m-5 px-5'>
+                    <span className='mt-1 mr-2 text-2xl'>
+                      {category.icon}
+                    </span>
+                    <h1 className='font-bold text-lg'>{category.title}</h1>
+                  </div>
+                  <p className='font-semifold text-base m-5 px-5'>{category.desc}</p>
+                </div>
+              </Link>
+
+            )
           }
-        </div>
-      </div>
-    </section>
+        </div >
+      </div >
+    </section >
   );
 };
 

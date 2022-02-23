@@ -7,6 +7,7 @@ import {
     BsArrowRight
 } from "react-icons/bs";
 import Link from 'next/link';
+import moment from 'moment';
 
 const TopicCard = ({ forum }) => {
     const { no, title, desc, date, category, loves, views } = forum;
@@ -22,7 +23,7 @@ const TopicCard = ({ forum }) => {
                     <div className='grid sm:grid-rows-2 gap-y-1 lg:grid-cols-2 pt-3'>
                         <div>
                             <p className='flex items-center  font-semibold text-slate-700 col-span-2'>
-                                <span className='my-auto mr-1.5'><BsFillClockFill /></span> {date}
+                                <span className='my-auto mr-1.5'><BsFillClockFill /></span> {moment(date).fromNow()}
                             </p>
                         </div>
                         <div className='grid grid-cols-3'>
