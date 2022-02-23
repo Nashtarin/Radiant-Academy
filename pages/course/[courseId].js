@@ -1,38 +1,38 @@
 import Image from "next/image";
 
-export const getStaticPaths = async ()=>{
+export const getStaticPaths = async () => {
     const url = 'https://jsonplaceholder.typicode.com/posts';
     const res = await fetch(url);
     const data = await res.json();
 
-    const paths = data.map(course=>{
-        return{
+    const paths = data.map(course => {
+        return {
             params: {
                 courseId: course.id.toString(),
             },
         };
     });
 
-    return{
+    return {
         paths,
         fallback: false,
     }
 }
 
-export const getStaticProps = async (context)=>{
+export const getStaticProps = async (context) => {
     const id = context.params.courseId;
     const url = `https://jsonplaceholder.typicode.com/posts/${id}`; //this is not an api
     const res = await fetch(url);
     const course = await res.json();
 
-    return{
-        props:{
+    return {
+        props: {
             course,
         },
     }
 }
-const singleCourse = ({course}) => {
-    const {title,id,body} = course;
+const singleCourse = ({ course }) => {
+    const { title, id, body } = course;
 
     return (
         <div className="border-2 rounded-lg text-center hover:bg-violet-200 pb-6">

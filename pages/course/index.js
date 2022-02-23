@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Course = ({ course }) => {
-    const { image, price, subtitle, title, url, isbn13 } = course;
+    const { image, price, subtitle, title, url,  } = course;
     // const {id,title,body} = course;
-    console.log(course)
+
     return (
         <div className=" rounded-lg text-center hover:shadow-2xl hover:shadow-slate-900 pb-6">
             {/* <Image 
@@ -12,7 +12,7 @@ const Course = ({ course }) => {
             height="400"
             width="400"
             /> */}
-            <img src={image} width="100%" />
+            <Image src={image} width="100%" alt="Course Cover" />
             <h1 className='text-2xl	font-bold text-violet-900 mb-5'>{title}</h1>
             <h1 className="mb-6">{subtitle}</h1>
             {/* <Link href={`/course/${id}`}>
