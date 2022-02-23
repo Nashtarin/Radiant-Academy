@@ -11,7 +11,7 @@ const CourseSection = () => {
     return (
         <div className='container mx-auto'>
             <h1 className='text-5xl	font-bold text-violet-900 mb-5 pt-14 text-center'>Our Awesome Courses</h1>
-            {/* <h2 className='text-center text-2xl pb-8'> Course found: {data.books?.length}</h2> */}
+            {/* <h2 className='text-center text-2xl pb-8'> Course found: {data.books?}</h2> */}
             <div className="grid w-5/6 mx-auto my-4 grid-rows-auto lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
                 {data.books.map(course => <CourseCard
                     key={course.id}
