@@ -18,7 +18,7 @@ const TopicCard = ({ forum }) => {
         <div className='grid grid-rows-1 sm:grid-cols-3 my-5 py-5 mx-5 bg-slate-100 rounded-md shadow-md'>
             <div className='col-span-2 px-4 sm:px-8'>
                 <h1 className='text-2xl font-bold text-violet-800 my-2'>{title}</h1>
-                <p className='text-slate-500'>{desc}</p>
+                <p className='text-slate-500'>{desc.split(' ').slice(0, 40).toString().replace(/,/g, ' ')}...</p>
                 <div className='w-5/6'>
                     <div className='grid sm:grid-rows-2 gap-y-1 lg:grid-cols-2 pt-3'>
                         <div>
