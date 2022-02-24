@@ -1,16 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import forum from "../../utilities/FakeData/forum.json";
 import TopicSearch from '../ForumComponents/TopicSearch';
 import BlogCard from './BlogCard';
 
 const BlogSection = ({blogs}) => {
-    const [forumData, isForumData] = useState([]);
-    console.log('blogs',blogs)
-
-    // useEffect(() => {
-    //     isForumData(forum);
-    // }, []);
-
+    // console.log('blogs',blogs)
     return (
         <div>
             <div>
