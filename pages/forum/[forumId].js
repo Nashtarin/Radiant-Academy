@@ -23,12 +23,12 @@ const SingleForumPage = ({forum}) => {
 // This function gets called at build time
 export async function getStaticPaths() {
     // Call an external API endpoint to get forums
-    const res = await fetch('https://jsonplaceholder.typicode.com/users')
+    const res = await fetch('http://localhost:3000/api/forums')
     const forums = await res.json()
   
     // Get the paths we want to pre-render based on forums
-    const paths = forums.map((forum) => ({
-      params: { forumId: forum.id.toString() },
+    const paths = forums.data.map((forum) => ({
+      params: { forumId: forum._id.toString() },
     }))
   
     // We'll pre-render only these paths at build time.
@@ -39,7 +39,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
     // params contains the forum `id`.
     // If the route is like /forums/1, then params.id is 1
-    const res = await fetch(`https://jsonplaceholder.typicode.com/users/${params.forumId}`)
+    const res = await fetch(`http://localhost:3000/api/forums/${params.forumId}`)
     const forum = await res.json()
   
     // Pass forum data to the page via props
