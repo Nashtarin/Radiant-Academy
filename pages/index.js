@@ -17,9 +17,9 @@ export default function Home() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // dispatch(fetchCategories());
     dispatch(fetchCourses());
     dispatch(fetchForums());
+    dispatch(fetchCategories());
   }, [dispatch]);
 
   return (
