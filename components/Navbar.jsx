@@ -1,9 +1,11 @@
 import Link from "next/link";
 import useAuth from "../utilities/Hooks/useAuth";
 import Image from "next/image";
+import { FaUserCircle } from "react-icons/fa"
 
 const Navbar = () => {
-    const { user, logout } = useAuth()
+    const { user, logout } = useAuth();
+
     return (
         <>
             <nav className="sticky top-0 w-full z-50 text-gray-800">
@@ -33,7 +35,16 @@ const Navbar = () => {
                                 <div className="flex-none dropdown dropdown-end mx-1 sm:mx-2 my-auto">
                                     <label tabIndex="0" className="btn btn-ghost btn-circle avatar hover:border-purple-800">
                                         <div className="rounded-full">
-                                            <Image src="https://i.postimg.cc/vZHk7RPL/1645616273912.png" alt="User Profile" width="100px" height="100px" draggable="false" />
+                                            {
+                                                user?.photoURL ? <Image src={user?.photoURL} alt="User Profile" width="90px" height="90px" draggable="false" /> :
+                                                    <div className="flex-none my-auto pr-2 sm:mr-3 lg:mr-12">
+                                                        <label tabIndex="0" className="btn btn-ghost btn-circle avatar hover:bg-transparent">
+                                                            <div className="rounded-full">
+                                                                <FaUserCircle className="text-4xl" />
+                                                            </div>
+                                                        </label>
+                                                    </div>
+                                            }
                                         </div>
                                     </label>
                                     <ul tabIndex="0" className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">

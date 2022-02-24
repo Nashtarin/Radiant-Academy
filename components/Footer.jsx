@@ -109,16 +109,16 @@ const Footer = () => {
             <button className="stickyGoToTop fixed right-5 btn btn-ghost rounded-btn m-5" id="sticky2" onClick={topFunction}>
                 <style jsx global>
                     {`
-                .stickyGoToTop {
-                    bottom: -60px;
-                    -webkit-transition: bottom .2s ease-in-out;
-                    transition: bottom .2s ease-in-out;
-                    z-index: 9999;
-                }
-                .popup2 {
-                    bottom: 60px;
-                }
-            `}
+                        .stickyGoToTop {
+                            bottom: -60px;
+                            -webkit-transition: bottom .2s ease-in-out;
+                            transition: bottom .2s ease-in-out;
+                            z-index: 9999;
+                        }
+                        .popup2 {
+                            bottom: 60px;
+                        }
+                    `}
                 </style>
                 <BsArrowUpCircleFill style={{ fontSize: 25 }} />
             </button>
