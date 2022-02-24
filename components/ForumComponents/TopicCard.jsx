@@ -10,7 +10,7 @@ import Link from 'next/link';
 import moment from 'moment';
 
 const TopicCard = ({ forum }) => {
-    const { _id, title, desc, date, category, loves, views } = forum;
+    const { _id, title, desc, createdAt, category, loves, views } = forum;
 
     return (
         <div className='grid grid-rows-1 sm:grid-cols-3 my-5 mx-5 bg-slate-100 rounded-md shadow-md'>
@@ -21,7 +21,7 @@ const TopicCard = ({ forum }) => {
                     <div className='grid sm:grid-rows-2 gap-y-1 lg:grid-cols-2 pt-3'>
                         <div>
                             <p className='flex items-center font-semibold text-slate-700'>
-                                <span className='my-auto mr-1.5'><BsFillClockFill /></span> {moment(date).fromNow()}
+                                <span className='my-auto mr-1.5'><BsFillClockFill /></span> {moment(createdAt).fromNow()}
                             </p>
                         </div>
                         <div className='grid grid-cols-3'>

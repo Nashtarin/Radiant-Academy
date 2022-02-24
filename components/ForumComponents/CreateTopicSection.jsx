@@ -53,7 +53,7 @@ const CreateTopicSection = () => {
     const categories = useSelector((state) => state.categories.categoriesList);
 
     const date = new Date().toISOString();
-    const [postData, setPostData] = useState({ title: '', category: '', desc: '', author: 'Radiant Admin', authorImg: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6XZtZr6e_zPRkbWX6o9S-KeNbUbzgw9qWDA&usqp=CAU', loves: 0,  views: 0, status: false, featured: false, date: `${date}` }); 
+    const [postData, setPostData] = useState({ title: '', category: '', desc: '', author: 'Radiant Admin', authorImg: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6XZtZr6e_zPRkbWX6o9S-KeNbUbzgw9qWDA&usqp=CAU', loves: 0,  views: 0, status: false, featured: false }); 
     // console.log(postData);
 
     // const postTopic = async (postData) => {
@@ -82,7 +82,7 @@ const CreateTopicSection = () => {
     }
 
     const clear = () => {
-        setPostData({ title: '', category: '', desc: '', author: '', authorImg: '', loves: 0,  views: 0, status: false, featured: false, date: `${date}` });
+        setPostData({ title: '', category: '', desc: '', author: '', authorImg: '', loves: 0,  views: 0, status: false, featured: false });
     };
 
     return (

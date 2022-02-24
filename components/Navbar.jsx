@@ -28,7 +28,7 @@ const Navbar = () => {
                             <Link href="/forum">
                                 <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-3">FORUM </a>
                             </Link>
-                            <Link href="/codeeditor">
+                            <Link href="/code-editor">
                                 <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-3">PLAYGROUND </a>
                             </Link>
                             <Link passHref href="/register">
@@ -97,7 +97,7 @@ const Navbar = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/codeeditor">
+                                <Link href="/code-editor">
                                     <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-3">PLAYGROUND </a>
                                 </Link>
                             </li>

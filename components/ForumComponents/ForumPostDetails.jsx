@@ -7,7 +7,7 @@ import Link from 'next/link';
 import moment from 'moment';
 
 const ForumPostDetails = ({forum}) => {
-    const { _id, title, author, authorImg, category, date, desc, loves, views } = forum;
+    const { _id, title, author, authorImg, category, createdAt, desc, loves, views } = forum;
 
     return (
         <div>
@@ -34,7 +34,7 @@ const ForumPostDetails = ({forum}) => {
                             <div className="mt-3">
                                 <h3 className="text-xl text-center">{author}</h3>
                                 <div>
-                                    <p className="mt-2 flex items-center"><FaCalendarAlt /> &nbsp; {moment(date).fromNow()}</p>
+                                    <p className="mt-2 flex items-center"><FaCalendarAlt /> &nbsp; {moment(createdAt).fromNow()}</p>
                                     <p className="flex items-center"><FaHashtag /> &nbsp; {category}</p>
                                     <p className="flex items-center"><FaEye style={{color: ''}} /> &nbsp; {views}</p>
                                     <p className="flex items-center"><FaHeart style={{color: 'red'}} /> &nbsp; {loves}</p>
