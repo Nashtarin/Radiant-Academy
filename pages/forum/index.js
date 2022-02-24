@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import BrowseCategorySection from "../../components/ForumComponents/BrowseCategorySection";
 import FeaturedTopicSection from '../../components/ForumComponents/FeaturedTopicSection';
 import TopicSearch from "../../components/ForumComponents/TopicSearch";
@@ -14,6 +14,11 @@ const index = ({forums}) => {
       </Head>
 
       {/* FORUM CONTENTS GOES HERE (WITHOUT NAVBAR & FOOTER) */}
+      <div className='container mx-auto'>
+        <h1 className='text-5xl font-bold text-center mt-12 mb-5 text-violet-800 px-4'>
+          Welcome to our forum
+        </h1>
+      </div>
       <TopicSearch />
       <BrowseCategorySection />
       <FeaturedTopicSection forums={forums}/>

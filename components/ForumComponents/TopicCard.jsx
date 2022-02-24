@@ -12,17 +12,15 @@ import moment from 'moment';
 const TopicCard = ({ forum }) => {
     const { _id, title, desc, date, category, loves, views } = forum;
 
-    // flex-auto md:space-x-10 my-2 md:flex-row
-
     return (
-        <div className='grid grid-rows-1 sm:grid-cols-3 my-5 py-5 mx-5 bg-slate-100 rounded-md shadow-md'>
+        <div className='grid grid-rows-1 sm:grid-cols-3 my-5 mx-5 bg-slate-100 rounded-md shadow-md'>
             <div className='col-span-2 px-4 sm:px-8'>
                 <h1 className='text-2xl font-bold text-violet-800 my-2'>{title}</h1>
                 <p className='text-slate-500'>{desc.split(' ').slice(0, 40).toString().replace(/,/g, ' ')}...</p>
                 <div className='w-5/6'>
                     <div className='grid sm:grid-rows-2 gap-y-1 lg:grid-cols-2 pt-3'>
                         <div>
-                            <p className='flex items-center  font-semibold text-slate-700 col-span-2'>
+                            <p className='flex items-center font-semibold text-slate-700'>
                                 <span className='my-auto mr-1.5'><BsFillClockFill /></span> {moment(date).fromNow()}
                             </p>
                         </div>

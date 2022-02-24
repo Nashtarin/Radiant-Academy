@@ -11,7 +11,7 @@ const BrowseCategorySection = () => {
   return (
     <section className='container mx-auto px-2 lg:px-4'>
       <div className='container mx-auto px-5'>
-        <h1 className='text-5xl font-bold text-center mt-[5rem] mb-8 text-violet-800'>Browse By Category</h1>
+        <h1 className='text-4xl font-bold text-center mt-[5rem] mb-8 text-violet-800'>Browse By Category</h1>
         <Link href="/forum/create-topic" passHref>
           <button className='rounded-md bg-rose-500 text-white font-semibold px-4 py-2 hover:bg-slate-700 duration-300 inline-flex'>
             {/* this button will link to the forum post page if there is a registered user */}
