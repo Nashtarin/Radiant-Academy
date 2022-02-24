@@ -22,6 +22,7 @@ const CounterSection = () => {
                     <div className="text-center px-3 mb-8 sm:mb-3">
                         <h1 className="text-6xl font-bold mb-3">
                             {/* {data.length} */}
+                            20
                         </h1>
                         <h3 className="text-2xl font-bold text-purple-900">
                             Total Course
