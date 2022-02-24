@@ -60,6 +60,32 @@ export const topicView = createAsyncThunk(
     }
 )
 
+export const topicReact = createAsyncThunk(
+    'forum/topicReact',
+    async (forum) => {
+        let url = `https://still-peak-02811.herokuapp.com/reaction/${forum._id}`;
+        const response = await fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(forum)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.modifiedCount > 0){
+                return forum
+            }else{
+                console.log('No response!');
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+        return response
+    }
+)
+
 const forumSlice = createSlice({
     name: 'forum',
     initialState: {
@@ -88,6 +114,11 @@ const forumSlice = createSlice({
 
         builder.addCase(topicView.fulfilled, (state, action) => {
             // state.forumsList = state.forumsList.map(forum => forum._id === action.payload._id ? {...forum, views: forum.views + 1 } : forum);
+            state.status = 'success';
+        })
+
+        builder.addCase(topicReact.fulfilled, (state, action) => {
+            // state.projectsList = state.projectsList.map(forum => forum._id === action.payload._id ? {...forum, loves: forum.loves + 1 } : forum);
             state.status = 'success';
         })
     },

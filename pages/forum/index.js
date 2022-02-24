@@ -1,5 +1,6 @@
 import Head from "next/head";
 import React from 'react';
+import Script from 'next/script';
 import BrowseCategorySection from "../../components/ForumComponents/BrowseCategorySection";
 import FeaturedTopicSection from '../../components/ForumComponents/FeaturedTopicSection';
 import TopicSearch from "../../components/ForumComponents/TopicSearch";
@@ -12,6 +13,8 @@ const index = ({forums}) => {
         <meta name="Your learning partner" content="Best learning app for the curious learners" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <Script src="https://kit.fontawesome.com/9dbb72da13.js" />
 
       {/* FORUM CONTENTS GOES HERE (WITHOUT NAVBAR & FOOTER) */}
       <div className='container mx-auto'>

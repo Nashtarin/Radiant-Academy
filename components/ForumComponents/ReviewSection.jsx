@@ -131,6 +131,10 @@ const ReviewSection = ({forum}) => {
                     </div>
                 </div>
             </div >
+            <Toaster
+                position="top-center"
+                reverseOrder={false}
+            />
         </div>
     );
 };
