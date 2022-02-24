@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import forum from "../../utilities/FakeData/forum.json";
-import TopicCard from '../ForumComponents/TopicCard';
 import TopicSearch from '../ForumComponents/TopicSearch';
 import BlogCard from './BlogCard';
 
@@ -9,8 +8,7 @@ const BlogSection = () => {
 
     useEffect(() => {
         isForumData(forum);
-    }, [])
-
+    }, []);
 
     return (
         <div>
@@ -21,7 +19,7 @@ const BlogSection = () => {
                 <div className="pt-5">
                     <TopicSearch />
                 </div>
-                <div className="grid grid-rows-1 px-20 pt-5 p-20">
+                <div className="grid grid-rows-1 px-1 sm:px-10 md:px-20 pt-5 p-20">
                     <div>
                         {
                             forumData.map(forum => <BlogCard
