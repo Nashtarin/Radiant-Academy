@@ -1,10 +1,18 @@
 import Head from "next/head";
 import Script from 'next/script';
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import ForumPostDetails from "../../components/ForumComponents/ForumPostDetails";
 import RelatedTopicSection from "../../components/ForumComponents/RelatedTopicSection";
 import ReviewSection from "../../components/ForumComponents/ReviewSection";
+import { topicView } from "../../utilities/redux/slices/forumSlice";
 
 const SingleForumPage = ({forum}) => {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(topicView(forum))
+    }, [forum]);
+
     return (
         <div>
             <Head>

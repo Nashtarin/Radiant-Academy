@@ -48,6 +48,18 @@ export const topicCreate = createAsyncThunk(
     }
 )
 
+export const topicView = createAsyncThunk(
+    'forum/topicView',
+    async (forum) => {
+        try {
+            const response = await axios.put("http://localhost:3000/api/forums", forum);
+            return response
+        } catch (error) {
+            console.log(error);
+        }
+    }
+)
+
 const forumSlice = createSlice({
     name: 'forum',
     initialState: {
@@ -71,6 +83,11 @@ const forumSlice = createSlice({
 
         builder.addCase(topicCreate.fulfilled, (state, action) => {
             // state.forumsList = [...state.forumsList, action.payload];
+            state.status = 'success';
+        })
+
+        builder.addCase(topicView.fulfilled, (state, action) => {
+            // state.forumsList = state.forumsList.map(forum => forum._id === action.payload._id ? {...forum, views: forum.views + 1 } : forum);
             state.status = 'success';
         })
     },

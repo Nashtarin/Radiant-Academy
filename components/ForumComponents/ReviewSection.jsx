@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import moment from 'moment';
 import { addReview } from '../../utilities/redux/slices/reviewSlice';
 import { useDispatch } from 'react-redux';
+import toast, { Toaster } from 'react-hot-toast';
 
 const ReviewSection = ({forum}) => {
     const { _id, author, authorImg } = forum;
@@ -38,22 +39,22 @@ const ReviewSection = ({forum}) => {
     const dispatch = useDispatch();
     const commentRef = useRef();
     const postReview = (e) => {
-        // const loading = toast.loading('Please wait ...');
-        // toast.dismiss(loading);
+        const loading = toast.loading('Please wait ...');
+        toast.dismiss(loading);
         const comment = commentRef.current.value;
         const forumId = _id;
         const status = true;
 
         const reviewData = { forumId, author, authorImg, comment, rating, status };
         if(dispatch(addReview(reviewData))){
-            // toast.dismiss(loading);
-            // toast.success("Successfully added your review!", {
-            //     position: "bottom-center"
-            // });
+            toast.dismiss(loading);
+            toast.success("Successfully added your review!", {
+                position: "bottom-center"
+            });
             e.target.reset();
         }else{
-            // toast.dismiss(loading);
-            // toast.error('Something went wrong!');
+            toast.dismiss(loading);
+            toast.error('Something went wrong!');
         }
 
         e.preventDefault();
@@ -62,7 +63,7 @@ const ReviewSection = ({forum}) => {
     return (
         <div className="px-12 lg:px-20">
             <div className="lg:px-12 pb-10 h-full">
-                <button className="px-8 py-2 text-white rounded-lg text-lg mb-4" style={{ backgroundColor: '#F05133' }}>Review (2)</button>
+                <button className="px-8 py-2 text-white rounded-lg text-lg mb-4" style={{ backgroundColor: '#F05133' }}>Review ({reviews.length})</button>
                 <div className="bg-slate-100 pb-12">
                     {/* Display Comment */}
                     <div>
