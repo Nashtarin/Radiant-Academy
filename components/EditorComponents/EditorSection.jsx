@@ -1,11 +1,11 @@
 import dynamic from 'next/dynamic'
 import { useState } from 'react'
 
-const Editor = dynamic(() => import('./Editor'), {
+const EditorBox = dynamic(() => import('./EditorBox'), {
   ssr: false,
 })
 
-export default function App() {
+export default function EditorSection() {
 
   const [html, setHtml] = useState('')
   const [css, setCss] = useState('')
@@ -22,19 +22,19 @@ export default function App() {
   return (
     <>
       <div className="pane top=pane flex">
-        <Editor
+        <EditorBox
           language="xml"
           displayName="HTML"
           value={html}
           onChange={setHtml}
         />
-        <Editor
+        <EditorBox
           language="css"
           displayName="CSS"
           value={css}
           onChange={setCss}
         />
-        <Editor
+        <EditorBox
           language="javascript"
           displayName="JS"
           value={js}

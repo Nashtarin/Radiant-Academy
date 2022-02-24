@@ -5,7 +5,7 @@ import 'codemirror/mode/xml/xml'
 import 'codemirror/theme/material.css'
 import { Controlled as ControlledEditor } from 'react-codemirror2'
 
-export default function Editor(props) {
+export default function EditorBox(props) {
     const {
         language,
         displayName,
