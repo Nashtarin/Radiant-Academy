@@ -7,7 +7,7 @@ import Link from 'next/link';
 import moment from 'moment';
 
 const ForumPostDetails = ({forum}) => {
-    const { title, author, authorImg, category, date, desc, loves, views } = forum;
+    const { _id, title, author, authorImg, category, date, desc, loves, views } = forum;
 
     return (
         <div>
@@ -64,7 +64,7 @@ const ForumPostDetails = ({forum}) => {
                 </div>
             </div>
             <div className="px-12 lg:px-20">
-                <ReviewSection />
+                <ReviewSection id={_id}/>
             </div>
             <RelatedTopicSection />
         </div>

@@ -5,11 +5,13 @@ import storage from 'redux-persist/lib/storage';
 import courseReducer from './slices/courseSlice';
 import forumReducer from './slices/forumSlice';
 import categoryReducer from './slices/categorySlice';
+import reviewReducer from './slices/reviewSlice';
 
 const rootReducer = combineReducers({
   courses: courseReducer,
   forums: forumReducer,
   categories: categoryReducer,
+  reviews: reviewReducer,
 })
 
 const persistConfig = {

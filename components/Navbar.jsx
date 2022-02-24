@@ -29,7 +29,7 @@ const Navbar = () => {
                                 <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-3">FORUM </a>
                             </Link>
                             <Link href="/codeeditor">
-                                <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-3">CODE EDITOR </a>
+                                <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-3">PLAYGROUND </a>
                             </Link>
                             <Link passHref href="/register">
                                 <button className="btn border-0 px-7 py-2 rounded bg-rose-500 text-white transition duration-500 mx-3">FREE TRIAL</button>
@@ -94,6 +94,11 @@ const Navbar = () => {
                             <li>
                                 <Link href="/forum">
                                     <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-3">FORUM </a>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/codeeditor">
+                                    <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-3">PLAYGROUND </a>
                                 </Link>
                             </li>
                             <li className="text-white mt-3">
