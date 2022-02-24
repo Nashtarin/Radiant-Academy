@@ -9,30 +9,26 @@ import {
 import Link from 'next/link';
 import moment from 'moment';
 
-const TopicCard = ({ forum }) => {
+const BlogCard = ({ forum }) => {
     const { no, title, desc, date, category, loves, views } = forum;
 
     return (
         <div className='grid grid-rows-1 sm:grid-cols-3 my-5 mx-5 bg-slate-100 rounded-md shadow-md'>
             <div className='col-span-2 px-4 sm:px-8'>
-                <h1 className='text-2xl font-bold text-violet-800 my-2'>{title}</h1>
-                <p className='text-slate-500'>{desc}</p>
+                <h1 className='text-2xl font-bold text-violet-800 mt-4'>
+                    {title}
+                </h1>
+                <h3 className="text-md mb-2 text-stone-400">
+                    author
+                </h3>
+                <p className='text-slate-500'>
+                    {desc}
+                </p>
                 <div className='w-5/6'>
-                    <div className='grid sm:grid-rows-2 gap-y-1 lg:grid-cols-2 pt-3'>
+                    <div className='grid sm:grid-rows-2 gap-y-1 lg:grid-cols-1 pt-3'>
                         <div>
                             <p className='flex items-center font-semibold text-slate-700'>
                                 <span className='my-auto mr-1.5'><BsFillClockFill /></span> {moment(date).fromNow()}
-                            </p>
-                        </div>
-                        <div className='grid grid-cols-3'>
-                            <p className='flex items-center font-semibold text-slate-700 mr-5'>
-                                <span className='my-auto'><BsHash /></span>{category}
-                            </p>
-                            <p className='flex justify-center items-center font-semibold text-slate-700 mr-5'>
-                                <span className='my-auto mr-1'><BsEyeFill /></span>{views}
-                            </p>
-                            <p className='flex items-center font-semibold text-slate-700 mr-5'>
-                                <span className='my-auto mr-1 text-rose-500'><BsHeartFill /></span>{loves}
                             </p>
                         </div>
                     </div>
@@ -49,4 +45,4 @@ const TopicCard = ({ forum }) => {
     );
 };
 
-export default TopicCard;
+export default BlogCard;
