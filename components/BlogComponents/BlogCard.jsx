@@ -7,7 +7,7 @@ import Link from 'next/link';
 import moment from 'moment';
 
 const BlogCard = ({ forum }) => {
-    const { no, title, desc, date, category, loves, views } = forum;
+    const { title, date } = forum;
 
     return (
         <div className='grid grid-rows-1 sm:grid-cols-3 my-5 mx-5 bg-slate-100 rounded-md shadow-md'>
