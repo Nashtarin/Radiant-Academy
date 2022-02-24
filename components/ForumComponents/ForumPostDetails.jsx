@@ -25,7 +25,7 @@ const ForumPostDetails = ({forum}) => {
                         <div className="bg-slate-100 drop-shadow-md p-10 flex justify-center items-center flex-col rounded-lg">
                             <div>
                                 <Image
-                                    src="https://i.postimg.cc/vZHk7RPL/1645616273912.png"
+                                    src={authorImg}
                                     alt="User Profile Picture"
                                     width="100px"
                                     height="100px"
@@ -63,10 +63,6 @@ const ForumPostDetails = ({forum}) => {
                     </div>
                 </div>
             </div>
-            <div className="px-12 lg:px-20">
-                <ReviewSection id={_id}/>
-            </div>
-            <RelatedTopicSection />
         </div>
     );
 };

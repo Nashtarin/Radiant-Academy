@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Script from 'next/script';
 import ForumPostDetails from "../../components/ForumComponents/ForumPostDetails";
+import RelatedTopicSection from "../../components/ForumComponents/RelatedTopicSection";
+import ReviewSection from "../../components/ForumComponents/ReviewSection";
 
 const SingleForumPage = ({forum}) => {
     return (
@@ -15,6 +17,8 @@ const SingleForumPage = ({forum}) => {
 
             {/* SINGLE FORUM CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
             <ForumPostDetails forum={forum}/>
+            <ReviewSection forum={forum}/>
+            <RelatedTopicSection />
             
         </div>
     );

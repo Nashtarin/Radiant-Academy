@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 export const fetchReviews = createAsyncThunk(
     'review/fetchReviews',
@@ -6,6 +7,23 @@ export const fetchReviews = createAsyncThunk(
       const response = await fetch('http://localhost:3000/api/reviews')
       .then(res => res.json())
       return response
+    }
+)
+
+export const addReview = createAsyncThunk(
+    'review/addReview',
+    async (review) => {       
+        try {
+            const res = await axios.post("http://localhost:3000/api/reviews", review);
+
+        if (res.status === 200) {
+            console.log(res);
+            return res
+        }
+    
+        } catch (error) {
+            console.log(error);
+        }
     }
 )
 
@@ -28,6 +46,11 @@ const reviewSlice = createSlice({
         builder.addCase(fetchReviews.fulfilled, (state, action) => {
           state.reviewsList = action.payload;
           state.status = 'success';
+        })
+
+        builder.addCase(addReview.fulfilled, (state, action) => {
+            // state.reviewsList = [...state.reviewsList, action.payload];
+            state.status = 'success';
         })
     },
 });

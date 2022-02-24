@@ -40,13 +40,8 @@ export const topicCreate = createAsyncThunk(
     'forum/topicCreate',
     async (forum) => {
         try {
-            const res = await axios.post("http://localhost:3000/api/forums", forum);
-
-        if (res.status === 200) {
-            console.log(res);
-            return res
-        }
-    
+            const response = await axios.post("http://localhost:3000/api/forums", forum);
+            return response
         } catch (error) {
             console.log(error);
         }
