@@ -1,9 +1,11 @@
 import Link from "next/link";
 import useAuth from "../utilities/Hooks/useAuth";
 import Image from "next/image";
+import { FaUserCircle } from "react-icons/fa"
 
 const Navbar = () => {
-    const {user,logout}=useAuth()
+    const { user, logout } = useAuth();
+
     return (
         <>
             <nav className="sticky top-0 w-full z-50 text-gray-800">
@@ -29,35 +31,44 @@ const Navbar = () => {
                             <Link passHref href="/register">
                                 <button className="btn border-0 px-7 py-2 rounded bg-rose-500 text-white transition duration-500 mx-3">FREE TRIAL</button>
                             </Link>
-                            { user.email &&
-                            <div className="flex-none dropdown dropdown-end mx-1 sm:mx-2 my-auto">
-                                <label tabIndex="0" className="btn btn-ghost btn-circle avatar hover:border-purple-800">
-                                    <div className="rounded-full">
-                                        <Image src="/img/people-3.png" alt="User Profile" width="100px" height="100px" draggable="false" />
-                                    </div>
-                                </label>
-                                <ul tabIndex="0" className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-                                    <li>
-                                        <Link href="/profile">
-                                            <a className="justify-between">
-                                                Profile
-                                                <span className="badge">New</span>
+                            {user.email &&
+                                <div className="flex-none dropdown dropdown-end mx-1 sm:mx-2 my-auto">
+                                    <label tabIndex="0" className="btn btn-ghost btn-circle avatar hover:border-purple-800">
+                                        <div className="rounded-full">
+                                            {
+                                                user?.photoURL ? <Image src={user?.photoURL} alt="User Profile" width="90px" height="90px" draggable="false" /> :
+                                                    <div className="flex-none my-auto pr-2 sm:mr-3 lg:mr-12">
+                                                        <label tabIndex="0" className="btn btn-ghost btn-circle avatar hover:bg-transparent">
+                                                            <div className="rounded-full">
+                                                                <FaUserCircle className="text-4xl" />
+                                                            </div>
+                                                        </label>
+                                                    </div>
+                                            }
+                                        </div>
+                                    </label>
+                                    <ul tabIndex="0" className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                                        <li>
+                                            <Link href="/profile">
+                                                <a className="justify-between">
+                                                    Profile
+                                                    <span className="badge">New</span>
+                                                </a>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link href="/my-course">
+                                                <a>My Course</a>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <a>
+                                                <button onClick={logout}>Logout</button>
                                             </a>
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/my-course">
-                                            <a>My Course</a>
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <a>
-                                            <button onClick={logout}>Logout</button>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                         }
+                                        </li>
+                                    </ul>
+                                </div>
+                            }
                         </div>
                     </div>
                     <div className="flex-none lg:hidden dropdown dropdown-left">

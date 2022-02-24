@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { FaCalendarAlt, FaEye, FaHashtag, FaHeart } from "react-icons/fa";
 import ReviewSection from './ReviewSection';
 import RelatedTopicSection from './RelatedTopicSection';
+import Link from 'next/link';
 
 const ForumPostDetails = ({forum}) => {
     const { author, authorImg, category, date, desc, loves, views } = forum;
@@ -22,7 +23,12 @@ const ForumPostDetails = ({forum}) => {
                     <div className="px-5 pb-5">
                         <div className="bg-slate-100 drop-shadow-md p-10 flex justify-center items-center flex-col rounded-lg">
                             <div>
-                                <Image src="/img/people-3.png" alt="User Profile Picture" width="100px" height="100px" draggable="false" />
+                                <Image
+                                    src="https://i.postimg.cc/vZHk7RPL/1645616273912.png"
+                                    alt="User Profile Picture"
+                                    width="100px"
+                                    height="100px"
+                                    draggable="false" />
                             </div>
                             <div className="mt-3">
                                 <h3 className="text-xl text-center">{author}</h3>
@@ -44,12 +50,12 @@ const ForumPostDetails = ({forum}) => {
                                 <div className="my-3">
                                     <h3 className="text-xl">Read About Facebook</h3>
                                     <p className="text-sm my-1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste, maiores.</p>
-                                    <button className="px-4 py-1 rounded-full mt-2" style={{ backgroundColor: '#FFCA30' }}>Read More!</button>
+                                    <Link href="/forum/5064" passHref><button className="px-4 py-1 rounded-full mt-2" style={{ backgroundColor: '#FFCA30' }}>Read More!</button></Link>
                                 </div>
                                 <div>
                                     <h3 className="text-xl">Read About Facebook</h3>
                                     <p className="text-sm my-1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste, maiores.</p>
-                                    <button className="px-4 py-1 rounded-full mt-2" style={{ backgroundColor: '#FFCA30' }}>Read More!</button>
+                                    <Link href="/forum/9829" passHref><button className="px-4 py-1 rounded-full mt-2" style={{ backgroundColor: '#FFCA30' }}>Read More!</button></Link>
                                 </div>
                             </div>
                         </div>
