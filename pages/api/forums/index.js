@@ -2,7 +2,7 @@ import Forum from '../../../models/ForumModel';
 import dbConnect from '../../../utilities/mongoose';
 
 export default async function handler(req, res) {
-    const { method } = req;
+    const { method, query: { id } } = req;
 
     await dbConnect()
 
@@ -28,7 +28,7 @@ export default async function handler(req, res) {
 
     if (method === "DELETE") {
         try {
-            const forum = await Forum.deleteOne({ _id: entry._id });
+            const forum = await Forum.deleteOne(id);
             res.status(201).json({ success: true, data: forum });
 
         } catch (error) {
