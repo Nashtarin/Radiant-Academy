@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 export const fetchForums = createAsyncThunk(
     'course/fetchForums',
     async () => {
-      const response = await fetch('https://api.itbook.store/1.0/new')
+      const response = await fetch('http://localhost:3000/api/forums')
       .then(res => res.json())
       return response
     }

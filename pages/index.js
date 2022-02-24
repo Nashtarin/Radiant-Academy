@@ -10,12 +10,14 @@ import TestimonialSection from "../components/HomeComponents/TestimonialSection"
 import FeatureSection from "../components/HomeComponents/FeatureSection";
 import CounterSection from "../components/HomeComponents/CounterSection";
 import PrivacyPolicySection from "../components/HomeComponents/PrivacyPolicySection";
+import { fetchForums } from "../utilities/redux/slices/forumSlice";
 
 export default function Home() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchCourses());
+    dispatch(fetchForums());
   }, [dispatch]);
 
   return (
