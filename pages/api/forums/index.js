@@ -28,8 +28,8 @@ export default async function handler(req, res) {
 
     if (method === "DELETE") {
         try {
-            const forum = await Forum.deleteOne(id);
-            res.status(201).json({ success: true, data: forum });
+            const deletedforum = await Forum.deleteOne(id);
+            res.status(201).json(deletedforum);
 
         } catch (error) {
             res.status(500).json({ success: false });
