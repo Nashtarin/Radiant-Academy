@@ -1,18 +1,18 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-export const fetchForums = createAsyncThunk(
-    'forum/fetchForums',
+export const fetchCategories = createAsyncThunk(
+    'category/fetchCategories',
     async () => {
-      const response = await fetch('http://localhost:3000/api/forums')
+      const response = await fetch('http://localhost:3000/api/categories')
       .then(res => res.json())
       return response
     }
 )
 
-const forumSlice = createSlice({
-    name: 'forum',
+const categorySlice = createSlice({
+    name: 'category',
     initialState: {
-        forumsList: [],
+        categoriesList: [],
         status: 'idle',
     },
     reducers: {
@@ -25,13 +25,13 @@ const forumSlice = createSlice({
     },
     extraReducers: (builder) => {
         // Add reducers for additional action types here, and handle loading state as needed
-        builder.addCase(fetchForums.fulfilled, (state, action) => {
-          state.forumsList = action.payload;
+        builder.addCase(fetchCategories.fulfilled, (state, action) => {
+          state.categoriesList = action.payload;
           state.status = 'success';
         })
     },
 });
 
 // Action creators are generated for each case reducer function
-export const { addTo, removeFrom } = forumSlice.actions;
-export default forumSlice.reducer;
+export const { addTo, removeFrom } = categorySlice.actions;
+export default categorySlice.reducer;
