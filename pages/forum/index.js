@@ -4,7 +4,7 @@ import BrowseCategorySection from "../../components/ForumComponents/BrowseCatego
 import FeaturedTopicSection from '../../components/ForumComponents/FeaturedTopicSection';
 import TopicSearch from "../../components/ForumComponents/TopicSearch";
 
-const index = ({forums}) => {
+const index = ({ forums }) => {
   return (
     <div>
       <Head>
@@ -21,22 +21,22 @@ const index = ({forums}) => {
       </div>
       <TopicSearch />
       <BrowseCategorySection />
-      <FeaturedTopicSection forums={forums}/>
+      <FeaturedTopicSection forums={forums} />
 
     </div>
   );
 };
 
 export const getServerSideProps = async () => {
-    const url = 'http://localhost:3000/api/forums';
-    const res = await fetch(url);
-    const data = await res.json();
+  const url = 'https://radiant-academy.vercel.app/api/forums';
+  const res = await fetch(url);
+  const data = await res.json();
 
-    return {
-        props: {
-            forums: data
-        }
+  return {
+    props: {
+      forums: data
     }
+  }
 }
 
 export default index;

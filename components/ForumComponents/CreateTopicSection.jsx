@@ -53,18 +53,18 @@ const CreateTopicSection = () => {
     const categories = useSelector((state) => state.categories.categoriesList);
 
     const date = new Date().toISOString();
-    const [postData, setPostData] = useState({ title: '', category: '', desc: '', author: 'Radiant Admin', authorImg: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6XZtZr6e_zPRkbWX6o9S-KeNbUbzgw9qWDA&usqp=CAU', loves: 0,  views: 0, status: false, featured: false, date: `${date}` }); 
+    const [postData, setPostData] = useState({ title: '', category: '', desc: '', author: 'Radiant Admin', authorImg: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6XZtZr6e_zPRkbWX6o9S-KeNbUbzgw9qWDA&usqp=CAU', loves: 0, views: 0, status: false, featured: false, date: `${date}` });
     // console.log(postData);
 
     // const postTopic = async (postData) => {
     //     try {
-    //         const res = await axios.post("http://localhost:3000/api/forums", postData);
-    
+    //         const res = await axios.post("https://radiant-academy.vercel.app/api/forums", postData);
+
     //         if (res.status === 201) {
     //             // dispatch(reset());
     //             // router.push(/orders/${res.postData._id});
     //         }
-    
+
     //     } catch (err) {
     //         console.log(err);
     //     }
@@ -72,17 +72,17 @@ const CreateTopicSection = () => {
 
     const dispatch = useDispatch();
     const postTopic = e => {
-        if(dispatch(topicCreate(postData))){
+        if (dispatch(topicCreate(postData))) {
             document.getElementById('success').style.display = 'block';
             clear();
-        }else{
+        } else {
             document.getElementById('error').style.display = 'block';
         }
         e.preventDefault();
     }
 
     const clear = () => {
-        setPostData({ title: '', category: '', desc: '', author: '', authorImg: '', loves: 0,  views: 0, status: false, featured: false, date: `${date}` });
+        setPostData({ title: '', category: '', desc: '', author: '', authorImg: '', loves: 0, views: 0, status: false, featured: false, date: `${date}` });
     };
 
     return (
@@ -92,8 +92,8 @@ const CreateTopicSection = () => {
                     <h1 className="text-4xl font-bold mt-8" style={{ color: '#3B058E' }}>Post Your Topic Here</h1>
                 </div>
                 <div className="text-center my-4 text-lg">
-                    <p style={{color: '#3B058E', display: 'none'}} id="success">Successfully added the outlet!</p>
-                    <p style={{color: '#F43F5E', display: 'none'}} id="error">There is a problem adding the outlet!</p>
+                    <p style={{ color: '#3B058E', display: 'none' }} id="success">Successfully added the outlet!</p>
+                    <p style={{ color: '#F43F5E', display: 'none' }} id="error">There is a problem adding the outlet!</p>
                 </div>
                 <div className="grid grid-rows-2 sm:grid-rows-none sm:gid-cols-2 lg:grid-cols-[350px_minmax(600px,_1fr)] gap-2 pt-3 pb-20 px-8 sm:px-12 md:px-20">
                     <div className="p-2">
@@ -104,7 +104,7 @@ const CreateTopicSection = () => {
                                 placeholder="Topic Title"
                                 className="bg-slate-200 w-full py-2 px-3 outline-none mt-3.5 text-lg rounded-lg font-semibold"
                                 required
-                                value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })} 
+                                value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })}
                             />
                             <select
                                 name="category"
@@ -139,7 +139,7 @@ const CreateTopicSection = () => {
                         <textarea
                             name="desc"
                             cols="30"
-                            rows="10" 
+                            rows="10"
                             placeholder="Describe your topic here.."
                             className="bg-slate-200 w-full py-2 px-3 outline-none text-lg rounded-lg mb-8"
                             value={postData.desc}
