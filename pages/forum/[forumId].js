@@ -1,8 +1,18 @@
 import Head from "next/head";
 import Script from 'next/script';
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import ForumPostDetails from "../../components/ForumComponents/ForumPostDetails";
+import RelatedTopicSection from "../../components/ForumComponents/RelatedTopicSection";
+import ReviewSection from "../../components/ForumComponents/ReviewSection";
+import { topicView } from "../../utilities/redux/slices/forumSlice";
 
-const SingleForumPage = ({ forum }) => {
+const SingleForumPage = ({forum}) => {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(topicView(forum))
+    }, [forum]);
+
     return (
         <div>
             <Head>
@@ -14,8 +24,15 @@ const SingleForumPage = ({ forum }) => {
             <Script src="https://kit.fontawesome.com/9dbb72da13.js" />
 
             {/* SINGLE FORUM CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
+<<<<<<< HEAD
             <ForumPostDetails forum={forum} />
 
+=======
+            <ForumPostDetails forum={forum}/>
+            <ReviewSection forum={forum}/>
+            <RelatedTopicSection />
+            
+>>>>>>> 7cc39f08592b5145b617ce93cb887441cf99caf0
         </div>
     );
 };
