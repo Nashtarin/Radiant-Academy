@@ -23,7 +23,7 @@ const CourseSection = () => {
             <div className='container text-center my-8'>
                 {
                     [...Array(pageNumber).keys()].map(number => <button
-                        className='bg-violet-500 hover:bg-violet-900  text-white rounded-lg mx-5 px-5'
+                        className='bg-violet-500 hover:bg-violet-900  text-white rounded-lg mx-5 px-4 py-2'
                         key={number}
                     >
                         {number + 1}
