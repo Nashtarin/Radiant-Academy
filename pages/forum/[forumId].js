@@ -11,7 +11,7 @@ const SingleForumPage = ({forum}) => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(topicView(forum))
-    }, [forum]);
+    }, [forum, dispatch]);
 
     return (
         <div>
@@ -24,15 +24,10 @@ const SingleForumPage = ({forum}) => {
             <Script src="https://kit.fontawesome.com/9dbb72da13.js" />
 
             {/* SINGLE FORUM CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
-<<<<<<< HEAD
-            <ForumPostDetails forum={forum} />
-
-=======
             <ForumPostDetails forum={forum}/>
             <ReviewSection forum={forum}/>
             <RelatedTopicSection />
             
->>>>>>> 7cc39f08592b5145b617ce93cb887441cf99caf0
         </div>
     );
 };
