@@ -58,7 +58,7 @@ const CreateTopicSection = () => {
 
     // const postTopic = async (postData) => {
     //     try {
-    //         const res = await axios.post("https://radiant-academy.vercel.app/api/forums", postData);
+    //         const res = await axios.post("http://localhost:3000/api/forums", postData);
 
     //         if (res.status === 201) {
     //             // dispatch(reset());

@@ -28,7 +28,7 @@ const index = ({ forums }) => {
 };
 
 export const getServerSideProps = async () => {
-  const url = 'https://radiant-academy.vercel.app/api/forums';
+  const url = 'http://localhost:3000/api/forums';
   const res = await fetch(url);
   const data = await res.json();
 

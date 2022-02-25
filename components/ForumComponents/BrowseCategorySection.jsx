@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import {
   BsPencil
@@ -22,12 +23,12 @@ const BrowseCategorySection = () => {
 
         <div className='grid container mx-auto my-4 lg:grid-cols-3 md:grid-cols-2 xs:grid-cols-1 gap-4'>
           {
-            categories.data.map(category =>
+            categories?.data?.map(category =>
               <Link href="/forum/result-page" key={category._id} passHref>
                 <div className=' bg-slate-200 rounded-md drop-shadow-md cursor-pointer'>
                   <div className='flex m-5 px-5 align center'>
                     <span className='mt-1 mr-2 text-2xl'>
-                      <img src={category.icon} alt="" className="w-7"/>
+                      <img src={category.icon} alt="" className="w-7" />
                       {/* <BsPencil /> */}
                     </span>
                     <h1 className='font-bold text-2xl pl-3'>{category.title}</h1>
