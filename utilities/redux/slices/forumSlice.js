@@ -4,7 +4,7 @@ import axios from 'axios';
 export const fetchForums = createAsyncThunk(
     'forum/fetchForums',
     async () => {
-        const response = await fetch('https://radiant-academy.vercel.app/api/forums')
+        const response = await fetch('http://localhost:3000/api/forums')
             .then(res => res.json())
         return response
     }
@@ -13,7 +13,7 @@ export const fetchForums = createAsyncThunk(
 // export const topicCreate = createAsyncThunk(
 //     'forum/topicCreate',
 //     async (forum) => {
-//         let url = 'https://radiant-academy.vercel.app/api/forums';
+//         let url = 'http://localhost:3000/api/forums';
 //         const response = await fetch(url, {
 //             method: 'POST',
 //             headers: {
@@ -40,6 +40,7 @@ export const topicCreate = createAsyncThunk(
     'forum/topicCreate',
     async (forum) => {
         try {
+<<<<<<< HEAD
             const response = await axios.post("http://localhost:3000/api/forums", forum);
             return response
         } catch (error) {
@@ -47,6 +48,14 @@ export const topicCreate = createAsyncThunk(
         }
     }
 )
+=======
+            const res = await axios.post("http://localhost:3000/api/forums", forum);
+
+            if (res.status === 200) {
+                console.log(res);
+                return res
+            }
+>>>>>>> a1ff942f37e83c8d5c7a61bd9e0c15e7be5bc7a3
 
 export const topicView = createAsyncThunk(
     'forum/topicView',
