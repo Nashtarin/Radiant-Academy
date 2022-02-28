@@ -20,8 +20,8 @@ const CounterSection = () => {
                 </div>
                 <div className="flex justify-center">
                     <div className="text-center px-3 mb-8 sm:mb-3">
-                        <h1 className="text-5xl text-rose-500 font-bold mb-3">
-                            37
+                        <h1 className="text-6xl font-bold mb-3">
+                            43
                         </h1>
                         <h3 className="text-2xl font-bold text-purple-900">
                             Total Course

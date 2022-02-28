@@ -7,7 +7,7 @@ import Link from 'next/link';
 import moment from 'moment';
 
 const ForumPostDetails = ({forum}) => {
-    const { title, author, authorImg, category, date, desc, loves, views } = forum;
+    const { _id, title, author, authorImg, category, createdAt, desc, loves, views } = forum;
 
     return (
         <div>
@@ -25,7 +25,7 @@ const ForumPostDetails = ({forum}) => {
                         <div className="bg-slate-100 drop-shadow-md p-10 flex justify-center items-center flex-col rounded-lg">
                             <div>
                                 <Image
-                                    src="https://i.postimg.cc/vZHk7RPL/1645616273912.png"
+                                    src={authorImg}
                                     alt="User Profile Picture"
                                     width="100px"
                                     height="100px"
@@ -34,7 +34,7 @@ const ForumPostDetails = ({forum}) => {
                             <div className="mt-3">
                                 <h3 className="text-xl text-center">{author}</h3>
                                 <div>
-                                    <p className="mt-2 flex items-center"><FaCalendarAlt /> &nbsp; {moment(date).fromNow()}</p>
+                                    <p className="mt-2 flex items-center"><FaCalendarAlt /> &nbsp; {moment(createdAt).fromNow()}</p>
                                     <p className="flex items-center"><FaHashtag /> &nbsp; {category}</p>
                                     <p className="flex items-center"><FaEye style={{color: ''}} /> &nbsp; {views}</p>
                                     <p className="flex items-center"><FaHeart style={{color: 'red'}} /> &nbsp; {loves}</p>
@@ -63,10 +63,6 @@ const ForumPostDetails = ({forum}) => {
                     </div>
                 </div>
             </div>
-            <div className="px-12 lg:px-20">
-                <ReviewSection />
-            </div>
-            <RelatedTopicSection />
         </div>
     );
 };

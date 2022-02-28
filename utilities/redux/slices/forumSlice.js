@@ -10,12 +10,48 @@ export const fetchForums = createAsyncThunk(
     }
 )
 
-// export const topicCreate = createAsyncThunk(
-//     'forum/topicCreate',
+export const topicCreate = createAsyncThunk(
+    'forum/topicCreate',
+    async (forum) => {
+        try {
+            const response = await axios.post("http://localhost:3000/api/forums", forum);
+            return response
+        } catch (error) {
+            console.log(error);
+        }
+    }
+)
+
+export const topicView = createAsyncThunk(
+    'forum/topicView',
+    async (forum) => {
+        try {
+            const response = await axios.put(`http://localhost:3000/api/forums/views/${forum._id}`);
+            return response
+        } catch (error) {
+            console.log(error);
+        }
+    }
+)
+
+export const topicReact = createAsyncThunk(
+    'forum/topicReact',
+    async (forum) => {
+        try {
+            const response = await axios.put(`http://localhost:3000/api/forums/${forum._id}`);
+            return response
+        } catch (error) {
+            console.log(error);
+        }
+    }
+)
+
+// export const topicReact = createAsyncThunk(
+//     'forum/topicReact',
 //     async (forum) => {
-//         let url = 'http://localhost:3000/api/forums';
+//         let url = `https://still-peak-02811.herokuapp.com/reaction/${forum._id}`;
 //         const response = await fetch(url, {
-//             method: 'POST',
+//             method: 'PUT',
 //             headers: {
 //                 'content-type': 'application/json'
 //             },
@@ -23,7 +59,7 @@ export const fetchForums = createAsyncThunk(
 //         })
 //         .then(res => res.json())
 //         .then(data => {
-//             if(data.insertedId){
+//             if(data.modifiedCount > 0){
 //                 return forum
 //             }else{
 //                 console.log('No response!');
@@ -35,23 +71,6 @@ export const fetchForums = createAsyncThunk(
 //         return response
 //     }
 // )
-
-export const topicCreate = createAsyncThunk(
-    'forum/topicCreate',
-    async (forum) => {
-        try {
-            const res = await axios.post("http://localhost:3000/api/forums", forum);
-
-            if (res.status === 200) {
-                console.log(res);
-                return res
-            }
-
-        } catch (error) {
-            console.log(error);
-        }
-    }
-)
 
 const forumSlice = createSlice({
     name: 'forum',
@@ -76,6 +95,16 @@ const forumSlice = createSlice({
 
         builder.addCase(topicCreate.fulfilled, (state, action) => {
             // state.forumsList = [...state.forumsList, action.payload];
+            state.status = 'success';
+        })
+
+        builder.addCase(topicView.fulfilled, (state, action) => {
+            // state.forumsList = state.forumsList.map(forum => forum._id === action.payload._id ? {...forum, views: forum.views + 1 } : forum);
+            state.status = 'success';
+        })
+
+        builder.addCase(topicReact.fulfilled, (state, action) => {
+            // state.projectsList = state.projectsList.map(forum => forum._id === action.payload._id ? {...forum, loves: forum.loves + 1 } : forum);
             state.status = 'success';
         })
     },
