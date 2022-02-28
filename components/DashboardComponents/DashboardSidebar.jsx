@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import { FaHome, FaClone, FaChevronRight, FaUser, FaDiceD6, FaFolder, FaNewspaper, FaUserCog, FaSignInAlt } from 'react-icons/fa';
+import { FaChevronRight, FaClone, FaDiceD6, FaFolder, FaHome, FaNewspaper, FaSignInAlt, FaUser, FaUserCog } from 'react-icons/fa';
 
 const DashboardSidebar = () => {
     return (
@@ -16,7 +16,7 @@ const DashboardSidebar = () => {
                     <FaUser className="mr-5" /> Account
                 </button>
             </Link>
-            <Link href="dashboard/courses" passHref>
+            <Link href="/dashboard/courses" passHref>
                 <button className="btn-ghost w-full px-4 py-1  hover:bg-slate-200 text-lg text-left flex items-center rounded-full">
                     <FaClone className="mr-5" /> Course
                 </button>
