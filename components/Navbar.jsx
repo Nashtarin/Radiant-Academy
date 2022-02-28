@@ -1,21 +1,40 @@
 import Link from "next/link";
 import useAuth from "../utilities/Hooks/useAuth";
 import Image from "next/image";
-import { FaUserCircle } from "react-icons/fa"
+import Logo from '../public/img/RA_Logo.png'
+import { FaUserCircle, FaMoon, FaSun } from "react-icons/fa"
+import { useDarkMode } from "../utilities/Hooks/useDarkMode";
 
 const Navbar = () => {
+
     const { user, logout } = useAuth();
+    const [isDarkMode, toggleDarkMode] = useDarkMode();
 
     return (
         <>
             <nav className="sticky top-0 w-full z-50 text-gray-800">
-                <div className="navbar bg-slate-200 h-[70px]">
+                <div className="navbar bg-slate-200 dark:bg-slate-700 dark:text-white h-[70px]">
                     <div className="flex-1 pl-10 mx-2">
                         <Link href="/">
-                            <a><span className=" font-bold pl-2 text-lg md:text-2xl ">
-                                Radiant Academy
-                            </span></a>
+                            <a>
+                                <div className="relative top-[18px]">
+                                    <Image
+                                        src={Logo}
+                                        alt="Landscape picture"
+                                        width="100px"
+                                        height="100px"
+                                    />
+                                </div>
+                            </a>
                         </Link>
+                    </div>
+                    <div className='items-center flex '>
+                        <span className='px-2 text-slate-700 dark:text-slate-200'><FaMoon /></span>
+                        {
+                            isDarkMode ? <input type="checkbox" className="toggle bg-rose-500" onChange={toggleDarkMode} /> :
+                                <input type="checkbox" className="toggle bg-rose-500" defaultChecked onChange={toggleDarkMode} />
+                        }
+                        <span className='px-2 text-slate-700 dark:text-slate-200'><FaSun /></span>
                     </div>
                     <div className="hidden px-2 mx-2 lg:flex pr-10">
                         <div className="flex items-center">
