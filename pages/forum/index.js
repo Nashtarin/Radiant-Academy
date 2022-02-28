@@ -1,10 +1,10 @@
 import Head from "next/head";
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import BrowseCategorySection from "../../components/ForumComponents/BrowseCategorySection";
 import FeaturedTopicSection from '../../components/ForumComponents/FeaturedTopicSection';
 import TopicSearch from "../../components/ForumComponents/TopicSearch";
 
-const index = () => {
+const index = ({ forums }) => {
   return (
     <div>
       <Head>
@@ -14,12 +14,29 @@ const index = () => {
       </Head>
 
       {/* FORUM CONTENTS GOES HERE (WITHOUT NAVBAR & FOOTER) */}
+      <div className='container mx-auto'>
+        <h1 className='text-5xl font-bold text-center mt-12 mb-5 text-violet-800 px-4'>
+          Welcome to our forum
+        </h1>
+      </div>
       <TopicSearch />
       <BrowseCategorySection />
-      <FeaturedTopicSection />
+      <FeaturedTopicSection forums={forums} />
 
     </div>
   );
 };
+
+export const getServerSideProps = async () => {
+  const url = 'http://localhost:3000/api/forums';
+  const res = await fetch(url);
+  const data = await res.json();
+
+  return {
+    props: {
+      forums: data
+    }
+  }
+}
 
 export default index;

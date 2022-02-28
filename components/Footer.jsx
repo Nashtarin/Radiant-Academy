@@ -19,7 +19,7 @@ const Footer = () => {
 
     return (
         <div>
-            <div className="px-1 sm:px-10 md:px-20 pt-8 md:pt-20 pb-[28.5rem] sm:pb-[16rem] md:pb-[17rem] h-[200px] bg-slate-200 block">
+            <div className="px-1 sm:px-10 md:px-20 pt-8 md:pt-20 pb-[29rem] sm:pb-[25rem] md:pb-[17rem] h-[600px] sm:h-[0px] md:h-[430px] lg:h-[300px] bg-slate-200 block">
                 <div className="grid grid-row-2 sm:grid-cols-[110px_minmax(300px,_1fr)] md:grid-cols-[100px_minmax(300px,_1fr)] lg:grid-cols-[200px_minmax(600px,_1fr)]">
                     <div className="flex justify-center items-start">
                         <Image src="https://i.postimg.cc/sDvkgk3h/logo.png" alt="Logo" width="80px" height="80px" className="cursor-pointer shadow-md" draggable="false" />
@@ -67,6 +67,9 @@ const Footer = () => {
                                     <div className="text-right sm:text-left">
                                         <Link href="https://www.termsandconditionsgenerator.com/live.php?token=c3tGONOoNLV3tjwSwZMXuwk6HnfJ4lpGy" passHref>
                                             <span className="mb-1 hover:text-rose-600 cursor-pointer">Privacy Policy</span>
+                                        </Link><br />
+                                        <Link href="/contact" passHref>
+                                            <span className="mb-1 hover:text-rose-600 cursor-pointer">Contact</span>
                                         </Link>
                                     </div>
                                 </div>
@@ -75,7 +78,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="sticky-footer w-full fixed left-0 right-0" id="sticky">
+            <div className="sticky-footer hidden md:block w-full fixed left-0 right-0 bottom-0" id="sticky">
                 <style jsx global>
                     {`
                         .sticky-footer {
@@ -106,16 +109,16 @@ const Footer = () => {
             <button className="stickyGoToTop fixed right-5 btn btn-ghost rounded-btn m-5" id="sticky2" onClick={topFunction}>
                 <style jsx global>
                     {`
-                .stickyGoToTop {
-                    bottom: -60px;
-                    -webkit-transition: bottom .2s ease-in-out;
-                    transition: bottom .2s ease-in-out;
-                    z-index: 9999;
-                }
-                .popup2 {
-                    bottom: 60px;
-                }
-            `}
+                        .stickyGoToTop {
+                            bottom: -60px;
+                            -webkit-transition: bottom .2s ease-in-out;
+                            transition: bottom .2s ease-in-out;
+                            z-index: 9999;
+                        }
+                        .popup2 {
+                            bottom: 60px;
+                        }
+                    `}
                 </style>
                 <BsArrowUpCircleFill style={{ fontSize: 25 }} />
             </button>

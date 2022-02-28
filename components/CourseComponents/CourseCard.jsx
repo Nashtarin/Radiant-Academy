@@ -12,7 +12,7 @@ const CourseCard = ({ course }) => {
                 objectFit="cover"
                 alt=""
             /> */}
-            <img src={image} width="100%" />
+            <Image src={image} width="320px" height="350px" alt="Book Cover" />
             <h1 className='text-2xl	font-bold w-5/6 mx-auto text-violet-900 mb-5'>{title}</h1>
             <h1 className="mb-6 w-5/6 mx-auto">{subtitle}</h1>
             <div className="py-5">

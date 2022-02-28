@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 const PrivacyPolicySection = () => {
     return (
@@ -9,7 +10,7 @@ const PrivacyPolicySection = () => {
                     <br />
                     <p>Welcome to Radiant Academy!</p>
                     <br />
-                    <p>These terms and conditions outline the rules and regulations for the use of Radiant Academy’s Website, located at https://radiant-academy.vercel.app/.</p>
+                    <p>These terms and conditions outline the rules and regulations for the use of Radiant Academy’s Website, located at <Link href="http://localhost:3000/" passHref><span className="hover:text-purple-500">http://localhost:3000/</span></Link>.</p>
                     <br />
                     <p>By accessing this website we assume you accept these terms and conditions. Do not continue to use Radiant Academy if you do not agree to take all of the terms and conditions stated on this page.</p>
                     <br />
