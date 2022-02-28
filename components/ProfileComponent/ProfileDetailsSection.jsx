@@ -3,7 +3,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { FaEye, FaHashtag, FaHeart, FaTrash, FaUserFriends, FaDollarSign, FaFlag } from "react-icons/fa";
 
-const DashboardSection = () => {
+const ProfileDetailsSection = () => {
     const handleDelete = () => {
         console.log('clicked')
     }
@@ -217,4 +217,4 @@ const DashboardSection = () => {
     );
 };
 
-export default DashboardSection;
+export default ProfileDetailsSection;

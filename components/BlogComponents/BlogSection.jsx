@@ -24,7 +24,7 @@ const BlogSection = ({ blogs }) => {
                         }
                     </div>
                     <div className="flex justify-center my-2 p-5">
-                        <Link href="https://techcrunch.com/" passHref>
+                        <Link href="/blogs" passHref>
                             <button className="btn bg-purple-800 text-[1em] px-8 rounded-full">
                                 See More! &nbsp; <BsArrowRight />
                             </button>
