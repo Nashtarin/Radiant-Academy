@@ -38,7 +38,7 @@ export const topicReact = createAsyncThunk(
     'forum/topicReact',
     async (forum) => {
         try {
-            const response = await axios.put(`http://localhost:3000/api/forums/${forum._id}`);
+            const response = await axios.put(`http://localhost:3000/api/forums/reacts/${forum._id}`);
             return response
         } catch (error) {
             console.log(error);
