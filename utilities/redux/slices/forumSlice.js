@@ -10,32 +10,6 @@ export const fetchForums = createAsyncThunk(
     }
 )
 
-// export const topicCreate = createAsyncThunk(
-//     'forum/topicCreate',
-//     async (forum) => {
-//         let url = 'http://localhost:3000/api/forums';
-//         const response = await fetch(url, {
-//             method: 'POST',
-//             headers: {
-//                 'content-type': 'application/json'
-//             },
-//             body: JSON.stringify(forum)
-//         })
-//         .then(res => res.json())
-//         .then(data => {
-//             if(data.insertedId){
-//                 return forum
-//             }else{
-//                 console.log('No response!');
-//             }
-//         })
-//         .catch((error) => {
-//             console.log(error);
-//         })
-//         return response
-//     }
-// )
-
 export const topicCreate = createAsyncThunk(
     'forum/topicCreate',
     async (forum) => {
@@ -52,7 +26,7 @@ export const topicView = createAsyncThunk(
     'forum/topicView',
     async (forum) => {
         try {
-            const response = await axios.put("http://localhost:3000/api/forums", forum);
+            const response = await axios.put(`http://localhost:3000/api/forums/views/${forum._id}`);
             return response
         } catch (error) {
             console.log(error);
@@ -63,28 +37,40 @@ export const topicView = createAsyncThunk(
 export const topicReact = createAsyncThunk(
     'forum/topicReact',
     async (forum) => {
-        let url = `https://still-peak-02811.herokuapp.com/reaction/${forum._id}`;
-        const response = await fetch(url, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(forum)
-        })
-        .then(res => res.json())
-        .then(data => {
-            if(data.modifiedCount > 0){
-                return forum
-            }else{
-                console.log('No response!');
-            }
-        })
-        .catch((error) => {
+        try {
+            const response = await axios.put(`http://localhost:3000/api/forums/${forum._id}`);
+            return response
+        } catch (error) {
             console.log(error);
-        })
-        return response
+        }
     }
 )
+
+// export const topicReact = createAsyncThunk(
+//     'forum/topicReact',
+//     async (forum) => {
+//         let url = `https://still-peak-02811.herokuapp.com/reaction/${forum._id}`;
+//         const response = await fetch(url, {
+//             method: 'PUT',
+//             headers: {
+//                 'content-type': 'application/json'
+//             },
+//             body: JSON.stringify(forum)
+//         })
+//         .then(res => res.json())
+//         .then(data => {
+//             if(data.modifiedCount > 0){
+//                 return forum
+//             }else{
+//                 console.log('No response!');
+//             }
+//         })
+//         .catch((error) => {
+//             console.log(error);
+//         })
+//         return response
+//     }
+// )
 
 const forumSlice = createSlice({
     name: 'forum',

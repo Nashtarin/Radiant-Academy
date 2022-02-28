@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     BsEyeFill,
     BsFillClockFill,
@@ -12,6 +12,22 @@ import toast, { Toaster } from 'react-hot-toast';
 const TopicCard = ({ forum }) => {
     const { _id, title, desc, createdAt, category, loves, views } = forum;
     const [reacts, setReacts] = useState(loves);
+
+    useEffect(() => {
+        //checking liked for color
+        const exists = getStorage();
+        
+        let color_cart = {};
+        if (exists) {
+            color_cart = JSON.parse(exists);
+            if (color_cart[_id]) {
+                document.getElementById(`react-btn-${_id}`).classList.add('text-rose-500');
+            }
+            // else {
+            //     document.getElementById('icon-heart').style.color = '$primary';
+            // }
+        }
+    }, [views])
 
     //love react
     const handleReact = (id) => {
@@ -27,7 +43,7 @@ const TopicCard = ({ forum }) => {
             });
         }else{
             // dispatch(postReacts(details));
-            document.getElementById('react-btn').classList.add('text-rose-500');
+            document.getElementById(`react-btn-${id}`).classList.add('text-rose-500');
             setReacts(reacts+1);
             toast.dismiss(loading);
             toast.success("You've liked the post!");
@@ -85,7 +101,7 @@ const TopicCard = ({ forum }) => {
                                 <span className='my-auto mr-1'><BsEyeFill /></span>{views}
                             </p>
                             <p className='flex items-center font-semibold mr-5 text-lg'>
-                                <span className='my-auto mr-1 cursor-pointer text-slate-700' onClick={() => handleReact(_id)} id='react-btn'><i className="fa fa-heart" id="icon-heart"></i></span>{reacts}
+                                <span className='my-auto mr-1 cursor-pointer text-slate-700' onClick={() => handleReact(_id)} id={`react-btn-${_id}`}><i className="fa fa-heart" id="icon-heart"></i></span>{reacts}
                             </p>
                         </div>
                     </div>
