@@ -11,6 +11,7 @@ const TalentSection = () => {
                         <Image src="https://i.postimg.cc/xCf7D7sq/talent.webp" alt="talent hunt image"
                             width="562"
                             height="438"
+                            draggable="false"
                         />
                     </div>
                 </div>

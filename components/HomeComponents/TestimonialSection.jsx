@@ -2,7 +2,7 @@ import Image from "next/image"
 
 const TestimonialSection = () => {
     return (
-        <div className="px-20 mx-2 mt-14 mb-20">
+        <div className="sm:px-20 mx-2 mt-14 mb-20">
             <h1 className="text-4xl	font-bold text-violet-800 pt-7 pb-16 text-center">What others are saying</h1>
             <div className="mx-6 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10">
                 <div className="rounded-xl bg-slate-100 shadow-xl hover:shadow-zinc-400 transition duration-300 px-3">
@@ -16,6 +16,7 @@ const TestimonialSection = () => {
                                 height="100"
                                 width="100"
                                 alt="User"
+                                draggable="false"
                             />
                         </div>
                         <h4 className="text-1xl	font-bold text-violet-900 text-center">Happy User</h4>
@@ -33,6 +34,7 @@ const TestimonialSection = () => {
                                 height="100"
                                 width="100"
                                 alt="User"
+                                draggable="false"
                             />
                         </div>
                         <h4 className="text-1xl	font-bold text-violet-900 text-center">Happy User</h4>
@@ -48,6 +50,7 @@ const TestimonialSection = () => {
                                 height="100"
                                 width="100"
                                 alt="User"
+                                draggable="false"
                             />
                         </div>
                         <h4 className="text-1xl	font-bold text-violet-900 text-center">Happy User</h4>

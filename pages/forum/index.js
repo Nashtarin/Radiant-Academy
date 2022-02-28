@@ -1,7 +1,7 @@
 import Head from "next/head";
 import React, { useEffect, useState } from 'react';
-import BrowseCategory from "../../components/ForumComponents/BrowseCategory";
-import FeaturedSection from '../../components/ForumComponents/FeaturedSection';
+import BrowseCategorySection from "../../components/ForumComponents/BrowseCategorySection";
+import FeaturedTopicSection from '../../components/ForumComponents/FeaturedTopicSection';
 import TopicSearch from "../../components/ForumComponents/TopicSearch";
 
 const index = () => {
@@ -14,10 +14,10 @@ const index = () => {
       </Head>
 
       {/* FORUM CONTENTS GOES HERE (WITHOUT NAVBAR & FOOTER) */}
-      <TopicSearch/>
-      <BrowseCategory/>
-      <FeaturedSection/>
-      
+      <TopicSearch />
+      <BrowseCategorySection />
+      <FeaturedTopicSection />
+
     </div>
   );
 };
