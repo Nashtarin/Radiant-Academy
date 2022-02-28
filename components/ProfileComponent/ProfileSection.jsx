@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { FaClock, FaPenNib, FaHeart, FaBookmark } from "react-icons/fa";
 import ReactStars from "react-rating-stars-component";
-import DashboardSection from './DashboardSection';
+import ProfileDetailsSection from './ProfileDetailsSection';
 
 const ProfileSection = () => {
     const [rating, setRating] = useState(0);
@@ -74,7 +74,7 @@ const ProfileSection = () => {
                     </div>
                 </div>
                 <div className="bg-slate-200 m-5 rounded-md">
-                    <DashboardSection />
+                    <ProfileDetailsSection />
                 </div>
             </div>
         </div>
