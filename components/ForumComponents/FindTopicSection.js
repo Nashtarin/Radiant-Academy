@@ -2,17 +2,19 @@ import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import TopicCard from './TopicCard';
 
-const FindTopicSection = ({forums}) => {
+const FindTopicSection = ({ forums }) => {
     const router = useRouter();
-    const {searchParam} = router.query;
+    const { searchParam } = router.query;
     const [searchTerm, setSearchTerm] = useState(searchParam);
 
     const searchList = forums.data.filter(forum => {
-        if(searchTerm === "" || searchTerm === "All" || searchTerm === "all") {
+        if (searchTerm === "" || searchTerm === "All" || searchTerm === "all") {
             return forum;
-        }else if(forum.category.toLowerCase() === searchTerm.toLowerCase()){
+        }
+        else if (forum.category.toLowerCase() === searchTerm.toLowerCase()) {
             return forum;
-        }else if(forum.title.toLowerCase().includes(searchTerm.toLowerCase()) || forum.desc.toLowerCase().includes(searchTerm.toLowerCase()) || forum.author.toLowerCase().includes(searchTerm.toLowerCase())){
+        }
+        else if (forum.title.toLowerCase().includes(searchTerm.toLowerCase()) || forum.desc.toLowerCase().includes(searchTerm.toLowerCase()) || forum.author.toLowerCase().includes(searchTerm.toLowerCase())) {
             return forum;
         }
     }).map(forum => <TopicCard
@@ -36,20 +38,20 @@ const FindTopicSection = ({forums}) => {
             </section>
             <section className='container mx-auto mt-[5rem] pb-20 px-2 lg:px-4'>
                 <h4 className='text-2xl text-left mb-10text-slate-500 pl-6'>
-                    Showing results for: 
+                    Showing results for:
                     <span className='text-gray-500'> {searchTerm === "" ? "All" : searchTerm}</span>
                 </h4>
 
-            {/* Search Results here: */}
-            { searchList }
-            
+                {/* Search Results here: */}
+                {searchList}
+
             </section>
             {
                 searchList.length ? ""
-                : 
-                <section className='container mx-auto mb-[5rem] pb-20 px-2 lg:px-4'>
-                    <h6 className='text-2xl text-center mb-10 text-rose-500 pl-6'>No results Found!</h6>
-                </section>
+                    :
+                    <section className='container mx-auto mb-[5rem] pb-20 px-2 lg:px-4'>
+                        <h6 className='text-2xl text-center mb-10 text-rose-500 pl-6'>No results Found!</h6>
+                    </section>
             }
         </>
     );
