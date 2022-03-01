@@ -1,15 +1,15 @@
 import Image from "next/image";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { FaArrowRight } from 'react-icons/fa';
 import Link from 'next/link';
+import { FaArrowRight } from 'react-icons/fa';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 
 const HeroSection = () => {
     var settings = {
         slidesToShow: 1,
         slidesToScroll: 1,
-        dots: true,
+        dots: false,
         arrows: true,
         infinite: true,
         autoplay: true,

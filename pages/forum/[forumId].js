@@ -12,7 +12,7 @@ const SingleForumPage = ({ forum }) => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(topicView(forum))
-    }, [forum]);
+    }, [forum, dispatch]);
 
     return (
         <div>
