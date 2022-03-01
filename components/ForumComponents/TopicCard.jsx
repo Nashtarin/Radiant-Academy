@@ -8,6 +8,8 @@ import {
 import Link from 'next/link';
 import moment from 'moment';
 import toast, { Toaster } from 'react-hot-toast';
+import { topicReact } from '../../utilities/redux/slices/forumSlice';
+import { useDispatch } from 'react-redux';
 
 const TopicCard = ({ forum }) => {
     const { _id, title, desc, createdAt, category, loves, views } = forum;
@@ -29,6 +31,7 @@ const TopicCard = ({ forum }) => {
         }
     }, [views])
 
+    const dispatch = useDispatch();
     //love react
     const handleReact = (id) => {
         const loading = toast.loading('Please wait ...');
@@ -42,7 +45,7 @@ const TopicCard = ({ forum }) => {
                 icon: '🥳',
             });
         }else{
-            // dispatch(postReacts(details));
+            dispatch(topicReact(forum));
             document.getElementById(`react-btn-${id}`).classList.add('text-rose-500');
             setReacts(reacts+1);
             toast.dismiss(loading);

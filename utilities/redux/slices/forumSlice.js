@@ -4,9 +4,9 @@ import axios from 'axios';
 export const fetchForums = createAsyncThunk(
     'forum/fetchForums',
     async () => {
-      const response = await fetch('http://localhost:3000/api/forums')
-      .then(res => res.json())
-      return response
+        const response = await fetch('http://localhost:3000/api/forums')
+            .then(res => res.json())
+        return response
     }
 )
 
@@ -38,7 +38,7 @@ export const topicReact = createAsyncThunk(
     'forum/topicReact',
     async (forum) => {
         try {
-            const response = await axios.put(`http://localhost:3000/api/forums/${forum._id}`);
+            const response = await axios.put(`http://localhost:3000/api/forums/reacts/${forum._id}`);
             return response
         } catch (error) {
             console.log(error);
@@ -89,8 +89,8 @@ const forumSlice = createSlice({
     extraReducers: (builder) => {
         // Add reducers for additional action types here, and handle loading state as needed
         builder.addCase(fetchForums.fulfilled, (state, action) => {
-          state.forumsList = action.payload;
-          state.status = 'success';
+            state.forumsList = action.payload;
+            state.status = 'success';
         })
 
         builder.addCase(topicCreate.fulfilled, (state, action) => {

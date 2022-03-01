@@ -52,21 +52,21 @@ const formats = [
 const CreateTopicSection = () => {
     const categories = useSelector((state) => state.categories.categoriesList);
 
-    const [postData, setPostData] = useState({ title: '', category: '', desc: '', author: 'Radiant Admin', authorImg: 'https://i.postimg.cc/4dNK0r0W/people-1.png', loves: 0,  views: 0, status: false, featured: false }); 
+    const [postData, setPostData] = useState({ title: '', category: '', desc: '', author: 'Radiant Admin', authorImg: 'https://i.postimg.cc/4dNK0r0W/people-1.png', loves: 0, views: 0, status: false, featured: false });
 
     const dispatch = useDispatch();
     const postTopic = e => {
-        if(dispatch(topicCreate(postData))){
+        if (dispatch(topicCreate(postData))) {
             document.getElementById('success').style.display = 'block';
             clear();
-        }else{
+        } else {
             document.getElementById('error').style.display = 'block';
         }
         e.preventDefault();
     }
 
     const clear = () => {
-        setPostData({ title: '', category: '', desc: '', author: '', authorImg: '', loves: 0,  views: 0, status: false, featured: false });
+        setPostData({ title: '', category: '', desc: '', author: '', authorImg: '', loves: 0, views: 0, status: false, featured: false });
     };
 
     return (
@@ -76,8 +76,8 @@ const CreateTopicSection = () => {
                     <h1 className="text-4xl font-bold mt-8" style={{ color: '#3B058E' }}>Post Your Topic Here</h1>
                 </div>
                 <div className="text-center my-4 text-lg">
-                    <p style={{color: '#3B058E', display: 'none'}} id="success">Successfully added the outlet!</p>
-                    <p style={{color: '#F43F5E', display: 'none'}} id="error">There is a problem adding the outlet!</p>
+                    <p style={{ color: '#3B058E', display: 'none' }} id="success">Successfully added the outlet!</p>
+                    <p style={{ color: '#F43F5E', display: 'none' }} id="error">There is a problem adding the outlet!</p>
                 </div>
                 <div className="grid grid-rows-2 sm:grid-rows-none sm:gid-cols-2 lg:grid-cols-[350px_minmax(600px,_1fr)] gap-2 pt-3 pb-20 px-8 sm:px-12 md:px-20">
                     <div className="p-2">
@@ -88,7 +88,7 @@ const CreateTopicSection = () => {
                                 placeholder="Topic Title"
                                 className="bg-slate-200 w-full py-2 px-3 outline-none mt-3.5 text-lg rounded-lg font-semibold"
                                 required
-                                value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })} 
+                                value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })}
                             />
                             <select
                                 name="category"
@@ -123,7 +123,7 @@ const CreateTopicSection = () => {
                         <textarea
                             name="desc"
                             cols="30"
-                            rows="10" 
+                            rows="10"
                             placeholder="Describe your topic here.."
                             className="bg-slate-200 w-full py-2 px-3 outline-none text-lg rounded-lg mb-8"
                             value={postData.desc}
