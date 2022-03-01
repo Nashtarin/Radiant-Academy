@@ -13,7 +13,7 @@ const Navbar = () => {
     return (
         <>
             <nav className="sticky top-0 w-full z-50 text-gray-800">
-                <div className="navbar bg-slate-200 dark:bg-slate-700 dark:text-white h-[70px]">
+                <div className="navbar bg-slate-200 dark:bg-[#1b222d] dark:text-white h-[70px]">
                     <div className="flex-1 pl-10 mx-2">
                         <Link href="/">
                             <a>
@@ -39,19 +39,19 @@ const Navbar = () => {
                     <div className="hidden px-2 mx-2 lg:flex pr-10">
                         <div className="flex items-center">
                             <Link href='/'>
-                                <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-2">HOME </a>
+                                <a className="btn hover:bg-slate-300 dark:hover:bg-slate-600 btn-ghost rounded-btn mx-2">HOME </a>
                             </Link>
                             <Link href="/courses">
-                                <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-3">COURSES</a>
+                                <a className="btn hover:bg-slate-300 dark:hover:bg-slate-600 btn-ghost rounded-btn mx-3">COURSES</a>
                             </Link>
                             <Link href="/forum">
-                                <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-3">FORUM </a>
+                                <a className="btn hover:bg-slate-300 dark:hover:bg-slate-600 btn-ghost rounded-btn mx-3">FORUM </a>
                             </Link>
                             <Link href="/codeeditor">
-                                <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-3">CODE EDITOR </a>
+                                <a className="btn hover:bg-slate-300 dark:hover:bg-slate-600 btn-ghost rounded-btn mx-3">CODE EDITOR </a>
                             </Link>
                             <Link passHref href="/register">
-                                <button className="btn border-0 px-7 py-2 rounded bg-rose-500 text-white transition duration-500 mx-3">FREE TRIAL</button>
+                                <button className="btn border-0 px-7 py-2 rounded bg-rose-500 text-white dark:hover:bg-slate-600 transition duration-500 mx-3">FREE TRIAL</button>
                             </Link>
                             {user.email &&
                                 <div className="flex-none dropdown dropdown-end mx-1 sm:mx-2 my-auto">

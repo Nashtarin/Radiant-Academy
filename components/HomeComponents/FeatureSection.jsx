@@ -11,7 +11,7 @@ const FeatureSection = () => {
             <div className="w-5/6 mx-auto " >
                 <h1 className="text-violet-800 dark:text-violet-400 text-4xl md:text-5xl font-bold text-center py-7 ">Remote Features</h1>
                 <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 py-8 gap-x-4">
-                    <div className="bg-slate-100 dark:bg-slate-700 dark:text-white rounded-lg px-4 mb-8">
+                    <div className="bg-slate-100 dark:bg-slate-700 dark:text-white rounded-lg px-4 py-5 mb-5">
                         <div className="grid place-content-center my-5">
                             <Image
                                 src={p1}
@@ -29,7 +29,7 @@ const FeatureSection = () => {
                             </p>
                         </Link>
                     </div>
-                    <div className="bg-slate-100 dark:bg-slate-700 dark:text-white rounded-lg px-4 mb-8">
+                    <div className="bg-slate-100 dark:bg-slate-700 dark:text-white rounded-lg px-4  py-5 mb-5">
                         <div className="grid place-content-center my-5 ">
                             <Image
                                 src={p2}
@@ -47,7 +47,7 @@ const FeatureSection = () => {
                             </p>
                         </Link>
                     </div>
-                    <div className="bg-slate-100 dark:bg-slate-700 dark:text-white rounded-lg px-4 mb-8">
+                    <div className="bg-slate-100 dark:bg-slate-700 dark:text-white rounded-lg px-4 py-5 mb-5">
                         <div className="grid place-content-center my-5">
                             <Image
                                 src={p3}

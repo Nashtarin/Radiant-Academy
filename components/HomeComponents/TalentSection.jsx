@@ -5,7 +5,7 @@ import React from 'react';
 const TalentSection = () => {
     return (
         <div className='bg-white dark:bg-slate-800'>
-            <div className='w-5/6 mx-auto my-5 '>
+            <div className='w-5/6 mx-auto py-5 '>
                 <div className='flex flex-col-reverse justify-center items-center lg:flex-row gap-4'>
                     <div className="w-5/6 lg:w-[50%] py-14">
                         <div className="w-5/6 mx-auto">
