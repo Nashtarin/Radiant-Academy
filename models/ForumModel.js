@@ -19,10 +19,6 @@ const ForumSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    date: {
-        type: String,
-        required: true,
-    },
     featured: {
         type: Boolean,
         required: true,

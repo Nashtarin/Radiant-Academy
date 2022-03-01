@@ -1,8 +1,19 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Head from "next/head";
 import Script from 'next/script';
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import ForumPostDetails from "../../components/ForumComponents/ForumPostDetails";
+import RelatedTopicSection from "../../components/ForumComponents/RelatedTopicSection";
+import ReviewSection from "../../components/ForumComponents/ReviewSection";
+import { topicView } from "../../utilities/redux/slices/forumSlice";
 
 const SingleForumPage = ({ forum }) => {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(topicView(forum))
+    }, [forum]);
+
     return (
         <div>
             <Head>
@@ -15,6 +26,8 @@ const SingleForumPage = ({ forum }) => {
 
             {/* SINGLE FORUM CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
             <ForumPostDetails forum={forum} />
+            <ReviewSection forum={forum} />
+            <RelatedTopicSection />
 
         </div>
     );
@@ -23,7 +36,6 @@ const SingleForumPage = ({ forum }) => {
 // This function gets called at build time
 export async function getStaticPaths() {
     // Call an external API endpoint to get forums
-
     const res = await fetch('http://localhost:3000/api/forums')
     const forums = await res.json()
 
