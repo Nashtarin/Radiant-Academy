@@ -17,18 +17,14 @@ export default async function handler(req, res) {
     }
 
     if (method === "DELETE") {
+        const filter = {_id: id};
+
         try {
-            const singleForum = await Forum.deleteOne(id);
+            const singleForum = await Forum.findOneAndDelete(filter);
             res.status(201).json(singleForum);
 
         } catch (error) {
             res.status(500).json({ success: false });
         }
     }
-
-    if (method === "PUT") {
-
-    }
-
-
 }
