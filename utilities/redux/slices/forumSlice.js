@@ -21,12 +21,6 @@ export const topicCreate = createAsyncThunk(
         }
     }
 )
-            const res = await axios.post("http://localhost:3000/api/forums", forum);
-
-            if (res.status === 200) {
-                console.log(res);
-                return res
-            }
 
 export const topicView = createAsyncThunk(
     'forum/topicView',
