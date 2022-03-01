@@ -17,7 +17,7 @@ const ReviewSection = ({forum}) => {
     useEffect(() => {
         const thisReview  = allReviews.data.filter(review =>  review.forumId === _id);
         setReviews(thisReview);
-    }, [allReviews.data])
+    }, [allReviews.data, _id])
 
     //rating system
     const ratingCount = {

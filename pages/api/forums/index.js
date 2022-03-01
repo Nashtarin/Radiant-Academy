@@ -2,7 +2,7 @@ import Forum from '../../../models/ForumModel';
 import dbConnect from '../../../utilities/mongoose';
 
 export default async function handler(req, res) {
-    const { method, query: { id } } = req;
+    const { method } = req;
 
     await dbConnect()
 
@@ -25,35 +25,4 @@ export default async function handler(req, res) {
             res.status(500).json({ success: false });
         }
     }
-
-    if (method === "DELETE") {
-        try {
-            const deletedforum = await Forum.deleteOne(id);
-            res.status(201).json(deletedforum);
-
-        } catch (error) {
-            res.status(500).json({ success: false });
-        }
-    }
-
-    if (method === "PUT") {
-        try {
-            const updatedforum = await Forum.updateOne(id, {$inc : {'views' : 1}});
-            res.status(201).json(updatedforum);
-
-        } catch (error) {
-            res.status(500).json({ success: false });
-        }
-    }
-
-    if (method === "PUT") {
-        try {
-            const updatedforum = await Forum.updateOne(id, {$inc : {'loves' : 1}});
-            res.status(201).json(updatedforum);
-
-        } catch (error) {
-            res.status(500).json({ success: false });
-        }
-    }
-
 }

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Head from "next/head";
 import Script from 'next/script';
 import { useEffect } from "react";
@@ -7,7 +8,7 @@ import RelatedTopicSection from "../../components/ForumComponents/RelatedTopicSe
 import ReviewSection from "../../components/ForumComponents/ReviewSection";
 import { topicView } from "../../utilities/redux/slices/forumSlice";
 
-const SingleForumPage = ({forum}) => {
+const SingleForumPage = ({ forum }) => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(topicView(forum))
@@ -24,10 +25,10 @@ const SingleForumPage = ({forum}) => {
             <Script src="https://kit.fontawesome.com/9dbb72da13.js" />
 
             {/* SINGLE FORUM CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
-            <ForumPostDetails forum={forum}/>
-            <ReviewSection forum={forum}/>
+            <ForumPostDetails forum={forum} />
+            <ReviewSection forum={forum} />
             <RelatedTopicSection />
-            
+
         </div>
     );
 };
@@ -35,7 +36,6 @@ const SingleForumPage = ({forum}) => {
 // This function gets called at build time
 export async function getStaticPaths() {
     // Call an external API endpoint to get forums
-
     const res = await fetch('http://localhost:3000/api/forums')
     const forums = await res.json()
 
