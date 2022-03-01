@@ -2,7 +2,7 @@
 
 ### Project category: Ed-Tech
 
-## Live link: http://localhost:3000/
+## Live link: https://radiant-academy.vercel.app/
 
 ## Technology used:
 
