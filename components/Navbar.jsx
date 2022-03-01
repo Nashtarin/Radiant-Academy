@@ -102,30 +102,30 @@ const Navbar = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
                             </svg>
                         </button>
-                        <ul tabIndex="0" className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52 mt-2">
+                        <ul tabIndex="0" className="p-2 shadow menu dropdown-content bg-slate-100 dark:bg-slate-600 rounded-box w-52 mt-2">
                             <li>
                                 <Link href='/'>
-                                    <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-2">HOME </a>
+                                    <a className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-2">HOME </a>
                                 </Link>
                             </li>
                             <li className="my-3">
                                 <Link href="/courses">
-                                    <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-3">COURSES</a>
+                                    <a className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3">COURSES</a>
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/forum">
-                                    <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-3">FORUM </a>
+                                    <a className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3">FORUM </a>
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/code-editor">
-                                    <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-3">PLAYGROUND </a>
+                                    <a className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3">PLAYGROUND </a>
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/blogs">
-                                    <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-3">BLOGS </a>
+                                    <a className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3">BLOGS </a>
                                 </Link>
                             </li>
                             <li className="text-white mt-3">

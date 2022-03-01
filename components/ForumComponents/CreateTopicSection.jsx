@@ -52,11 +52,11 @@ const formats = [
 const CreateTopicSection = () => {
     const categories = useSelector((state) => state.categories.categoriesList);
 
-    const [postData, setPostData] = useState({ title: '', category: '', desc: '', author: 'Radiant Admin', authorImg: 'https://i.postimg.cc/4dNK0r0W/people-1.png', loves: 0,  views: 0, status: false, featured: false }); 
+    const [postData, setPostData] = useState({ title: '', category: '', desc: '', author: 'Radiant Admin', authorImg: 'https://i.postimg.cc/4dNK0r0W/people-1.png', loves: 0, views: 0, status: false, featured: false });
 
     // const postTopic = async (postData) => {
     //     try {
-    //         const res = await axios.post("http://localhost:3000/api/forums", postData);
+    //         const res = await axios.post("https://radiant-academy.vercel.app/api/forums", postData);
 
     //         if (res.status === 201) {
     //             // dispatch(reset());
@@ -80,7 +80,7 @@ const CreateTopicSection = () => {
     }
 
     const clear = () => {
-        setPostData({ title: '', category: '', desc: '', author: '', authorImg: '', loves: 0,  views: 0, status: false, featured: false });
+        setPostData({ title: '', category: '', desc: '', author: '', authorImg: '', loves: 0, views: 0, status: false, featured: false });
     };
 
     return (
