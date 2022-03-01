@@ -54,20 +54,6 @@ const CreateTopicSection = () => {
 
     const [postData, setPostData] = useState({ title: '', category: '', desc: '', author: 'Radiant Admin', authorImg: 'https://i.postimg.cc/4dNK0r0W/people-1.png', loves: 0, views: 0, status: false, featured: false });
 
-    // const postTopic = async (postData) => {
-    //     try {
-    //         const res = await axios.post("http://localhost:3000/api/forums", postData);
-
-    //         if (res.status === 201) {
-    //             // dispatch(reset());
-    //             // router.push(/orders/${res.postData._id});
-    //         }
-
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    // };
-
     const dispatch = useDispatch();
     const postTopic = e => {
         if (dispatch(topicCreate(postData))) {

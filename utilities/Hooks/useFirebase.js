@@ -32,7 +32,7 @@ const useFirebase = () => {
             })
             .finally(() => setIsLoading(false))
     }
-    const registerUser = (name,username,email, password) => {
+    const registerUser = (name, username, email, password) => {
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
@@ -47,7 +47,7 @@ const useFirebase = () => {
                 }).then(() => {
                 }).catch((error) => {
                 });
-                
+
             })
             .catch((error) => {
                 setAuthError(error.message);
@@ -95,11 +95,11 @@ const useFirebase = () => {
     }
 
 
-        
 
-    const loginUser = (email,password) => {
+
+    const loginUser = (email, password) => {
         setIsLoading(true);
-        
+
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const destination = location?.state?.from || '/';
@@ -135,6 +135,7 @@ const useFirebase = () => {
         signOut(auth)
             .then(() => {
                 // Sign-out successful.
+                router.push('/')
             })
             .catch((error) => {
                 // An error happened.
