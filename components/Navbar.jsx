@@ -48,13 +48,13 @@ const Navbar = () => {
                                 <a className="btn hover:bg-slate-300 dark:hover:bg-slate-600 btn-ghost rounded-btn mx-3">FORUM </a>
                             </Link>
                             <Link href="/code-editor">
-                                <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-3">PLAYGROUND </a>
+                                <a className="btn hover:bg-slate-300 dark:hover:bg-slate-600 btn-ghost rounded-btn mx-3">PLAYGROUND </a>
                             </Link>
                             <Link href="/blogs">
-                                <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-3">BLOGS </a>
+                                <a className="btn hover:bg-slate-300 dark:hover:bg-slate-600 btn-ghost rounded-btn mx-3">BLOGS </a>
                             </Link>
                             <Link href="/contact">
-                                <a className="btn hover:bg-slate-300 btn-ghost rounded-btn mx-3">CONTACT </a>
+                                <a className="btn hover:bg-slate-300 dark:hover:bg-slate-600 btn-ghost rounded-btn mx-3">CONTACT </a>
                             </Link>
                             <Link passHref href="/register">
                                 <button className="btn border-0 px-7 py-2 rounded bg-rose-500 text-white dark:hover:bg-slate-600 transition duration-500 mx-3">FREE TRIAL</button>
@@ -75,10 +75,10 @@ const Navbar = () => {
                                             }
                                         </div>
                                     </label>
-                                    <ul tabIndex="0" className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                                    <ul tabIndex="0" className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-slate-100 dark:bg-slate-600 rounded-box w-52">
                                         <li>
                                             <Link href="/profile">
-                                                <a className="justify-between">
+                                                <a className=" hover:bg-rose-500 hover:text-white">
                                                     Profile
                                                     <span className="badge">New</span>
                                                 </a>
@@ -86,17 +86,17 @@ const Navbar = () => {
                                         </li>
                                         <li>
                                             <Link href="/dashboard">
-                                                <a>Dashboard</a>
+                                                <a className=" hover:bg-rose-500 hover:text-white">Dashboard</a>
                                             </Link>
                                         </li>
                                         <li>
                                             <Link href="/my-course">
-                                                <a>My Course</a>
+                                                <a className=" hover:bg-rose-500 hover:text-white">My Course</a>
                                             </Link>
                                         </li>
-                                        <li>
-                                            <a>
-                                                <button onClick={logout}>Logout</button>
+                                        <li onClick={logout}>
+                                            <a className=" hover:bg-rose-500 hover:text-white">
+                                                Logout
                                             </a>
                                         </li>
                                     </ul>
