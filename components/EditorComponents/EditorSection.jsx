@@ -21,7 +21,7 @@ export default function EditorSection() {
 
   return (
     <>
-      <div className="pane top=pane grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-5 px-8">
+      <div className="pane top=pane grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-5 px-8 bg-white dark:bg-slate-800 dark:text-white">
         <EditorBox
           language="xml"
           displayName="HTML"
@@ -39,9 +39,10 @@ export default function EditorSection() {
           displayName="JavaScript"
           value={js}
           onChange={setJs}
+          
         />
       </div>
-      <div className="pane py-5 px-10">
+      <div className="pane py-5 px-10 bg-white dark:bg-slate-800 dark:text-white">
         <h3 className="ml-1.5 text-xl font-semibold flex items-center mb-2">Output <BsArrowRight className='ml-1' /></h3>
         <iframe
           srcDoc={srcDoc}

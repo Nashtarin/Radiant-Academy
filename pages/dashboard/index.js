@@ -1,10 +1,10 @@
-import React from 'react';
 import Head from 'next/head';
+import React from 'react';
 import DashboardSection from '../../components/DashboardComponents/DashboardSection';
 
 const index = () => {
     return (
-        <div>
+        <div className='bg-white dark:bg-slate-800'>
             <Head>
                 <title>Radiant Academy | Dashboard</title>
                 <meta name="Your learning partner" content="Best learning app for the curious learners" />

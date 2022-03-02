@@ -1,13 +1,13 @@
 import Head from "next/head";
-import React from 'react';
 import Script from 'next/script';
+import React from 'react';
 import BrowseCategorySection from "../../components/ForumComponents/BrowseCategorySection";
 import FeaturedTopicSection from '../../components/ForumComponents/FeaturedTopicSection';
 import TopicSearch from "../../components/ForumComponents/TopicSearch";
 
 const index = ({ forums }) => {
   return (
-    <div>
+    <div className="bg-white dark:bg-slate-800">
       <Head>
         <title>Radiant Academy | Forum</title>
         <meta name="Your learning partner" content="Best learning app for the curious learners" />
@@ -17,8 +17,8 @@ const index = ({ forums }) => {
       <Script src="https://kit.fontawesome.com/9dbb72da13.js" />
 
       {/* FORUM CONTENTS GOES HERE (WITHOUT NAVBAR & FOOTER) */}
-      <div className='container mx-auto'>
-        <h1 className='text-5xl font-bold text-center mt-12 mb-5 text-violet-800 px-4'>
+      <div className='container mx-auto bg-white dark:bg-slate-800'>
+        <h1 className='text-5xl font-bold text-center pt-12 mb-5 text-violet-800 px-4 dark:text-violet-400'>
           Welcome to our forum
         </h1>
       </div>

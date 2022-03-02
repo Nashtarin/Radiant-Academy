@@ -1,16 +1,16 @@
+import { ArcElement, Chart } from 'chart.js';
+import Link from 'next/link';
 import React from 'react';
-import DashboardSidebar from './DashboardSidebar';
-import { FaInfoCircle, FaEdit, FaEnvelope, FaPhoneSquareAlt, FaBookmark, FaIdCardAlt, FaClone, FaPlus, FaCopy, FaNewspaper, FaClock, FaHashtag, FaEye, FaHeart, FaShare } from 'react-icons/fa';
-import { MdPending } from 'react-icons/md';
-import { BsArrowRight } from 'react-icons/bs';
-import { Chart, ArcElement } from 'chart.js';
-Chart.register(ArcElement);
 import { Doughnut } from 'react-chartjs-2';
+import { BsArrowRight } from 'react-icons/bs';
+import { FaBookmark, FaClock, FaClone, FaCopy, FaEdit, FaEnvelope, FaEye, FaHashtag, FaHeart, FaIdCardAlt, FaInfoCircle, FaNewspaper, FaPhoneSquareAlt, FaPlus, FaShare } from 'react-icons/fa';
+import { MdPending } from 'react-icons/md';
+import { useSelector } from 'react-redux';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import { useSelector } from 'react-redux';
-import Link from 'next/link';
+import DashboardSidebar from './DashboardSidebar';
+Chart.register(ArcElement);
 
 const DashboardSection = () => {
     const allCourses = useSelector((state) => state.courses.coursesList);
@@ -71,45 +71,45 @@ const DashboardSection = () => {
 
     return (
         <div className="px-0 sm:px-6 lg:px-12">
-            <div className="grid grid-rows-1 md:grid-cols-[250px_minmax(300px,_1fr)] lg:grid-cols-[250px_minmax(600px,_1fr)] m-8 gap-5">
+            <div className="grid grid-rows-1 md:grid-cols-[250px_minmax(300px,_1fr)] lg:grid-cols-[250px_minmax(600px,_1fr)] p-8 gap-5">
                 <div>
                     <DashboardSidebar />
                 </div>
 
-                <div className="bg-slate-100 shadow-md rounded-md py-8 px-5 h-auto">
-                    <div className="rounded-md p-5 text-white" style={{ backgroundColor: '#32007E' }}>
+                <div className="bg-slate-100 dark:bg-slate-700 shadow-md rounded-md py-8 px-5 h-auto">
+                    <div className="rounded-md p-5 text-white bg-violet-900 dark:bg-violet-400 dark:text-slate-700" >
                         <h5 className="text-lg">Site Overview</h5>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-8 pb-1 px-4">
-                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200">
+                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-700">
                                 <h3 className="text-2xl">23</h3>
                                 <p>Pending Submissions</p>
                             </div>
-                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200">
+                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-700">
                                 <h3 className="text-2xl">768</h3>
                                 <p>Submissions</p>
                             </div>
-                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200">
+                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-700">
                                 <h3 className="text-2xl">1.5k+</h3>
                                 <p>Total Accounts</p>
                             </div>
-                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200">
+                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-700">
                                 <h3 className="text-2xl">0</h3>
                                 <p>Subscribers</p>
                             </div>
-                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200">
+                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-700">
                                 <h3 className="text-2xl">{allCourses.data.length}</h3>
                                 <p>Total Courses</p>
                             </div>
-                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200">
+                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-700">
                                 <h3 className="text-2xl">100</h3>
                                 <p>Total Quizes</p>
                             </div>
-                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200">
+                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-700">
                                 <h3 className="text-2xl">{allTopics.data.length}</h3>
                                 <p>Forum Posts</p>
                             </div>
-                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200">
+                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-700">
                                 <h3 className="text-2xl">{allReviews.data.length}</h3>
                                 <p>Total Reviews</p>
                             </div>
@@ -117,7 +117,7 @@ const DashboardSection = () => {
                     </div>
                     <div className="grid grid-rows-1 md:grid-cols-[300px_minmax(200px,_1fr)] lg:grid-cols-[350px_minmax(400px,_1fr)] gap-5 mt-5">
                         <div>
-                            <div className="bg-slate-200 shadow-md rounded-md p-5 h-auto mb-5 course-card">
+                            <div className="bg-slate-200 shadow-md rounded-md p-5 h-auto mb-5 course-card dark:bg-slate-500">
                                 <div className="flex items-center justify-between" style={{ color: '#32007E' }}>
                                     <div className="flex items-center">
                                         <FaClone className="mr-2 text-lg" />
@@ -206,16 +206,16 @@ const DashboardSection = () => {
                                     `}
                                 </style>
                             </div>
-                            <div className="bg-slate-200 shadow-md rounded-md p-5 h-auto mb-5">
-                                <div className="flex items-center justify-between" style={{ color: '#32007E' }}>
+                            <div className="bg-slate-200 dark:bg-slate-600 shadow-md rounded-md p-5 h-auto mb-5">
+                                <div className="flex items-center justify-between text-violet-900 dark:text-violet-400" style={{ color: '' }}>
                                     <div className="flex items-center">
                                         <FaInfoCircle className="mr-2 text-lg" />
                                         <h5 className="text-lg font-semibold">Account Info</h5>
                                     </div>
                                     <button className="px-4 py-1.5 hover:bg-stone-100 rounded-lg flex items-center uppercase"><FaEdit className="mr-2" /> Edit</button>
                                 </div>
-                                <div className="border-[1px] border-stone-300 my-2"></div>
-                                <table className="table-compact">
+                                <div className="border-[1px] border-stone-300 dark:border-none my-2"></div>
+                                <table className="table-compact text-slate-700 dark:text-slate-200">
                                     <tbody>
                                         <tr>
                                             <td className="flex items-center">
@@ -249,8 +249,8 @@ const DashboardSection = () => {
                             </div>
                         </div>
                         <div>
-                            <div className="bg-slate-200 shadow-md rounded-md p-5 h-auto mb-5">
-                                <div className="flex items-center text-xl font-semibold pt-1 pb-4 border-b-2 border-purple-800" style={{ color: '#32007E' }}>
+                            <div className="bg-slate-200 shadow-md rounded-md p-5 h-auto mb-5 dark:bg-slate-500">
+                                <div className="flex items-center text-xl font-semibold pt-1 pb-4 border-b-2 border-purple-800 text-violet-900 dark:text-violet-700">
                                     <MdPending className="mr-2" />
                                     <h3>Pending Submissions</h3>
                                 </div>
@@ -294,22 +294,22 @@ const DashboardSection = () => {
                                     <button className="text-sm flex items-center px-4 py-1 font-semibold rounded-full hover:bg-stone-100" style={{ color: '#32007E' }}>See More Submissions <BsArrowRight className="ml-2 text-[15px] text-red-600" /></button>
                                 </div>
                             </div>
-                            <div className="bg-slate-200 shadow-md rounded-md p-5 h-auto mb-5">
-                                <div className="flex items-center text-xl font-semibold pt-1 pb-4 border-b-2 border-purple-800" style={{ color: '#32007E' }}>
+                            <div className="bg-slate-200 dark:bg-slate-500 shadow-md rounded-md p-5 h-auto mb-5 ">
+                                <div className="flex items-center text-xl font-semibold pt-1 pb-4 border-b-2 border-purple-800 text-violet-900 dark:text-violet-700">
                                     <FaNewspaper className="mr-2" />
                                     <h3>Newsletters</h3>
                                 </div>
                                 <Slider {...settings}>
-                                    <div className="p-5">
+                                    <div className="p-5 text-violet-900 dark:text-violet-700">
                                         <h4 className="text-lg font-semibold mb-1">Email Subject</h4>
-                                        <p className="text-[0.9em] text-gray-600 mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae rerum pariatur debitis omnis consequatur perferendis nisi cumque corrupti iure repudiandae.</p>
+                                        <p className="text-[0.9em] text-slate-700 dark:text-slate-200 mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae rerum pariatur debitis omnis consequatur perferendis nisi cumque corrupti iure repudiandae.</p>
                                         <div className="flex items-center justify-end">
                                             <FaClock className="mr-2 text-right text-sm text-gray-500" />
                                             <p className="text-[0.9em] text-gray-500">January 12</p>
                                         </div>
                                     </div>
                                     <div className="p-5">
-                                        <h4 className="text-lg font-semibold mb-1">Email Subject</h4>
+                                        <h4 className="text-lg font-semibold mb-1 text-slate-700 dark:text-slate-200">Email Subject</h4>
                                         <p className="text-[0.9em] text-gray-600 mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae rerum pariatur debitis omnis consequatur perferendis nisi cumque corrupti iure repudiandae.</p>
                                         <div className="flex items-center justify-end">
                                             <FaClock className="mr-2 text-right text-sm text-gray-500" />
