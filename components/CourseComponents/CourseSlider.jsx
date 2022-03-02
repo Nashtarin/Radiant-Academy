@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 
-const CourseSlider = () => {
+const CourseSlider = ({allCourses}) => {
     const settings = {
         slidesToShow: 4,
         slidesToScroll: 1,
@@ -40,11 +40,11 @@ const CourseSlider = () => {
         <>
             <div className="course-card">
                 <Slider {...settings}>
-                    <CourseCard />
-                    <CourseCard />
-                    <CourseCard />
-                    <CourseCard />
-                    <CourseCard />
+                    {
+                        allCourses?.data?.map(course => (
+                            <CourseCard key={course._id} course={course}/>
+                        ))
+                    }
                 </Slider> 
                 <style jsx global>
                     {`

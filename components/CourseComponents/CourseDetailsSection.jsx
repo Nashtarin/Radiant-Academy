@@ -4,8 +4,9 @@ import { BsCheck2All, BsCheck2Circle } from 'react-icons/bs';
 import ReactStars from "react-rating-stars-component";
 import Image from 'next/image';
 import CourseCard from './CourseCard';
+import Link from 'next/link';
 
-const CourseDetailsSection = () => {
+const CourseDetailsSection = ({course}) => {
     const [rating, setRating] = useState(4.5);
 
     //rating system
@@ -30,7 +31,7 @@ const CourseDetailsSection = () => {
             <div className="py-12 px-16 text-white" style={{ backgroundColor: '#522F88' }}>
                 <div>
                     <h1 className="my-1 text-[2.1em] font-medium">
-                        Introduction to Flexbox <small>($59.50)</small>
+                        {course?.data?.title} <small>($59.50)</small>
                     </h1>
                     <p className="flex items-center">
                         <FaBookmark className="text-orange-500" /> &nbsp; Radiant Academy Certificate Included
@@ -41,7 +42,7 @@ const CourseDetailsSection = () => {
                     </div>
                     <p className="text-sm mt-2">● 10 Quizes ● 10 Articles ● 10 Problem Solving</p>
                     <div className="flex items-center mt-8">
-                        <button className="bg-yellow-400 px-5 py-1.5 text-black uppercase rounded-md font-medium">Enroll Now</button>
+                        <Link href="/courses/payment" passHref><button className="bg-yellow-400 px-5 py-1.5 text-black uppercase rounded-md font-medium">Enroll Now</button></Link>
                         <span className="text-md mx-4">* 1025 Already Enrolled!</span>
                     </div>
                 </div>

@@ -9,6 +9,18 @@ export const fetchCourses = createAsyncThunk(
     }
 )
 
+// export const courseView = createAsyncThunk(
+//     'course/courseView',
+//     async (course) => {
+//         try {
+//             const response = await axios.put(`http://localhost:3000/api/course/views/${forum._id}`);
+//             return response
+//         } catch (error) {
+//             console.log(error);
+//         }
+//     }
+// )
+
 const courseSlice = createSlice({
     name: 'course',
     initialState: {

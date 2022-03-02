@@ -70,6 +70,9 @@ const Footer = () => {
                                         </Link><br />
                                         <Link href="/contact" passHref>
                                             <span className="mb-1 hover:text-rose-600 cursor-pointer">Contact</span>
+                                        </Link><br />
+                                        <Link href="/about" passHref>
+                                            <span className="mb-1 hover:text-rose-600 cursor-pointer">About</span>
                                         </Link>
                                     </div>
                                 </div>

@@ -14,16 +14,13 @@ const UsersSchema = new mongoose.Schema({
     rank: {
         type: String,
     },
-    forum_posts: [{
-        post_title: { type: String, required: true },
-        post_tag: { type: String },
-        post_status: { type: Number },
-    }],
+    forumId: {
+        type: String,
+        required: true,
+    },
     enrolled_course: [{
-        course_name: { type: String, required: true },
-        course_price: { type: String, required: true },
-        course_type: { type: String, required: true },
-        course_status: { type: Number, required: true },
+        type: String,
+        required: true,
     }],
 
 },
