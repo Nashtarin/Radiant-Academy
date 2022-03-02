@@ -1,7 +1,9 @@
 
 import { useEffect, useState } from "react";
 import initializeFirebase from "../Firebase/firebase.init";
-import { getAuth, createUserWithEmailAndPassword, FacebookAuthProvider, GithubAuthProvider, getIdToken, updateProfile, signInWithPopup, signOut, onAuthStateChanged, signInWithEmailAndPassword, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword,signInWithPhoneNumber,RecaptchaVerifier, FacebookAuthProvider, GithubAuthProvider, getIdToken, updateProfile, signInWithPopup, signOut, onAuthStateChanged, signInWithEmailAndPassword, GoogleAuthProvider} from "firebase/auth";
+import firebaseConfig from "../Firebase/firebase.config";
+import { useRouter } from 'next/router'
 
 initializeFirebase();
 const useFirebase = () => {
@@ -9,11 +11,32 @@ const useFirebase = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
     const [admin, setAdmin] = useState(false);
+    const router=useRouter()
 
     const auth = getAuth();
+    auth.languageCode = 'it';
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
     const facebookProvider = new FacebookAuthProvider();
+//    const recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {}, auth);
+    
+//    recaptchaVerifier:firebase.auth.RecaptchaVerifier;
+
+    //   const sendVerificationCode=()=>{
+    //     const phoneNumber = getPhoneNumberFromUserInput();
+    //     const appVerifier = window.recaptchaVerifier;
+    //     signInWithPhoneNumber(auth, phoneNumber, appVerifier)
+    //     .then((confirmationResult) => {
+    //       // SMS sent. Prompt user to type the code from the message, then sign the
+    //       // user in with confirmationResult.confirm(code).
+    //       window.confirmationResult = confirmationResult;
+    //       // ...
+    //     }).catch((error) => {
+    //       // Error; SMS not sent
+    //       // ...
+    //     });
+    //   }
+
 
     const googleSignIn = () => {
         setIsLoading(true);
@@ -30,7 +53,9 @@ const useFirebase = () => {
             .catch((error) => {
                 setAuthError(error.message)
             })
-            .finally(() => setIsLoading(false))
+            .finally(() => {setIsLoading(false)
+                router.push("/")
+            })
     }
     const registerUser = (name,username,email, password) => {
         setIsLoading(true);
@@ -72,8 +97,10 @@ const useFirebase = () => {
             .catch((error) => {
                 setAuthError(error.message)
             })
+             .finally(() => {setIsLoading(false)
+                router.push("/")
+            })
 
-            .finally(() => setIsLoading(false))
     }
 
     const facebookSignIn = () => {
@@ -95,7 +122,10 @@ const useFirebase = () => {
 
                 setAuthError(error.message)
             })
-            .finally(() => setIsLoading(false))
+            .finally(() => {setIsLoading(false)
+                router.push("/")
+            })
+        
     }
 
 
@@ -159,7 +189,9 @@ const useFirebase = () => {
         logout,
         googleSignIn,
         githubSignIn,
-        facebookSignIn
+        facebookSignIn,
+        // sendVerificationCode
+
     }
 
 }

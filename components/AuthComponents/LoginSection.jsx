@@ -4,11 +4,15 @@ import React, { useState } from "react";
 import { FaRegEnvelope, FaUnlockAlt, FaFacebook, FaGithub, FaGooglePlus } from "react-icons/fa";
 import useAuth from '../../utilities/Hooks/useAuth';
 
+
 const LoginSection = () => {
     const router=useRouter()
-    const { googleSignIn, githubSignIn, facebookSignIn, user, isLoading, authError, loginUser } = useAuth();
+    const {sendVerificationCode, googleSignIn, githubSignIn, facebookSignIn, user, isLoading, authError, loginUser } = useAuth();
 
     //google login
+   
+
+   
     const handleGoogleSignIn = () => {
         googleSignIn();
     }
@@ -70,6 +74,12 @@ const LoginSection = () => {
                         {/* {/* {user?.email && <p className="text-lime-600 text-2xl">User Signed in successfully!</p>} */}
                         {/* {authError && <p className="text-red-600">{authError}</p>} */}
                         {authError && <p className="text-red-600 text-2xl">Email/password is Wrong!Try again or Sign Up</p>}
+                        <div id="recaptcha-container"
+                        >
+                            {/* <button onClick={sendVerificationCode}> Send Verification Code</button> */}
+                        </div>
+
+
                         <p className="mt-10 font-semibold text-sm">New here? <Link passHref href="/register"><span className="text-violet-500 cursor-pointer">Sign up</span></Link></p>
                     </div>
                     <div className="w-full md:w-2/5 bg-violet-500 text-white rounded-bl-2xl md:rounded-tr-2xl rounded-br-2xl md:rounded-bl-none py-36 px-12 sm:w-full">
