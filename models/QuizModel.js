@@ -1,5 +1,9 @@
 import mongoose from 'mongoose';
 const QuizSchema = new mongoose.Schema({
+    courseId: {
+        type: String,
+        required: true,
+    },
     questionText: {
         type: String,
         required: true,

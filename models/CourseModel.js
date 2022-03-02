@@ -26,6 +26,16 @@ const CourseSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
+    enrolled: {
+        type: Number,
+        required: true,
+        default: 0,
+    },
+    contents: [{
+        text: { type: String, required: true },
+        text: { type: String, required: true },
+        text: { type: String, required: true },
+    }],
 },
     { timestamps: true }
 );
