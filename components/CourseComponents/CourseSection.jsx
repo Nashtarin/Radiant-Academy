@@ -1,34 +1,79 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import CourseCard from './CourseCard';
+import { FiPlusCircle } from 'react-icons/fi';
 
 const CourseSection = () => {
-    const size = 5;
-    const data = useSelector((state) => state.courses.coursesList);
-    const totalPage = Math.ceil(data?.total / size)
-    const pageNumber = totalPage;
-
     return (
         <div className='container mx-auto'>
-            <h1 className='text-5xl	font-bold text-violet-900 mb-5 pt-14 text-center'>Our Awesome Courses</h1>
-            
-            <div className="grid w-5/6 mx-auto my-4 grid-rows-auto lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
-                {
-                    data.books.map(course => <CourseCard
-                        key={course.isbn13}
-                        course={course}
-                    />)
-                }
+            <h1 className='text-4xl	font-bold text-violet-900 mt-10 mb-2 py-8 text-center'>
+                Find Premium Courses With Radiant Plus
+            </h1>
+
+            <div className="px-16 pb-20">
+                <div>
+                    <div className="p-2 mb-1 flex items-center">
+                        <FiPlusCircle className="text-xl font-bold mr-2 cursor-pointer" />
+                        <h3 className="text-2xl font-medium"> Category Name</h3>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                    </div>
+                </div>
+                <div className="my-3">
+                    <div className="p-2 mb-1 flex items-center">
+                        <FiPlusCircle className="text-xl font-bold mr-2 cursor-pointer" />
+                        <h3 className="text-2xl font-medium"> Category Name</h3>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                    </div>
+                </div>
+                <div>
+                    <div className="p-2 mb-1 flex items-center">
+                        <FiPlusCircle className="text-xl font-bold mr-2 cursor-pointer" />
+                        <h3 className="text-2xl font-medium"> Category Name</h3>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                    </div>
+                </div>
+                <div className="my-3">
+                    <div className="p-2 mb-1 flex items-center">
+                        <FiPlusCircle className="text-xl font-bold mr-2 cursor-pointer" />
+                        <h3 className="text-2xl font-medium"> Category Name</h3>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                    </div>
+                </div>
+                <div>
+                    <div className="p-2 mb-1 flex items-center">
+                        <FiPlusCircle className="text-xl font-bold mr-2 cursor-pointer" />
+                        <h3 className="text-2xl font-medium"> Category Name</h3>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                    </div>
+                </div>
             </div>
-            <div className='container text-center my-8'>
-                {
-                    [...Array(pageNumber).keys()].map(number => <button
-                        className='bg-violet-500 hover:bg-violet-900  text-white rounded-lg mx-5 px-4 py-2'
-                        key={number}
-                    >
-                        {number + 1}
-                    </button>)
-                }
+
+            <div className="text-red-600 mb-12 text-center text-lg font-medium">
+                <p>More courses are coming soon!</p>
             </div>
         </div>
     );
