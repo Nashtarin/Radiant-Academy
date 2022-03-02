@@ -31,7 +31,7 @@ const DashboardSection = () => {
         }]
     };
 
-    var settings = {
+    const settings = {
         slidesToShow: 1,
         slidesToScroll: 1,
         dots: true,
