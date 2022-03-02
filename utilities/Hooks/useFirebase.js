@@ -157,9 +157,9 @@ const useFirebase = () => {
         signOut(auth).then(() => {
             localStorage.removeItem('token');
             router.push('/');
-            toast.success("Successfully signed out!", {
-                position: "bottom-center"
-            });
+            // toast.success("Successfully signed out!", {
+            //     position: "bottom-center"
+            // });
         })
         .catch((error) => {
             // An error happened.

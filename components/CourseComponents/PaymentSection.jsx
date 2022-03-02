@@ -23,7 +23,7 @@ const PaymentSection = () => {
                             <div>
                                 <h4 className="font-semibold text-lg">Introducing to Flexbox</h4>
                                 <p className="text-slate-400 text-[0.9em]">#html #css #beginners</p>
-                                <p className="text-sm mt-2 px-2 text-stone-600">● 10 Quizes ● 10 Articles <br /> ● 10 Problem Solving</p>
+                                <p className="text-sm mt-2 px-2 text-stone-600">● 10 Quizzes ● 10 Articles <br /> ● 10 Problem Solving</p>
                             </div>
                             <div>
                                 <h4 className="text-2xl text-center sm:text-left font-bold text-purple-800 mt-4">Pay: $ 59.50</h4>
@@ -31,9 +31,9 @@ const PaymentSection = () => {
                         </div>
                         <div className="bg-slate-200 shadow-md rounded-md p-5 h-auto mt-5">
                             <div className="flex items-center" style={{ color: '#32007E' }}>
-                                    <FaInfoCircle className="mr-2 text-lg" />
-                                    <h5 className="text-lg font-semibold">Account Info</h5>
-                                </div>
+                                <FaInfoCircle className="mr-2 text-lg" />
+                                <h5 className="text-lg font-semibold">Account Info</h5>
+                            </div>
                             <div className="border-[1px] border-stone-300 my-2"></div>
                             <table className="table-compact">
                                 <tbody>

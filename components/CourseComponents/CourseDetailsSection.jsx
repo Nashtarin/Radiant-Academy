@@ -6,7 +6,7 @@ import Image from 'next/image';
 import CourseCard from './CourseCard';
 import Link from 'next/link';
 
-const CourseDetailsSection = ({course}) => {
+const CourseDetailsSection = ({ course }) => {
     const [rating, setRating] = useState(4.5);
 
     //rating system
@@ -51,12 +51,12 @@ const CourseDetailsSection = ({course}) => {
                             <span className="text-white text-[1em] ml-2 mb-2">(45)</span>
                         </div>
                     </div>
-                    <p className="text-sm mt-2">● 10 Quizes ● 10 Articles ● 10 Problem Solving</p>
-                    <div className="flex items-center mt-8">
-                        <Link href="/courses/payment" passHref>
-                            <button className="bg-yellow-400 px-5 py-1.5 text-black uppercase rounded-md font-medium">Enroll Now</button>
-                        </Link>
-                        <span className="text-md mx-4">* 1025 Already Enrolled!</span>
+                    <div className="flex flex-col mt-8">
+                        <div className='text-4xl font-bold py-3 text-center'>
+                            <h2> <span>$</span> {course?.data?.price}</h2>
+                        </div>
+                        <Link href="/courses/payment" passHref><button className="bg-yellow-400 px-5 py-1.5 text-black uppercase rounded-md font-medium">Enroll Now</button></Link>
+                        <span className="text-md mt-4 mx-4">* 1025 Already Enrolled!</span>
                     </div>
                 </div>
             </div>
@@ -116,7 +116,7 @@ const CourseDetailsSection = ({course}) => {
                                     <BsCheck2Circle className="mr-3" /> 3 Articles
                                 </p>
                                 <p className="flex items-center text-lg font-medium my-1">
-                                    <BsCheck2Circle className="mr-3" /> 10 Quizes
+                                    <BsCheck2Circle className="mr-3" /> 10 Quizzes
                                 </p>
                                 <p className="flex items-center text-lg font-medium">
                                     <BsCheck2Circle className="mr-3" /> 3 Problem Solving
