@@ -43,8 +43,8 @@ const CourseDetailsSection = ({ course }) => {
                         </div>
                         <p className="text-sm mt-2">● 10 Quizzes ● 10 Articles ● 10 Problem Solving</p>
                     </div>
-                    <div className="flex flex-col mt-8">
-                        <div className='text-4xl font-bold py-3 text-center'>
+                    <div className="flex flex-col">
+                        <div className='text-3xl font-bold py-3 text-center'>
                             <h2> <span>$</span> {course?.data?.price}</h2>
                         </div>
                         <Link href="/courses/payment" passHref><button className="bg-yellow-400 px-5 py-1.5 text-black uppercase rounded-md font-medium">Enroll Now</button></Link>

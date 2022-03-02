@@ -76,7 +76,13 @@ const QuizzesSection = () => {
                             </div>
                         </form>
                     </div>
-                    <progress className="progress w-full absolute progress-info" value="100" max="100"></progress>
+                    <progress className="progress w-full absolute progress-accent" value="100" max="100"></progress>
+                    <div className="mx-auto w-3/4 sm:2/4 md:w-1/4">
+                        <button className="flex justify-center items-center py-3 px-8 mt-8 mb-4 rounded-full bg-rose-500 text-white mx-auto" disabled>
+                            <p className="text-xl font-medium">Next </p>
+                            <FaArrowRight style={{ fontSize: 15 }} className="ml-2" />
+                        </button>
+                    </div>
                 </div>
             }
         </div>
