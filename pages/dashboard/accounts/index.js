@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import AccountsSection from '../../components/DashboardComponents/AccountsSection';
+import AccountsSection from '../../../components/DashboardComponents/AccountsSection';
 
 const index = () => {
     return (

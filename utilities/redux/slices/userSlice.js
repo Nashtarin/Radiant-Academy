@@ -1,19 +1,18 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-export const fetchCourses = createAsyncThunk(
-    'course/fetchCourses',
+export const fetchUsers = createAsyncThunk(
+    'user/fetchUsers',
     async () => {
-      const response = await fetch('http://localhost:3000/api/courses')
+      const response = await fetch('http://localhost:3000/api/users')
       .then(res => res.json())
       return response
     }
 )
 
-const courseSlice = createSlice({
-    name: 'course',
+const usersSlice = createSlice({
+    name: 'user',
     initialState: {
-        coursesList: [],
-        wishList: [],
+        usersList: [],
         status: 'idle',
     },
     reducers: {
@@ -21,18 +20,18 @@ const courseSlice = createSlice({
             state.wishList.push(action.payload); 
         },
         removeFrom: (state, action) => {
-            state.wishList = state.wishList.filter(course => course.id !== action.payload);
+            state.wishList = state.wishList.filter(users => users.id !== action.payload);
         },
     },
     extraReducers: (builder) => {
         // Add reducers for additional action types here, and handle loading state as needed
-        builder.addCase(fetchCourses.fulfilled, (state, action) => {
-          state.coursesList = action.payload;
+        builder.addCase(fetchUsers.fulfilled, (state, action) => {
+          state.usersList = action.payload;
           state.status = 'success';
         })
     },
 });
 
 // Action creators are generated for each case reducer function
-export const { addTo, removeFrom } = courseSlice.actions;
-export default courseSlice.reducer;
+export const { addTo, removeFrom } = usersSlice.actions;
+export default usersSlice.reducer;
