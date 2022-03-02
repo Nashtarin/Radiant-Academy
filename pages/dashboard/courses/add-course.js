@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import AddNewCourse from '../../components/DashboardComponents/AddNewCourse';
+import AddNewCourse from '../../../components/DashboardComponents/AddNewCourse';
 
 const index = () => {
     return (
