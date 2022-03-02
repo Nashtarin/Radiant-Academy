@@ -51,9 +51,6 @@ const Navbar = () => {
                             <Link href="/code-editor">
                                 <a className="btn hover:bg-slate-300 dark:hover:bg-slate-600 btn-ghost rounded-btn mx-3">PLAYGROUND </a>
                             </Link>
-                            <Link href="/blogs">
-                                <a className="btn hover:bg-slate-300 dark:hover:bg-slate-600 btn-ghost rounded-btn mx-3">BLOGS </a>
-                            </Link>
                             <Link href="/contact">
                                 <a className="btn hover:bg-slate-300 dark:hover:bg-slate-600 btn-ghost rounded-btn mx-3">CONTACT </a>
                             </Link>
@@ -130,11 +127,6 @@ const Navbar = () => {
                             <li>
                                 <Link href="/code-editor">
                                     <a className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3">PLAYGROUND </a>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/blogs">
-                                    <a className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3">BLOGS </a>
                                 </Link>
                             </li>
                             <li>

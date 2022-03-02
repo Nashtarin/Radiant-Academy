@@ -8,7 +8,7 @@ import Styles from '../../styles/Home.module.css';
 const CourseCard = () => {
     return (
         <div>
-            <div className="bg-slate-100 p-5 grid grid-rows-1 rounded-xl">
+            <div className="bg-slate-100 p-5 grid grid-rows-1 rounded-lg card-single">
                 <div className={Styles.imgContainer}>
                     <Image
                         src={coverImg}

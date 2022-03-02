@@ -5,7 +5,7 @@ import ReactStars from "react-rating-stars-component";
 import ProfileDetailsSection from './ProfileDetailsSection';
 
 const ProfileSection = () => {
-    const [rating, setRating] = useState(0);
+    const [rating, setRating] = useState(4.5);
 
     //rating system
     const ratingCount = {
