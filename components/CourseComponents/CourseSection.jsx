@@ -1,14 +1,18 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import CourseSlider from './CourseSlider';
 
 const CourseSection = () => {
+    const allCourses = useSelector((state) => state.courses.coursesList);
+    console.log(allCourses);
+
     return (
         <div className='container mx-auto'>
             <h1 className='text-4xl	font-bold text-violet-900 mt-10 mb-2 py-8 text-center'>
                 Find Premium Courses With Radiant Plus
             </h1>
             <div className="px-16 pb-20">
-                <CourseSlider/>
+                <CourseSlider allCourses={allCourses}/>
             </div>
 
             <div className="px-16 pb-20">
