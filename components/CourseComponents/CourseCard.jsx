@@ -5,7 +5,7 @@ import coverImg from '../../public/img/css_flexbox 1.png';
 import { BsArrowRight } from 'react-icons/bs';
 import Styles from '../../styles/Home.module.css';
 
-const CourseCard = ({course}) => {
+const CourseCard = ({ course }) => {
 
     return (
         <div>
@@ -29,7 +29,7 @@ const CourseCard = ({course}) => {
                 <div>
                     <h4 className="font-semibold text-lg">{course?.title}</h4>
                     <p className="text-slate-400 text-[0.9em]">#html #css #beginners</p>
-                    <p className="text-sm mt-2 px-2 text-stone-600">● 10 Quizes ● 10 Articles <br /> ● 10 Problem Solving</p>
+                    <p className="text-sm mt-2 px-2 text-stone-600">● 10 Quizzes ● 10 Articles <br /> ● 10 Problem Solving</p>
                 </div>
             </div>
         </div>

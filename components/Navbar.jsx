@@ -20,9 +20,10 @@ const Navbar = () => {
                                 <div className="relative top-[9px]">
                                     <Image
                                         src={Logo}
-                                        alt="Landscape picture"
+                                        alt="Radiant Academy Logo"
                                         width="80px"
                                         height="80px"
+                                        draggable="false"
                                     />
                                 </div>
                             </a>
