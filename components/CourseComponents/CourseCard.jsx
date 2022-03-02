@@ -1,18 +1,28 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import coverImg from '../../public/img/css_flexbox 1.png';
+import { BsArrowRight } from 'react-icons/bs';
+import Styles from '../../styles/Home.module.css';
 
 const CourseCard = () => {
     return (
         <div>
-            <div className="bg-slate-100 p-5 grid grid-rows-1">
-                <div className="px-2">
+            <div className="bg-slate-100 p-5 grid grid-rows-1 rounded-lg">
+                <div className={Styles.imgContainer}>
                     <Image
                         src={coverImg}
                         alt="Course Cover"
-                        className="w-full"
-                        height="160px"
+                        className={Styles.courseCoverImage}
+                        height="165px"
                     />
+                    <div className={Styles.middleBtn}>
+                        <Link href="/courses/slug" passHref>
+                            <button className="bg-slate-600 text-white px-5 py-1.5 rounded-full flex items-center hover:shadow-lg">
+                                Details <BsArrowRight className="ml-2" />
+                            </button>
+                        </Link>
+                    </div>
                 </div>
                 <div>
                     <h4 className="font-semibold text-lg">Introducing to Flexbox</h4>
