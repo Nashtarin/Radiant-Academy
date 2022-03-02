@@ -88,13 +88,15 @@ const CreateTopicSection = () => {
                                 placeholder="Topic Title"
                                 className="bg-slate-200 w-full py-2 px-3 outline-none mt-3.5 text-lg rounded-lg font-semibold"
                                 required
-                                value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })}
+                                value={postData.title}
+                                onChange={(e) => setPostData({ ...postData, title: e.target.value })}
                             />
                             <select
                                 name="category"
                                 className="block appearance-none w-full bg-slate-200 py-3 px-4 pr-8 rounded-lg leading-tight outline-none my-5 text-lg"
                                 required
-                                value={postData.category} onChange={(e) => setPostData({ ...postData, category: e.target.value })}
+                                value={postData.category}
+                                onChange={(e) => setPostData({ ...postData, category: e.target.value })}
                             >
                                 <option>Select a Category</option>
                                 {

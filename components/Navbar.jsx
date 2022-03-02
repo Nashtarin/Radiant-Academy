@@ -17,12 +17,13 @@ const Navbar = () => {
                     <div className="flex-1 pl-10 mx-2">
                         <Link href="/">
                             <a>
-                                <div className="relative top-[18px]">
+                                <div className="relative top-[9px]">
                                     <Image
                                         src={Logo}
-                                        alt="Landscape picture"
-                                        width="64px"
-                                        height="64px"
+                                        alt="Radiant Academy Logo"
+                                        width="80px"
+                                        height="80px"
+                                        draggable="false"
                                     />
                                 </div>
                             </a>
@@ -50,12 +51,9 @@ const Navbar = () => {
                             <Link href="/code-editor">
                                 <a className="btn hover:bg-slate-300 dark:hover:bg-slate-600 btn-ghost rounded-btn mx-3">PLAYGROUND </a>
                             </Link>
-                            <Link href="/blogs">
-                                <a className="btn hover:bg-slate-300 dark:hover:bg-slate-600 btn-ghost rounded-btn mx-3">BLOGS </a>
-                            </Link>
                             {/* <Link href="/contact">
                                 <a className="btn hover:bg-slate-300 dark:hover:bg-slate-600 btn-ghost rounded-btn mx-3">CONTACT </a>
-                            </Link> */}
+                            </Link>  */}
                             <Link passHref href="/register">
                                 <button className="btn border-0 px-7 py-2 rounded bg-rose-500 text-white dark:hover:bg-slate-600 transition duration-500 mx-3">FREE TRIAL</button>
                             </Link>
@@ -78,15 +76,15 @@ const Navbar = () => {
                                     <ul tabIndex="0" className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-slate-100 dark:bg-slate-600 rounded-box w-52">
                                         <li>
                                             <Link href="/profile">
-                                                <a className=" hover:bg-rose-500 hover:text-white">
-                                                    Profile
-                                                    <span className="badge">New</span>
-                                                </a>
+                                                <a className=" hover:bg-rose-500 hover:text-white"> Profile</a>
                                             </Link>
                                         </li>
                                         <li>
                                             <Link href="/dashboard">
-                                                <a className=" hover:bg-rose-500 hover:text-white">Dashboard</a>
+                                                <a className=" hover:bg-rose-500 hover:text-white">
+                                                    Dashboard
+                                                    <span className="ml-2 badge">New</span>
+                                                </a>
                                             </Link>
                                         </li>
                                         <li>
@@ -131,16 +129,11 @@ const Navbar = () => {
                                     <a className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3">PLAYGROUND </a>
                                 </Link>
                             </li>
-                            <li>
-                                <Link href="/blogs">
-                                    <a className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3">BLOGS </a>
-                                </Link>
-                            </li>
                             {/* <li>
                                 <Link href="/contact">
                                     <a className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3">CONTACT </a>
                                 </Link>
-                            </li> */}
+                            </li>  */}
                             <li className="text-white mt-3">
                                 <Link passHref href="/register">
                                     <button className="btn border-0 px-7 py-2 rounded-btn bg-rose-500 text-white transition duration-500 mx-3">FREE TRIAL</button>
