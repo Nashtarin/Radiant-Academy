@@ -1,8 +1,8 @@
-import Link from "next/link";
-import useAuth from "../utilities/Hooks/useAuth";
 import Image from "next/image";
-import Logo from '../public/img/RA_Logo.png'
-import { FaUserCircle, FaMoon, FaSun } from "react-icons/fa"
+import Link from "next/link";
+import { FaMoon, FaSun, FaUserCircle } from "react-icons/fa";
+import Logo from '../public/img/RA_Logo.png';
+import useAuth from "../utilities/Hooks/useAuth";
 import { useDarkMode } from "../utilities/Hooks/useDarkMode";
 
 const Navbar = () => {
@@ -21,8 +21,8 @@ const Navbar = () => {
                                     <Image
                                         src={Logo}
                                         alt="Radiant Academy Logo"
-                                        width="100px"
-                                        height="100px"
+                                        width="64px"
+                                        height="64px"
                                         draggable="false"
                                     />
                                 </div>
@@ -51,9 +51,12 @@ const Navbar = () => {
                             <Link href="/code-editor">
                                 <a className="btn hover:bg-slate-300 dark:hover:bg-slate-600 btn-ghost rounded-btn mx-3">PLAYGROUND </a>
                             </Link>
-                            <Link href="/contact">
-                                <a className="btn hover:bg-slate-300 dark:hover:bg-slate-600 btn-ghost rounded-btn mx-3">CONTACT </a>
+                            <Link href="/blogs">
+                                <a className="btn hover:bg-slate-300 dark:hover:bg-slate-600 btn-ghost rounded-btn mx-3">BLOGS </a>
                             </Link>
+                            {/* <Link href="/contact">
+                                <a className="btn hover:bg-slate-300 dark:hover:bg-slate-600 btn-ghost rounded-btn mx-3">CONTACT </a>
+                            </Link> */}
                             <Link passHref href="/register">
                                 <button className="btn border-0 px-7 py-2 rounded bg-rose-500 text-white dark:hover:bg-slate-600 transition duration-500 mx-3">FREE TRIAL</button>
                             </Link>
@@ -130,10 +133,15 @@ const Navbar = () => {
                                 </Link>
                             </li>
                             <li>
+                                <Link href="/blogs">
+                                    <a className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3">BLOGS </a>
+                                </Link>
+                            </li>
+                            {/* <li>
                                 <Link href="/contact">
                                     <a className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3">CONTACT </a>
                                 </Link>
-                            </li>
+                            </li> */}
                             <li className="text-white mt-3">
                                 <Link passHref href="/register">
                                     <button className="btn border-0 px-7 py-2 rounded-btn bg-rose-500 text-white transition duration-500 mx-3">FREE TRIAL</button>
