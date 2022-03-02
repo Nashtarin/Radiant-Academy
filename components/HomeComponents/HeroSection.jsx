@@ -65,7 +65,7 @@ const HeroSection = () => {
                                 <style jsx global>
                                     {`
                                         .slick-list{
-                                            padding-bottom: 0;
+                                            padding-bottom: 0 !important;
                                         }
                                     `}
                                 </style>

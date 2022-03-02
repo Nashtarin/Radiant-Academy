@@ -7,15 +7,13 @@ import { addReview } from '../../utilities/redux/slices/reviewSlice';
 import { useDispatch } from 'react-redux';
 import toast, { Toaster } from 'react-hot-toast';
 
-const ReviewSection = ({forum}) => {
+const ReviewSection = ({ forum }) => {
     const { _id, author, authorImg } = forum;
-
     const [rating, setRating] = useState(0);
-
     const [reviews, setReviews] = useState([]);
     const allReviews = useSelector((state) => state.reviews.reviewsList);
     useEffect(() => {
-        const thisReview  = allReviews.data.filter(review =>  review.forumId === _id);
+        const thisReview = allReviews.data.filter(review => review.forumId === _id);
         setReviews(thisReview);
     }, [allReviews.data, _id])
 
@@ -46,13 +44,13 @@ const ReviewSection = ({forum}) => {
         const status = true;
 
         const reviewData = { forumId, author, authorImg, comment, rating, status };
-        if(dispatch(addReview(reviewData))){
+        if (dispatch(addReview(reviewData))) {
             toast.dismiss(loading);
             toast.success("Successfully added your review!", {
                 position: "bottom-center"
             });
             e.target.reset();
-        }else{
+        } else {
             toast.dismiss(loading);
             toast.error('Something went wrong!');
         }
@@ -67,7 +65,6 @@ const ReviewSection = ({forum}) => {
                 <div className="bg-slate-100 pb-12">
                     {/* Display Comment */}
                     <div>
-
                         {
                             reviews.map((review) => (
                                 <div className="p-2 sm:p-5 flex items-start" key={review._id}>

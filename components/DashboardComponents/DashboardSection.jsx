@@ -15,6 +15,8 @@ import Link from 'next/link';
 const DashboardSection = () => {
     const allCourses = useSelector((state) => state.courses.coursesList);
     const allTopics = useSelector((state) => state.forums.forumsList);
+    const allReviews = useSelector((state) => state.reviews.reviewsList);
+    const allUsers = useSelector((state) => state.users.usersList);
 
     const config = {
         type: 'doughnut',
@@ -92,7 +94,7 @@ const DashboardSection = () => {
                                 <p>Total Accounts</p>
                             </div>
                             <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200">
-                                <h3 className="text-2xl">588</h3>
+                                <h3 className="text-2xl">0</h3>
                                 <p>Subscribers</p>
                             </div>
                             <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200">
@@ -104,11 +106,11 @@ const DashboardSection = () => {
                                 <p>Total Quizes</p>
                             </div>
                             <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200">
-                                <h3 className="text-2xl">815</h3>
+                                <h3 className="text-2xl">{allTopics.data.length}</h3>
                                 <p>Forum Posts</p>
                             </div>
                             <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200">
-                                <h3 className="text-2xl">623</h3>
+                                <h3 className="text-2xl">{allReviews.data.length}</h3>
                                 <p>Total Reviews</p>
                             </div>
                         </div>

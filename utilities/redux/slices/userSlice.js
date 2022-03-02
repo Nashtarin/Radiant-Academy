@@ -9,7 +9,7 @@ export const fetchUsers = createAsyncThunk(
     }
 )
 
-const usersSlice = createSlice({
+const userSlice = createSlice({
     name: 'user',
     initialState: {
         usersList: [],
@@ -20,7 +20,7 @@ const usersSlice = createSlice({
             state.wishList.push(action.payload);
         },
         removeFrom: (state, action) => {
-            state.wishList = state.wishList.filter(users => users.id !== action.payload);
+            state.wishList = state.wishList.filter(user => user.id !== action.payload);
         },
     },
     extraReducers: (builder) => {
@@ -33,5 +33,5 @@ const usersSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { addTo, removeFrom } = usersSlice.actions;
-export default usersSlice.reducer;
+export const { addTo, removeFrom } = userSlice.actions;
+export default userSlice.reducer;

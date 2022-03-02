@@ -15,9 +15,7 @@ const ForumPostDetails = ({forum}) => {
                 <div className="px-4 pb-3 lg:pb-0 lg:px-2 bg-gray-100 shadow-md rounded-lg">
                     <div className="p-5">
                         <h1 className="text-3xl mt-2 mb-4 font-bold text-purple-900">{title}</h1>
-                        <article>
-                           {desc}
-                        </article>
+                        <article>{desc}</article>
                     </div>
                 </div>
                 <div>
@@ -29,7 +27,8 @@ const ForumPostDetails = ({forum}) => {
                                     alt="User Profile Picture"
                                     width="100px"
                                     height="100px"
-                                    draggable="false" />
+                                    draggable="false"
+                                />
                             </div>
                             <div className="mt-3">
                                 <h3 className="text-xl text-center">{author}</h3>
@@ -54,7 +53,7 @@ const ForumPostDetails = ({forum}) => {
                                     <Link href="/forum/5064" passHref><button className="px-4 py-1 rounded-full mt-2" style={{ backgroundColor: '#FFCA30' }}>Read More!</button></Link>
                                 </div>
                                 <div>
-                                    <h3 className="text-xl">Read About Facebook</h3>
+                                    <h3 className="text-xl">Read About Twitter</h3>
                                     <p className="text-sm my-1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste, maiores.</p>
                                     <Link href="/forum/9829" passHref><button className="px-4 py-1 rounded-full mt-2" style={{ backgroundColor: '#FFCA30' }}>Read More!</button></Link>
                                 </div>
