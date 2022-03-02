@@ -42,7 +42,7 @@ const CourseDetailsSection = ({ course }) => {
                             <span className="text-white text-[1em]">(45)</span>
                         </div>
                         <p className="text-sm mt-2">● 10 Quizzes ● 10 Articles ● 10 Problem Solving</p>
-                    </div>                    
+                    </div>
                     <div className="flex flex-col mt-8">
                         <Link href="/courses/payment" passHref><button className="bg-yellow-400 px-5 py-1.5 text-black uppercase rounded-md font-medium">Enroll Now</button></Link>
                         <p className="text-sm text-stone-300 mt-4 mx-4">* 1025 Already Enrolled!</p>
