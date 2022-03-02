@@ -6,7 +6,6 @@ import useAuth from "../utilities/Hooks/useAuth";
 import { useDarkMode } from "../utilities/Hooks/useDarkMode";
 
 const Navbar = () => {
-
     const { user, logout } = useAuth();
     const [isDarkMode, toggleDarkMode] = useDarkMode();
 
@@ -57,12 +56,12 @@ const Navbar = () => {
                             <Link passHref href="/register">
                                 <button className="btn border-0 px-7 py-2 rounded bg-rose-500 text-white dark:hover:bg-slate-600 transition duration-500 mx-3">FREE TRIAL</button>
                             </Link>
-                            {user.email &&
+                            {user.isSignedIn &&
                                 <div className="flex-none dropdown dropdown-end mx-1 sm:mx-2 my-auto">
                                     <label tabIndex="0" className="btn btn-ghost btn-circle avatar hover:border-purple-800">
                                         <div className="rounded-full">
                                             {
-                                                user?.photoURL ? <Image src={user?.photoURL} alt="User Profile" width="90px" height="90px" draggable="false" /> :
+                                                user.photo ? <Image src={user.photo} alt="User Profile" width="90px" height="90px" draggable="false" /> :
                                                     <div className="flex-none my-auto pr-2 sm:mr-3 lg:mr-12">
                                                         <label tabIndex="0" className="btn btn-ghost btn-circle avatar hover:bg-transparent">
                                                             <div className="rounded-full">
