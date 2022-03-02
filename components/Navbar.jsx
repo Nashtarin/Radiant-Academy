@@ -1,8 +1,8 @@
-import Link from "next/link";
-import useAuth from "../utilities/Hooks/useAuth";
 import Image from "next/image";
-import Logo from '../public/img/RA_Logo.png'
-import { FaUserCircle, FaMoon, FaSun } from "react-icons/fa"
+import Link from "next/link";
+import { FaMoon, FaSun, FaUserCircle } from "react-icons/fa";
+import Logo from '../public/img/RA_Logo.png';
+import useAuth from "../utilities/Hooks/useAuth";
 import { useDarkMode } from "../utilities/Hooks/useDarkMode";
 
 const Navbar = () => {
@@ -21,8 +21,8 @@ const Navbar = () => {
                                     <Image
                                         src={Logo}
                                         alt="Landscape picture"
-                                        width="100px"
-                                        height="100px"
+                                        width="64px"
+                                        height="64px"
                                     />
                                 </div>
                             </a>
