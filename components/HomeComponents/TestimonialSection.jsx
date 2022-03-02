@@ -41,9 +41,9 @@ const TestimonialSection = () => {
         <div className="bg-white dark:bg-slate-800">
             <div className="w-5/6 mx-auto py-20 ">
                 <h1 className="text-4xl	font-bold text-violet-800 dark:text-violet-400 pt-20 text-center">What others are saying</h1>
-                <div className="my-6">
+                <div className="my-6 review-card">
                     <Slider {...settings}>
-                        <div className="review-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
+                        <div className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
                             <div className="grid place-content-center relative bottom-12">
                                 <Image
                                     src="/img/person1.png"
@@ -64,7 +64,7 @@ const TestimonialSection = () => {
                                 <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-7">“I received my certificate, and I would like to thank you for your support. Your course was challenging, but you were always there supporting me and ready to help. I enjoyed your class tremendously.”</p>
                             </div>
                         </div>
-                        <div className="review-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
+                        <div className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
                             <div className="grid place-content-center relative bottom-12 ">
                                 <Image
                                     src="/img/person2.png"
@@ -85,7 +85,7 @@ const TestimonialSection = () => {
                                 <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-7">“I received my certificate, and I would like to thank you for your support. Your course was challenging, but you were always there supporting me and ready to help. I enjoyed your class tremendously.”</p>
                             </div>
                         </div>
-                        <div className="review-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
+                        <div className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
                             <div className="grid place-content-center relative bottom-12">
                                 <Image
                                     src="/img/person3.png"
@@ -105,7 +105,7 @@ const TestimonialSection = () => {
                                 <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-7">“I received my certificate, and I would like to thank you for your support. Your course was challenging, but you were always there supporting me and ready to help. I enjoyed your class tremendously.”</p>
                             </div>
                         </div>
-                        <div className="review-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl  hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
+                        <div className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl  hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
                             <div className="grid place-content-center relative bottom-12">
                                 <Image
                                     src="/img/person1.png"
@@ -129,11 +129,11 @@ const TestimonialSection = () => {
                     </Slider>
                     <style jsx global>
                         {`
-                            .review-card{
+                            .single-card {
                                 width: 90% !important;
                             }
-                            .slick-list{
-                                padding-bottom: 4rem;
+                            .review-card .slick-list{
+                                padding-bottom: 4rem !important;
                             }
                             .slick-prev:before {
                                 color: #32007E;

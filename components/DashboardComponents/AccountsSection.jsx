@@ -22,10 +22,10 @@ const AccountsSection = () => {
                     <div className="overflow-x-auto">
                         <table className="table w-full bg-slate-200 overflow-scroll">
                             <tbody>
-                                {/* {
+                                {
                                     allUsers.data.map(user => (
                                         <tr className="bg-slate-200" key={user._id}>
-                                            <td colSpan={2} className="font-semibold">Iftakher Hossen</td>
+                                            <td colSpan={2} className="font-semibold">{user.name}</td>
                                             <td>
                                                 <span className="flex items-center">
                                                     <FaBookmark className="text-orange-500 mr-1.5" /> Collaborator
@@ -49,7 +49,7 @@ const AccountsSection = () => {
                                             </td>
                                         </tr>
                                     )
-                                )} */}
+                                )}
                             </tbody>
                         </table>
                     </div>
