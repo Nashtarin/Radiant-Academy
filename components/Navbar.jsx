@@ -53,9 +53,9 @@ const Navbar = () => {
                             <Link href="/blogs">
                                 <a className="btn hover:bg-slate-300 dark:hover:bg-slate-600 btn-ghost rounded-btn mx-3">BLOGS </a>
                             </Link>
-                            <Link href="/contact">
+                            {/* <Link href="/contact">
                                 <a className="btn hover:bg-slate-300 dark:hover:bg-slate-600 btn-ghost rounded-btn mx-3">CONTACT </a>
-                            </Link>
+                            </Link> */}
                             <Link passHref href="/register">
                                 <button className="btn border-0 px-7 py-2 rounded bg-rose-500 text-white dark:hover:bg-slate-600 transition duration-500 mx-3">FREE TRIAL</button>
                             </Link>
@@ -136,11 +136,11 @@ const Navbar = () => {
                                     <a className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3">BLOGS </a>
                                 </Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link href="/contact">
                                     <a className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3">CONTACT </a>
                                 </Link>
-                            </li>
+                            </li> */}
                             <li className="text-white mt-3">
                                 <Link passHref href="/register">
                                     <button className="btn border-0 px-7 py-2 rounded-btn bg-rose-500 text-white transition duration-500 mx-3">FREE TRIAL</button>
