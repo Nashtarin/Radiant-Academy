@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
+import { GiRobotLeg } from 'react-icons/gi';
 const UsersSchema = new mongoose.Schema({
-    name: {
+    displayName: {
         type: String,
         required: true,
     },
@@ -8,7 +9,7 @@ const UsersSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    user_img: {
+    photoURL: {
         type: String,
     },
     rank: {
@@ -16,13 +17,16 @@ const UsersSchema = new mongoose.Schema({
     },
     forumId: {
         type: String,
-        required: true,
     },
     enrolled_course: [{
         type: String,
-        required: true,
     }],
-
+    accessToken: {
+        type: String,
+    },
+    role: {
+        type: String,
+    }
 },
     { timestamps: true }
 );

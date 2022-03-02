@@ -36,9 +36,20 @@ const CourseDetailsSection = ({course}) => {
                     <p className="flex items-center">
                         <FaBookmark className="text-orange-500" /> &nbsp; Radiant Academy Certificate Included
                     </p>
-                    <div className="flex items-center text-yellow-400 my-3">
-                        <span className="flex items-center text-2xl"><FaStar /><FaStar /><FaStar /><FaStar /><FaStarHalf /></span>
-                        <span className="text-white text-[1em]">(45)</span>
+                    <div className="flex items-center text-yellow-400 my-3 text-xl">
+                        <div className="ratings flex items-center">
+                            <ReactStars {...ratingCount} value={rating} edit={false} />
+                            <style jsx global>{`
+                                .ratings {
+                                    margin: 0 0.5rem;
+                                }
+                                .ratings span i{
+                                    color: #f4dd1e;
+                                    font-size: 1.25rem;
+                                }
+                            `}</style>
+                            <span className="text-white text-[1em] ml-2 mb-2">(45)</span>
+                        </div>
                     </div>
                     <p className="text-sm mt-2">● 10 Quizes ● 10 Articles ● 10 Problem Solving</p>
                     <div className="flex items-center mt-8">
