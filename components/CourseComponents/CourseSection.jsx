@@ -1,18 +1,29 @@
 import React, { useState } from 'react';
 import CourseCard from './CourseCard';
 import { FiPlusCircle, FiMinusCircle } from 'react-icons/fi';
-import Slider from "react-slick";
-import "slick-carousel/slick/slick-theme.css";
-import "slick-carousel/slick/slick.css";
 
 const CourseSection = () => {
-    const [show, setShow] = useState(true);
+    const [course1, setCourse1] = useState(true);
+    const [course2, setCourse2] = useState(true);
+    const [course3, setCourse3] = useState(true);
 
-    const handleShow = () => {
-        setShow(true)
+    const handleShowCourse1 = () => {
+        setCourse1(true);
     }
-    const handleHide = () => {
-        setShow(false)
+    const handleHideCourse1 = () => {
+        setCourse1(false);
+    }
+    const handleShowCourse2 = () => {
+        setCourse2(true);
+    }
+    const handleHideCourse2 = () => {
+        setCourse2(false);
+    }
+    const handleShowCourse3 = () => {
+        setCourse3(true);
+    }
+    const handleHideCourse3 = () => {
+        setCourse3(false);
     }
 
     const settings = {
@@ -57,119 +68,49 @@ const CourseSection = () => {
                     <div className="p-2 mb-1 flex items-center">
                         <label className="swap swap-flip">
                             <input type="checkbox" className="hidden" />
-                            <div className="swap-off"><FiPlusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleShow} /></div>
-                            <div className="swap-on"><FiMinusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleHide} /></div>
+                            <div className="swap-off"><FiPlusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleShowCourse1} /></div>
+                            <div className="swap-on"><FiMinusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleHideCourse1} /></div>
                         </label>
                         <h3 className="text-2xl font-medium"> Category Name</h3>
                     </div>
-                    {show && <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+                    {course1 && <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                        <CourseCard />
+                    </div>}                    
+                </div>
+                <div className="my-3">
+                    <div className="p-2 mb-1 flex items-center">
+                        <label className="swap swap-flip">
+                            <input type="checkbox" className="hidden" />
+                            <div className="swap-off"><FiPlusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleShowCourse2} /></div>
+                            <div className="swap-on"><FiMinusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleHideCourse2} /></div>
+                        </label>
+                        <h3 className="text-2xl font-medium"> Category Name</h3>
+                    </div>
+                    {course2 && <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
                         <CourseCard />
                         <CourseCard />
                         <CourseCard />
                         <CourseCard />
                     </div>}
-                    {/* <Slider {...settings}></Slider> 
-                    <style jsx global>
-                        {`
-                                        .course-card .slick-list{
-                                            padding-top: 0;
-                                            padding-bottom: 2rem;
-                                        }
-                                        .course-card .slick-prev, .course-card .slick-next {
-                                            top: 2.5rem;
-                                        }
-                                        .slick-prev:before {
-                                            color: #32007E;
-                                        }
-                                        
-                                        .slick-next:before {
-                                            color: #32007E;
-                                        }
-                                        
-                                        .slick-slide:focus {
-                                            outline: none;
-                                        }
-                                        
-                                        .slick-dots {
-                                            bottom: 0px;
-                                        }
-                                        
-                                        .slick-dots li button:before {
-                                            font-size: 0.75rem;
-                                            opacity: 1;
-                                            color: #CCDEE2;
-                                        }
-                                        
-                                        .slick-dots li.slick-active button:before {
-                                            opacity: .75;
-                                            color: #F2522F;
-                                        }
-                                    `}
-                    </style> */}
-                </div>
-                <div className="my-3">
-                    <div className="p-2 mb-1 flex items-center">
-                        <label className="swap swap-flip">
-                            <input type="checkbox" className="hidden" />
-                            <div className="swap-off"><FiPlusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleShow} /></div>
-                            <div className="swap-on"><FiMinusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleHide} /></div>
-                        </label>
-                        <h3 className="text-2xl font-medium"> Category Name</h3>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-                        <CourseCard />
-                        <CourseCard />
-                        <CourseCard />
-                        <CourseCard />
-                    </div>
                 </div>
                 <div>
                     <div className="p-2 mb-1 flex items-center">
                         <label className="swap swap-flip">
                             <input type="checkbox" className="hidden" />
-                            <div className="swap-off"><FiPlusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleShow} /></div>
-                            <div className="swap-on"><FiMinusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleHide} /></div>
+                            <div className="swap-off"><FiPlusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleShowCourse3} /></div>
+                            <div className="swap-on"><FiMinusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleHideCourse3} /></div>
                         </label>
                         <h3 className="text-2xl font-medium"> Category Name</h3>
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+                    {course3 && <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
                         <CourseCard />
                         <CourseCard />
                         <CourseCard />
                         <CourseCard />
-                    </div>
-                </div>
-                <div className="my-3">
-                    <div className="p-2 mb-1 flex items-center">
-                        <label className="swap swap-flip">
-                            <input type="checkbox" className="hidden" />
-                            <div className="swap-off"><FiPlusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleShow} /></div>
-                            <div className="swap-on"><FiMinusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleHide} /></div>
-                        </label>
-                        <h3 className="text-2xl font-medium"> Category Name</h3>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-                        <CourseCard />
-                        <CourseCard />
-                        <CourseCard />
-                        <CourseCard />
-                    </div>
-                </div>
-                <div>
-                    <div className="p-2 mb-1 flex items-center">
-                        <label className="swap swap-flip">
-                            <input type="checkbox" className="hidden" />
-                            <div className="swap-off"><FiPlusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleShow} /></div>
-                            <div className="swap-on"><FiMinusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleHide} /></div>
-                        </label>
-                        <h3 className="text-2xl font-medium"> Category Name</h3>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-                        <CourseCard />
-                        <CourseCard />
-                        <CourseCard />
-                        <CourseCard />
-                    </div>
+                    </div>}
                 </div>
             </div>
 
