@@ -17,12 +17,12 @@ const Navbar = () => {
                     <div className="flex-1 pl-10 mx-2">
                         <Link href="/">
                             <a>
-                                <div className="relative top-[18px]">
+                                <div className="relative top-[9px]">
                                     <Image
                                         src={Logo}
                                         alt="Landscape picture"
-                                        width="64px"
-                                        height="64px"
+                                        width="80px"
+                                        height="80px"
                                     />
                                 </div>
                             </a>

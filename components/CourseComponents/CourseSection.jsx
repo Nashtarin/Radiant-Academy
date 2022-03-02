@@ -58,7 +58,6 @@ const CourseSection = () => {
                         <label className="swap swap-flip">
                             <input type="checkbox" className="hidden" />
                             <div className="swap-off"><FiPlusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleShow} /></div>
-                            <div className="swap-on"><FiMinusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleHide} /></div>
                         </label>
                         <h3 className="text-2xl font-medium"> Category Name</h3>
                     </div>
@@ -112,7 +111,7 @@ const CourseSection = () => {
                         <label className="swap swap-flip">
                             <input type="checkbox" className="hidden" />
                             <div className="swap-off"><FiPlusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleShow} /></div>
-                            <div className="swap-on"><FiMinusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleHide} /></div>
+
                         </label>
                         <h3 className="text-2xl font-medium"> Category Name</h3>
                     </div>
@@ -128,7 +127,6 @@ const CourseSection = () => {
                         <label className="swap swap-flip">
                             <input type="checkbox" className="hidden" />
                             <div className="swap-off"><FiPlusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleShow} /></div>
-                            <div className="swap-on"><FiMinusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleHide} /></div>
                         </label>
                         <h3 className="text-2xl font-medium"> Category Name</h3>
                     </div>
@@ -144,7 +142,6 @@ const CourseSection = () => {
                         <label className="swap swap-flip">
                             <input type="checkbox" className="hidden" />
                             <div className="swap-off"><FiPlusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleShow} /></div>
-                            <div className="swap-on"><FiMinusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleHide} /></div>
                         </label>
                         <h3 className="text-2xl font-medium"> Category Name</h3>
                     </div>
@@ -160,7 +157,6 @@ const CourseSection = () => {
                         <label className="swap swap-flip">
                             <input type="checkbox" className="hidden" />
                             <div className="swap-off"><FiPlusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleShow} /></div>
-                            <div className="swap-on"><FiMinusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleHide} /></div>
                         </label>
                         <h3 className="text-2xl font-medium"> Category Name</h3>
                     </div>
