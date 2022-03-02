@@ -3,27 +3,27 @@ import CourseCard from './CourseCard';
 import { FiPlusCircle, FiMinusCircle } from 'react-icons/fi';
 
 const CourseSection = () => {
-    const [course1, setCourse1] = useState(true);
-    const [course2, setCourse2] = useState(true);
-    const [course3, setCourse3] = useState(true);
+    const [courseOne, setCourseOne] = useState(true);
+    const [courseTwo, setCourseTwo] = useState(true);
+    const [courseThree, setCourseThree] = useState(true);
 
-    const handleShowCourse1 = () => {
-        setCourse1(true);
+    const handleShowCourseOne = () => {
+        setCourseOne(true);
     }
-    const handleHideCourse1 = () => {
-        setCourse1(false);
+    const handleHideCourseOne = () => {
+        setCourseOne(false);
     }
-    const handleShowCourse2 = () => {
-        setCourse2(true);
+    const handleShowCourseTwo = () => {
+        setCourseTwo(true);
     }
-    const handleHideCourse2 = () => {
-        setCourse2(false);
+    const handleHideCourseTwo = () => {
+        setCourseTwo(false);
     }
-    const handleShowCourse3 = () => {
-        setCourse3(true);
+    const handleShowCourseThree = () => {
+        setCourseThree(true);
     }
-    const handleHideCourse3 = () => {
-        setCourse3(false);
+    const handleHideCourseThree = () => {
+        setCourseThree(false);
     }
 
     const settings = {
@@ -68,12 +68,12 @@ const CourseSection = () => {
                     <div className="p-2 mb-1 flex items-center">
                         <label className="swap swap-flip">
                             <input type="checkbox" className="hidden" />
-                            <div className="swap-off"><FiPlusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleShowCourse1} /></div>
-                            <div className="swap-on"><FiMinusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleHideCourse1} /></div>
+                            <div className="swap-off"><FiPlusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleShowCourseOne} /></div>
+                            <div className="swap-on"><FiMinusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleHideCourseOne} /></div>
                         </label>
                         <h3 className="text-2xl font-medium"> Category Name</h3>
                     </div>
-                    {course1 && <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+                    {courseOne && <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
                         <CourseCard />
                         <CourseCard />
                         <CourseCard />
@@ -84,12 +84,12 @@ const CourseSection = () => {
                     <div className="p-2 mb-1 flex items-center">
                         <label className="swap swap-flip">
                             <input type="checkbox" className="hidden" />
-                            <div className="swap-off"><FiPlusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleShowCourse2} /></div>
-                            <div className="swap-on"><FiMinusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleHideCourse2} /></div>
+                            <div className="swap-off"><FiPlusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleShowCourseTwo} /></div>
+                            <div className="swap-on"><FiMinusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleHideCourseTwo} /></div>
                         </label>
                         <h3 className="text-2xl font-medium"> Category Name</h3>
                     </div>
-                    {course2 && <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+                    {courseTwo && <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
                         <CourseCard />
                         <CourseCard />
                         <CourseCard />
@@ -100,12 +100,12 @@ const CourseSection = () => {
                     <div className="p-2 mb-1 flex items-center">
                         <label className="swap swap-flip">
                             <input type="checkbox" className="hidden" />
-                            <div className="swap-off"><FiPlusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleShowCourse3} /></div>
-                            <div className="swap-on"><FiMinusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleHideCourse3} /></div>
+                            <div className="swap-off"><FiPlusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleShowCourseThree} /></div>
+                            <div className="swap-on"><FiMinusCircle className="text-xl font-bold mr-2 cursor-pointer" onClick={handleHideCourseThree} /></div>
                         </label>
                         <h3 className="text-2xl font-medium"> Category Name</h3>
                     </div>
-                    {course3 && <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+                    {courseThree && <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
                         <CourseCard />
                         <CourseCard />
                         <CourseCard />

@@ -8,13 +8,14 @@ import Styles from '../../styles/Home.module.css';
 const CourseCard = () => {
     return (
         <div>
-            <div className="bg-slate-100 p-5 grid grid-rows-1 rounded-lg">
+            <div className="bg-slate-100 p-5 grid grid-rows-1 rounded-xl">
                 <div className={Styles.imgContainer}>
                     <Image
                         src={coverImg}
                         alt="Course Cover"
                         className={Styles.courseCoverImage}
                         height="165px"
+                        draggable="false"
                     />
                     <div className={Styles.middleBtn}>
                         <Link href="/courses/slug" passHref>
