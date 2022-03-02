@@ -15,6 +15,7 @@ const CourseCard = () => {
                         alt="Course Cover"
                         className={Styles.courseCoverImage}
                         height="165px"
+                        draggable="false"
                     />
                     <div className={Styles.middleBtn}>
                         <Link href="/courses/slug" passHref>
