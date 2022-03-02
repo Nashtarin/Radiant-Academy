@@ -31,7 +31,7 @@ const CourseDetailsSection = ({course}) => {
             <div className="py-12 px-16 text-white" style={{ backgroundColor: '#522F88' }}>
                 <div>
                     <h1 className="my-1 text-[2.1em] font-medium">
-                        {course?.data?.title} <small>($59.50)</small>
+                        {course?.data?.title} <small>({course?.data?.price}$)</small>
                     </h1>
                     <p className="flex items-center">
                         <FaBookmark className="text-orange-500" /> &nbsp; Radiant Academy Certificate Included
@@ -42,7 +42,9 @@ const CourseDetailsSection = ({course}) => {
                     </div>
                     <p className="text-sm mt-2">● 10 Quizes ● 10 Articles ● 10 Problem Solving</p>
                     <div className="flex items-center mt-8">
-                        <Link href="/courses/payment" passHref><button className="bg-yellow-400 px-5 py-1.5 text-black uppercase rounded-md font-medium">Enroll Now</button></Link>
+                        <Link href="/courses/payment" passHref>
+                            <button className="bg-yellow-400 px-5 py-1.5 text-black uppercase rounded-md font-medium">Enroll Now</button>
+                        </Link>
                         <span className="text-md mx-4">* 1025 Already Enrolled!</span>
                     </div>
                 </div>
