@@ -1,7 +1,10 @@
 import Head from "next/head";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { fetchCourses } from "../utilities/Redux/slices/courseSlice";
+import { fetchCourses } from "../utilities/redux/slices/courseSlice";
+import { fetchForums } from "../utilities/redux/slices/forumSlice";
+import { fetchCategories } from "../utilities/redux/slices/categorySlice";
+import { fetchReviews } from "../utilities/redux/slices/reviewSlice";
 import PackageSection from "../components/HomeComponents/PackageSection";
 import QuizSection from "../components/HomeComponents/QuizSection";
 import HeroSection from "../components/HomeComponents/HeroSection";
@@ -9,11 +12,16 @@ import TalentSection from "../components/HomeComponents/TalentSection";
 import TestimonialSection from "../components/HomeComponents/TestimonialSection";
 import FeatureSection from "../components/HomeComponents/FeatureSection";
 import CounterSection from "../components/HomeComponents/CounterSection";
+import PrivacyPolicySection from "../components/HomeComponents/PrivacyPolicySection";
 
 export default function Home() {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchCourses());
+    dispatch(fetchForums());
+    dispatch(fetchCategories());
+    dispatch(fetchReviews());
   }, [dispatch]);
 
   return (
@@ -25,14 +33,14 @@ export default function Home() {
       </Head>
 
       {/* HOMEPAGE CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
-        <HeroSection />
-        <FeatureSection />
-        <TalentSection />
-        <QuizSection />
-        <PackageSection />
-        <TestimonialSection />
-        <CounterSection />
-
+      <HeroSection />
+      <FeatureSection />
+      <TalentSection />
+      <QuizSection />
+      <PackageSection />
+      <TestimonialSection />
+      <CounterSection />
+      <PrivacyPolicySection />
     </div>
   )
 }

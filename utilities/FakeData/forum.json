@@ -1,0 +1,127 @@
+[
+    {
+       "no":1,
+       "category":"welcome",
+       "title":"Radiant Academy turned 1 today!",
+       "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus sapien...",
+       "hashtags":[
+              "react",
+              "sass",
+              "express",
+              "firebase",
+              "heroku"
+       ],
+       "author":"Radiant Admin",
+       "authorImg":"https://i.postimg.cc/vZHk7RPL/1645616273912.png",
+       "featured": true,
+       "status":true,
+       "loves":0,
+       "views":0
+    },
+    {
+        "no":2,
+        "category":"learning",
+        "title":"Radiant Academy turned 2 today!",
+        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus sapien...",
+        "hashtags":[
+               "react",
+               "sass",
+               "express",
+               "firebase",
+               "heroku"
+        ],
+        "author":"Radiant Admin",
+        "authorImg":"https://i.postimg.cc/vZHk7RPL/1645616273912.png",
+        "featured": true,
+        "status":true,
+        "loves":0,
+        "views":0
+     },
+     {
+        "no":3,
+        "category":"general",
+        "title":"Radiant Academy turned 3 today!",
+        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus sapien...",
+        "hashtags":[
+               "react",
+               "sass",
+               "express",
+               "firebase",
+               "heroku"
+        ],
+        "author":"Radiant Admin",
+        "authorImg":"https://i.postimg.cc/vZHk7RPL/1645616273912.png",
+        "featured": true,
+        "status":true,
+        "loves":0,
+        "views":0
+     },
+     {
+        "no":4,
+        "category":"feedback",
+        "title":"Radiant Academy turned 4 today!",
+        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus sapien...",
+        "hashtags":[
+               "react",
+               "sass",
+               "express",
+               "firebase",
+               "heroku"
+        ],
+        "author":"Radiant Admin",
+        "authorImg":"https://i.postimg.cc/vZHk7RPL/1645616273912.png",
+        "featured": true,
+        "status":true,
+        "loves":0,
+        "views":0
+     },
+     {
+        "no":5,
+        "category":"questions",
+        "title":"Radiant Academy turned 5 today!",
+        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus sapien...",
+        "hashtags":[
+               "react",
+               "sass",
+               "express",
+               "firebase",
+               "heroku"
+        ],
+        "author":"Radiant Admin",
+        "authorImg":"https://i.postimg.cc/vZHk7RPL/1645616273912.png",
+        "featured": true,
+        "status":true,
+        "loves":0,
+        "views":0
+     },
+     {
+        "no":6,
+        "category":"tips",
+        "title":"Radiant Academy turned 6 today!",
+        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus sapien...",
+        "hashtags":[
+               "react",
+               "sass",
+               "express",
+               "firebase",
+               "heroku"
+        ],
+        "author":"Radiant Admin",
+        "authorImg":"https://i.postimg.cc/vZHk7RPL/1645616273912.png",
+        "featured": true,
+        "status":true,
+        "loves":0,
+        "views":0
+     },
+     {
+       "category": "general",
+       "title": "Radiant Academy turned 3 Weeks today!",
+       "desc": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+       "author": "Radiant Admin",
+       "authorImg": "https://i.postimg.cc/4dNK0r0W/people-1.png",
+       "featured": false,
+       "status": false,
+       "loves": 0,
+       "views": 0
+   }
+]

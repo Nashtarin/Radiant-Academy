@@ -1,0 +1,20 @@
+[
+    {
+        "no":1,
+        "forumId":"62179b6018d593916a336eb3",
+        "author":"John Doe",
+        "authorImg":"https://i.postimg.cc/4dNK0r0W/people-1.png",
+        "comment":"Radiant Academy is the best app I've found for writing! It's really easy to use and has really good AI writing. I've never been more satisfied with a writing app. I knew I had to try it. I love just how easy and seamless it is to use. It's like having your own personal writing assistant. The writing just flows and the interface is really intuitive. I'm so glad I found this app!",
+        "rating":4.5,
+        "status":true
+    },
+    {
+        "no":2,
+        "forumId":"6217c7b87edf2011629f652a",
+        "author":"John Doe",
+        "authorImg":"https://i.postimg.cc/26cqN0Rr/people-2.png",
+        "comment":"Radiant Academy is the best app I've found for writing! It's really easy to use and has really good AI writing. I've never been more satisfied with a writing app. I knew I had to try it. I love just how easy and seamless it is to use. It's like having your own personal writing assistant. The writing just flows and the interface is really intuitive. I'm so glad I found this app!",
+        "rating":5,
+        "status":true
+    }
+]
