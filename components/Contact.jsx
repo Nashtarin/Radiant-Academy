@@ -16,7 +16,7 @@ const contact = () => {
 
     return (
         <div>
-            <div className="grid grid-cols-1 mx-auto py-[5rem] bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200">
+            <div className="grid grid-cols-1 mx-auto py-[5rem] text-slate-200">
                 <div className="pb-6">
                     <h1 className="text-4xl font-bold text-center">Contact with us!</h1>
                 </div>

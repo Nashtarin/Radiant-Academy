@@ -9,7 +9,7 @@ const CourseCard = ({ course }) => {
 
     return (
         <div>
-            <div className="bg-slate-100 dark:bg-slate-700 p-5 grid grid-rows-1 rounded-lg card-single">
+            <div className="bg-slate-100 dark:bg-[#37465b] p-5 grid grid-rows-1 rounded-lg card-single">
                 <div className={Styles.imgContainer}>
                     <Image
                         src={coverImg}

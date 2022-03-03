@@ -61,7 +61,7 @@ const ReviewSection = ({ forum }) => {
         <div className="px-12 lg:px-20">
             <div className="lg:px-12 pb-10 h-full">
                 <button className="px-8 py-2 text-white rounded-lg text-lg mb-4" style={{ backgroundColor: '#F05133' }}>Review ({reviews.length})</button>
-                <div className="bg-slate-100 pb-12">
+                <div className="bg-slate-100 pb-12 dark:bg-slate-700">
                     {/* Display Comment */}
                     <div>
                         {
@@ -103,7 +103,7 @@ const ReviewSection = ({ forum }) => {
                     {/* Add Comment */}
                     <div className="px-6 lg:px-12 py-8 h-full bg-white dark:bg-slate-700">
                         <form onSubmit={postReview}>
-                            <textarea ref={commentRef} className="bg-stone-100 border-2 w-full h-[100px] outline-none py-2 px-3 resize-none rounded-lg" placeholder="Type your comment here!" required></textarea>
+                            <textarea ref={commentRef} className="bg-stone-100 dark:bg-slate-500 text-black dark:text-white border-2 w-full h-[100px] outline-none py-2 px-3 resize-none rounded-lg" placeholder="Type your comment here!" required></textarea>
                             <div className="drop-rating flex flex-col sm:flex-row">
                                 <h3 className="text-xl pb-2 sm:pb-0 text-slate-700 dark:text-slate-200">Select your Rating:</h3>
                                 <ReactStars {...ratingCount} />
@@ -122,7 +122,7 @@ const ReviewSection = ({ forum }) => {
                                     `}
                                 </style>
                             </div>
-                            <button type="submit" className="text-lg px-8 py-1.5 rounded-full pt-3 float-right" style={{ backgroundColor: '#FFCA30' }}>Comment</button>
+                            <button type="submit" className="text-lg px-8 py-1.5 rounded-full float-right uppercase bg-[#FFCA30]">Comment</button>
                         </form>
                     </div>
                 </div>

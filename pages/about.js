@@ -97,7 +97,7 @@ const about = () => {
                     <div className="py-8 px-0 sm:px-8  text-white">
                         <div>
                             <h1 className="text-center font-semibold text-3xl my-5">Our Mission</h1>
-                            <h3 className="text-center font-semibold text-xl my-5">Spreading Knowledge At Low Cost</h3>
+                            <h3 className="text-center font-semibold text-xl my-5 text-rose-500">Spreading Knowledge At Low Cost</h3>
                             <p className="text-center">we are dedicated to provide recognizable and remarkable courses through the world on les cost then other competitor so that everyone around the world can access their desired Knowledge.</p>
                         </div>
                     </div>
@@ -143,7 +143,7 @@ const about = () => {
                     <div className="py-8 px-0 sm:px-8  text-white">
                         <div>
                             <h1 className="text-center font-semibold text-3xl my-5">Our Vision</h1>
-                            <h3 className="text-center font-semibold text-xl my-5">Providing Education All Over The World</h3>
+                            <h3 className="text-center font-semibold text-xl my-5 text-rose-5">Providing Education All Over The World</h3>
                             <p className="text-center">Our key motive is to reach those countries and places where education is a burden over family expenses and provide mandatory education so that the future of the world does not rely on un professional and illiterate people.</p>
                         </div>
                     </div>

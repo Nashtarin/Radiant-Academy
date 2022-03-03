@@ -27,11 +27,11 @@ const PaymentSection = ({ course }) => {
     };
 
     return (
-        <div>
+        <div className='bg-white dark:bg-slate-800'>
             <div className="px-24 py-16">
                 <div className="grid grid-rows-1 md:grid-cols-[300px_minmax(300px,_1fr)] lg:grid-cols-[350px_minmax(600px,_1fr)] gap-5">
                     <div>
-                        <div className="bg-slate-200 p-5 grid grid-rows-1 rounded-xl">
+                        <div className="bg-slate-200 dark:bg-slate-700 p-5 grid grid-rows-1 rounded-xl">
                             <div>
                                 <Image
                                     src={coverImg}
@@ -42,16 +42,16 @@ const PaymentSection = ({ course }) => {
                                 />
                             </div>
                             <div>
-                                <h4 className="font-semibold text-lg">{course?.data?.title}</h4>
+                                <h4 className="font-semibold text-2xl text-slate-700 dark:text-slate-200">{course?.data?.title}</h4>
                                 <p className="text-slate-400 text-[0.9em]">#html #css #beginners</p>
-                                <p className="text-sm mt-2 px-2 text-stone-600">● 10 Quizzes ● 10 Articles <br /> ● 10 Problem Solving</p>
+                                <p className="text-sm mt-2 px-2 text-stone-600 dark:text-stone-200">● 10 Quizzes ● 10 Articles <br /> ● 10 Problem Solving</p>
                             </div>
                             <div>
-                                <h4 className="text-2xl text-center sm:text-left font-bold text-purple-800 mt-4">Pay: $ 59.50</h4>
+                                <h4 className="text-2xl text-center sm:text-left font-bold text-violet-800 dark:text-violet-400 mt-4">Pay: <span>$</span>{course?.data?.price}</h4>
                             </div>
                         </div>
-                        <div className="bg-slate-200 shadow-md rounded-md p-5 h-auto mt-5">
-                            <div className="flex items-center" style={{ color: '#32007E' }}>
+                        <div className="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 shadow-md rounded-md p-5 h-auto mt-5">
+                            <div className="flex items-center">
                                 <FaInfoCircle className="mr-2 text-lg" />
                                 <h5 className="text-lg font-semibold">Account Info</h5>
                             </div>
@@ -87,35 +87,37 @@ const PaymentSection = ({ course }) => {
                         </div>
                     </div>
 
-                    <div className="bg-slate-100 rounded-lg">
+                    <div className="bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg">
                         <div>
                             <div className="px-8 py-1 mt-5">
-                                <h2 className="text-2xl font-medium" style={{ color: '#1A2578' }}>Payment Checkout</h2>
+                                <h2 className="text-2xl font-medium">Payment Checkout</h2>
                             </div>
                             <hr className="mt-2 mb-3 mx-6" />
                         </div>
                         <div className="px-10 mb-8">
                             <form>
-                                <select name="payment-option" className="block appearance-none w-full bg-slate-100 py-3 px-4 pr-8 rounded-lg leading-tight outline-none mt-5 mb-2 text-lg border-b-[1px]" required>
+                                <select name="payment-option" className="block appearance-none w-full bg-slate-100 dark:bg-slate-600 py-3 px-4 pr-8 rounded-lg leading-tight outline-none mt-5 mb-2 text-lg  " required>
                                     <option>Pay with Stripe</option>
+                                    <option>Pay SSLCOMMERZE</option>
+                                    <option>Pay with bKash</option>
                                 </select>
                                 <div className="mt-4">
-                                    <label className='pl-1 text-lg font-medium pb-2'>Your Email</label>
+                                    <label className='pl-1 text-lg  pb-2'>Your Email</label>
                                     <input
                                         type="email"
                                         name="email"
                                         placeholder="Your Email"
-                                        className="bg-slate-100 w-full py-2 px-3 outline-none mb-2 text-lg rounded-lg  border-b-[1px]"
+                                        className="bg-slate-100 dark:bg-slate-600 w-full py-2 px-3 outline-none mb-2 text-lg rounded-lg   "
                                         required
                                     />
                                 </div>
                                 <div className="mt-2">
-                                    <label className='pl-1 text-lg font-medium pb-2'>Card Information</label>
+                                    <label className='pl-1 text-lg  pb-2'>Card Information</label>
                                     <input
                                         type="number"
                                         name="card-number"
                                         placeholder="1111 2222 3333 4444"
-                                        className="bg-slate-100 w-full py-2 px-3 outline-none mb-2 text-lg appearance-none rounded-lg border-b-[1px]"
+                                        className="bg-slate-100 dark:bg-slate-600 w-full py-2 px-3 outline-none mb-2 text-lg appearance-none rounded-lg  "
                                         required
                                     />
                                     <div className="flex justify-between mt-1.5">
@@ -123,32 +125,32 @@ const PaymentSection = ({ course }) => {
                                             type="number"
                                             name="card-number"
                                             placeholder="MM/YY"
-                                            className="bg-slate-100 w-full py-2 px-3 appearance-none mr-2 outline-none mb-2 text-lg rounded-lg border-b-[1px]"
+                                            className="bg-slate-100 dark:bg-slate-600 w-full py-2 px-3 appearance-none mr-2 outline-none mb-2 text-lg rounded-lg  "
                                             required
                                         />
                                         <input
                                             type="number"
                                             name="card-number"
                                             placeholder="CVC"
-                                            className="bg-slate-100 w-full py-2 px-3 ml-2  appearance-none outline-none mb-2 text-lg rounded-lg border-b-[1px]"
+                                            className="bg-slate-100 dark:bg-slate-600 w-full py-2 px-3 ml-2  appearance-none outline-none mb-2 text-lg rounded-lg  "
                                             required
                                         />
                                     </div>
                                 </div>
                                 <div className="mt-3">
-                                    <label className='pl-1 text-lg font-medium pb-2'>Card Holder Name</label>
+                                    <label className='pl-1 text-lg pb-2'>Card Holder Name</label>
                                     <input
                                         type="text"
                                         name="name"
                                         placeholder="Card Holder Name"
-                                        className="bg-slate-100 w-full py-2 px-3 outline-none mb-2 text-lg rounded-lg border-b-[1px]"
+                                        className="bg-slate-100 dark:bg-slate-600 w-full py-2 px-3 outline-none mb-2 text-lg rounded-lg  "
                                         required
                                     />
                                 </div>
                                 <div className="mt-2">
-                                    <label className='pl-1 text-lg font-medium pb-2'>Country</label>
+                                    <label className='pl-1 text-lg pb-2'>Country</label>
                                     <div className="flex justify-between">
-                                        <select name="payment-option" className="block appearance-none w-full bg-slate-100 py-3 px-4 pr-8 rounded-lg leading-tight outline-none mb-2 text-lg mr-2 border-b-[1px]" required>
+                                        <select name="payment-option" className="block appearance-none w-full bg-slate-100 dark:bg-slate-600 py-3 px-4 pr-8 rounded-lg leading-tight outline-none mb-2 text-lg mr-2  " required>
                                             <option>Select a Country</option>
                                             <option value="Afganistan">Afghanistan</option>
                                             <option value="Albania">Albania</option>
@@ -401,7 +403,7 @@ const PaymentSection = ({ course }) => {
                                             type="number"
                                             name="postal-code"
                                             placeholder="Postal Code"
-                                            className="bg-slate-100 w-full py-2 px-3 outline-none mb-2 text-lg ml-2 rounded-lg border-b-[1px]"
+                                            className="bg-slate-100 dark:bg-slate-600 w-full py-2 px-3 outline-none mb-2 text-lg ml-2 rounded-lg  "
                                             required
                                         />
                                     </div>
@@ -410,7 +412,11 @@ const PaymentSection = ({ course }) => {
                                     <input type="checkbox" className="mr-2 my-3 checkbox" />
                                     <label>Save Payment Information</label>
                                 </div>
+<<<<<<< HEAD
                                 <button onClick={payAndEnroll} type="submit" className="mt-5 py-2 px-6 text-lg flex items-center font-medium rounded-lg text-white bg-rose-600">PAY $59.50 <BsArrowRight className="ml-3" /></button>
+=======
+                                <button type="submit" className="mt-5 py-2 px-6 text-lg flex items-center font-medium rounded-lg text-white bg-rose-500"><span>Pay $</span> {course?.data?.price} <BsArrowRight className="ml-3" /></button>
+>>>>>>> 607b1adbcde7e4dcca431bf93c467110948a7e39
                             </form>
                         </div>
                     </div>
