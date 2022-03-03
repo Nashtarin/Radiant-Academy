@@ -12,10 +12,11 @@ const CourseCard = ({ course }) => {
             <div className="bg-slate-100 dark:bg-slate-700 p-5 grid grid-rows-1 rounded-lg card-single">
                 <div className={Styles.imgContainer}>
                     <Image
-                        src={coverImg}
+                        src={course.image}
                         alt="Course Cover"
                         className={Styles.courseCoverImage}
                         height="165px"
+                        width="300px"
                         draggable="false"
                     />
                     <div className={Styles.middleBtn}>

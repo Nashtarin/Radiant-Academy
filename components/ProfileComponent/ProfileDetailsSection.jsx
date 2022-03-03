@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import { FaDollarSign, FaEye, FaFlag, FaHashtag, FaHeart, FaTrash, FaUserFriends } from "react-icons/fa";
 import { useSelector } from 'react-redux';
@@ -8,7 +9,14 @@ const ProfileDetailsSection = ({account}) => {
     const allCourses = useSelector((state) => state.courses.coursesList);
     const allUsers = useSelector((state) => state.users.usersList);
     const enrolled = account.data[0].enrolledCourses;
-    console.log(enrolled);
+
+    const enrolledChecker = enrolled.map(enroll => {
+        let index = allCourses.data.findIndex(course => enroll.courseId === course._id);
+        if(index > -1) {
+            return allCourses.data[index];
+        }
+        return 0;
+    })
 
     // enrolledCourses = allUsers.data.filter(course => course.enrolledUsers.includes(account.userId));
     // console.log(enrolledCourses);
@@ -98,18 +106,18 @@ const ProfileDetailsSection = ({account}) => {
                                 <table className="table w-full bg-slate-200 overflow-scroll">
                                     <tbody>
                                         {
-                                            enrolled.map(course => (
-                                                <tr className="bg-slate-200" key={course.courseId}>
-                                                    <td colSpan={2} className="font-semibold">Course Name</td>
+                                            enrolledChecker.map(course => (
+                                                <tr className="bg-slate-200" key={course._id}>
+                                                    <td colSpan={2} className="font-semibold">{course.title}</td>
                                                     <td>
                                                         <span className="flex items-center">
-                                                            <FaDollarSign className="text-lg" />59.5
+                                                            <FaDollarSign className="text-lg" />{course.price}
                                                         </span>
                                                     </td>
                                                     <td className="text-center text-green-600 font-semibold uppercase">Premium</td>
                                                     <td>
                                                         <span className="flex items-center">
-                                                            <FaUserFriends className="text-2xl mr-1.5 text-purple-800" /> 1213
+                                                            <FaUserFriends className="text-2xl mr-1.5 text-purple-800" /> {course.enrolled}
                                                         </span>
                                                     </td>
                                                     <td>
@@ -119,39 +127,16 @@ const ProfileDetailsSection = ({account}) => {
                                                     </td>
                                                     <td className="text-center text-orange-500 font-semibold">Pending</td>
                                                     <td>
-                                                        <button className="btn btn-ghost py-0  uppercase" onClick={handleView}>
-                                                            View
-                                                        </button>
+                                                        <Link href={`/quiz/${course?._id}`} passHref>
+                                                            <button className="btn btn-ghost py-0  uppercase" onClick={handleView}>
+                                                                START
+                                                            </button>
+                                                        </Link> 
                                                     </td>
                                                 </tr>
                                                 )
                                             )
                                         }
-                                        {/* <tr className="bg-slate-200">
-                                            <td colSpan={2} className="font-semibold">Course Name</td>
-                                            <td>
-                                                <span className="flex items-center">
-                                                    <FaDollarSign className="text-lg" />59.5
-                                                </span>
-                                            </td>
-                                            <td className="text-center text-green-600 font-semibold uppercase">Premium</td>
-                                            <td>
-                                                <span className="flex items-center">
-                                                    <FaUserFriends className="text-2xl mr-1.5 text-purple-800" /> 1213
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span className="flex items-center">
-                                                    <FaHeart className="mr-1.5 text-red-500" /> 304
-                                                </span>
-                                            </td>
-                                            <td className="text-center text-orange-500 font-semibold">Completed</td>
-                                            <td>
-                                                <button className="btn btn-ghost py-0" onClick={handleView}>
-                                                    VIEW
-                                                </button>
-                                            </td>
-                                        </tr> */}
                                     </tbody>
                                 </table>
                             </div>

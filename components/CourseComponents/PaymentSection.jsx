@@ -62,7 +62,7 @@ const PaymentSection = ({ course }) => {
                                         <td className="flex items-center">
                                             <FaIdCardAlt /> &nbsp; Name
                                         </td>
-                                        <td>:&nbsp;{thisUser.displayName}</td>
+                                        <td>:&nbsp;{thisUser?.displayName}</td>
                                     </tr>
                                     <tr>
                                         <td className="flex items-center">
@@ -80,7 +80,7 @@ const PaymentSection = ({ course }) => {
                                         <td className="flex items-center">
                                             <FaEnvelope /> &nbsp; Email
                                         </td>
-                                        <td>{thisUser.email}</td>
+                                        <td>{thisUser?.email}</td>
                                     </tr>
                                 </tbody>
                             </table>
