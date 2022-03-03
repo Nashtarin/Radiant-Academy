@@ -1,8 +1,8 @@
 import React from 'react';
-import CourseCard from './CourseCard';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+import CourseCard from './CourseCard';
 
 const CourseSlider = () => {
     const settings = {
@@ -55,11 +55,11 @@ const CourseSlider = () => {
                             padding-bottom: 4rem;
                         }
                         .slick-prev:before {
-                            color: #32007E;
+                            color: black;
                         }
                         
                         .slick-next:before {
-                            color: #32007E;
+                            color: black;
                         }
                         
                         .slick-slide:focus {

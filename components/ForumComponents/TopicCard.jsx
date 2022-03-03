@@ -100,10 +100,10 @@ const TopicCard = ({ forum }) => {
                                 <span className='my-auto'><BsHash /></span>{category}
                             </p>
                             <p className='flex justify-center items-center font-semibold text-slate-700 mr-5 dark:text-slate-200'>
-                                <span className='my-auto mr-1'><BsEyeFill /></span>{views}
+                                <span className='my-auto mr-1 text-violet-900 dark:text-violet-400'><BsEyeFill /></span>{views}
                             </p>
                             <p className='flex items-center font-semibold mr-5 text-lg dark:text-slate-200'>
-                                <span className='my-auto mr-1 cursor-pointer text-slate-700 dark:text-slate-200' onClick={() => handleReact(_id)} id={`react-btn-${_id}`}><i className="fa fa-heart" id="icon-heart"></i></span>{reacts}
+                                <span className='my-auto mr-1 cursor-pointer text-slate-700 dark:text-slate-200' onClick={() => handleReact(_id)} id={`react-btn-${_id}`}><i className="fa fa-heart text-rose-600 dark:text-rose-500" id="icon-heart"></i></span>{reacts}
                             </p>
                         </div>
                     </div>
@@ -111,7 +111,7 @@ const TopicCard = ({ forum }) => {
             </div>
             <div className='col-span-2 sm:col-span-1 pt-5 ps-12 sm:pr-8 flex justify-center sm:justify-end items-center'>
                 <Link href={`/forum/${_id}`} passHref>
-                    <button className='rounded-3xl bg-yellow-500 text-white font-semibold py-2 px-6 hover:bg-slate-700 hover:text-white duration-300 inline-flex items-center justify-center'>
+                    <button className='rounded-3xl bg-yellow-500 text-white font-semibold py-2 px-6 hover:bg-slate-700 dark:hover:bg-slate-800 hover:text-white duration-300 inline-flex items-center justify-center'>
                         Read More <BsArrowRight className='ml-1' />
                     </button>
                 </Link>

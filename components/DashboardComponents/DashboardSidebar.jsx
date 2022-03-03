@@ -4,7 +4,7 @@ import { FaChevronRight, FaClone, FaDiceD6, FaFolder, FaHome, FaNewspaper, FaSig
 
 const DashboardSidebar = () => {
     return (
-        <div className="bg-slate-100 rounded-md shadow-md py-8 px-5 h-auto dark:bg-slate-700 text-slate-700 dark:text-slate-200">
+        <div className="bg-slate-100 rounded-md shadow-md py-8 px-5 h-auto dark:bg-slate-700 text-slate-700 dark:text-slate-200 dark:hover:text-slate-500">
             <Link href="/dashboard" passHref>
                 <button className="btn-ghost w-full px-4 py-1  hover:bg-slate-200 text-lg text-left flex justify-between items-center rounded-full">
                     <span className="flex items-center"><FaHome className="mr-5" /> Dashboard</span>

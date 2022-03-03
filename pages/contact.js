@@ -1,5 +1,5 @@
-import React from 'react';
 import emailjs from '@emailjs/browser';
+import React from 'react';
 
 const contact = () => {
     const sendEmail = (e) => {
@@ -16,7 +16,7 @@ const contact = () => {
 
     return (
         <div>
-            <div className="grid grid-cols-1 mx-auto py-[5rem]">
+            <div className="grid grid-cols-1 mx-auto py-[5rem] bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200">
                 <div className="pb-6">
                     <h1 className="text-4xl font-bold text-center">Contact with us!</h1>
                 </div>
@@ -49,7 +49,7 @@ const contact = () => {
                             placeholder="Type your comment here!"
                             required
                         ></textarea>
-                        <button type="submit" className="px-4 md:px-8 py-2 text-lg font-bold rounded-full shadow-md w-[100px] sm:w-[120px] md:w-[150px] lg:w-[150px] float-right" style={{ backgroundColor: '#FFCA30' }}>SEND</button>
+                        <button type="submit" className="px-4 md:px-8 py-2 text-lg font-bold rounded-full shadow-md w-[100px] sm:w-[120px] md:w-[150px] lg:w-[150px] float-right dark:text-slate-700 text-black" style={{ backgroundColor: '#FFCA30' }}>SEND</button>
                     </form>
                 </div>
             </div>
