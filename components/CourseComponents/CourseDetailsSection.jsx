@@ -27,9 +27,9 @@ const CourseDetailsSection = ({ course }) => {
     };
 
     return (
-        <div>
-            <div className="py-12 px-16 text-white" style={{ backgroundColor: '#522F88' }}>
-                <div className="flex justify-between items-center">
+        <div className='bg-white dark:bg-[#2f3c4f]'>
+            <div className="py-12 px-10 lg:px-32 text-white bg-slate-800 dark:bg-slate-800">
+                <div className="flex flex-col md:flex-row justify-between items-center">
                     <div>
                         <h1 className="my-1 text-[2.1em] font-medium">
                             {course?.data?.title}
@@ -43,22 +43,22 @@ const CourseDetailsSection = ({ course }) => {
                         </div>
                         <p className="text-sm mt-2">● 10 Quizzes ● 10 Articles ● 10 Problem Solving</p>
                     </div>
-                    <div className="flex flex-col">
+                    <div className="flex flex-col py-10 md:py-0">
                         <div className='text-3xl font-bold py-3 text-center'>
                             <h2> <span>$</span> {course?.data?.price}</h2>
                         </div>
-                        <Link href={`/courses/payment/${course?.data._id}`} passHref><button className="bg-rose-500 px-5 py-1.5 text-black uppercase rounded-md font-medium">Enroll Now</button></Link>
-                        <p className="text-sm text-stone-300 mt-4 mx-4">* 1025 Already Enrolled!</p>
+                        <Link href={`/courses/payment/${course?.data._id}`} passHref><button className="bg-rose-500 px-5 py-3 text-white uppercase rounded-md font-medium">Enroll Now</button></Link>
+                        <p className="text-sm text-stone-300 mt-4 mx-4">* <span className='text-orange-500'>1025</span> Already Enrolled!</p>
                     </div>
                 </div>
             </div>
 
-            <div className="mx-auto w-5/6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-3 py-8 bg-slate-100">
-                    <a href="#about-the-course" className="text-center text-xl font-medium text-purple-900">About This Course</a>
-                    <a href="#syllabus" className="text-center text-xl font-medium text-stone-500">Syllabus</a>
-                    <a href="#reviews" className="text-center text-xl font-medium text-stone-500">Reviews</a>
-                    <a href="#related-course" className="text-center text-xl font-medium text-stone-500">Related Course</a>
+            <div className="mx-auto w-5/6 text-slate-800 dark:text-slate-200">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-3 py-8 bg-slate-100 dark:bg-slate-600">
+                    <a href="#about-the-course" className="text-center text-xl font-medium text-purple-900 dark:text-violet-300">About This Course</a>
+                    <a href="#syllabus" className="text-center text-xl font-medium text-stone-500 dark:text-violet-400">Syllabus</a>
+                    <a href="#reviews" className="text-center text-xl font-medium text-stone-500 dark:text-violet-400">Reviews</a>
+                    <a href="#related-course" className="text-center text-xl font-medium text-stone-500 dark:text-violet-400">Related Course</a>
                 </div>
 
                 <div className="mt-8 py-8">
@@ -70,7 +70,7 @@ const CourseDetailsSection = ({ course }) => {
                                 </a>
                             </div>
                             <div>
-                                <h3 className="text-2xl font-medium">About this Course</h3>
+                                <h3 className="text-2xl font-medium text-rose-500">About this Course</h3>
                                 <p className="text-sm text-stone-400 mt-1">Recently Viewed By: 1025</p>
                             </div>
                         </div>
@@ -87,13 +87,13 @@ const CourseDetailsSection = ({ course }) => {
                                 <a href="#syllabus"><FaLink className="hover:text-purple-900 mr-3 text-xl" /></a>
                             </div>
                             <div>
-                                <h3 className="text-2xl font-medium">Syllabus</h3>
+                                <h3 className="text-2xl font-medium text-rose-500">Syllabus</h3>
                             </div>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-col-2 md:grid-col-3 lg:grid-cols-3 mt-6">
-                            <div className="py-8 px-16 bg-orange-300 rounded-xl">
-                                <h4 className="text-lg text-orange-900 mb-2 font-medium">What you will learn?</h4>
-                                <p className="flex items-center text-lg font-medium">
+                            <div className="py-8 px-16 bg-violet-200 dark:bg-slate-600 text-slate-800 dark:text-slate-200 rounded-xl">
+                                <h4 className="text-lg  mb-2 font-medium">What you will learn?</h4>
+                                <p className="flex items-center text-lg font-medium ">
                                     <BsCheck2All className="mr-2" /> HTML
                                 </p>
                                 <p className="flex items-center text-lg font-medium my-1">
@@ -103,7 +103,7 @@ const CourseDetailsSection = ({ course }) => {
                                     <BsCheck2All className="mr-2" /> Flexbox Concepts
                                 </p>
                             </div>
-                            <div className="py-8 px-12">
+                            <div className="py-8 px-12 ">
                                 <p className="flex items-center text-lg font-medium">
                                     <BsCheck2Circle className="mr-3" /> 3 Articles
                                 </p>
@@ -137,13 +137,13 @@ const CourseDetailsSection = ({ course }) => {
                 <div className="mt-1 py-8">
                     <section id="#reviews">
                         <div>
-                            <h3 className="text-2xl font-medium">Reviews</h3>
+                            <h3 className="text-2xl font-medium text-rose-500">Reviews</h3>
                         </div>
                         <div>
                             <div className="p-2 sm:p-5 flex items-start">
                                 <div className="px-2 pt-1.5 block w-[70px]">
                                     <Image
-                                        src="https://i.postimg.cc/4dNK0r0W/people-1.png"
+                                        src="/img/person1.png"
                                         alt="User Picture"
                                         height="100px"
                                         width="100px"
@@ -158,24 +158,13 @@ const CourseDetailsSection = ({ course }) => {
                                     <p className="text-sm px-2 pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque maxime natus sit mollitia odit cumque?</p>
                                     <div className="ratings flex">
                                         <ReactStars {...ratingCount} value={rating} edit={false} />
-                                        <style jsx global>
-                                            {`
-                                                .ratings {
-                                                    margin: 1rem;
-                                                }
-                                                .ratings span i{
-                                                    color: #f4dd1e;
-                                                    font-size: 1.25rem;
-                                                }
-                                            `}
-                                        </style>
                                     </div>
                                 </div>
                             </div>
                             <div className="p-2 sm:p-5 flex items-start">
                                 <div className="px-2 pt-1.5 block w-[70px]">
                                     <Image
-                                        src="https://i.postimg.cc/4dNK0r0W/people-1.png"
+                                        src="/img/person2.png"
                                         alt="User Picture"
                                         height="100px"
                                         width="100px"
@@ -190,31 +179,20 @@ const CourseDetailsSection = ({ course }) => {
                                     <p className="text-sm px-2 pt-1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto, natus.</p>
                                     <div className="ratings flex">
                                         <ReactStars {...ratingCount} value={rating} edit={false} />
-                                        <style jsx global>
-                                            {`
-                                                .ratings {
-                                                    margin: 1rem;
-                                                }
-                                                .ratings span i{
-                                                    color: #f4dd1e;
-                                                    font-size: 1.25rem;
-                                                }
-                                            `}
-                                        </style>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </section>
                 </div>
-                <div className="mt-1 mb-20 py-8">
+                <div className="mt-1 pb-20 py-8">
                     <section id="#related-course">
                         <div className="flex items-center">
                             <div>
                                 <a href="#related-course"><FaLink className="hover:text-purple-900 mr-3 text-xl" /></a>
                             </div>
                             <div>
-                                <h3 className="text-2xl font-medium">Related Course</h3>
+                                <h3 className="text-2xl font-medium text-rose-500 pb-5">Related Course</h3>
                             </div>
                         </div>
                         <div>

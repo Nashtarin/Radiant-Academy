@@ -1,7 +1,7 @@
 import Head from "next/head";
 import PaymentSection from "../../../components/CourseComponents/PaymentSection";
 
-const Payment = ({course}) => {
+const Payment = ({ course }) => {
     return (
         <div>
             <Head>
@@ -11,7 +11,7 @@ const Payment = ({course}) => {
             </Head>
 
             {/* COURSES CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
-            <PaymentSection course={course}/>
+            <PaymentSection course={course} />
         </div>
     );
 };
