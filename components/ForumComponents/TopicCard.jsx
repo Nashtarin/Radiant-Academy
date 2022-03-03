@@ -17,7 +17,7 @@ const TopicCard = ({ forum }) => {
     useEffect(() => {
         //checking liked for color
         const exists = getStorage();
-        
+
         let color_cart = {};
         if (exists) {
             color_cart = JSON.parse(exists);
@@ -38,15 +38,15 @@ const TopicCard = ({ forum }) => {
 
         const alreadyLiked = addToStorage(id, liked);
 
-        if(alreadyLiked){
+        if (alreadyLiked) {
             toast.dismiss(loading);
             toast("You've already liked it!", {
                 icon: '🥳',
             });
-        }else{
+        } else {
             dispatch(topicReact(forum));
             document.getElementById(`react-btn-${id}`).classList.add('text-rose-500');
-            setReacts(reacts+1);
+            setReacts(reacts + 1);
             toast.dismiss(loading);
             toast.success("You've liked the post!");
         }
@@ -55,28 +55,28 @@ const TopicCard = ({ forum }) => {
     //local storage utilities
     const addToStorage = (id, liked) => {
         const exists = getStorage();
-        
+
         let react_cart = {};
         if (!exists) {
-          react_cart[id] = 1;
-          liked = false;
-        }
-        else {
-          react_cart = JSON.parse(exists);
-          if (react_cart[id]) {
-            const newCount = react_cart[id] + 1;
-            react_cart[id] = newCount;
-            liked = true;
-          }
-          else {
             react_cart[id] = 1;
             liked = false;
-          }
+        }
+        else {
+            react_cart = JSON.parse(exists);
+            if (react_cart[id]) {
+                const newCount = react_cart[id] + 1;
+                react_cart[id] = newCount;
+                liked = true;
+            }
+            else {
+                react_cart[id] = 1;
+                liked = false;
+            }
         }
         updateStorage(react_cart);
         return liked;
     }
-    
+
     const getStorage = () => localStorage.getItem('liked_id');
 
     const updateStorage = cart => {
@@ -111,7 +111,7 @@ const TopicCard = ({ forum }) => {
             </div>
             <div className='col-span-2 sm:col-span-1 pt-5 ps-12 sm:pr-8 flex justify-center sm:justify-end items-center'>
                 <Link href={`/forum/${_id}`} passHref>
-                    <button className='rounded-3xl bg-yellow-500 text-white font-semibold py-2 px-6 hover:bg-slate-700 dark:hover:bg-slate-800 hover:text-white duration-300 inline-flex items-center justify-center'>
+                    <button className='rounded-3xl bg-rose-500 text-white font-semibold py-2 px-6 hover:bg-slate-700 dark:hover:bg-slate-800 hover:text-white duration-300 inline-flex items-center justify-center'>
                         Read More <BsArrowRight className='ml-1' />
                     </button>
                 </Link>

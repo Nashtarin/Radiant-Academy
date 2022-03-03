@@ -15,7 +15,7 @@ const CourseSection = () => {
                     <CourseSlider allCourses={allCourses} />
                 </div>
 
-                <div className="px-16 pb-20">
+                {/* <div className="px-16 pb-20">
                     <div className="my-3">
                         <div className="p-2 mb-1 flex items-center">
                             <label className="swap swap-flip">
@@ -43,7 +43,7 @@ const CourseSection = () => {
                         </div>
                         <CourseSlider/>
                     </div>
-                </div>
+                </div> */}
 
                 <div className="text-red-600 dark:text-red-400 pb-12 text-center text-lg font-medium">
                     <p>More courses are coming soon!</p>

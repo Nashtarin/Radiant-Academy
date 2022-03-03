@@ -30,7 +30,7 @@ const useFirebase = () => {
                 // The signed-in user info.
                 const user = result.user;
 
-                const {displayName, email, photoURL, accessToken} = user;
+                const { displayName, email, photoURL, accessToken } = user;
                 saveUser(user.email, user.displayName, user.photoURL, user.accessToken, 'POST');
 
                 setAuthError('');
@@ -135,7 +135,7 @@ const useFirebase = () => {
         const unsubscribed = onAuthStateChanged(auth, (user) => {
             const token = localStorage.getItem('token');
             if (token) {
-                const {name, email, picture} = jwt_decode(token);
+                const { name, email, picture } = jwt_decode(token);
                 const decodedUser = {
                     isSignedIn: true,
                     email: email,
@@ -165,19 +165,19 @@ const useFirebase = () => {
             });
 
         })
-        .catch((error) => {
-            // An error happened.
-            console.log(error);
-        })
-        .finally(() => setIsLoading(false));
+            .catch((error) => {
+                // An error happened.
+                console.log(error);
+            })
+            .finally(() => setIsLoading(false));
     }
 
     //database uploading
     const saveUser = (email, displayName, photoURL, accessToken, method) => {
         const alreadyUser = allUser.data.find(user => user.email === email && user.displayName === displayName);
-        if(alreadyUser){
+        if (alreadyUser) {
             console.log('already user!');
-        }else{
+        } else {
             const user = { email, displayName, photoURL, accessToken };
             fetch('http://localhost:3000/api/users', {
                 method: method,

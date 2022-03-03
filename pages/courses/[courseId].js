@@ -2,8 +2,8 @@ import Head from "next/head";
 import CourseDetailsSection from "../../components/CourseComponents/CourseDetailsSection";
 import Script from 'next/script';
 
-const Courses = ({course}) => {
-    
+const Courses = ({ course }) => {
+
     return (
         <div>
             <Head>
@@ -15,7 +15,7 @@ const Courses = ({course}) => {
             <Script src="https://kit.fontawesome.com/9dbb72da13.js" />
 
             {/* COURSES CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
-            <CourseDetailsSection course={course}/>
+            <CourseDetailsSection course={course} />
         </div>
     );
 };
