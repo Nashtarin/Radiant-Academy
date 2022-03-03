@@ -32,7 +32,7 @@ const BlogCard = ({ blog }) => {
             </div>
             <div className="col-span-2 sm:col-span-1 py-5 ps-12 sm:pr-8 flex justify-center sm:justify-end items-center">
                 <Link href={url} passHref>
-                    <button className="rounded-3xl bg-yellow-500 text-black font-semibold py-2 px-6 hover:bg-slate-700 hover:text-white duration-300 inline-flex items-center justify-center dark:hover:bg-slate-800">
+                    <button className="rounded-3xl bg-rose-500 text-black font-semibold py-2 px-6 hover:bg-slate-700 hover:text-white duration-300 inline-flex items-center justify-center dark:hover:bg-slate-800">
                         Read More <BsArrowRight className="ml-1" />
                     </button>
                 </Link>
