@@ -97,7 +97,7 @@ const about = () => {
                     <div className="py-8 px-0 sm:px-8  text-white">
                         <div>
                             <h1 className="text-center font-semibold text-3xl my-5">Our Mission</h1>
-                            <h3 className="text-center font-semibold text-xl my-5">Spreading Knowledge At Low Cost</h3>
+                            <h3 className="text-center font-semibold text-xl my-5 text-rose-500">Spreading Knowledge At Low Cost</h3>
                             <p className="text-center">we are dedicated to provide recognizable and remarkable courses through the world on les cost then other competitor so that everyone around the world can access their desired Knowledge.</p>
                         </div>
                     </div>
@@ -143,7 +143,7 @@ const about = () => {
                     <div className="py-8 px-0 sm:px-8  text-white">
                         <div>
                             <h1 className="text-center font-semibold text-3xl my-5">Our Vision</h1>
-                            <h3 className="text-center font-semibold text-xl my-5">Providing Education All Over The World</h3>
+                            <h3 className="text-center font-semibold text-xl my-5 text-rose-5">Providing Education All Over The World</h3>
                             <p className="text-center">Our key motive is to reach those countries and places where education is a burden over family expenses and provide mandatory education so that the future of the world does not rely on un professional and illiterate people.</p>
                         </div>
                     </div>
@@ -186,12 +186,16 @@ const about = () => {
                     `}
                 </style>
             </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5845b31a758cc414e1ebc524f61f32a451a2f5dd
 
             <div className="py-5">
                 <div className="mt-10 bg-[#1b222d]">
                     <div className="grid grid-cols-1 md:grid-cols-2 mx-auto px-5 sm:px-10 md:px-20 py-10">
                         <div>
-                            <h1 className="text-rose-500 text-2xl font-semibold">Subscribe To Our Newslettar Today</h1>
+                            <h1 className="text-rose-500 text-2xl font-semibold">Subscribe To Our Newsletter Today</h1>
                             <p className="text-slate-400 text-sm">No bloats and zero spams. Be the first to join.</p>
                         </div>
                         <div className="mt-5 sm:mt-0 md:text-right">

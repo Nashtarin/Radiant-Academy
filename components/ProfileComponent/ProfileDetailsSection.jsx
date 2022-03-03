@@ -5,14 +5,14 @@ import { useSelector } from 'react-redux';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
-const ProfileDetailsSection = ({account}) => {
+const ProfileDetailsSection = ({ account }) => {
     const allCourses = useSelector((state) => state.courses.coursesList);
     const allUsers = useSelector((state) => state.users.usersList);
     const enrolled = account.data[0].enrolledCourses;
 
     const enrolledChecker = enrolled.map(enroll => {
         let index = allCourses.data.findIndex(course => enroll.courseId === course._id);
-        if(index > -1) {
+        if (index > -1) {
             return allCourses.data[index];
         }
         return 0;
@@ -37,14 +37,14 @@ const ProfileDetailsSection = ({account}) => {
         <div className='bg-white dark:bg-slate-700'>
             <div className="p-5 bg-white dark:bg-slate-700">
                 <Tabs>
-                    <TabList className="grid grid-cols-4 mb-5 text-center gap-2 border-b-2 border-black">
+                    <TabList className="grid grid-cols-4 mb-5 text-center gap-2 border-b-2 border-black text-slate-700 dark:text-slate-200">
                         <Tab className="bg-transparent border-0 shadow-none text-lg px-2 py-1.5 mx-1 font-medium">Topics</Tab>
                         <Tab className="bg-transparent border-0 shadow-none text-lg px-2 py-1.5 mx-1 font-medium">Courses</Tab>
                         <Tab className="bg-transparent border-0 shadow-none text-lg px-2 py-1.5 mx-1 font-medium">Progress</Tab>
                         <Tab className="bg-transparent border-0 shadow-none text-lg px-2 py-1.5 mx-1 font-medium">Settings</Tab>
                     </TabList>
 
-                    <div className="tab-panes bg-white">
+                    <div className="tab-panes bg-white dark:bg-slate-700">
                         <TabPanel className="p-5">
                             <div className="overflow-x-auto">
                                 <table className="table w-full bg-slate-200 overflow-scroll">
@@ -131,10 +131,10 @@ const ProfileDetailsSection = ({account}) => {
                                                             <button className="btn btn-ghost py-0  uppercase" onClick={handleView}>
                                                                 START
                                                             </button>
-                                                        </Link> 
+                                                        </Link>
                                                     </td>
                                                 </tr>
-                                                )
+                                            )
                                             )
                                         }
                                     </tbody>

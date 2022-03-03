@@ -123,7 +123,11 @@ const DashboardSection = () => {
                                         <FaClone className="mr-2 text-lg" />
                                         <h5 className="text-lg font-semibold">23 Courses</h5>
                                     </div>
-                                    <button className="px-4 py-1.5 hover:bg-stone-100 rounded-lg flex items-center uppercase"><FaPlus className="mr-2 text-sm" /> New Course</button>
+                                    <Link href="/dashboard/courses/add-course" passHref>
+                                        <button className="px-4 py-1.5 hover:bg-stone-100 rounded-lg flex items-center uppercase">
+                                            <FaPlus className="mr-2 text-sm" /> New Course
+                                        </button>
+                                    </Link>
                                 </div>
                                 <Slider {...settings}>
                                     {

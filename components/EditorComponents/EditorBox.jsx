@@ -32,7 +32,7 @@ export default function EditorBox(props) {
                 <div className="flex justify-between border-b-4 border-stone-200 pb-1 pl-8">
                     <h1 className="text-xl font-medium">{displayName}</h1>
                     <div>
-                        <button className="p-2 hover:bg-stone-200 rounded-full mr-1" onClick={() => handleCopyCode(value)} disabled={!value}>
+                        <button className="p-2 hover:bg-stone-200 dark rounded-full mr-1" onClick={() => handleCopyCode(value)} disabled={!value}>
                             <FaCopy className="text-lg" />
                         </button>
                         <button className="p-2 hover:bg-stone-200 rounded-full" onClick={() => handleSaveCode(value)} disabled={!value}>

@@ -71,7 +71,7 @@ const CreateTopicSection = () => {
 
     return (
         <div>
-            <section className="py-20">
+            <section className="py-10">
                 <div className="text-center py-5">
                     <h1 className="text-4xl font-bold mt-8" style={{ color: '#3B058E' }}>Post Your Topic Here</h1>
                 </div>
@@ -79,7 +79,7 @@ const CreateTopicSection = () => {
                     <p style={{ color: '#3B058E', display: 'none' }} id="success">Successfully added the outlet!</p>
                     <p style={{ color: '#F43F5E', display: 'none' }} id="error">There is a problem adding the outlet!</p>
                 </div>
-                <div className="grid grid-rows-2 sm:grid-rows-none sm:gid-cols-2 lg:grid-cols-[350px_minmax(600px,_1fr)] gap-2 pt-3 pb-20 px-8 sm:px-12 md:px-20">
+                <div className="grid grid-rows-2 sm:grid-rows-none sm:gid-cols-2 lg:grid-cols-[350px_minmax(600px,_1fr)] gap-2 pb-20 px-8 sm:px-12 md:px-20">
                     <div className="p-2">
                         <form className="flex justify-center flex-col" onSubmit={postTopic}>
                             <input

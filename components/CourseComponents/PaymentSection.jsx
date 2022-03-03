@@ -7,19 +7,25 @@ import { useRouter } from 'next/router';
 import useAuth from '../../utilities/Hooks/useAuth';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
+import Swal from 'sweetalert2'
 
 const PaymentSection = ({ course }) => {
     const router = useRouter();
     const { user } = useAuth();
     const allUserData = useSelector((state) => state.users.usersList);
-    const thisUser = allUserData.data.find(userData =>  userData.email === user.email);
+    const thisUser = allUserData.data.find(userData => userData.email === user.email);
     // console.log(thisUser, course.data._id);
 
     const payAndEnroll = async (user) => {
         try {
             const res = await axios.put(`http://localhost:3000/api/users/enroll/${thisUser._id}/${course.data._id}`, user.data);
             if (res.status === 201) {
-                router.push("/quiz");
+                Swal.fire(
+                    'Payment Complete',
+                    'Thanks for the payment',
+                    'success'
+                )
+                router.push(`/quiz/${course?.data?._id}`);
             }
         } catch (err) {
             console.log(err);
@@ -412,7 +418,9 @@ const PaymentSection = ({ course }) => {
                                     <input type="checkbox" className="mr-2 my-3 checkbox" />
                                     <label>Save Payment Information</label>
                                 </div>
+
                                 <button onClick={payAndEnroll} type="submit" className="mt-5 py-2 px-6 text-lg flex items-center font-medium rounded-lg text-white bg-rose-600">PAY {course?.data?.price} <BsArrowRight className="ml-3" /></button>
+
                             </form>
                         </div>
                     </div>
