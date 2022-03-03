@@ -1,7 +1,7 @@
 import React from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { FaDollarSign, FaEye, FaFlag, FaHashtag, FaHeart, FaTrash, FaUserFriends } from "react-icons/fa";
+import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import { FaEye, FaHashtag, FaHeart, FaTrash, FaUserFriends, FaDollarSign, FaFlag } from "react-icons/fa";
 
 const ProfileDetailsSection = () => {
     const handleDelete = () => {
@@ -12,8 +12,8 @@ const ProfileDetailsSection = () => {
     }
 
     return (
-        <div>
-            <div className="p-5">
+        <div className='bg-white dark:bg-slate-700'>
+            <div className="p-5 bg-white dark:bg-slate-700">
                 <Tabs>
                     <TabList className="grid grid-cols-4 mb-5 text-center gap-2 border-b-2 border-black">
                         <Tab className="bg-transparent border-0 shadow-none text-lg px-2 py-1.5 mx-1 font-medium">Topics</Tab>
@@ -22,7 +22,7 @@ const ProfileDetailsSection = () => {
                         <Tab className="bg-transparent border-0 shadow-none text-lg px-2 py-1.5 mx-1 font-medium">Settings</Tab>
                     </TabList>
 
-                    <div className="tab-panes">
+                    <div className="tab-panes bg-white">
                         <TabPanel className="p-5">
                             <div className="overflow-x-auto">
                                 <table className="table w-full bg-slate-200 overflow-scroll">

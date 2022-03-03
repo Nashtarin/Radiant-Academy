@@ -135,5 +135,29 @@
     "status": false,
     "loves": 0,
     "views": 0
+  },
+  {
+    "category": "general",
+    "title": "Next 10 years of Node.js — Understanding the needs of the Node.js constituencies",
+    "desc": "TLDR; We need your help to make sure the Next 10 years of Node.js are as successful as the first. We are launching a survey, you can take it here to help us do that. To get a bit more context on why this survey is important, read on….Node.js had a very successful first 10 years of Node.js and the project is working to make the next 10 years even better. As part of that we’ve kicked off the Next-10 effort to document what we think is important for that to happen. You can follow the ongoing work of that team in this repo: https://github.com/nodejs/next-10.Without a handy crystal ball, it turns out that it’s a lot harder than just diving in and discussing our favorite technologies to see what the keys to success are going to be. Are things like WebAssembly, Typescript, etc. important to the people who use Node.js? I guess we need to better understand/document who uses Node.js first.So far the team has spent most of its time laying the foundation on which we hope to base discussions around specific technologies.We started by documenting our understanding of the project’s technical values as these will help us balance different aspects when necessary: https://github.com/nodejs/node/blob/master/doc/guides/technical-values.md. It’s not as simple as X overrides Y but instead highlight what key values need to be factored into decisions. For example, there was consensus that good developer experience has been a key part of the success of Node.js and that it’s important for future success that we maintain that.",
+    "hashtags": ["web", "javascript", "express", "node", "nodejs"],
+    "author": "jane austine",
+    "authorImg": "https://i.postimg.cc/LXWdBHtb/5.jpg",
+    "featured": false,
+    "status": false,
+    "loves": 0,
+    "views": 0
+  },
+  {
+    "category": "learning",
+    "title": "Http Requests using Fetch API and Axios",
+    "desc": "Hi meows! In this tutorial we’ll be discussing how fetch and axios works individually, learn how to fetch data from an HTTP server in a reactJS application using fetch / axios, why axios is preferred over fetch. We’ll also be highlighting the major differences between the both these API’s.Why do we need Fetch or Axios? One of the fundamental tasks of any web application is to communicate with servers through the HTTP protocol. This can be easily achieved using Fetch or Axios.It’s simple fetch / Axios are used to fetch the data from the API endpoint (i.e to make AJAX calls) asynchronously, so the developer can integrate it in their application.Fetch and Axios are very similar in functionality. Some developers prefer Axios over built-in APIs for its ease of use. However, Fetch API is perfectly capable of reproducing the key features of Axios.Now we’ll be discussing the workflows of fetch and axios separately to understand them better when we do an individual comparison analysis towards the end of the article.the fetch API provides a JS interface for accessing and manipulating parts of the HTTP pipeline such as requests and responses. its also provides a global fetch() method that provides an easy and logical way to fetch resources asynchronously across the network.The Fetch API provides a fetch() method defined on the window object. It also provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline (requests and responses).The fetch method has one mandatory argument- the URL of the resource to be fetched. This method returns a Promise that can be used to retrieve the response of the request.Fetch is supported in the latest versions of Chrome, Firefox, Safari and Opera. However, it is not supported in IE 11. To make it work there, you have to include some polyfills like isomorphic-fetch.",
+    "hashtags": ["axios", "javascript", "express", "react", "nodejs"],
+    "author": "ching mein",
+    "authorImg": "https://i.postimg.cc/xT3NPRTM/6.jpg",
+    "featured": false,
+    "status": false,
+    "loves": 0,
+    "views": 0
   }
 ]

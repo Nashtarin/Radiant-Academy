@@ -138,7 +138,7 @@ const useFirebase = () => {
                     email: email,
                     photo: picture,
                     success: true,
-                    name: name
+                    name: name,
                 }
                 setUser(decodedUser);
             }

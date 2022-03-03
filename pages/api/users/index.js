@@ -26,19 +26,4 @@ export default async function handler(req, res) {
         }
     }
 
-    // if (method === "PUT") {
-    //     const filter = {_id: id};
-    //     const update =  { $inc : {'loves' : 1} };
-
-    //     try {
-    //         const updatedForum = await Forum.findOneAndUpdate(filter, update, {
-    //             upsert: true,
-    //         });
-    //         res.status(201).json(updatedForum);
-
-    //     } catch (error) {
-    //         res.status(500).json({ success: false });
-    //     }
-    // }
-
 }

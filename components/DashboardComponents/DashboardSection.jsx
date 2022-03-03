@@ -42,7 +42,7 @@ const DashboardSection = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         dots: true,
-        arrows: true,
+        arrows: false,
         infinite: false,
         autoplay: false,
         autoplaySpeed: 3000,
@@ -77,39 +77,39 @@ const DashboardSection = () => {
                 </div>
 
                 <div className="bg-slate-100 dark:bg-slate-700 shadow-md rounded-md py-8 px-5 h-auto">
-                    <div className="rounded-md p-5 text-white bg-violet-900 dark:bg-violet-400 dark:text-slate-700" >
+                    <div className="rounded-md p-5 text-white bg-violet-900 dark:bg-slate-600 dark:text-slate-200" >
                         <h5 className="text-lg">Site Overview</h5>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-8 pb-1 px-4">
-                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-700">
+                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-400">
                                 <h3 className="text-2xl">23</h3>
                                 <p>Pending Submissions</p>
                             </div>
-                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-700">
+                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-400">
                                 <h3 className="text-2xl">768</h3>
                                 <p>Submissions</p>
                             </div>
-                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-700">
+                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-400">
                                 <h3 className="text-2xl">1.5k+</h3>
                                 <p>Total Accounts</p>
                             </div>
-                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-700">
+                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-400">
                                 <h3 className="text-2xl">0</h3>
                                 <p>Subscribers</p>
                             </div>
-                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-700">
+                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-400">
                                 <h3 className="text-2xl">{allCourses.data.length}</h3>
                                 <p>Total Courses</p>
                             </div>
-                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-700">
+                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-400">
                                 <h3 className="text-2xl">100</h3>
                                 <p>Total Quizzes</p>
                             </div>
-                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-700">
+                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-400">
                                 <h3 className="text-2xl">{allTopics.data.length}</h3>
                                 <p>Forum Posts</p>
                             </div>
-                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-700">
+                            <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-400">
                                 <h3 className="text-2xl">{allReviews.data.length}</h3>
                                 <p>Total Reviews</p>
                             </div>
@@ -117,8 +117,8 @@ const DashboardSection = () => {
                     </div>
                     <div className="grid grid-rows-1 md:grid-cols-[300px_minmax(200px,_1fr)] lg:grid-cols-[350px_minmax(400px,_1fr)] gap-5 mt-5">
                         <div>
-                            <div className="bg-slate-200 shadow-md rounded-md p-5 h-auto mb-5 course-card dark:bg-slate-500">
-                                <div className="flex items-center justify-between" style={{ color: '#32007E' }}>
+                            <div className="bg-slate-200 shadow-md rounded-md p-5 h-auto mb-5 course-card dark:bg-slate-600">
+                                <div className="flex items-center justify-between text-violet-900 dark:text-violet-400">
                                     <div className="flex items-center">
                                         <FaClone className="mr-2 text-lg" />
                                         <h5 className="text-lg font-semibold">23 Courses</h5>
@@ -214,7 +214,7 @@ const DashboardSection = () => {
                                     </div>
                                     <button className="px-4 py-1.5 hover:bg-stone-100 rounded-lg flex items-center uppercase"><FaEdit className="mr-2" /> Edit</button>
                                 </div>
-                                <div className="border-[1px] border-stone-300 dark:border-none my-2"></div>
+                                <div className="border-[1px] border-stone-300 dark:border-stone-400 my-2"></div>
                                 <table className="table-compact text-slate-700 dark:text-slate-200">
                                     <tbody>
                                         <tr>
@@ -244,13 +244,13 @@ const DashboardSection = () => {
                                     </tbody>
                                 </table>
                                 <div className="flex justify-end mt-3">
-                                    <button className="text-sm flex items-center px-4 py-1 font-semibold rounded-full hover:bg-stone-100" style={{ color: '#32007E' }}>See More Info <BsArrowRight className="ml-2 text-[15px] text-red-600" /></button>
+                                    <button className="text-sm flex items-center px-4 py-1 font-semibold rounded-full hover:bg-stone-100 text-violet-900 dark:text-violet-400 dark:hover:bg-slate-700">See More Info <BsArrowRight className="ml-2 text-[15px] text-red-600 dark:text-red-400" /></button>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <div className="bg-slate-200 shadow-md rounded-md p-5 h-auto mb-5 dark:bg-slate-500">
-                                <div className="flex items-center text-xl font-semibold pt-1 pb-4 border-b-2 border-purple-800 text-violet-900 dark:text-violet-700">
+                            <div className="bg-slate-200 shadow-md rounded-md p-5 h-auto mb-5 dark:bg-slate-600">
+                                <div className="flex items-center text-xl font-semibold pt-1 pb-4 border-b-2 text-violet-900 dark:text-violet-400 border-stone-300 dark:border-stone-400">
                                     <MdPending className="mr-2" />
                                     <h3>Pending Submissions</h3>
                                 </div>
@@ -291,34 +291,34 @@ const DashboardSection = () => {
                                 </style>
 
                                 <div className="flex justify-center mt-3">
-                                    <button className="text-sm flex items-center px-4 py-1 font-semibold rounded-full hover:bg-stone-100" style={{ color: '#32007E' }}>See More Submissions <BsArrowRight className="ml-2 text-[15px] text-red-600" /></button>
+                                    <button className="text-sm flex items-center px-4 py-1 font-semibold rounded-full hover:bg-stone-100 text-violet-900 dark:text-violet-400 dark:hover:bg-slate-700">See More Submissions <BsArrowRight className="ml-2 text-[15px] text-red-600" /></button>
                                 </div>
                             </div>
-                            <div className="bg-slate-200 dark:bg-slate-500 shadow-md rounded-md p-5 h-auto mb-5 ">
-                                <div className="flex items-center text-xl font-semibold pt-1 pb-4 border-b-2 border-purple-800 text-violet-900 dark:text-violet-700">
+                            <div className="bg-slate-200 dark:bg-slate-600 shadow-md rounded-md p-5 h-auto mb-5 ">
+                                <div className="flex items-center text-xl font-semibold pt-1 pb-4 border-b-2 border-stone-300 text-violet-900 dark:text-violet-400 dark:border-stone-400">
                                     <FaNewspaper className="mr-2" />
                                     <h3>Newsletters</h3>
                                 </div>
                                 <Slider {...settings}>
-                                    <div className="p-5 text-violet-900 dark:text-violet-700">
+                                    <div className="p-5 text-violet-900 dark:text-violet-400">
                                         <h4 className="text-lg font-semibold mb-1">Email Subject</h4>
                                         <p className="text-[0.9em] text-slate-700 dark:text-slate-200 mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae rerum pariatur debitis omnis consequatur perferendis nisi cumque corrupti iure repudiandae.</p>
-                                        <div className="flex items-center justify-end">
-                                            <FaClock className="mr-2 text-right text-sm text-gray-500" />
-                                            <p className="text-[0.9em] text-gray-500">January 12</p>
+                                        <div className="flex items-center justify-end text-slate-700 dark:text-slate-200">
+                                            <FaClock className="mr-2 text-right text-sm" />
+                                            <p className="text-[0.9em]">January 12</p>
                                         </div>
                                     </div>
-                                    <div className="p-5">
-                                        <h4 className="text-lg font-semibold mb-1 text-slate-700 dark:text-slate-200">Email Subject</h4>
-                                        <p className="text-[0.9em] text-gray-600 mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae rerum pariatur debitis omnis consequatur perferendis nisi cumque corrupti iure repudiandae.</p>
+                                    <div className="p-5 text-slate-700 dark:text-slate-200">
+                                        <h4 className="text-lg font-semibold mb-1 text-violet-900 dark:text-violet-400">Email Subject</h4>
+                                        <p className="text-[0.9em] mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae rerum pariatur debitis omnis consequatur perferendis nisi cumque corrupti iure repudiandae.</p>
                                         <div className="flex items-center justify-end">
-                                            <FaClock className="mr-2 text-right text-sm text-gray-500" />
-                                            <p className="text-[0.9em] text-gray-500">January 12</p>
+                                            <FaClock className="mr-2 text-right text-sm" />
+                                            <p className="text-[0.9em]">January 12</p>
                                         </div>
                                     </div>
                                 </Slider>
-                                <div className="flex justify-center mt-3">
-                                    <button className="text-sm flex items-center px-4 py-1 font-semibold rounded-full hover:bg-stone-100" style={{ color: '#32007E' }}>See More Newsletters <BsArrowRight className="ml-2 text-[15px] text-red-600" /></button>
+                                <div className="flex justify-center mt-3 text-violet-900 dark:text-violet-400">
+                                    <button className="text-sm flex items-center px-4 py-1 font-semibold rounded-full hover:bg-stone-100 dark:hover:bg-slate-700">See More Newsletters <BsArrowRight className="ml-2 text-[15px] text-red-600 dark:text-red-400" /></button>
                                 </div>
                             </div>
                         </div>

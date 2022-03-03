@@ -6,6 +6,7 @@ import forumReducer from './slices/forumSlice';
 import categoryReducer from './slices/categorySlice';
 import reviewReducer from './slices/reviewSlice';
 import userReducer from './slices/userSlice';
+import quizReducer from './slices/quizSlice';
 import storage from 'redux-persist/lib/storage';
 
 const rootReducer = combineReducers({
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   categories: categoryReducer,
   reviews: reviewReducer,
   users: userReducer,
+  quizzes: quizReducer,
 })
 
 const persistConfig = {

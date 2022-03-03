@@ -1,17 +1,24 @@
-import React, { useState } from 'react';
 import Image from 'next/image';
-import { FaClock, FaPenNib, FaHeart, FaBookmark } from "react-icons/fa";
+import React, { useEffect, useState } from 'react';
+import { FaBookmark, FaClock, FaHeart, FaPenNib } from "react-icons/fa";
 import ReactStars from "react-rating-stars-component";
 import ProfileDetailsSection from './ProfileDetailsSection';
 import useAuth from '../../utilities/Hooks/useAuth';
 import Lottie from 'react-lottie';
 import animationData from '../../public/img/loading.json';
 import { useRouter } from 'next/router';
+import { fetchQuizzes } from '../../utilities/redux/slices/quizSlice';
+import { useDispatch } from 'react-redux';
 
 const ProfileSection = () => {
     const [rating, setRating] = useState(4.5);
     const { user, isLoading } = useAuth();
     const router = useRouter();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchQuizzes());
+      }, [dispatch]);
 
     const defaultOptions = {
 		loop: true,
@@ -53,20 +60,21 @@ const ProfileSection = () => {
     return (
         <div>
             { user.isSignedIn &&
-            <div className="grid grid-rows-1 md:grid-cols-[300px_minmax(300px,_1fr)] lg:grid-cols-[350px_minmax(600px,_1fr)] m-2">
-                <div className="bg-slate-200 m-5 rounded-lg py-6 flex justify-center">
+            <div className="grid grid-rows-1 md:grid-cols-[300px_minmax(300px,_1fr)] lg:grid-cols-[350px_minmax(600px,_1fr)] p-2 bg-white dark:bg-slate-800">
+                <div className="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 m-5 rounded-lg py-6 flex justify-center">
                     <div className="flex-col text-center">
                         <div>
                             <Image
-                                src="https://i.postimg.cc/vZHk7RPL/1645616273912.png"
+                                src={user.photo}
                                 alt="Profile Picture"
                                 width="100px"
                                 height="100px"
+                                className="rounded-full"
                             />
                         </div>
                         <div className="py-2">
-                            <h2 className="text-xl font-bold">Iftakher Hossen</h2>
-                            <p className="text-stone-500">iftakher.one@gmail.com</p>
+                            <h2 className="text-xl font-bold">{user.name}</h2>
+                            <p className="text-stone-500 dark:text-stone-400">{user.email}</p>
                         </div>
                         <div>
                             <p className="mt-3 flex items-center mb-1">
@@ -75,10 +83,10 @@ const ProfileSection = () => {
                             <p className="flex items-center mb-1">
                                 <FaPenNib className="mr-2" />Topics: 13</p>
                             <p className="flex items-center mb-1">
-                                <FaHeart className="mr-2" style={{ color: '' }} />Reputations: 1214
+                                <FaHeart className="mr-2 text-rose-700 dark:text-rose-500" />Reputations: 1214
                             </p>
                             <p className="flex items-center mb-1">
-                                <FaBookmark className="mr-2" style={{ color: 'red' }} />Rank: Collaborator
+                                <FaBookmark className="mr-2 text-orange-500 dark:text-orange-400" />Rank: Collaborator
                             </p>
                         </div>
                         <div className="py-3 text-center">

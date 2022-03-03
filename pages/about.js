@@ -29,11 +29,11 @@ const about = () => {
                 </div>
             </div>
             <div className='py-5 container mx-auto grid md:grid-cols-2 xs:grid-cols-1'>
-                <div className='text-white mx-5'>
+                <div className='text-white m-5'>
                     <h1 className='text-rose-500 text-lg font-semibold'>Subscribe To Our Newslater Today</h1>
                     <p className='text-slate-400 text-sm'>No bloats and zero spams. Be the first to join.</p>
                 </div>
-                <div className='mx-5'>
+                <div className='m-5'>
                     <input type="text" placeholder='Enter your E-mail' className='p-3 rounded-md focus:outline-none mr-3'/>
                     <button className='btn bg-rose-500 rounded-md border-0'>Subscribe</button>
                 </div>

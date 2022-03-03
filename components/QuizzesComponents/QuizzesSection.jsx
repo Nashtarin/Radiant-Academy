@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
-import Link from 'next/link';
 
 const QuizzesSection = () => {
     const [start, setStart] = useState(false);
 
     return (
-        <>
+        <div className='bg-white dark:bg-slate-800'>
             {
                 !start &&
                 <div className="container mx-auto">
-                    <h1 className='text-4xl	font-bold text-violet-900 mt-10 mb-2 py-8 text-center'>
+                    <h1 className='text-4xl	font-bold text-violet-900 dark:text-violet-400 pt-10 mb-2 py-8 text-center'>
                         Start the Quiz
                     </h1>
                     <div className="px-16 pb-20">
@@ -51,7 +50,7 @@ const QuizzesSection = () => {
                     </div>
                 </div>
             }
-        </>
+        </div>
     );
 };
 

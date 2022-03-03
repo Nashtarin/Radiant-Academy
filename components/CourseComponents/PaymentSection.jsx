@@ -4,7 +4,7 @@ import { BsArrowRight } from 'react-icons/bs';
 import coverImg from '../../public/img/css_flexbox 1.png';
 import Image from 'next/image';
 
-const PaymentSection = () => {
+const PaymentSection = ({ course }) => {
     return (
         <div>
             <div className="px-24 py-16">
@@ -21,7 +21,7 @@ const PaymentSection = () => {
                                 />
                             </div>
                             <div>
-                                <h4 className="font-semibold text-lg">Introducing to Flexbox</h4>
+                                <h4 className="font-semibold text-lg">{course?.data?.title}</h4>
                                 <p className="text-slate-400 text-[0.9em]">#html #css #beginners</p>
                                 <p className="text-sm mt-2 px-2 text-stone-600">● 10 Quizzes ● 10 Articles <br /> ● 10 Problem Solving</p>
                             </div>

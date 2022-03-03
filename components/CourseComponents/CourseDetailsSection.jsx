@@ -47,7 +47,7 @@ const CourseDetailsSection = ({ course }) => {
                         <div className='text-3xl font-bold py-3 text-center'>
                             <h2> <span>$</span> {course?.data?.price}</h2>
                         </div>
-                        <Link href="/courses/payment" passHref><button className="bg-yellow-400 px-5 py-1.5 text-black uppercase rounded-md font-medium">Enroll Now</button></Link>
+                        <Link href={`/courses/payment/${course?.data._id}`} passHref><button className="bg-yellow-400 px-5 py-1.5 text-black uppercase rounded-md font-medium">Enroll Now</button></Link>
                         <p className="text-sm text-stone-300 mt-4 mx-4">* 1025 Already Enrolled!</p>
                     </div>
                 </div>
