@@ -20,14 +20,18 @@ const QuizSchema = new mongoose.Schema({
     },
     isFinalQuestion: {
         type: Boolean,
+        default: false,
         required: true,
     },
-    answers: [{
+    options: [{
         answerText: { type: String, required: true },
-        answerText: { type: String, required: true },
-        answerText: { type: String, required: true },
-        answerText: { type: String, required: true },
+        answerNo: { type: Number, required: true, default: 0 },
     }],
+    answer: {
+        type: Number,
+        required: true,
+        default: 0,
+    }
 },
     { timestamps: true }
 );

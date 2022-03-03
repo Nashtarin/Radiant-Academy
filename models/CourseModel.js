@@ -3,7 +3,7 @@ const CourseSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
-        maxlength: 60,
+        maxlength: 100,
     },
     subtitle: {
         type: String,
@@ -36,9 +36,8 @@ const CourseSchema = new mongoose.Schema({
         default: 0,
     },
     contents: [{
-        text: { type: String, required: true },
-        text: { type: String, required: true },
-        text: { type: String, required: true },
+        type: String, 
+        // required: true,
     }],
 },
     { timestamps: true }

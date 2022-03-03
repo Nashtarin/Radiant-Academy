@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import {
-    BsEyeFill,
-    BsFillClockFill,
-    BsHash,
-    BsArrowRight
-} from "react-icons/bs";
-import Link from 'next/link';
 import moment from 'moment';
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
-import { topicReact } from '../../utilities/redux/slices/forumSlice';
+import {
+    BsArrowRight, BsEyeFill,
+    BsFillClockFill,
+    BsHash
+} from "react-icons/bs";
 import { useDispatch } from 'react-redux';
+import { topicReact } from '../../utilities/redux/slices/forumSlice';
 
 const TopicCard = ({ forum }) => {
     const { _id, title, desc, createdAt, category, loves, views } = forum;
@@ -85,26 +84,26 @@ const TopicCard = ({ forum }) => {
     }
 
     return (
-        <div className='grid grid-rows-1 sm:grid-cols-3 my-5 mx-5 bg-slate-100 rounded-md shadow-md pt-5'>
+        <div className='grid grid-rows-1 sm:grid-cols-3 my-5 mx-5 bg-slate-100 rounded-md shadow-md pt-5 dark:bg-slate-700'>
             <div className='col-span-2 px-4 sm:px-8'>
-                <h1 className='text-2xl font-bold text-violet-800 my-2'>{title}</h1>
-                <p className='text-slate-500'>{desc.split(' ').slice(0, 40).toString().replace(/,/g, ' ')}...</p>
+                <h1 className='text-2xl font-bold text-violet-800 my-2 dark:text-violet-400'>{title}</h1>
+                <p className='text-slate-500 dark:text-slate-200'>{desc.split(' ').slice(0, 40).toString().replace(/,/g, ' ')}...</p>
                 <div className='w-5/6'>
                     <div className='grid sm:grid-rows-2 gap-y-1 lg:grid-cols-2 pt-3'>
                         <div>
-                            <p className='flex items-center font-semibold text-slate-700 text-lg'>
+                            <p className='flex items-center font-semibold text-slate-700 text-lg dark:text-slate-200'>
                                 <span className='my-auto mr-1.5'><BsFillClockFill /></span> {moment(createdAt).fromNow()}
                             </p>
                         </div>
                         <div className='grid grid-cols-3'>
-                            <p className='flex items-center font-semibold text-slate-700 mr-5 text-lg'>
+                            <p className='flex items-center font-semibold text-slate-700 mr-5 text-lg dark:text-slate-200'>
                                 <span className='my-auto'><BsHash /></span>{category}
                             </p>
-                            <p className='flex justify-center items-center font-semibold text-slate-700 mr-5'>
+                            <p className='flex justify-center items-center font-semibold text-slate-700 mr-5 dark:text-slate-200'>
                                 <span className='my-auto mr-1'><BsEyeFill /></span>{views}
                             </p>
-                            <p className='flex items-center font-semibold mr-5 text-lg'>
-                                <span className='my-auto mr-1 cursor-pointer text-slate-700' onClick={() => handleReact(_id)} id={`react-btn-${_id}`}><i className="fa fa-heart" id="icon-heart"></i></span>{reacts}
+                            <p className='flex items-center font-semibold mr-5 text-lg dark:text-slate-200'>
+                                <span className='my-auto mr-1 cursor-pointer text-slate-700 dark:text-slate-200' onClick={() => handleReact(_id)} id={`react-btn-${_id}`}><i className="fa fa-heart" id="icon-heart"></i></span>{reacts}
                             </p>
                         </div>
                     </div>

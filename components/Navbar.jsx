@@ -4,6 +4,7 @@ import { FaMoon, FaSun, FaUserCircle } from "react-icons/fa";
 import Logo from '../public/img/RA_Logo.png';
 import useAuth from "../utilities/Hooks/useAuth";
 import { useDarkMode } from "../utilities/Hooks/useDarkMode";
+import { Toaster } from 'react-hot-toast';
 
 const Navbar = () => {
     const { user, logout } = useAuth();
@@ -50,12 +51,17 @@ const Navbar = () => {
                             <Link href="/code-editor">
                                 <a className="btn hover:bg-slate-300 dark:hover:bg-slate-600 btn-ghost rounded-btn mx-3">PLAYGROUND </a>
                             </Link>
-                            <Link href="/blogs">
+                            {/* <Link href="/blogs">
                                 <a className="btn hover:bg-slate-300 dark:hover:bg-slate-600 btn-ghost rounded-btn mx-3">BLOGS </a>
-                            </Link>
-                            <Link passHref href="/register">
-                                <button className="btn border-0 px-7 py-2 rounded bg-rose-500 text-white dark:hover:bg-slate-600 transition duration-500 mx-3">FREE TRIAL</button>
-                            </Link>
+                            </Link> */}
+                            {/* <Link href="/contact">
+                                <a className="btn hover:bg-slate-300 dark:hover:bg-slate-600 btn-ghost rounded-btn mx-3">CONTACT </a>
+                            </Link>  */}
+                            {!user.isSignedIn && 
+                                <Link passHref href="/register">
+                                    <button className="btn border-0 px-7 py-2 rounded bg-rose-500 text-white dark:hover:bg-slate-600 transition duration-500 mx-3">FREE TRIAL</button>
+                                </Link>
+                            }
                             {user.isSignedIn &&
                                 <div className="flex-none dropdown dropdown-end mx-1 sm:mx-2 my-auto">
                                     <label tabIndex="0" className="btn btn-ghost btn-circle avatar hover:border-purple-800">
@@ -128,16 +134,16 @@ const Navbar = () => {
                                     <a className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3">PLAYGROUND </a>
                                 </Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link href="/blogs">
                                     <a className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3">BLOGS </a>
                                 </Link>
-                            </li>
+                            </li> */}
                             {/* <li>
                                 <Link href="/contact">
                                     <a className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3">CONTACT </a>
                                 </Link>
-                            </li> */}
+                            </li>  */}
                             <li className="text-white mt-3">
                                 <Link passHref href="/register">
                                     <button className="btn border-0 px-7 py-2 rounded-btn bg-rose-500 text-white transition duration-500 mx-3">FREE TRIAL</button>
@@ -147,6 +153,10 @@ const Navbar = () => {
                     </div>
                 </div>
             </nav>
+            <Toaster
+                position="top-center"
+                reverseOrder={false}
+            />
         </>
     );
 };

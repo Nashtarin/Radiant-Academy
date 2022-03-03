@@ -1,11 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
-import ReactStars from "react-rating-stars-component";
-import { useSelector } from 'react-redux';
 import moment from 'moment';
-import { addReview } from '../../utilities/redux/slices/reviewSlice';
-import { useDispatch } from 'react-redux';
+import Image from 'next/image';
+import React, { useEffect, useRef, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
+import ReactStars from "react-rating-stars-component";
+import { useDispatch, useSelector } from 'react-redux';
+import { addReview } from '../../utilities/redux/slices/reviewSlice';
 
 const ReviewSection = ({ forum }) => {
     const { _id, author, authorImg } = forum;
@@ -102,16 +101,16 @@ const ReviewSection = ({ forum }) => {
                     </div>
 
                     {/* Add Comment */}
-                    <div className="px-6 lg:px-12 py-8 h-full">
+                    <div className="px-6 lg:px-12 py-8 h-full bg-white dark:bg-slate-700">
                         <form onSubmit={postReview}>
                             <textarea ref={commentRef} className="bg-stone-100 border-2 w-full h-[100px] outline-none py-2 px-3 resize-none rounded-lg" placeholder="Type your comment here!" required></textarea>
                             <div className="drop-rating flex flex-col sm:flex-row">
-                                <h3 className="text-xl mb-2 sm:mb-0">Select your Rating:</h3>
+                                <h3 className="text-xl pb-2 sm:pb-0 text-slate-700 dark:text-slate-200">Select your Rating:</h3>
                                 <ReactStars {...ratingCount} />
                                 <style jsx global>
                                     {`
                                         .drop-rating {
-                                            margin: 1rem;
+                                            padding: 1rem;
                                         }
                                         .drop-rating h3{
                                             padding-right: 1rem;
@@ -123,7 +122,7 @@ const ReviewSection = ({ forum }) => {
                                     `}
                                 </style>
                             </div>
-                            <button type="submit" className="text-lg px-8 py-1.5 rounded-full mt-3 float-right" style={{ backgroundColor: '#FFCA30' }}>Comment</button>
+                            <button type="submit" className="text-lg px-8 py-1.5 rounded-full pt-3 float-right" style={{ backgroundColor: '#FFCA30' }}>Comment</button>
                         </form>
                     </div>
                 </div>
