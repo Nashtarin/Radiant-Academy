@@ -30,7 +30,7 @@ const QuizzesSection = () => {
             }
 
             {
-                start && <div className="container mx-auto my-16 w-5/6 md:w-4/6 rounded-tr-xl rounded-tl-xl relative">
+                start && <div className="container mx-auto py-16 w-5/6 md:w-4/6 rounded-tr-xl rounded-tl-xl relative">
                     <div className="mx-auto w-3/4 sm:2-4 md:w-1/4">
                         <div className="flex justify-center items-center py-3 mt-8 mb-4 rounded-full bg-blue-400 text-white">
                             <MdTimer style={{ fontSize: 30 }} className="mr-2" />

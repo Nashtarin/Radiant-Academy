@@ -5,7 +5,6 @@ import { BsArrowRight } from 'react-icons/bs';
 import coverImg from '../../public/img/css_flexbox 1.png';
 
 const MyCourseCard = ({ course }) => {
-
     return (
         <div>
             <div className="bg-slate-100 dark:bg-[#37465b] p-5 grid grid-rows-1 rounded-lg card-single">
@@ -17,7 +16,7 @@ const MyCourseCard = ({ course }) => {
                         draggable="false"
                     />
                     <div className="pt-3">
-                        <Link href={`/courses/${course?._id}`} passHref>
+                        <Link href="/courses/content" passHref>
                             <button className="bg-slate-600 dark:bg-slate-500 text-white px-5 py-1.5 rounded-full flex items-center hover:shadow-lg">
                                 Continue Course <BsArrowRight className="ml-2" />
                             </button>
