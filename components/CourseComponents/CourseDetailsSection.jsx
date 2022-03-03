@@ -143,7 +143,7 @@ const CourseDetailsSection = ({ course }) => {
                             <div className="p-2 sm:p-5 flex items-start">
                                 <div className="px-2 pt-1.5 block w-[70px]">
                                     <Image
-                                        src="/img/person1.png"
+                                        src="https://i.postimg.cc/4dNK0r0W/people-1.png"
                                         alt="User Picture"
                                         height="100px"
                                         width="100px"
@@ -164,7 +164,7 @@ const CourseDetailsSection = ({ course }) => {
                             <div className="p-2 sm:p-5 flex items-start">
                                 <div className="px-2 pt-1.5 block w-[70px]">
                                     <Image
-                                        src="/img/person2.png"
+                                        src="https://i.postimg.cc/4dNK0r0W/people-1.png"
                                         alt="User Picture"
                                         height="100px"
                                         width="100px"
