@@ -3,9 +3,33 @@ import Image from 'next/image';
 import { FaClock, FaPenNib, FaHeart, FaBookmark } from "react-icons/fa";
 import ReactStars from "react-rating-stars-component";
 import ProfileDetailsSection from './ProfileDetailsSection';
+import useAuth from '../../utilities/Hooks/useAuth';
+import Lottie from 'react-lottie';
+import animationData from '../../public/img/loading.json';
+import { useRouter } from 'next/router';
 
 const ProfileSection = () => {
     const [rating, setRating] = useState(4.5);
+    const { user, isLoading } = useAuth();
+    const router = useRouter();
+
+    const defaultOptions = {
+		loop: true,
+		autoplay: true, 
+		animationData: animationData,
+		rendererSettings: {
+		  preserveAspectRatio: 'xMidYMid slice'
+		}
+	};
+
+    if (isLoading && !user.isSignedIn) { return <div className="loading flex justify-center items-center min-h-screen m-auto">
+								<div>
+									<Lottie options={defaultOptions}
+                                        height={100}
+                                        width={100}/>
+								</div>
+							</div> 
+                        }
 
     //rating system
     const ratingCount = {
@@ -24,8 +48,11 @@ const ProfileSection = () => {
         }
     };
 
+    !user.isSignedIn && router.replace('/login');
+
     return (
         <div>
+            { user.isSignedIn &&
             <div className="grid grid-rows-1 md:grid-cols-[300px_minmax(300px,_1fr)] lg:grid-cols-[350px_minmax(600px,_1fr)] m-2">
                 <div className="bg-slate-200 m-5 rounded-lg py-6 flex justify-center">
                     <div className="flex-col text-center">
@@ -77,6 +104,8 @@ const ProfileSection = () => {
                     <ProfileDetailsSection />
                 </div>
             </div>
+            }
+            
         </div>
     );
 };
