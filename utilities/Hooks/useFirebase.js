@@ -44,7 +44,7 @@ const useFirebase = () => {
                 setUser(signedInUser);
                 router.replace('/profile');
                 toast.success("Successfully signed in!", {
-                    position: "bottom-center"
+                    position: "top-center"
                 });
             })
             .catch((error) => {
@@ -105,7 +105,6 @@ const useFirebase = () => {
                 setUser(user);
                 router.replace('/profile');
                 setAuthError('');
-
             })
             .catch((error) => {
 
@@ -154,12 +153,14 @@ const useFirebase = () => {
 
     const logout = () => {
         setIsLoading(true);
-        signOut(auth).then(() => {
+        signOut(auth).then((res) => {
             localStorage.removeItem('token');
+            setUser({});
             router.push('/');
-            // toast.success("Successfully signed out!", {
-            //     position: "bottom-center"
-            // });
+            toast.success("Successfully signed out!", {
+                position: "top-center"
+            });
+
         })
         .catch((error) => {
             // An error happened.

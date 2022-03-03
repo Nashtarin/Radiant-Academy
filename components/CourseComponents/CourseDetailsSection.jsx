@@ -29,34 +29,26 @@ const CourseDetailsSection = ({ course }) => {
     return (
         <div>
             <div className="py-12 px-16 text-white" style={{ backgroundColor: '#522F88' }}>
-                <div>
-                    <h1 className="my-1 text-[2.1em] font-medium">
-                        {course?.data?.title} <small>({course?.data?.price}$)</small>
-                    </h1>
-                    <p className="flex items-center">
-                        <FaBookmark className="text-orange-500" /> &nbsp; Radiant Academy Certificate Included
-                    </p>
-                    <div className="flex items-center text-yellow-400 my-3 text-xl">
-                        <div className="ratings flex items-center">
-                            <ReactStars {...ratingCount} value={rating} edit={false} />
-                            <style jsx global>{`
-                                .ratings {
-                                    margin: 0 0.5rem;
-                                }
-                                .ratings span i{
-                                    color: #f4dd1e;
-                                    font-size: 1.25rem;
-                                }
-                            `}</style>
-                            <span className="text-white text-[1em] ml-2 mb-2">(45)</span>
+                <div className="flex justify-between items-center">
+                    <div>
+                        <h1 className="my-1 text-[2.1em] font-medium">
+                            {course?.data?.title}
+                        </h1>
+                        <p className="flex items-center">
+                            <FaBookmark className="text-orange-500" /> &nbsp; Radiant Academy Certificate Included
+                        </p>
+                        <div className="flex items-center text-yellow-400 my-3">
+                            <span className="flex items-center text-2xl"><FaStar /><FaStar /><FaStar /><FaStar /><FaStarHalf /></span>
+                            <span className="text-white text-[1em]">(45)</span>
                         </div>
+                        <p className="text-sm mt-2">● 10 Quizzes ● 10 Articles ● 10 Problem Solving</p>
                     </div>
-                    <div className="flex flex-col mt-8">
-                        <div className='text-4xl font-bold py-3 text-center'>
+                    <div className="flex flex-col">
+                        <div className='text-3xl font-bold py-3 text-center'>
                             <h2> <span>$</span> {course?.data?.price}</h2>
                         </div>
                         <Link href="/courses/payment" passHref><button className="bg-yellow-400 px-5 py-1.5 text-black uppercase rounded-md font-medium">Enroll Now</button></Link>
-                        <span className="text-md mt-4 mx-4">* 1025 Already Enrolled!</span>
+                        <p className="text-sm text-stone-300 mt-4 mx-4">* 1025 Already Enrolled!</p>
                     </div>
                 </div>
             </div>
