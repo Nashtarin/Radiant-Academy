@@ -32,8 +32,8 @@ const ProfileSection = () => {
     if (isLoading && !user.isSignedIn) { return <div className="loading flex justify-center items-center min-h-screen m-auto">
 								<div>
 									<Lottie options={defaultOptions}
-                                        height={100}
-                                        width={100}/>
+                                        height={200}
+                                        width={200}/>
 								</div>
 							</div> 
                         }

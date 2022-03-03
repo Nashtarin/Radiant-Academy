@@ -4,7 +4,6 @@ import CourseSlider from './CourseSlider';
 
 const CourseSection = () => {
     const allCourses = useSelector((state) => state.courses.coursesList);
-    console.log(allCourses);
 
     return (
         <div className='bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200'>
