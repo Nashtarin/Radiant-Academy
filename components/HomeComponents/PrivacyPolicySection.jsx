@@ -11,7 +11,7 @@ const PrivacyPolicySection = () => {
                         <br />
                         <p>Welcome to Radiant Academy!</p>
                         <br />
-                        <p>These terms and conditions outline the rules and regulations for the use of Radiant Academy’s Website, located at <Link href="http://localhost:3000/" passHref><span className="hover:text-purple-500">http://localhost:3000/</span></Link>.</p>
+                        <p>These terms and conditions outline the rules and regulations for the use of Radiant Academy’s Website, located at <Link href="https://radiant-academy.vercel.app/" passHref><span className="hover:text-purple-500">https://radiant-academy.vercel.app/</span></Link>.</p>
                         <br />
                         <p>By accessing this website we assume you accept these terms and conditions. Do not continue to use Radiant Academy if you do not agree to take all of the terms and conditions stated on this page.</p>
                         <br />
