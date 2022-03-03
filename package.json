@@ -14,7 +14,7 @@
     "axios": "^0.25.0",
     "chart.js": "^3.7.1",
     "codemirror": "^5.65.2",
-    "daisyui": "^1.25.4",
+    "daisyui": "^2.2.2",
     "firebase": "^9.6.7",
     "moment": "^2.29.1",
     "mongoose": "^6.2.0",
@@ -31,7 +31,8 @@
     "react-slick": "^0.28.1",
     "react-tabs": "^3.2.3",
     "redux-persist": "^6.0.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "stripe": "^8.207.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.2",

@@ -1,20 +1,19 @@
-import Head from 'next/head';
-import React from 'react';
-import CoursesSection from '../../components/DashboardComponents/CourseSection';
+import Head from "next/head";
+import PaymentSection from "../../components/CourseComponents/PaymentSection";
 
-const index = () => {
+const Courses = () => {
     return (
         <div>
             <Head>
-                <title>Radiant Academy | Courses</title>
+                <title>Radiant Academy | Payment</title>
                 <meta name="Your learning partner" content="Best learning app for the curious learners" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
             {/* COURSES CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
-            <CoursesSection />
+            <PaymentSection />
         </div>
     );
 };
 
-export default index;
+export default Courses;

@@ -10,7 +10,7 @@ const HeroSection = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         dots: false,
-        arrows: true,
+        arrows: false,
         infinite: true,
         autoplay: true,
         autoplaySpeed: 3000,
@@ -22,7 +22,7 @@ const HeroSection = () => {
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     infinite: true,
-                    dots: true,
+                    dots: false,
                 },
             },
             {
@@ -62,6 +62,13 @@ const HeroSection = () => {
                                         <p className="py-5 text-2xl lg:w-3/4 xl:w-1/2">We have got 20+ online solutions for programmers, who is excited?</p>
                                     </div>
                                 </Slider>
+                                <style jsx global>
+                                    {`
+                                        .slick-list{
+                                            padding-bottom: 0 !important;
+                                        }
+                                    `}
+                                </style>
                             </div>
                             <Link passHref href="/register">
                                 <button className="bg-rose-500 animate-[pulse_1s_ease-in-out_infinite] rounded-md text-white px-7 py-3 my-5 flex justify-center items-center">

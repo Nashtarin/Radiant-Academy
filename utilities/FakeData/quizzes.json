@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "questionText":
+          "Do you have a club membership to any wholesale stores such as Costco, Sam's Club, or Smart and Final?",
+        "totalSurveySteps": 2,
+        "surveyStep": 1,
+        "isFinalQuestion": false,
+        "answers": [
+          {
+            "id": 1,
+            "answerText": "Yes"
+          },
+          {
+            "id": 2,
+            "answerText": "No"
+          },
+          {
+            "id": 3,
+            "answerText": "Not Sure"
+          }
+        ]
+    },
+    {
+        "id": 2,
+        "questionText":
+          "Do you feel that large Wholesale Stores provide good value for your money?",
+        "totalSurveySteps": 2,
+        "surveyStep": 2,
+        "isFinalQuestion": true,
+        "answers": [
+            {
+                "id": 1,
+                "answerText": "Definitely"
+            },
+            {
+                "id": 2,
+                "answerText": "Somewhat"
+            },
+            {
+                "id": 3,
+                "answerText": "Not Really"
+            },
+            {
+                "id": 4,
+                "answerText": "Definitely Not"
+            }
+        ]
+    }
+]

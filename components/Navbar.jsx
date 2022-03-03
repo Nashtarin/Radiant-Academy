@@ -20,9 +20,10 @@ const Navbar = () => {
                                 <div className="relative top-[18px]">
                                     <Image
                                         src={Logo}
-                                        alt="Landscape picture"
+                                        alt="Radiant Academy Logo"
                                         width="100px"
                                         height="100px"
+                                        draggable="false"
                                     />
                                 </div>
                             </a>
@@ -50,9 +51,6 @@ const Navbar = () => {
                             <Link href="/code-editor">
                                 <a className="btn hover:bg-slate-300 dark:hover:bg-slate-600 btn-ghost rounded-btn mx-3">PLAYGROUND </a>
                             </Link>
-                            <Link href="/blogs">
-                                <a className="btn hover:bg-slate-300 dark:hover:bg-slate-600 btn-ghost rounded-btn mx-3">BLOGS </a>
-                            </Link>
                             <Link href="/contact">
                                 <a className="btn hover:bg-slate-300 dark:hover:bg-slate-600 btn-ghost rounded-btn mx-3">CONTACT </a>
                             </Link>
@@ -78,15 +76,15 @@ const Navbar = () => {
                                     <ul tabIndex="0" className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-slate-100 dark:bg-slate-600 rounded-box w-52">
                                         <li>
                                             <Link href="/profile">
-                                                <a className=" hover:bg-rose-500 hover:text-white">
-                                                    Profile
-                                                    <span className="badge">New</span>
-                                                </a>
+                                                <a className=" hover:bg-rose-500 hover:text-white"> Profile</a>
                                             </Link>
                                         </li>
                                         <li>
                                             <Link href="/dashboard">
-                                                <a className=" hover:bg-rose-500 hover:text-white">Dashboard</a>
+                                                <a className=" hover:bg-rose-500 hover:text-white">
+                                                    Dashboard
+                                                    <span className="ml-2 badge">New</span>
+                                                </a>
                                             </Link>
                                         </li>
                                         <li>
@@ -129,11 +127,6 @@ const Navbar = () => {
                             <li>
                                 <Link href="/code-editor">
                                     <a className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3">PLAYGROUND </a>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/blogs">
-                                    <a className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3">BLOGS </a>
                                 </Link>
                             </li>
                             <li>
