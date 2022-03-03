@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import { GiRobotLeg } from 'react-icons/gi';
 const UsersSchema = new mongoose.Schema({
     displayName: {
         type: String,
@@ -18,15 +17,15 @@ const UsersSchema = new mongoose.Schema({
     forumId: {
         type: String,
     },
-    enrolled_course: [{
-        type: String,
-    }],
     accessToken: {
         type: String,
     },
     role: {
         type: String,
-    }
+    },
+    enrolledCourses: [{
+        courseId: { type: String, default: "620f957278b8225254db86d6"},
+    }],
 },
     { timestamps: true }
 );

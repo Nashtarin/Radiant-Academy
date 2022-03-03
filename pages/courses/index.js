@@ -1,18 +1,5 @@
 import Head from "next/head";
-import { useEffect } from "react";
 import CourseSection from "../../components/CourseComponents/CourseSection";
-
-// export const getServerSideProps = async () => {
-//     const url = 'https://api.itbook.store/1.0/new';
-//     const res = await fetch(url);
-//     const data = await res.json();
-
-//     return {
-//         props: {
-//             courses: data.books
-//         }
-//     }
-// }
 
 const Courses = () => {
   return (

@@ -106,7 +106,7 @@ const Footer = () => {
                 </div>`
             </div>
 
-            <button className="stickyGoToTop fixed right-5 btn btn-ghost rounded-btn m-5" id="sticky2" onClick={topFunction}>
+            <button className="stickyGoToTop fixed right-5 btn btn-ghost rounded-btn m-5 dark:text-slate-200" id="sticky2" onClick={topFunction}>
                 <style jsx global>
                     {`
                         .stickyGoToTop {

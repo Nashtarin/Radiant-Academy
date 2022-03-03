@@ -1,5 +1,5 @@
 import dbConnect from "../../../utilities/mongoose";
-import Quiz from '../../../models/QuizModel'
+import User from '../../../models/UserModel'
 
 export default async function handler(req, res) {
     const { method, query: { id } } = req;
@@ -8,8 +8,8 @@ export default async function handler(req, res) {
 
     if (method === "GET") {
         try {
-            const singleQuiz = await Quiz.findById(id);
-            res.status(200).json({ success: true, data: singleQuiz });
+            const singleUser = await User.findById(id);
+            res.status(200).json({ success: true, data: singleUser });
 
         } catch (error) {
             res.status(500).json({ success: false });
@@ -20,12 +20,11 @@ export default async function handler(req, res) {
         const filter = {_id: id};
 
         try {
-            const singleQuiz = await Quiz.findOneAndDelete(filter);
-            res.status(201).json(singleQuiz);
+            const singleUser = await User.findOneAndDelete(filter);
+            res.status(201).json(singleUser);
 
         } catch (error) {
             res.status(500).json({ success: false });
         }
     }
-
 }

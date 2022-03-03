@@ -1,8 +1,8 @@
-import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import coverImg from '../../public/img/css_flexbox 1.png';
+import React from 'react';
 import { BsArrowRight } from 'react-icons/bs';
+import coverImg from '../../public/img/css_flexbox 1.png';
 import Styles from '../../styles/Home.module.css';
 
 const CourseCard = ({ course }) => {
@@ -29,7 +29,7 @@ const CourseCard = ({ course }) => {
                 <div>
                     <h4 className="font-semibold text-lg text-slate-700 dark:text-slate-200">{course?.title}</h4>
                     <p className="text-slate-400 text-[0.9em]">#html #css #beginners</p>
-                    <p className="text-sm mt-2 px-2 text-stone-600 dark:text-stone-200">● 10 Quizzes ● 10 Articles <br /> ● 10 Problem Solving</p>
+                    <p className="text-sm mt-2 px-2 text-stone-600 dark:text-slate-400">● 10 Quizes ● 10 Articles <br /> ● 10 Problem Solving</p>
                 </div>
             </div>
         </div>

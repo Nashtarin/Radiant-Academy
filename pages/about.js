@@ -192,7 +192,7 @@ const about = () => {
                 <div className="mt-10 bg-[#1b222d]">
                     <div className="grid grid-cols-1 md:grid-cols-2 mx-auto px-5 sm:px-10 md:px-20 py-10">
                         <div>
-                            <h1 className="text-rose-500 text-2xl font-semibold">Subscribe To Our Newslettar Today</h1>
+                            <h1 className="text-rose-500 text-2xl font-semibold">Subscribe To Our Newsletter Today</h1>
                             <p className="text-slate-400 text-sm">No bloats and zero spams. Be the first to join.</p>
                         </div>
                         <div className="mt-5 sm:mt-0 md:text-right">

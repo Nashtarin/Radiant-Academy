@@ -1,10 +1,31 @@
 import React from 'react';
-import { FaInfoCircle, FaEdit, FaEnvelope, FaPhoneSquareAlt, FaBookmark, FaIdCardAlt } from 'react-icons/fa';
+import { FaInfoCircle, FaEnvelope, FaPhoneSquareAlt, FaBookmark, FaIdCardAlt } from 'react-icons/fa';
 import { BsArrowRight } from 'react-icons/bs';
 import coverImg from '../../public/img/css_flexbox 1.png';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import useAuth from '../../utilities/Hooks/useAuth';
+import { useSelector } from 'react-redux';
+import axios from 'axios';
 
-const PaymentSection = () => {
+const PaymentSection = ({ course }) => {
+    const router = useRouter();
+    const { user } = useAuth();
+    const allUserData = useSelector((state) => state.users.usersList);
+    const thisUser = allUserData.data.find(userData =>  userData.email === user.email);
+    // console.log(thisUser._id, course.data._id);
+
+    const payAndEnroll = async (user) => {
+        try {
+            const res = await axios.put(`http://localhost:3000/api/users/enroll/${thisUser._id}/${course.data._id}`, user.data);
+            if (res.status === 201) {
+                router.push("/quiz");
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
     return (
         <div>
             <div className="px-24 py-16">
@@ -21,7 +42,7 @@ const PaymentSection = () => {
                                 />
                             </div>
                             <div>
-                                <h4 className="font-semibold text-lg">Introducing to Flexbox</h4>
+                                <h4 className="font-semibold text-lg">{course?.data?.title}</h4>
                                 <p className="text-slate-400 text-[0.9em]">#html #css #beginners</p>
                                 <p className="text-sm mt-2 px-2 text-stone-600">● 10 Quizzes ● 10 Articles <br /> ● 10 Problem Solving</p>
                             </div>
@@ -389,7 +410,7 @@ const PaymentSection = () => {
                                     <input type="checkbox" className="mr-2 my-3 checkbox" />
                                     <label>Save Payment Information</label>
                                 </div>
-                                <button type="submit" className="mt-5 py-2 px-6 text-lg flex items-center font-medium rounded-lg text-white bg-rose-600">PAY $59.50 <BsArrowRight className="ml-3" /></button>
+                                <button onClick={payAndEnroll} type="submit" className="mt-5 py-2 px-6 text-lg flex items-center font-medium rounded-lg text-white bg-rose-600">PAY $59.50 <BsArrowRight className="ml-3" /></button>
                             </form>
                         </div>
                     </div>

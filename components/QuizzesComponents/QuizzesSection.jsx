@@ -1,41 +1,29 @@
 import React, { useState } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import { MdTimer } from 'react-icons/md';
-import Link from 'next/link';
 
 const QuizzesSection = () => {
     const [start, setStart] = useState(false);
 
     return (
-        <div>
+        <div className='bg-white dark:bg-slate-800'>
             {
-                !start && <div className="container mx-auto py-10 mb-6">
-                    <div className="mb-3">
-                        <h1 className="text-[2.5em] text-purple-900 font-semibold text-center">Start the Quiz!</h1>
-                    </div>
-                    <div className="bg-slate-200 w-5/6 mx-auto rounded-xl py-10 text-lg text-center">
-                        <p>
-                            Complete this short Flexbox quiz and you will
-                            <span className="text-rose-500 font-medium">unlock access</span>
-                            your rank up to
-                            <span className="text-rose-500 font-medium">Collaborator</span>!
-                        </p>
-                        <p className="mt-4">
-                            Act Fast! The timer will start running once you click the
-                            <span className="text-rose-500 font-medium uppercase">Start</span>
-                        </p>
-                        <div className="flex justify-center items-center py-4 mt-4">
-                            <MdTimer style={{ fontSize: 30 }} className="mr-2" />
-                            <p className="text-xl font-medium">5 Minutes</p>
-                        </div>
-                        <div className="flex justify-center">
-                            <button
-                                onClick={() => setStart(true)}
-                                className="bg-rose-500 animate-[pulse_1s_ease-in-out_infinite] rounded-md text-white px-7 py-3 flex justify-center items-center uppercase"
-                            >
-                                Start Quiz Now
-                                <FaArrowRight className="ml-3" />
-                            </button>
+                !start &&
+                <div className="container mx-auto">
+                    <h1 className='text-4xl	font-bold text-violet-900 dark:text-violet-400 pt-10 mb-2 py-8 text-center'>
+                        Start the Quiz
+                    </h1>
+                    <div className="px-16 pb-20">
+                        <div className="quiz-card py-5 rounded-xl bg-gray-300 mb-5 text-center">
+                            <p>Complete this short Flexbox quiz and you will <span className="text-rose-500 font-bold">unlock access</span> your rank up to <span className="text-rose-500 font-bold">Collaborator</span>!
+                                <br/><br/>
+                                Act Fast! The timer will start running once you click the START
+                            </p>
+                            <div className="flex justify-center" id="surveyBtn">
+                                <button onClick={() => setStart(true)} className="bg-rose-500 animate-[pulse_1s_ease-in-out_infinite] rounded-md text-white px-7 py-3 my-5 flex justify-center items-center">
+                                    START QUIZ NOW &nbsp; <FaArrowRight style={{ fontSize: '14px', marginTop: '2px' }} />
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
