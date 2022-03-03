@@ -17,7 +17,7 @@ const SingleForumPage = ({ forum }) => {
     return (
         <div className="bg-white dark:bg-slate-800">
             <Head>
-                <title>Radiant Academy | Single Forum Page</title>
+                <title>Radiant Academy | Latest Topic</title>
                 <meta name="Your learning partner" content="Best learning app for the curious learners" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
