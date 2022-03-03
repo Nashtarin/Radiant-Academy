@@ -5,10 +5,13 @@ import Logo from '../public/img/RA_Logo.png';
 import useAuth from "../utilities/Hooks/useAuth";
 import { useDarkMode } from "../utilities/Hooks/useDarkMode";
 import { Toaster } from 'react-hot-toast';
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
     const { user, logout } = useAuth();
     const [isDarkMode, toggleDarkMode] = useDarkMode();
+    const allUserData = useSelector((state) => state.users.usersList);
+    const thisUser = allUserData.data.find(userData =>  userData.email === user.email);
 
     return (
         <>
@@ -80,7 +83,7 @@ const Navbar = () => {
                                     </label>
                                     <ul tabIndex="0" className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-slate-100 dark:bg-slate-600 rounded-box w-52">
                                         <li>
-                                            <Link href="/profile">
+                                            <Link href={`/profile/${user.email}`}>
                                                 <a className=" hover:bg-rose-500 hover:text-white"> Profile</a>
                                             </Link>
                                         </li>

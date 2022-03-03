@@ -10,7 +10,7 @@ import { useRouter } from 'next/router';
 import { fetchQuizzes } from '../../utilities/redux/slices/quizSlice';
 import { useDispatch } from 'react-redux';
 
-const ProfileSection = () => {
+const ProfileSection = ({account}) => {
     const [rating, setRating] = useState(4.5);
     const { user, isLoading } = useAuth();
     const router = useRouter();
@@ -109,7 +109,7 @@ const ProfileSection = () => {
                     </div>
                 </div>
                 <div className="bg-slate-200 m-5 rounded-md">
-                    <ProfileDetailsSection />
+                    <ProfileDetailsSection account={account}/>
                 </div>
             </div>
             }

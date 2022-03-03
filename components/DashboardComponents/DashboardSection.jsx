@@ -166,7 +166,8 @@ const DashboardSection = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                        ))}
+                                        ))
+                                    }
                                 </Slider>
                                 <style jsx global>
                                     {`

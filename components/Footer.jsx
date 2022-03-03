@@ -68,11 +68,8 @@ const Footer = () => {
                                         <Link href="https://www.termsandconditionsgenerator.com/live.php?token=c3tGONOoNLV3tjwSwZMXuwk6HnfJ4lpGy" passHref>
                                             <span className="mb-1 hover:text-rose-600 cursor-pointer">Privacy Policy</span>
                                         </Link><br />
-                                        <Link href="/contact" passHref>
-                                            <span className="mb-1 hover:text-rose-600 cursor-pointer">Contact</span>
-                                        </Link><br />
                                         <Link href="/about" passHref>
-                                            <span className="mb-1 hover:text-rose-600 cursor-pointer">About</span>
+                                            <span className="mb-1 hover:text-rose-600 cursor-pointer">About Us</span>
                                         </Link>
                                     </div>
                                 </div>

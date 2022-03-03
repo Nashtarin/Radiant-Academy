@@ -13,7 +13,7 @@ const PaymentSection = ({ course }) => {
     const { user } = useAuth();
     const allUserData = useSelector((state) => state.users.usersList);
     const thisUser = allUserData.data.find(userData =>  userData.email === user.email);
-    // console.log(thisUser._id, course.data._id);
+    // console.log(thisUser, course.data._id);
 
     const payAndEnroll = async (user) => {
         try {
@@ -62,13 +62,13 @@ const PaymentSection = ({ course }) => {
                                         <td className="flex items-center">
                                             <FaIdCardAlt /> &nbsp; Name
                                         </td>
-                                        <td>:&nbsp; Radiant Admin</td>
+                                        <td>:&nbsp;{thisUser.displayName}</td>
                                     </tr>
                                     <tr>
                                         <td className="flex items-center">
                                             <FaBookmark /> &nbsp; Role
                                         </td>
-                                        <td>:&nbsp; Admin</td>
+                                        <td>:&nbsp; User</td>
                                     </tr>
                                     <tr>
                                         <td className="flex items-center">
@@ -80,7 +80,7 @@ const PaymentSection = ({ course }) => {
                                         <td className="flex items-center">
                                             <FaEnvelope /> &nbsp; Email
                                         </td>
-                                        <td>:&nbsp; info@radiantacademy.com</td>
+                                        <td>{thisUser.email}</td>
                                     </tr>
                                 </tbody>
                             </table>

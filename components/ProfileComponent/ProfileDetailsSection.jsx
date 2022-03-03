@@ -1,9 +1,23 @@
 import React from 'react';
 import { FaDollarSign, FaEye, FaFlag, FaHashtag, FaHeart, FaTrash, FaUserFriends } from "react-icons/fa";
+import { useSelector } from 'react-redux';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
-const ProfileDetailsSection = () => {
+const ProfileDetailsSection = ({account}) => {
+    const allCourses = useSelector((state) => state.courses.coursesList);
+    const allUsers = useSelector((state) => state.users.usersList);
+    const enrolled = account.data[0].enrolledCourses;
+    console.log(enrolled);
+
+    // enrolledCourses = allUsers.data.filter(course => course.enrolledUsers.includes(account.userId));
+    // console.log(enrolledCourses);
+    // const thisUser = allCourses.data.find(courseData =>  courseData.email === user.email);
+
+    // const allQuizzes = useSelector((state) => state.quizzes.quizzesList);
+    // const userQuizzes = allQuizzes.data.filter(quizData =>  quizData.courseId === _id);
+    // console.log(userQuizzes.data);
+
     const handleDelete = () => {
         console.log('clicked')
     }
@@ -83,32 +97,37 @@ const ProfileDetailsSection = () => {
                             <div className="overflow-x-auto">
                                 <table className="table w-full bg-slate-200 overflow-scroll">
                                     <tbody>
-                                        <tr className="bg-slate-200">
-                                            <td colSpan={2} className="font-semibold">Course Name</td>
-                                            <td>
-                                                <span className="flex items-center">
-                                                    <FaDollarSign className="text-lg" />59.5
-                                                </span>
-                                            </td>
-                                            <td className="text-center text-green-600 font-semibold uppercase">Premium</td>
-                                            <td>
-                                                <span className="flex items-center">
-                                                    <FaUserFriends className="text-2xl mr-1.5 text-purple-800" /> 1213
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span className="flex items-center">
-                                                    <FaHeart className="mr-1.5 text-red-500" /> 304
-                                                </span>
-                                            </td>
-                                            <td className="text-center text-orange-500 font-semibold">Pending</td>
-                                            <td>
-                                                <button className="btn btn-ghost py-0  uppercase" onClick={handleView}>
-                                                    View
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr className="bg-slate-200">
+                                        {
+                                            enrolled.map(course => (
+                                                <tr className="bg-slate-200" key={course.courseId}>
+                                                    <td colSpan={2} className="font-semibold">Course Name</td>
+                                                    <td>
+                                                        <span className="flex items-center">
+                                                            <FaDollarSign className="text-lg" />59.5
+                                                        </span>
+                                                    </td>
+                                                    <td className="text-center text-green-600 font-semibold uppercase">Premium</td>
+                                                    <td>
+                                                        <span className="flex items-center">
+                                                            <FaUserFriends className="text-2xl mr-1.5 text-purple-800" /> 1213
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span className="flex items-center">
+                                                            <FaHeart className="mr-1.5 text-red-500" /> 304
+                                                        </span>
+                                                    </td>
+                                                    <td className="text-center text-orange-500 font-semibold">Pending</td>
+                                                    <td>
+                                                        <button className="btn btn-ghost py-0  uppercase" onClick={handleView}>
+                                                            View
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                )
+                                            )
+                                        }
+                                        {/* <tr className="bg-slate-200">
                                             <td colSpan={2} className="font-semibold">Course Name</td>
                                             <td>
                                                 <span className="flex items-center">
@@ -132,7 +151,7 @@ const ProfileDetailsSection = () => {
                                                     VIEW
                                                 </button>
                                             </td>
-                                        </tr>
+                                        </tr> */}
                                     </tbody>
                                 </table>
                             </div>
