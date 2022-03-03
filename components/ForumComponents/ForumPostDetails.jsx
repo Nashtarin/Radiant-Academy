@@ -28,6 +28,7 @@ const ForumPostDetails = ({forum}) => {
                                     width="100px"
                                     height="100px"
                                     draggable="false"
+                                    className='rounded-full'
                                 />
                             </div>
                             <div className="mt-3">
