@@ -1,8 +1,10 @@
-import React from 'react';
+/* eslint-disable react-hooks/rules-of-hooks */
+import { useEffect } from "react";
+
 
 export default function board() {
 
-    React.useEffect(() => {
+    useEffect(() => {
         drawOnCanvus();
     }, []);
 

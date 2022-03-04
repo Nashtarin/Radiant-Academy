@@ -8,7 +8,6 @@ import CourseCard from './CourseCard';
 
 const CourseDetailsSection = ({ course }) => {
     const [rating, setRating] = useState(4.5);
-    console.log(course.data);
 
     //rating system
     const ratingCount = {
