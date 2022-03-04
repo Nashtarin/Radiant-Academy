@@ -47,7 +47,7 @@ const ProfileDetailsSection = ({ account }) => {
                     <div className="tab-panes bg-white dark:bg-slate-700">
                         <TabPanel className="p-5">
                             <div className="overflow-x-auto">
-                                <table className="table w-full bg-slate-200 overflow-scroll">
+                                <table className="table w-full bg-slate-200 dark:bg-slate-700 overflow-scroll">
                                     <tbody>
                                         <tr className="bg-slate-200">
                                             <td colSpan={2} className="font-semibold">Radiant Academy turned 2 today!</td>
@@ -73,7 +73,7 @@ const ProfileDetailsSection = ({ account }) => {
                                                 </button>
                                             </td>
                                         </tr>
-                                        <tr className="bg-slate-200">
+                                        <tr className="bg-slate-200 ">
                                             <td colSpan={2} className="font-semibold">Radiant Academy turned 1 today!</td>
                                             <td>
                                                 <span className="flex items-center">
@@ -143,7 +143,7 @@ const ProfileDetailsSection = ({ account }) => {
                         </TabPanel>
                         <TabPanel className="px-5 pt-0">
                             <div className="overflow-x-auto">
-                                <table className="table w-full bg-slate-200 overflow-scroll">
+                                <table className="table w-full bg-slate-200 dark:bg-slate-700 overflow-scroll">
                                     <tbody>
                                         <tr className="bg-slate-200">
                                             <td colSpan={2} className="text-lg font-semibold">Quiz Name</td>
