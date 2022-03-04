@@ -38,7 +38,7 @@ const FindTopicSection = ({ forums }) => {
                     </form>
                 </section>
                 <section className='container mx-auto pt-[5rem] pb-20 px-2 lg:px-4'>
-                    <h4 className='text-2xl text-left mb-10text-slate-500 pl-6'>
+                    <h4 className='text-2xl text-left mb-10text-slate-500 pl-6 text-black dark:text-white'>
                         Showing results for:
                         <span className='text-gray-500'> {searchTerm === "" ? "All" : searchTerm}</span>
                     </h4>
@@ -50,7 +50,7 @@ const FindTopicSection = ({ forums }) => {
                 {
                     searchList.length ? ""
                         :
-                        <section className='container mx-auto pb-[5rem] pb-20 px-2 lg:px-4'>
+                        <section className='container mx-auto pb-20 px-2 lg:px-4'>
                             <h6 className='text-2xl text-center mb-10 text-rose-500 pl-6'>No results Found!</h6>
                         </section>
                 }

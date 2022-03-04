@@ -96,7 +96,7 @@ const Navbar = () => {
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link href="/my-course">
+                                            <Link href={`/my-course/${user.email}`}>
                                                 <a className=" hover:bg-rose-500 hover:text-white">My Course</a>
                                             </Link>
                                         </li>

@@ -11,7 +11,7 @@ const ForumPostDetails = ({forum}) => {
         <div>
             <div className="grid grid-rows-1 sm:grid-rows-none sm:gid-cols-2 lg:grid-cols-[minmax(600px,_1fr)_350px] gap-2 pt-10 pb-12 px-8 sm:px-20 md:px-20">
                 <div className="px-4 pb-3 lg:pb-0 lg:px-2 bg-gray-100 shadow-md rounded-lg dark:bg-slate-700">
-                    <div className="p-5">
+                    <div className="py-6 px-10 max-h-full">
                         <h1 className="text-3xl mt-2 mb-4 font-bold text-purple-900 dark:text-violet-400">
                             {title}
                         </h1>
@@ -28,6 +28,7 @@ const ForumPostDetails = ({forum}) => {
                                     width="100px"
                                     height="100px"
                                     draggable="false"
+                                    className='rounded-full'
                                 />
                             </div>
                             <div className="mt-3">
