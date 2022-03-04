@@ -1,17 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Toaster } from 'react-hot-toast';
 import { FaMoon, FaSun, FaUserCircle } from "react-icons/fa";
+import { useSelector } from "react-redux";
 import Logo from '../public/img/RA_Logo.png';
 import useAuth from "../utilities/Hooks/useAuth";
 import { useDarkMode } from "../utilities/Hooks/useDarkMode";
-import { Toaster } from 'react-hot-toast';
-import { useSelector } from "react-redux";
 
 const Navbar = () => {
     const { user, logout } = useAuth();
     const [isDarkMode, toggleDarkMode] = useDarkMode();
     const allUserData = useSelector((state) => state.users.usersList);
-    const thisUser = allUserData.data.find(userData =>  userData.email === user.email);
+    const thisUser = allUserData?.data?.find(userData =>  userData.email === user.email);
 
     return (
         <>
