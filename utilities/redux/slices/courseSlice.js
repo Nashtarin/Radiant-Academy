@@ -3,11 +3,23 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 export const fetchCourses = createAsyncThunk(
     'course/fetchCourses',
     async () => {
-      const response = await fetch('https://api.itbook.store/1.0/new')
-      .then(res => res.json())
-      return response
+        const response = await fetch('https://radiant-academy.vercel.app/api/courses')
+            .then(res => res.json())
+        return response
     }
 )
+
+// export const courseView = createAsyncThunk(
+//     'course/courseView',
+//     async (course) => {
+//         try {
+//             const response = await axios.put(`https://radiant-academy.vercel.app/api/course/views/${forum._id}`);
+//             return response
+//         } catch (error) {
+//             console.log(error);
+//         }
+//     }
+// )
 
 const courseSlice = createSlice({
     name: 'course',
@@ -18,7 +30,7 @@ const courseSlice = createSlice({
     },
     reducers: {
         addTo: (state, action) => {
-            state.wishList.push(action.payload); 
+            state.wishList.push(action.payload);
         },
         removeFrom: (state, action) => {
             state.wishList = state.wishList.filter(course => course.id !== action.payload);
@@ -27,8 +39,8 @@ const courseSlice = createSlice({
     extraReducers: (builder) => {
         // Add reducers for additional action types here, and handle loading state as needed
         builder.addCase(fetchCourses.fulfilled, (state, action) => {
-          state.coursesList = action.payload;
-          state.status = 'success';
+            state.coursesList = action.payload;
+            state.status = 'success';
         })
     },
 });

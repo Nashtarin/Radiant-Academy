@@ -2,7 +2,7 @@ import Head from "next/head";
 import CreateTopicSection from "../../components/ForumComponents/CreateTopicSection";
 import 'react-quill/dist/quill.snow.css'
 
-const CreatePost = () => {
+const CreateTopic = () => {
     return (
         <div>
             <Head>
@@ -18,4 +18,4 @@ const CreatePost = () => {
     );
 };
 
-export default CreatePost;
+export default CreateTopic;

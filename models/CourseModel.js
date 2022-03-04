@@ -3,12 +3,16 @@ const CourseSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
-        maxlength: 60,
+        maxlength: 100,
     },
     subtitle: {
         type: String,
         required: true,
         maxlength: 1000,
+    },
+    category: {
+        type: String,
+        required: true,
     },
     description: {
         type: String,
@@ -26,6 +30,15 @@ const CourseSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
+    enrolled: {
+        type: Number,
+        required: true,
+        default: 0,
+    },
+    contents: [{
+        type: String, 
+        // required: true,
+    }],
 },
     { timestamps: true }
 );

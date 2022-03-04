@@ -1,0 +1,59 @@
+[
+    {
+        "courseId": "62208035e85b8f5e72f2aec6",
+        "questionText":
+          "Fill in the blank. Javascript is a ____?",
+        "surveyStep": 1,
+        "totalSurveySteps": 2,
+        "isFinalQuestion": false,
+        "options": [
+          {
+            "id": 1,
+            "answerText": "Framework",
+            "answerNo": 1
+          },
+          {
+            "id": 2,
+            "answerText": "Compiler",
+            "answerNo": 2
+          },
+          {
+            "id": 3,
+            "answerText": "Programming Language",
+            "answerNo": 3
+          },
+          {
+            "id": 4,
+            "answerText": "Library",
+            "answerNo": 4
+          }
+        ],
+        "answer": 3
+    },
+    {
+        "id": 2,
+        "questionText":
+          "Do you feel that large Wholesale Stores provide good value for your money?",
+        "totalSurveySteps": 2,
+        "surveyStep": 2,
+        "isFinalQuestion": true,
+        "answers": [
+            {
+                "id": 1,
+                "answerText": "Definitely"
+            },
+            {
+                "id": 2,
+                "answerText": "Somewhat"
+            },
+            {
+                "id": 3,
+                "answerText": "Not Really"
+            },
+            {
+                "id": 4,
+                "answerText": "Definitely Not"
+            }
+        ]
+    }
+]

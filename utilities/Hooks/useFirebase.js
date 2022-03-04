@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 import initializeFirebase from "../Firebase/firebase.init";
 import { getAuth, createUserWithEmailAndPassword, FacebookAuthProvider, GithubAuthProvider, getIdToken, updateProfile, signInWithPopup, signOut, onAuthStateChanged, signInWithEmailAndPassword, GoogleAuthProvider } from "firebase/auth";
 import { useRouter } from "next/router";
+import toast from 'react-hot-toast';
+import jwt_decode from "jwt-decode";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUsers } from "../redux/slices/userSlice";
 
 initializeFirebase();
 const useFirebase = () => {
@@ -10,6 +14,8 @@ const useFirebase = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
     const [admin, setAdmin] = useState(false);
+    const allUser = useSelector((state) => state.users.usersList);
+    const dispatch = useDispatch();
 
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
@@ -23,16 +29,33 @@ const useFirebase = () => {
             .then((result) => {
                 // The signed-in user info.
                 const user = result.user;
-                setUser(user);
-                router.replace('/profile');
+
+                const { displayName, email, photoURL, accessToken } = user;
+                saveUser(user.email, user.displayName, user.photoURL, user.accessToken, 'POST');
+
                 setAuthError('');
+                localStorage.setItem('token', accessToken);
+
+                const signedInUser = {
+                    isSignedIn: true,
+                    email: email,
+                    photo: photoURL,
+                    success: true,
+                    name: displayName
+                };
+                setUser(signedInUser);
+                dispatch(fetchUsers());
+                router.replace(`/profile/${signedInUser.email}`);
+                toast.success("Successfully signed in!", {
+                    position: "top-center"
+                });
             })
             .catch((error) => {
                 setAuthError(error.message)
             })
             .finally(() => setIsLoading(false))
     }
-    const registerUser = (name,username,email, password) => {
+    const registerUser = (name, username, email, password) => {
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
@@ -47,7 +70,7 @@ const useFirebase = () => {
                 }).then(() => {
                 }).catch((error) => {
                 });
-                
+
             })
             .catch((error) => {
                 setAuthError(error.message);
@@ -85,7 +108,6 @@ const useFirebase = () => {
                 setUser(user);
                 router.replace('/profile');
                 setAuthError('');
-
             })
             .catch((error) => {
 
@@ -94,12 +116,9 @@ const useFirebase = () => {
             .finally(() => setIsLoading(false))
     }
 
-
-        
-
-    const loginUser = (email,password) => {
+    const loginUser = (email, password) => {
         setIsLoading(true);
-        
+
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const destination = location?.state?.from || '/';
@@ -114,12 +133,17 @@ const useFirebase = () => {
 
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setUser(user);
-                // getIdToken(user)
-                //     .then(idToken => {
-                //         setToken(idToken);
-                //     })
+            const token = localStorage.getItem('token');
+            if (token) {
+                const { name, email, picture } = jwt_decode(token);
+                const decodedUser = {
+                    isSignedIn: true,
+                    email: email,
+                    photo: picture,
+                    success: true,
+                    name: name,
+                }
+                setUser(decodedUser);
             }
             else {
                 setUser({})
@@ -132,16 +156,39 @@ const useFirebase = () => {
 
     const logout = () => {
         setIsLoading(true);
-        signOut(auth)
-            .then(() => {
-                // Sign-out successful.
-            })
+        signOut(auth).then((res) => {
+            localStorage.removeItem('token');
+            setUser({});
+            router.push('/');
+            toast.success("Successfully signed out!", {
+                position: "top-center"
+            });
+
+        })
             .catch((error) => {
                 // An error happened.
+                console.log(error);
             })
             .finally(() => setIsLoading(false));
     }
 
+    //database uploading
+    const saveUser = (email, displayName, photoURL, accessToken, method) => {
+        const alreadyUser = allUser.data.find(user => user.email === email && user.displayName === displayName);
+        if (alreadyUser) {
+            console.log('already user!');
+        } else {
+            const user = { email, displayName, photoURL, accessToken };
+            fetch('https://radiant-academy.vercel.app/api/users', {
+                method: method,
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
+                .then()
+        }
+    }
 
     return {
         user,
