@@ -1,19 +1,14 @@
-import React from 'react';
-import Head from 'next/head';
-import MyCourseSection from '../../components/MyCourseComponents/MyCourseSection';
+// import React from 'react';
+// import Head from 'next/head';
+// import MyCourseSection from '../../components/MyCourseComponents/MyCourseSection';
 
-const Profile = () => {
-    return (
-        <div>
-            <Head>
-                <title>Radiant Academy | My Course</title>
-                <meta name="Your learning partner" content="Best learning app for the curious learners" />
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
+// const Index = () => {
+//     return (
+//         <div>
 
-            <MyCourseSection />
-        </div>
-    );
-};
+//             <MyCourseSection />
+//         </div>
+//     );
+// };
 
-export default Profile;
+// export default Index;

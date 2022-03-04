@@ -179,7 +179,7 @@ const useFirebase = () => {
             console.log('already user!');
         } else {
             const user = { email, displayName, photoURL, accessToken };
-            fetch('http://localhost:3000/api/users', {
+            fetch('https://radiant-academy.vercel.app/api/users', {
                 method: method,
                 headers: {
                     'content-type': 'application/json'

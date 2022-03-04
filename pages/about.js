@@ -186,10 +186,6 @@ const about = () => {
                     `}
                 </style>
             </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> 5845b31a758cc414e1ebc524f61f32a451a2f5dd
 
             <div className="py-5">
                 <div className="mt-10 bg-[#1b222d]">
