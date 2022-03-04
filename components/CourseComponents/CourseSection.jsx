@@ -20,7 +20,7 @@ const CourseSection = () => {
                     Find Premium Courses With Radiant Plus
                 </h1>
                 <div className="px-16 pb-20">
-                        <CourseSlider allCourses={allCourses} category={category1}/>
+                    <CourseSlider allCourses={allCourses} category={category1}/>
                 </div>
 
                 <div className="px-16 pb-20">
