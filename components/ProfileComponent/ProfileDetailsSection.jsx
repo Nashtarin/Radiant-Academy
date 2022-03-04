@@ -25,58 +25,58 @@ const ProfileDetailsSection = () => {
                     <div className="tab-panes bg-white">
                         <TabPanel className="p-5">
                             <div className="overflow-x-auto">
-                                <table className="table w-full bg-slate-200 overflow-scroll">
-                                    <tbody>
-                                        <tr className="bg-slate-200">
-                                            <td colSpan={2} className="font-semibold">Radiant Academy turned 2 today!</td>
-                                            <td>
+                                <div className="table w-full bg-slate-200 overflow-scroll">
+                                    <div>
+                                        <div className="bg-slate-200">
+                                            <div colSpan={2} className="font-semibold">Radiant Academy turned 2 today!</div>
+                                            <div>
                                                 <span className="flex items-center">
                                                     <FaHashtag className="mr-1.5" /> Welcome
                                                 </span>
-                                            </td>
-                                            <td>
+                                            </div>
+                                            <div>
                                                 <span className="flex items-center">
                                                     <FaEye className="mr-1.5 text-purple-800" /> 1213
                                                 </span>
-                                            </td>
-                                            <td>
+                                            </div>
+                                            <div>
                                                 <span className="flex items-center">
                                                     <FaHeart className="mr-1.5 text-red-500" /> 304
                                                 </span>
-                                            </td>
-                                            <td className="text-center text-orange-500">Pending</td>
-                                            <td>
+                                            </div>
+                                            <div className="text-center text-orange-500">Pending</div>
+                                            <div>
                                                 <button onClick={handleDelete}>
                                                     <FaTrash className="hover:text-red-500" />
                                                 </button>
-                                            </td>
-                                        </tr>
-                                        <tr className="bg-slate-200">
+                                            </div>
+                                        </div>
+                                        <div className="bg-slate-200">
                                             <td colSpan={2} className="font-semibold">Radiant Academy turned 1 today!</td>
-                                            <td>
+                                            <div>
                                                 <span className="flex items-center">
                                                     <FaHashtag className="mr-1.5" /> Welcome
                                                 </span>
-                                            </td>
-                                            <td>
+                                            </div>
+                                            <div>
                                                 <span className="flex items-center">
                                                     <FaEye className="mr-1.5 text-purple-800" /> 1213
                                                 </span>
-                                            </td>
-                                            <td>
+                                            </div>
+                                            <div>
                                                 <span className="flex items-center">
                                                     <FaHeart className="mr-1.5 text-red-500" /> 304
                                                 </span>
-                                            </td>
-                                            <td className="text-center text-green-600">Approved</td>
-                                            <td>
+                                            </div>
+                                            <div className="text-center text-green-600">Approved</div>
+                                            <div>
                                                 <button onClick={handleDelete}>
                                                     <FaTrash className="hover:text-red-500" />
                                                 </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </TabPanel>
                         <TabPanel className="px-5 pt-0">
