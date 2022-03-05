@@ -1,11 +1,8 @@
-import React from 'react';
-import Link from 'next/Link'
+import Link from "next/link";
 import { FaBookmark, FaStar, FaStarHalf, FaArrowRight } from 'react-icons/fa';
-import { useSelector } from 'react-redux';
 import { BiRightArrow } from 'react-icons/bi';
 
 const CourseContent = ({course}) => {
-    console.log(course);
     return (
         <div className='bg-white dark:bg-[#2f3c4f]'>
             <div className="py-12 px-10 lg:px-32 text-white bg-blue-900 dark:bg-slate-800">
