@@ -1,51 +1,125 @@
+import { set } from 'mongoose';
 import React, { useState } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import { MdTimer } from 'react-icons/md';
 import { useSelector } from 'react-redux';
+import Lottie from 'react-lottie';
+import animationData from '../../public/img/success.json';
 
 const QuizzesSection = () => {
-    const [start, setStart] = useState(false);
+    const [nextId, setNextId] = useState(0);
+    const [progressValue, setProgressValue] = useState(0);
+    const [validated, isValidated] = useState(false);
     const allQuizzes = useSelector((state) => state.quizzes.quizzesList);
     const allCourses = useSelector((state) => state.courses.coursesList);
+    
     // const userQuizzes = allQuizzes.data.filter(quizData =>  quizData.courseId === _id);
 
     const startQuizzes = () => {
+        const display = document.getElementById('timer');
+        const fiveMinutes = 30 * 10;
+        startExpire(fiveMinutes, display);
+
         const question = allQuizzes.data[0];
         const nextQuestion = question.surveyStep + 1;
 
-        //progress count
         const answered = question.surveyStep - 1;
         const stepsTotal = question.totalSurveySteps;
 
         //get current progress bar
         const progress = (answered / stepsTotal) * 100;
-        const speed = progress*20; //speed of the progress count
+        setProgressValue(progress);
+        const speed = progress*20;
 
         if (question.isFinalQuestion != true) {
-            //animate here
-            console.log('innerText', question.questionText);
-
             document.getElementById('start').style.display = 'none';
             document.getElementById('quiz').style.display = 'block';
             document.getElementById('questionText').innerText = question.questionText;
-            // $('#questionBody').show();
     
-            // for (let i = 0; i < question.options.length; i++) {
-            //     document.getElementById('questionBody').append(
-            //         `<div className="flex items-center bg-slate-50 px-4 sm:px-8 py-4 rounded-xl">
-            //             <input type="radio" id="` + question.options[i].surveyStep + `" name="option" id="option-a" className="radio radio-sm mr-2 checked:bg-blue-900" value="position: absolute;"` + question.answers[i].value + `"onClick="nextQuestion(` + nextQuestion + `)"/>
-            //             <p className="text-lg font-medium">` + question.options[i].answerText + `</p>
-            //         </div>`
-            //     );
-            // }
+            for (let i = 0; i < question.options.length; i++) {
+                setNextId(nextQuestion);
+                document.getElementById('questionBody').insertAdjacentHTML('beforeend',
+                    `<div class="flex items-center bg-slate-50 px-4 sm:px-8 py-4 rounded-xl">
+                        <input type="radio" id="` + question.options[i]._id + `" name="option" class="radio radio-sm mr-2 checked:bg-blue-900" value="` + question.options[i].answerText +`"/>
+                        <p class="text-lg font-medium">` + question.options[i].answerText + `</p>
+                    </div>`
+                );
+            }
         }else {
-          //  validateScreen();
+           validateScreen();
+        }
+    }
+    
+    const nextQuestion = (questionId) => {
+        const question = allQuizzes.data.find((val) => val.surveyStep === questionId);
+        let nextQuestion = '';
+        if (question && !question.isFinalQuestion) {
+          nextQuestion = question.surveyStep + 1;
+        }
+
+        if (question && question.options != null) {
+            document.getElementById('questionText').innerText = question.questionText;
+            document.getElementById('questionBody').innerHTML = '';
+
+            for (let i = 0; i < question.options.length; i++) {
+                setNextId(nextQuestion);
+                document.getElementById('questionBody').insertAdjacentHTML('beforeend',
+                    `<div class="flex items-center bg-slate-50 px-4 sm:px-8 py-4 rounded-xl">
+                        <input type="radio" id="` + question.options[i]._id + `" name="option" class="radio radio-sm mr-2 checked:bg-blue-900" value="` + question.options[i].answerText +`"/>
+                        <p class="text-lg font-medium">` + question.options[i].answerText + `</p>
+                    </div>`
+                );
+            }
+
+            //progress here
+            const answered = question.surveyStep - 1;
+            const stepsTotal = question.totalSurveySteps;
+            let progress = (answered / stepsTotal) * 100;
+            const speed = progress*20;
+            setProgressValue(progress);
+
+        }else{
+            let progress = 100;
+            setProgressValue(progress);
+            validateScreen();
         }
     }
 
-    const nextQuestion = () => {
-        console.log('next');
+    const startExpire = (duration, display) => {
+        var timer = duration, minutes, seconds;
+        var timeInterval = setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+    
+        minutes = minutes < 10 ? '' + minutes : minutes;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+    
+        display.textContent = minutes + ':' + seconds;
+    
+        if (--timer < 0) {
+          clearInterval(timeInterval);
+          startExpire(duration, display);  //timer loops again
+        }
+      }, 1000);
     }
+
+    const validateScreen = () => {
+        setTimeout(() => {
+            document.getElementById('timer').style.display = 'none';
+            document.getElementById('questionText').style.display = 'none';
+            document.getElementById('questionBody').style.display = 'none';
+            isValidated(true);
+        }, 1500);
+    }
+
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+        rendererSettings: {
+            preserveAspectRatio: 'xMidYMid slice'
+        }
+    };
 
     // const router = useRouter();
     // console.log(thisUser._id, course.data._id);
@@ -88,41 +162,34 @@ const QuizzesSection = () => {
                 <div className="mx-auto w-3/4 sm:2-4 md:w-1/4">
                     <div className="flex justify-center items-center py-3 mt-8 mb-4 rounded-full bg-blue-400 text-white">
                         <MdTimer style={{ fontSize: 30 }} className="mr-2" />
-                        <p className="text-xl font-medium">5 Minutes</p>
+                        <p className="text-xl font-medium" id="timer">Countdown</p>
                     </div>
                 </div>
 
 
+                <progress className="progress w-full absolute progress-accent transition ease-in-out delay-150" value={progressValue} max="100" id="percentCount"></progress>
                 <div className="py-10 flex flex-col justify-center bg-slate-200 px-5 ">
                     <div className="mb-2">
                         <h3 className="text-xl text-center text-blue-900 font-semibold" id="questionText">Title</h3>
                     </div>
                     <form className="w-5/6 mx-auto">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5 mx-auto" id="questionBody">
-                            <div className="flex items-center bg-slate-50 px-4 sm:px-8 py-4 rounded-xl">
-                                <input type="radio" name="option" id="option-a" className="radio radio-sm mr-2 checked:bg-blue-900" value="position: absolute;" />
-                                <p className="text-lg font-medium">position: absolute;</p>
-                            </div>
-                            <div className="flex items-center bg-slate-50 px-4 sm:px-8 py-4 rounded-xl">
-                                <input type="radio" name="option" id="option-b" className="radio radio-sm mr-2 checked:bg-blue-900" value="display: flex;" />
-                                <p className="text-lg font-medium">display: flex;</p>
-                            </div>
-                            <div className="flex items-center bg-slate-50 px-4 sm:px-8 py-4 rounded-xl">
-                                <input type="radio" name="option" id="option-c" className="radio radio-sm mr-2 checked:bg-blue-900" value="display: block;" />
-                                <p className="text-lg font-medium">display: block;</p>
-                            </div>
-                            <div className="flex items-center bg-slate-50 px-4 sm:px-8 py-4 rounded-xl">
-                                <input type="radio" name="option" id="option-d" className="radio radio-sm mr-2 checked:bg-blue-900" value="float: left;" />
-                                <p className="text-lg font-medium">float: left;</p>
-                            </div>
+                            {/* questions will be appended here! */}
                         </div>
+                        {validated &&
+                            <div className="loading flex justify-center items-center m-auto">
+                                <div>
+                                    <Lottie options={defaultOptions}
+                                        height={300}
+                                        width={300} />
+                                </div>
+                            </div>
+                        }
                     </form>
                 </div>
-
-
-                <progress className="progress w-full absolute progress-accent" value="100" max="100"></progress>
+                
                 <div className="mx-auto w-3/4 sm:2/4 md:w-1/4">
-                    <button className="flex justify-center items-center py-3 px-8 mt-8 mb-4 rounded-full bg-rose-500 text-white mx-auto" disabled>
+                    <button className="flex justify-center items-center py-3 px-8 mt-8 mb-4 rounded-full bg-rose-500 text-white mx-auto" onClick={() => nextQuestion(nextId)}>
                         <p className="text-xl font-medium">Next </p>
                         <FaArrowRight style={{ fontSize: 15 }} className="ml-2" />
                     </button>
