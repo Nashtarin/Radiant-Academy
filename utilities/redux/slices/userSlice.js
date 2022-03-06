@@ -5,7 +5,7 @@ export const fetchUsers = createAsyncThunk(
     async () => {
         const response = await fetch('http://localhost:3000/api/users')
             .then(res => res.json())
-        return response
+        return response.data
     }
 )
 

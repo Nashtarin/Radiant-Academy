@@ -21,7 +21,7 @@ const QuizzesSection = () => {
         const fiveMinutes = 30 * 10;
         startExpire(fiveMinutes, display);
 
-        const question = allQuizzes.data[0];
+        const question = allQuizzes[0];
         const nextQuestion = question.surveyStep + 1;
 
         const answered = question.surveyStep - 1;
@@ -52,7 +52,7 @@ const QuizzesSection = () => {
     }
     
     const nextQuestion = (questionId) => {
-        const question = allQuizzes.data.find((val) => val.surveyStep === questionId);
+        const question = allQuizzes.find((val) => val.surveyStep === questionId);
         let nextQuestion = '';
         if (question && !question.isFinalQuestion) {
           nextQuestion = question.surveyStep + 1;

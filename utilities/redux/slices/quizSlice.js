@@ -5,7 +5,7 @@ export const fetchQuizzes = createAsyncThunk(
     async () => {
         const response = await fetch('http://localhost:3000/api/quizzes')
             .then(res => res.json())
-        return response
+        return response.data
     }
 )
 

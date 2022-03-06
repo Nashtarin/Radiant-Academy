@@ -11,7 +11,7 @@ const Navbar = () => {
     const { user, logout } = useAuth();
     const [isDarkMode, toggleDarkMode] = useDarkMode();
     const allUserData = useSelector((state) => state.users.usersList);
-    const thisUser = allUserData.data.find(userData =>  userData.email === user.email);
+    // const thisUser = allUserData.find(userData =>  userData.email === user.email);
 
     return (
         <>

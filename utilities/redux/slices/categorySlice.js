@@ -5,7 +5,7 @@ export const fetchCategories = createAsyncThunk(
     async () => {
         const response = await fetch('http://localhost:3000/api/categories')
             .then(res => res.json())
-        return response
+        return response.data
     }
 )
 
@@ -24,7 +24,6 @@ const categorySlice = createSlice({
         },
     },
     extraReducers: (builder) => {
-        // Add reducers for additional action types here, and handle loading state as needed
         builder.addCase(fetchCategories.fulfilled, (state, action) => {
             state.categoriesList = action.payload;
             state.status = 'success';

@@ -11,9 +11,9 @@ const ProfileDetailsSection = ({ account }) => {
     const enrolled = account.data[0].enrolledCourses;
 
     const enrolledChecker = enrolled.map(enroll => {
-        let index = allCourses.data.findIndex(course => enroll.courseId === course._id);
+        let index = allCourses.findIndex(course => enroll.courseId === course._id);
         if (index > -1) {
-            return allCourses.data[index];
+            return allCourses[index];
         }
         return 0;
     })
