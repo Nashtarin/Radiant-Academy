@@ -1,12 +1,13 @@
-import { set } from 'mongoose';
 import React, { useState } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import { MdTimer } from 'react-icons/md';
 import { useSelector } from 'react-redux';
 import Lottie from 'react-lottie';
 import animationData from '../../public/img/success.json';
+import { useRouter } from 'next/router';
 
 const QuizzesSection = () => {
+    const router = useRouter();
     const [nextId, setNextId] = useState(0);
     const [progressValue, setProgressValue] = useState(0);
     const [validated, isValidated] = useState(false);
@@ -110,6 +111,9 @@ const QuizzesSection = () => {
             document.getElementById('questionBody').style.display = 'none';
             isValidated(true);
         }, 1500);
+        setTimeout(() => {
+            router.push('/code-editor');
+        }, 6500);
     }
 
     const defaultOptions = {
@@ -120,8 +124,6 @@ const QuizzesSection = () => {
             preserveAspectRatio: 'xMidYMid slice'
         }
     };
-
-    // const router = useRouter();
     // console.log(thisUser._id, course.data._id);
     // const { user } = useAuth();
 
@@ -160,7 +162,7 @@ const QuizzesSection = () => {
 
             <div className="container mx-auto my-20 w-5/6 md:w-4/6 rounded-tr-xl rounded-tl-xl relative" id="quiz" style={{display: "none"}}>
                 <div className="mx-auto w-3/4 sm:2-4 md:w-1/4">
-                    <div className="flex justify-center items-center py-3 mt-8 mb-4 rounded-full bg-blue-400 text-white">
+                    <div className="flex justify-center items-center py-3 mt-8 mb-4 rounded-full bg-violet-500 text-white">
                         <MdTimer style={{ fontSize: 30 }} className="mr-2" />
                         <p className="text-xl font-medium" id="timer">Countdown</p>
                     </div>

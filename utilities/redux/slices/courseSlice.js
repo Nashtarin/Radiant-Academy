@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 export const fetchCourses = createAsyncThunk(
     'course/fetchCourses',
     async () => {
-        const response = await fetch('https://radiant-academy.vercel.app/api/courses')
+        const response = await fetch('http://localhost:3000/api/courses')
             .then(res => res.json())
         return response
     }
@@ -13,7 +13,7 @@ export const fetchCourses = createAsyncThunk(
 //     'course/courseView',
 //     async (course) => {
 //         try {
-//             const response = await axios.put(`https://radiant-academy.vercel.app/api/course/views/${forum._id}`);
+//             const response = await axios.put(`http://localhost:3000/api/course/views/${forum._id}`);
 //             return response
 //         } catch (error) {
 //             console.log(error);

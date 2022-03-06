@@ -37,7 +37,7 @@ const CourseContent = ({course}) => {
                     </div>
                 </div>
                 <div className="py-16">
-                    <section id="#articles">
+                    <section id="articles">
                         <h1 className="text-3xl mb-2 text-rose-500">A Complete Guide to Flexbox</h1>
                         <h3 className="text-xl mt-3 mb-2">What is Flexbox?</h3>
                         <article>

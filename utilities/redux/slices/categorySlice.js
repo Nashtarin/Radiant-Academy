@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 export const fetchCategories = createAsyncThunk(
     'category/fetchCategories',
     async () => {
-        const response = await fetch('https://radiant-academy.vercel.app/api/categories')
+        const response = await fetch('http://localhost:3000/api/categories')
             .then(res => res.json())
         return response
     }

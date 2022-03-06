@@ -90,7 +90,7 @@ const CourseDetailsSection = ({ course }) => {
                     </section>
                 </div>
                 <div className="mt-1 py-8">
-                    <section id="#syllabus">
+                    <section id="syllabus">
                         <div className="flex items-center">
                             <div>
                                 <a href="#syllabus"><FaLink className="hover:text-purple-900 mr-3 text-xl" /></a>
@@ -144,7 +144,7 @@ const CourseDetailsSection = ({ course }) => {
                     </section>
                 </div>
                 <div className="mt-1 py-8">
-                    <section id="#reviews">
+                    <section id="reviews">
                         <div>
                             <h3 className="text-2xl font-medium text-rose-500">Reviews</h3>
                         </div>
@@ -195,7 +195,7 @@ const CourseDetailsSection = ({ course }) => {
                     </section>
                 </div>
                 <div className="mt-1 pb-20 py-8">
-                    {/* <section id="#related-course">
+                    {/* <section id="related-course">
                         <div className="flex items-center">
                             <div>
                                 <a href="#related-course"><FaLink className="hover:text-purple-900 mr-3 text-xl" /></a>

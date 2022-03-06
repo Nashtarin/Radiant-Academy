@@ -27,7 +27,10 @@ export default function EditorBox(props) {
     }
 
     return (
-        <div className='editor-container pt-2'>
+        <div className='editor-container pt-10'>
+            {/* -> Start your favorite coding fight on the below code editor
+            -> Use this editor window make your changes to HTML/CSS/JS to replicate the target output
+            -> Submit the Output window to complete your coding practice */}
             <div className='editor-title'>
                 <div className="flex justify-between border-b-4 border-stone-200 pb-1 pl-8">
                     <h1 className="text-xl font-medium">{displayName}</h1>
