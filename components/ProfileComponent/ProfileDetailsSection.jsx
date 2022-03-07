@@ -1,11 +1,16 @@
 import Link from 'next/link';
 import React from 'react';
+import { useRouter } from 'next/router';
 import { FaDollarSign, FaEye, FaFlag, FaHashtag, FaHeart, FaTrash, FaUserFriends } from "react-icons/fa";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import { setWhichCourse } from '../../utilities/redux/slices/quizSlice';
 
 const ProfileDetailsSection = ({ account }) => {
+    const router = useRouter();
+    const dispatch = useDispatch();
+
     const allCourses = useSelector((state) => state.courses.coursesList);
     const allUsers = useSelector((state) => state.users.usersList);
     const enrolled = account.data[0].enrolledCourses;
@@ -18,19 +23,13 @@ const ProfileDetailsSection = ({ account }) => {
         return 0;
     })
 
-    // enrolledCourses = allUsers.data.filter(course => course.enrolledUsers.includes(account.userId));
-    // console.log(enrolledCourses);
-    // const thisUser = allCourses.data.find(courseData =>  courseData.email === user.email);
-
-    // const allQuizzes = useSelector((state) => state.quizzes.quizzesList);
-    // const userQuizzes = allQuizzes.data.filter(quizData =>  quizData.courseId === _id);
-    // console.log(userQuizzes.data);
-
     const handleDelete = () => {
         console.log('clicked')
     }
-    const handleView = () => {
-        console.log('clicked')
+
+    const handleQuiz = (course) => {
+        dispatch(setWhichCourse(course._id));
+        router.push(`/quiz/${course?._id}`);
     }
 
     return (
@@ -45,7 +44,7 @@ const ProfileDetailsSection = ({ account }) => {
                     </TabList>
 
                     <div className="tab-panes bg-white dark:bg-slate-700">
-                        <TabPanel className="p-5">
+                        <TabPanel className="px-5 pt-0">
                             <div className="overflow-x-auto">
                                 <table className="table w-full bg-slate-200 dark:bg-slate-700 overflow-scroll">
                                     <tbody>
@@ -127,11 +126,9 @@ const ProfileDetailsSection = ({ account }) => {
                                                     </td>
                                                     <td className="text-center text-orange-500 font-semibold">Pending</td>
                                                     <td>
-                                                        <Link href={`/quiz/${course?._id}`} passHref>
-                                                            <button className="btn btn-ghost py-0  uppercase" onClick={handleView}>
-                                                                START
-                                                            </button>
-                                                        </Link>
+                                                        <button className="btn btn-ghost py-0  uppercase" onClick={() => handleQuiz(course)}>
+                                                            START
+                                                        </button>
                                                     </td>
                                                 </tr>
                                             )

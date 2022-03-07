@@ -1,40 +1,29 @@
 import React, { useState } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import { MdTimer } from 'react-icons/md';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Lottie from 'react-lottie';
 import animationData from '../../public/img/success.json';
 import { useRouter } from 'next/router';
-import QuizOptions from './QuizOptions';
-import { addToAnsweredList, clearAnsweredList } from '../../utilities/redux/slices/quizSlice';
 
 const QuizzesSection = () => {
-    //these are all the answers of the users from the redux
-    const { answeredList } = useSelector((state) => state.quizzes);
-    console.log(answeredList);
-
-    //this is to store answers inside redux with onChange
-    const [answered, setAnswered] = useState([]);
-    const dispatch = useDispatch();
-
     const router = useRouter();
     const [nextId, setNextId] = useState(0);
     const [progressValue, setProgressValue] = useState(0);
     const [validated, isValidated] = useState(false);
-    const [optionsList, setOptionsList] = useState([]);
     const allQuizzes = useSelector((state) => state.quizzes.quizzesList);
-
-    //filtering out all quizzes to find quizzes related to thisCourseId
-    const thisCourseId = useSelector((state) => state.quizzes.thisCourse);
-    const enrolledQuizzes = allQuizzes.filter(quizData =>  quizData.courseId === thisCourseId);
+    const allCourses = useSelector((state) => state.courses.coursesList);
+    
+    // const userQuizzes = allQuizzes.filter(quizData =>  quizData.courseId === _id);
+    // console.log(userQuizzes);
 
     const startQuizzes = () => {
         const display = document.getElementById('timer');
         const fiveMinutes = 30 * 10;
         startExpire(fiveMinutes, display);
 
-        const question = enrolledQuizzes[0];
-        const next = question.surveyStep + 1;
+        const question = allQuizzes[0];
+        const nextQuestion = question.surveyStep + 1;
 
         const answered = question.surveyStep - 1;
         const stepsTotal = question.totalSurveySteps;
@@ -48,28 +37,41 @@ const QuizzesSection = () => {
             document.getElementById('start').style.display = 'none';
             document.getElementById('quiz').style.display = 'block';
             document.getElementById('questionText').innerText = question.questionText;
-
-            setOptionsList(question.options);
-            setNextId(next);
+    
+            for (let i = 0; i < question.options.length; i++) {
+                setNextId(nextQuestion);
+                document.getElementById('questionBody').insertAdjacentHTML('beforeend',
+                    `<div class="flex items-center bg-slate-50 px-4 sm:px-8 py-4 rounded-xl">
+                        <input type="radio" id="` + question.options[i]._id + `" name="option" class="radio radio-sm mr-2 checked:bg-blue-900" value="` + question.options[i].answerText +`"/>
+                        <p class="text-lg font-medium">` + question.options[i].answerText + `</p>
+                    </div>`
+                );
+            }
         }else {
            validateScreen();
         }
     }
     
     const nextQuestion = (questionId) => {
-        dispatch(addToAnsweredList(answered));
-        setOptionsList([]);
-        const question = enrolledQuizzes.find((val) => val.surveyStep === questionId);
-        const next = '';
+        const question = allQuizzes.find((val) => val.surveyStep === questionId);
+        let nextQuestion = '';
         if (question && !question.isFinalQuestion) {
-            next = question.surveyStep + 1;
+          nextQuestion = question.surveyStep + 1;
         }
 
         if (question && question.options != null) {
             document.getElementById('questionText').innerText = question.questionText;
+            document.getElementById('questionBody').innerHTML = '';
 
-            setOptionsList(question.options);
-            setNextId(next);
+            for (let i = 0; i < question.options.length; i++) {
+                setNextId(nextQuestion);
+                document.getElementById('questionBody').insertAdjacentHTML('beforeend',
+                    `<div class="flex items-center bg-slate-50 px-4 sm:px-8 py-4 rounded-xl">
+                        <input type="radio" id="` + question.options[i]._id + `" name="option" class="radio radio-sm mr-2 checked:bg-blue-900" value="` + question.options[i].answerText +`"/>
+                        <p class="text-lg font-medium">` + question.options[i].answerText + `</p>
+                    </div>`
+                );
+            }
 
             //progress here
             const answered = question.surveyStep - 1;
@@ -112,9 +114,6 @@ const QuizzesSection = () => {
         }, 1500);
         setTimeout(() => {
             router.push('/code-editor');
-            
-            //clearing the answers, will have to perform mitch match here!
-            dispatch(clearAnsweredList());
         }, 6500);
     }
 
@@ -138,28 +137,26 @@ const QuizzesSection = () => {
                 <div className="bg-slate-200 w-5/6 mx-auto rounded-xl py-10 text-lg text-center">
                     <p>
                         Complete this short Flexbox quiz and you will
-                        <span className="text-rose-500 font-medium px-2">unlock access</span>
+                        <span className="text-rose-500 font-medium">unlock access</span>
                         your rank up to
-                        <span className="text-rose-500 font-medium px-2">Collaborator</span>!
+                        <span className="text-rose-500 font-medium">Collaborator</span>!
                     </p>
                     <p className="mt-4">
-                        Act Fast! The timer will start running once you click the Start!
+                        Act Fast! The timer will start running once you click the
+                        <span className="text-rose-500 font-medium uppercase">Start</span>
                     </p>
                     <div className="flex justify-center items-center py-4 mt-4">
                         <MdTimer style={{ fontSize: 30 }} className="mr-2" />
                         <p className="text-xl font-medium">5 Minutes</p>
                     </div>
                     <div className="flex justify-center">
-                        {
-                           enrolledQuizzes.length === 0 ? <p className="text-xl font-medium text-rose-500">No quizzes avaiable in this course!</p> :
-                           <button
-                                onClick={startQuizzes}
-                                className="bg-rose-500 animate-[pulse_1s_ease-in-out_infinite] rounded-md text-white px-7 py-3 flex justify-center items-center uppercase"
-                            >
-                                Start Quiz Now
-                                <FaArrowRight className="ml-3" />
-                            </button>
-                        }
+                        <button
+                            onClick={startQuizzes}
+                            className="bg-rose-500 animate-[pulse_1s_ease-in-out_infinite] rounded-md text-white px-7 py-3 flex justify-center items-center uppercase"
+                        >
+                            Start Quiz Now
+                            <FaArrowRight className="ml-3" />
+                        </button>
                     </div>
                 </div>
             </div>
@@ -181,11 +178,6 @@ const QuizzesSection = () => {
                     <form className="w-5/6 mx-auto">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5 mx-auto" id="questionBody">
                             {/* questions will be appended here! */}
-                            {
-                                optionsList.map(quiz => (
-                                    <QuizOptions quiz={quiz} setAnswered={setAnswered} key={quiz._id} />
-                                ))
-                            }
                         </div>
                         {validated &&
                             <div className="loading flex justify-center items-center m-auto">
@@ -200,16 +192,10 @@ const QuizzesSection = () => {
                 </div>
                 
                 <div className="mx-auto w-3/4 sm:2/4 md:w-1/4">
-                    {
-                        answered.length === 0 ? <button className="flex justify-center items-center py-3 px-8 mt-8 mb-4 rounded-full bg-slate-300 text-white mx-auto cursor-not-allowed" disabled>
-                                                    <p className="text-xl font-medium">Next </p>
-                                                    <FaArrowRight style={{ fontSize: 15 }} className="ml-2" />
-                                                </button> :
-                                                <button className="flex justify-center items-center py-3 px-8 mt-8 mb-4 rounded-full bg-rose-500 text-white mx-auto" onClick={() => nextQuestion(nextId)}>
-                                                    <p className="text-xl font-medium">Next </p>
-                                                    <FaArrowRight style={{ fontSize: 15 }} className="ml-2" />
-                                                </button>
-                    }
+                    <button className="flex justify-center items-center py-3 px-8 mt-8 mb-4 rounded-full bg-rose-500 text-white mx-auto" onClick={() => nextQuestion(nextId)}>
+                        <p className="text-xl font-medium">Next </p>
+                        <FaArrowRight style={{ fontSize: 15 }} className="ml-2" />
+                    </button>
                 </div>
             </div>
         </div>

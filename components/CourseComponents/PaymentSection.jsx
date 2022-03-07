@@ -16,12 +16,10 @@ import {
 } from "@paypal/react-paypal-js";
 
 const PaymentSection = ({ course }) => {
-    console.log(course)
     const router = useRouter();
     const { user } = useAuth();
     const allUserData = useSelector((state) => state.users.usersList);
     const thisUser = allUserData.find(userData => userData.email === user.email);
-    // console.log(thisUser, course.data._id);
 
     const payAndEnroll = async (user) => {
         try {
@@ -32,7 +30,7 @@ const PaymentSection = ({ course }) => {
                     'Thanks for the payment',
                     'success'
                 )
-                router.push(`/quiz/${course?.data?._id}`);
+                router.push(`/quiz/${course?._id}`);
             }
         } catch (err) {
             console.log(err);

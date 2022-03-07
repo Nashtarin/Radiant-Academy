@@ -186,12 +186,8 @@ const about = () => {
                     `}
                 </style>
             </div>
-<<<<<<< HEAD
-=======
 
->>>>>>> 5845b31a758cc414e1ebc524f61f32a451a2f5dd
-
-            <div className="py-5">
+            <div className="container py-5 mx-auto">
                 <div className="mt-10 bg-[#1b222d]">
                     <div className="grid grid-cols-1 md:grid-cols-2 mx-auto px-5 sm:px-10 md:px-20 py-10">
                         <div>

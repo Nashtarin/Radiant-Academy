@@ -174,7 +174,7 @@ const useFirebase = () => {
 
     //database uploading
     const saveUser = (email, displayName, photoURL, accessToken, method) => {
-        const alreadyUser = allUser.data.find(user => user.email === email && user.displayName === displayName);
+        const alreadyUser = allUser.find(user => user.email === email && user.displayName === displayName);
         if (alreadyUser) {
             console.log('already user!');
         } else {
