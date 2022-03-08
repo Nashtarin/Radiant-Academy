@@ -1,21 +1,20 @@
-import Head from "next/head";
-import CourseDetailsSection from "../../components/CourseComponents/CourseDetailsSection";
+import React from 'react';
+import Head from 'next/head';
+import CourseContent from '../../../components/MyCourseComponents/CourseContent';
 import Script from 'next/script';
 
-const Courses = ({ course }) => {
-
+const SingleCourseContent = ({ course }) => {
     return (
         <div>
             <Head>
-                <title>Radiant Academy | Course Description</title>
+                <title>Radiant Academy | Course Content</title>
                 <meta name="Your learning partner" content="Best learning app for the curious learners" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
             <Script src="https://kit.fontawesome.com/9dbb72da13.js" />
 
-            {/* COURSES CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
-            <CourseDetailsSection course={course} />
+            <CourseContent course={course}/>
         </div>
     );
 };
@@ -37,8 +36,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    // params contains the forum `id`.
-    // If the route is like /forums/1, then params.id is 1
     const res = await fetch(`http://localhost:3000/api/courses/${params.courseId}`)
     const course = await res.json()
 
@@ -46,23 +43,4 @@ export async function getStaticProps({ params }) {
     return { props: { course } }
 }
 
-
-// export async function getStaticPaths() {
-//     const res = await fetch('http://localhost:3000/api/courses')
-//     const courses = await res.json()
-
-//     const paths = courses.data.map((course) => ({
-//         params: { courseId: course._id.toString() },
-//     }))
-
-//     return { paths, fallback: false }
-// }
-
-// export async function getStaticProps({ params }) {
-//     const res = await fetch(`http://localhost:3000/api/courses/${params.courseId}`)
-//     const course = await res.json()
-
-//     return { props: { course } }
-// }
-
-export default Courses;
+export default SingleCourseContent;

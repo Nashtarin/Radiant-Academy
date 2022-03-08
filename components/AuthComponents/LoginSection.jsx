@@ -30,6 +30,9 @@ const LoginSection = () => {
     {!authError && router.push("/")}
     }
 
+    const something = () => {
+    }
+
     return (
         <div className="flex flex-col items-center justify-center bg-gray-100">
             <div className="flex flex-col items-center justify-center w-full flex-1 p-5 md:px-20 text-center sm:p-20">
@@ -49,13 +52,13 @@ const LoginSection = () => {
                             <div className="flex flex-col items-center mt-2">
                                 <div className="bg-gray-100 w-64 pb-2 flex items-center">
                                     <FaUnlockAlt className="text-gray-400 mr-2" />
-                                    <input type="password" name="password" placeholder="Password" onBlur={handleOnBlur} className="bg-gray-100 outline-none text-sm flex-1 p-1" />
+                                    <input type="password" name="password" placeholder="Password" autoComplete="true" onBlur={handleOnBlur} className="bg-gray-100 outline-none text-sm flex-1 p-1" />
                                 </div>
                             </div>
                             <div className="flex flex-col items-center mt-2">
                                 <div className="w-64 flex items-center justify-between">
                                     <label className="flex items-center text-xs">
-                                        <input type="checkbox" name="remember" className="mr-1" checked />
+                                        <input type="checkbox" name="remember" className="mr-1" checked onChange={something}/>
                                         Remember Me
                                     </label>
                                     <p className="text-xs">Forgot Password?</p>
