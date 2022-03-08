@@ -23,7 +23,7 @@ const BrowseCategorySection = () => {
 
           <div className='grid container mx-auto my-4 lg:grid-cols-3 md:grid-cols-2 xs:grid-cols-1 gap-4'>
             {
-              categories.data.map(category =>
+              categories.map(category =>
                 <Link href={`/forum/find-topic/${category.subTitle}`} key={category._id} passHref>
                   <div className=' bg-slate-200 dark:bg-slate-700 rounded-md drop-shadow-md cursor-pointer'>
                     <div className='flex m-5 px-5 align center'>

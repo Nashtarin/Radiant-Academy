@@ -174,12 +174,12 @@ const useFirebase = () => {
 
     //database uploading
     const saveUser = (email, displayName, photoURL, accessToken, method) => {
-        const alreadyUser = allUser.data.find(user => user.email === email && user.displayName === displayName);
+        const alreadyUser = allUser.find(user => user.email === email && user.displayName === displayName);
         if (alreadyUser) {
             console.log('already user!');
         } else {
             const user = { email, displayName, photoURL, accessToken };
-            fetch('http://localhost:3000/api/users', {
+            fetch('https://radiant-academy.vercel.app/api/users', {
                 method: method,
                 headers: {
                     'content-type': 'application/json'

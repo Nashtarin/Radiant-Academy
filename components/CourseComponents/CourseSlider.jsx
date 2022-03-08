@@ -42,7 +42,7 @@ const CourseSlider = ({allCourses, category}) => {
             <div className="course-card">
                 <Slider {...settings}>
                     {
-                        allCourses.data.filter(course => {
+                        allCourses.filter(course => {
                             if (category === '') {
                                 return course;
                             }

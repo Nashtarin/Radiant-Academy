@@ -4,17 +4,21 @@ import React, { useEffect, useRef, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import ReactStars from "react-rating-stars-component";
 import { useDispatch, useSelector } from 'react-redux';
+import useAuth from '../../utilities/Hooks/useAuth';
 import { addReview } from '../../utilities/redux/slices/reviewSlice';
 
 const ReviewSection = ({ forum }) => {
+    const dispatch = useDispatch();
     const { _id, author, authorImg } = forum;
     const [rating, setRating] = useState(0);
     const [reviews, setReviews] = useState([]);
     const allReviews = useSelector((state) => state.reviews.reviewsList);
+    const { user } = useAuth();
+
     useEffect(() => {
-        const thisReview = allReviews.data.filter(review => review.forumId === _id);
+        const thisReview = allReviews.filter(review => review.forumId === _id);
         setReviews(thisReview);
-    }, [allReviews.data, _id])
+    }, [allReviews, _id])
 
     //rating system
     const ratingCount = {
@@ -33,7 +37,6 @@ const ReviewSection = ({ forum }) => {
         }
     };
 
-    const dispatch = useDispatch();
     const commentRef = useRef();
     const postReview = (e) => {
         const loading = toast.loading('Please wait ...');
@@ -69,15 +72,16 @@ const ReviewSection = ({ forum }) => {
                                 <div className="p-2 sm:p-5 flex items-start" key={review._id}>
                                     <div className="px-2 pt-1.5 block w-[70px]">
                                         <Image
-                                            src="https://i.postimg.cc/4dNK0r0W/people-1.png"
+                                            src={user.photo}
                                             alt="User Picture"
                                             height="100px"
                                             width="100px"
+                                            className="rounded-full"
                                         />
                                     </div>
                                     <div className="w-full">
                                         <div className="flex items-baseline flex-wrap sm:flex-row px-2">
-                                            <h4 className="text-xl">{review.author}</h4>
+                                            <h4 className="text-xl">{user.name}</h4>
                                             &nbsp; - &nbsp;
                                             <p className="text-stone-400">{moment(review.createdAt).fromNow()}</p>
                                         </div>

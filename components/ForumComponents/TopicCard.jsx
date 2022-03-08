@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import moment from 'moment';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
@@ -22,7 +23,7 @@ const TopicCard = ({ forum }) => {
         if (exists) {
             color_cart = JSON.parse(exists);
             if (color_cart[_id]) {
-                document.getElementById(`react-btn-${_id}`).classList.add('text-rose-500');
+                document.getElementById(`icon-heart-${_id}`).classList.add('text-rose-500');
             }
             // else {
             //     document.getElementById('icon-heart').style.color = '$primary';
@@ -45,7 +46,7 @@ const TopicCard = ({ forum }) => {
             });
         } else {
             dispatch(topicReact(forum));
-            document.getElementById(`react-btn-${id}`).classList.add('text-rose-500');
+            document.getElementById(`icon-heart-${id}`).classList.add('text-rose-500');
             setReacts(reacts + 1);
             toast.dismiss(loading);
             toast.success("You've liked the post!");
@@ -103,7 +104,7 @@ const TopicCard = ({ forum }) => {
                                 <span className='my-auto mr-1 text-violet-900 dark:text-violet-400'><BsEyeFill /></span>{views}
                             </p>
                             <p className='flex items-center font-semibold mr-5 text-lg dark:text-slate-200'>
-                                <span className='my-auto mr-1 cursor-pointer text-slate-700 dark:text-slate-200' onClick={() => handleReact(_id)} id={`react-btn-${_id}`}><i className="fa fa-heart text-rose-600 dark:text-rose-500" id="icon-heart"></i></span>{reacts}
+                                <span className='my-auto mr-1 cursor-pointer  text-slate-600 dark:text-slate-500' onClick={() => handleReact(_id)}><i className="fa fa-heart" id={`icon-heart-${_id}`}></i></span>{reacts}
                             </p>
                         </div>
                     </div>

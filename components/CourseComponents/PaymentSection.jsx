@@ -19,19 +19,18 @@ const PaymentSection = ({ course }) => {
     const router = useRouter();
     const { user } = useAuth();
     const allUserData = useSelector((state) => state.users.usersList);
-    const thisUser = allUserData.data.find(userData => userData.email === user.email);
-    // console.log(thisUser, course.data._id);
+    const thisUser = allUserData.find(userData => userData.email === user.email);
 
     const payAndEnroll = async (user) => {
         try {
-            const res = await axios.put(`http://localhost:3000/api/users/enroll/${thisUser._id}/${course.data._id}`, user.data);
+            const res = await axios.put(`https://radiant-academy.vercel.app/api/users/enroll/${thisUser._id}/${course.data._id}`, user.data);
             if (res.status === 201) {
                 Swal.fire(
                     'Payment Complete',
                     'Thanks for the payment',
                     'success'
                 )
-                router.push(`/quiz/${course?.data?._id}`);
+                router.push(`/quiz/${course?._id}`);
             }
         } catch (err) {
             console.log(err);

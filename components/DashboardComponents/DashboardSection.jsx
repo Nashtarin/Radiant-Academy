@@ -98,7 +98,7 @@ const DashboardSection = () => {
                                 <p>Subscribers</p>
                             </div>
                             <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-400">
-                                <h3 className="text-2xl">{allCourses.data.length}</h3>
+                                <h3 className="text-2xl">{allCourses.length}</h3>
                                 <p>Total Courses</p>
                             </div>
                             <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-400">
@@ -106,11 +106,11 @@ const DashboardSection = () => {
                                 <p>Total Quizzes</p>
                             </div>
                             <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-400">
-                                <h3 className="text-2xl">{allTopics.data.length}</h3>
+                                <h3 className="text-2xl">{allTopics.length}</h3>
                                 <p>Forum Posts</p>
                             </div>
                             <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-400">
-                                <h3 className="text-2xl">{allReviews.data.length}</h3>
+                                <h3 className="text-2xl">{allReviews.length}</h3>
                                 <p>Total Reviews</p>
                             </div>
                         </div>
@@ -131,7 +131,7 @@ const DashboardSection = () => {
                                 </div>
                                 <Slider {...settings}>
                                     {
-                                        allCourses.data.map(course => (
+                                        allCourses.map(course => (
                                             <div className="course-items" key={course}>
                                                 <div className="my-5 flex justify-center items-center text-white py-1.5 px-2" style={{ backgroundColor: '#32007E' }}>
                                                     <h5>{course.title}</h5>
@@ -261,7 +261,7 @@ const DashboardSection = () => {
                                 </div>
                                 <Slider {...settings}>
                                     {
-                                        allTopics.data.map(forum => (
+                                        allTopics.map(forum => (
                                             <div className="p-5 dark:border-2 rounded-xl border-slate-500 shadow-md" key={forum._id}>
                                                 <h4 className="text-lg font-semibold mb-1 dark:text-slate-200">{forum.title}</h4>
                                                 <p className="text-[0.9em] text-gray-600 dark:text-slate-200 mb-1">

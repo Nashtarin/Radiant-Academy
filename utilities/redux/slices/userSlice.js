@@ -3,9 +3,9 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 export const fetchUsers = createAsyncThunk(
     'user/fetchUsers',
     async () => {
-        const response = await fetch('http://localhost:3000/api/users')
+        const response = await fetch('https://radiant-academy.vercel.app/api/users')
             .then(res => res.json())
-        return response
+        return response.data
     }
 )
 

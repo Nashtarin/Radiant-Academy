@@ -8,7 +8,6 @@ const RegisterSection = () => {
     const router=useRouter()
    
     const { user, isLoading, authError, googleSignIn, loginUser, logout, githubSignIn, facebookSignIn, registerUser } = useAuth();
-    console.log(user)
     const [logindata, setLoginData] = useState({})
     const handleOnBlur = e => {
         const field = e.target.name;
@@ -20,11 +19,13 @@ const RegisterSection = () => {
     }
     const handleRegisterSubmit = e => {
         e.preventDefault()
-
-        console.log(logindata)
         registerUser(logindata.name, logindata.username, logindata.email, logindata.password)
 
           router.push("/login")
+    }
+
+    const something = () => {
+        
     }
 
 
@@ -59,14 +60,14 @@ const RegisterSection = () => {
                             <div className="flex flex-col items-center mt-2">
                                 <div className="bg-gray-100 w-64 pb-2 flex items-center">
                                     <FaUnlockAlt className="text-gray-400 mr-2" />
-                                    <input type="password" name="password" placeholder="Password" onBlur={handleOnBlur} className="bg-gray-100 outline-none text-sm flex-1 p-1" />
+                                    <input type="password" name="password" placeholder="Password" onBlur={handleOnBlur} autoComplete="true" className="bg-gray-100 outline-none text-sm flex-1 p-1" />
                                 </div>
                             </div>
 
                             <div className="flex flex-col items-center mt-2">
                                 <div className="w-64 flex items-center justify-between">
                                     <label className="flex items-center text-xs">
-                                        <input type="checkbox" name="remember" className="mr-1" checked />
+                                        <input type="checkbox" name="remember" className="mr-1" checked onChange={something}/>
                                         Remember Me
                                     </label>
                                     <p className="text-xs">
