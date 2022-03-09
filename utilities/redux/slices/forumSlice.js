@@ -73,12 +73,12 @@ const forumSlice = createSlice({
         })
 
         builder.addCase(topicView.fulfilled, (state, action) => {
-            state.forumsList = state.forumsList.map(forum => forum._id === action.payload._id ? {...forum, views: forum.views + 1 } : forum);
+            state.forumsList = state.forumsList.map(forum => forum._id === action.payload._id ? { ...forum, views: forum.views + 1 } : forum);
             state.status = 'success';
         })
 
         builder.addCase(topicReact.fulfilled, (state, action) => {
-            state.forumsList = state.forumsList.map(forum => forum._id === action.payload._id ? {...forum, loves: forum.loves + 1 } : forum);
+            state.forumsList = state.forumsList.map(forum => forum._id === action.payload._id ? { ...forum, loves: forum.loves + 1 } : forum);
             state.status = 'success';
         })
     },

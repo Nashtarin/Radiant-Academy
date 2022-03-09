@@ -71,7 +71,7 @@ const DashboardSection = () => {
 
     return (
         <div className="px-0 sm:px-6 lg:px-12">
-            <div className="grid grid-rows-1 md:grid-cols-[250px_minmax(300px,_1fr)] lg:grid-cols-[250px_minmax(600px,_1fr)] p-8 gap-5">
+            <div className="grid grid-rows-1 grid-cols-1 md:grid-cols-[250px_minmax(300px,_1fr)] lg:grid-cols-[250px_minmax(600px,_1fr)] p-8 gap-5">
                 <div>
                     <DashboardSidebar />
                 </div>
@@ -115,7 +115,7 @@ const DashboardSection = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="grid grid-rows-1 md:grid-cols-[300px_minmax(200px,_1fr)] lg:grid-cols-[350px_minmax(400px,_1fr)] gap-5 mt-5">
+                    <div className="grid grid-rows-1 grid-cols-1  lg:grid-cols-2 gap-5 mt-5">
                         <div>
                             <div className="bg-slate-200 shadow-md rounded-md p-5 h-auto mb-5 course-card dark:bg-slate-600">
                                 <div className="flex items-center justify-between text-violet-900 dark:text-violet-400">

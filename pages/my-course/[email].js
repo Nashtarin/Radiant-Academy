@@ -11,7 +11,7 @@ const MyCourse = (account) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <MyCourseSection account={account}/>
+            <MyCourseSection account={account} />
         </div>
     );
 };

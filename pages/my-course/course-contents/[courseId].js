@@ -14,7 +14,7 @@ const SingleCourseContent = ({ course }) => {
 
             <Script src="https://kit.fontawesome.com/9dbb72da13.js" />
 
-            <CourseContent course={course}/>
+            <CourseContent course={course} />
         </div>
     );
 };
