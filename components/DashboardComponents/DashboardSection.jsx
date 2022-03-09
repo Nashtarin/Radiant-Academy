@@ -1,9 +1,9 @@
 import { ArcElement, Chart } from 'chart.js';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { BsArrowRight, BsCheck2Circle } from 'react-icons/bs';
-import { FaBookmark, FaClock, FaClone, FaCopy, FaEdit, FaEnvelope, FaEye, FaHashtag, FaHeart, FaIdCardAlt, FaInfoCircle, FaNewspaper, FaPhoneSquareAlt, FaPlus, FaShare } from 'react-icons/fa';
+import { FaBookmark, FaClock, FaClone, FaCopy, FaEdit, FaEnvelope, FaEye, FaHashtag, FaHeart, FaIdCardAlt, FaInfoCircle, FaNewspaper, FaPhoneSquareAlt, FaPlus } from 'react-icons/fa';
 import { MdPending } from 'react-icons/md';
 import { CgArrowRightO } from 'react-icons/cg';
 import { useSelector } from 'react-redux';
@@ -18,6 +18,7 @@ const DashboardSection = () => {
     const allTopics = useSelector((state) => state.forums.forumsList);
     const allReviews = useSelector((state) => state.reviews.reviewsList);
     const allUsers = useSelector((state) => state.users.usersList);
+    const [approve, setApprove] = useState(false);
 
     const config = {
         type: 'doughnut',
@@ -70,6 +71,10 @@ const DashboardSection = () => {
         ],
     };
 
+    const handleApproveTopic = (id) => {
+        console.log(id);
+    }
+
     return (
         <div className="px-0 sm:px-6 lg:px-12">
             <div className="grid grid-rows-1 md:grid-cols-[250px_minmax(300px,_1fr)] lg:grid-cols-[250px_minmax(600px,_1fr)] p-8 gap-5">
@@ -95,7 +100,7 @@ const DashboardSection = () => {
                                 <p>Total Accounts</p>
                             </div>
                             <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-400">
-                                <h3 className="text-2xl">0</h3>
+                                <h3 className="text-2xl">999</h3>
                                 <p>Subscribers</p>
                             </div>
                             <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-400">
@@ -286,10 +291,14 @@ const DashboardSection = () => {
                                                         <p className="text-[0.9em] dark:text-slate-200">{forum.reacts}</p>
                                                     </span>
                                                     <span className="flex items-center">
-                                                        <BsCheck2Circle className="mr-2 text-lg dark:text-slate-200" />
+                                                        <button onClick={() => handleApproveTopic(forum._id)}>
+                                                            <BsCheck2Circle className="mr-2 text-lg dark:text-slate-200" />
+                                                        </button>
                                                     </span>
                                                     <Link href={`/forum/${forum._id}`} passHref>
-                                                        <button><CgArrowRightO className="dark:text-slate-200 text-lg" /></button>
+                                                        <button>
+                                                            <CgArrowRightO className="dark:text-slate-200 text-lg" />
+                                                        </button>
                                                     </Link>
                                                 </div>
                                             </div>
