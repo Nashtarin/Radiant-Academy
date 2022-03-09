@@ -36,7 +36,7 @@ const SingleForumPage = ({ forum }) => {
 // // This function gets called at build time
 // export async function getStaticPaths() {
 //     // Call an external API endpoint to get forums
-//     const res = await fetch('http://localhost:3000/api/forums')
+//     const res = await fetch('https://radiant-academy.vercel.app/api/forums')
 //     const forums = await res.json()
 
 //     // Get the paths we want to pre-render based on forums
@@ -52,7 +52,7 @@ const SingleForumPage = ({ forum }) => {
 export async function getServerSideProps({ params }) {
     // params contains the forum `id`.
     // If the route is like /forums/1, then params.id is 1
-    const res = await fetch(`http://localhost:3000/api/forums/${params.forumId}`)
+    const res = await fetch(`https://radiant-academy.vercel.app/api/forums/${params.forumId}`)
     const forum = await res.json()
 
     // Pass forum data to the page via props

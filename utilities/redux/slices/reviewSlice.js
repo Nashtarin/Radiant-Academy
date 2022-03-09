@@ -4,7 +4,7 @@ import axios from 'axios';
 export const fetchReviews = createAsyncThunk(
     'review/fetchReviews',
     async () => {
-        const response = await fetch('http://localhost:3000/api/reviews')
+        const response = await fetch('https://radiant-academy.vercel.app/api/reviews')
             .then(res => res.json())
         return response.data
     }
@@ -14,7 +14,7 @@ export const addReview = createAsyncThunk(
     'review/addReview',
     async (review) => {
         try {
-            const response = await axios.post("http://localhost:3000/api/reviews", review);
+            const response = await axios.post("https://radiant-academy.vercel.app/api/reviews", review);
             return response.data.data
         } catch (error) {
             console.log(error);
