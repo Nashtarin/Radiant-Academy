@@ -94,23 +94,25 @@ const Navbar = () => {
                                         </div>
                                         <div className="absolute text-xs rounded-full px-1 top-0 right-0 bg-rose-700 text-white z-10">{wishList.length}</div>
                                     </label>
-                                    <ul tabIndex="0" className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-slate-100 dark:bg-slate-600 rounded-box w-52">
+                                    <ul tabIndex="0" className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-slate-100 dark:bg-slate-600 rounded-box border-solid w-52">
                                         {
                                             wishList.map((cart) => (
                                                 <li key={cart._id}>
-                                                    <div className=" hover:bg-rose-500 hover:text-white flex justify-between">
-                                                        <Link href={`/courses/${cart._id}`}>{cart.title}</Link><BsTrashFill className="text-lg" onClick={() => handleCartRemove(cart._id)} />
+                                                    <div className="bg-slate-300 hover:bg-rose-500 hover:text-white dark:bg-slate-700 flex justify-between mt-1">
+                                                        <Link href={`/courses/${cart._id}`} passHref>{cart.title}</Link><BsTrashFill className="text-lg" onClick={() => handleCartRemove(cart._id)} />
                                                     </div>
                                                 </li>
                                             ))
                                         }
                                         <div className="p-4 justify-center flex">
-                                            <button className="text-sm undefined hover:scale-110 focus:outline-none
-                                                flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
-                                                hover:bg-rose-700 hover:text-white bg-violet-500 
-                                                text-white border duration-200 ease-in-out border-white-600 transition">
-                                                Checkout ${totalPrice}
-                                            </button>
+                                            <Link href="/courses/payment" passHref>
+                                                <button className="text-sm undefined hover:scale-110 focus:outline-none
+                                                    flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
+                                                    hover:bg-rose-700 hover:text-white bg-violet-500 
+                                                    text-white border duration-200 ease-in-out border-white-600 transition">
+                                                    Checkout ${totalPrice}
+                                                </button>
+                                            </Link>
                                         </div>
                                     </ul>
                                 </div>

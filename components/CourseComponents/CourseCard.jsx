@@ -56,13 +56,13 @@ const CourseCard = ({ course }) => {
                     {
                         isAddedToCart ? 
                         <div className="flex flex-col md:flex-row justify-center items-center" onClick={() => handleCartRemove(course._id)}>
-                            <BsFillCartDashFill className='text-xl'/>
-                            <span className='my-auto mr-1 text-violet-900 dark:text-white text-xs cursor-pointer pt-1 pl-1'>REMOVE FROM CART</span>
+                            <BsFillCartDashFill className='text-xl text-violet-900 dark:text-white'/>
+                            <span className='my-auto mr-1 text-violet-900 dark:text-white text-xs cursor-pointer pt-1 pl-1 font-medium'>REMOVE FROM CART</span>
                         </div> :
                         
                         <div className="flex flex-col md:flex-row justify-center items-center" onClick={() => handleCartADD(course)}>
-                            <BsFillCartCheckFill className='text-xl'/>
-                            <span className='my-auto mr-1 text-violet-900 dark:text-white text-xs cursor-pointer pt-1 pl-1'>ADD TO CART</span>
+                            <BsFillCartCheckFill className='text-xl text-violet-900 dark:text-white'/>
+                            <span className='my-auto mr-1 text-violet-900 dark:text-white text-xs cursor-pointer pt-1 pl-1 font-medium'>ADD TO CART</span>
                         </div>
                     }
                 </div>

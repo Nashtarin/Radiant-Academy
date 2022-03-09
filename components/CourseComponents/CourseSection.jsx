@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import CourseSlider from './CourseSlider';
-import toast, { Toaster } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
+import useAuth from '../../utilities/Hooks/useAuth';
 
 const CourseSection = () => {
     const allCourses = useSelector((state) => state.courses.coursesList);
-
-    // const filteredCourse = allCourses.data.filter((item) => item.category === category);
     
-    const [category, setCategory] = useState('');
     const category1 = '';
     const category2 = 'html';
     const category3 = 'css';
