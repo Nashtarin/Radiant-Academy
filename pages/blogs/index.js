@@ -2,7 +2,7 @@ import Head from "next/head";
 import React from 'react';
 import BlogSection from "../../components/BlogComponents/BlogSection";
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
     const res = await fetch('https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=7dcdae5174374026b19e0a5b076096a3')
     const blogs = await res.json()
     return {

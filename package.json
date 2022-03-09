@@ -35,7 +35,8 @@
     "react-tabs": "^3.2.3",
     "redux-persist": "^6.0.0",
     "slick-carousel": "^1.8.1",
-    "sweetalert2": "^11.4.4"
+    "sweetalert2": "^11.4.4",
+    "vercel": "^24.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.2",

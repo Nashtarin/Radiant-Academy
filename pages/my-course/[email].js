@@ -16,23 +16,23 @@ const MyCourse = (account) => {
     );
 };
 
-// This function gets called at build time
-export async function getStaticPaths() {
-    // Call an external API endpoint to get forums
-    const res = await fetch('http://localhost:3000/api/users')
-    const accounts = await res.json()
+// // This function gets called at build time
+// export async function getStaticPaths() {
+//     // Call an external API endpoint to get forums
+//     const res = await fetch('http://localhost:3000/api/users')
+//     const accounts = await res.json()
 
-    // Get the paths we want to pre-render based on forums
-    const paths = accounts.data.map((account) => ({
-        params: { email: account.email.toString() },
-    }))
+//     // Get the paths we want to pre-render based on forums
+//     const paths = accounts.data.map((account) => ({
+//         params: { email: account.email.toString() },
+//     }))
 
-    // We'll pre-render only these paths at build time.
-    // { fallback: false } means other routes should 404.
-    return { paths, fallback: false }
-}
+//     // We'll pre-render only these paths at build time.
+//     // { fallback: false } means other routes should 404.
+//     return { paths, fallback: false }
+// }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
     // params contains the forum `id`.
     // If the route is like /forums/1, then params.id is 1
     const res = await fetch(`http://localhost:3000/api/users/emails/${params.email}`)
