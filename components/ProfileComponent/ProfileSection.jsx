@@ -4,8 +4,8 @@ import { FaBookmark, FaClock, FaHeart, FaPenNib } from "react-icons/fa";
 import ReactStars from "react-rating-stars-component";
 import ProfileDetailsSection from './ProfileDetailsSection';
 import useAuth from '../../utilities/Hooks/useAuth';
-import Lottie from 'react-lottie';
-import animationData from '../../public/img/loading.json';
+// import Lottie from 'react-lottie';
+// import animationData from '../../public/img/loading.json';
 import { useRouter } from 'next/router';
 import { fetchQuizzes } from '../../utilities/redux/slices/quizSlice';
 import { useDispatch } from 'react-redux';
@@ -20,22 +20,22 @@ const ProfileSection = ({ account }) => {
         dispatch(fetchQuizzes());
     }, [dispatch]);
 
-    const defaultOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: animationData,
-        rendererSettings: {
-            preserveAspectRatio: 'xMidYMid slice'
-        }
-    };
+    // const defaultOptions = {
+    //     loop: true,
+    //     autoplay: true,
+    //     animationData: animationData,
+    //     rendererSettings: {
+    //         preserveAspectRatio: 'xMidYMid slice'
+    //     }
+    // };
 
     if (isLoading && !user.isSignedIn) {
         return <div className="loading flex justify-center items-center min-h-screen m-auto">
-            <div>
+            {/* <div>
                 <Lottie options={defaultOptions}
                     height={200}
                     width={200} />
-            </div>
+            </div> */}
         </div>
     }
 

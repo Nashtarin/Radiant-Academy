@@ -26,6 +26,7 @@ const QuizSchema = new mongoose.Schema({
     options: [{
         answerText: { type: String, required: true },
         answerNo: { type: Number, required: true, default: 0 },
+        isCorrect: { type: Boolean, required: true },
     }],
     answer: {
         type: Number,
