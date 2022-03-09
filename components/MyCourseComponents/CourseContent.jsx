@@ -24,7 +24,7 @@ const CourseContent = ({ course }) => {
                         <div className='text-3xl font-bold py-3 text-center'>
                             <h2><span>$</span> {course?.data.price}</h2>
                         </div>
-                        <Link href="{`/courses/payment/${course?.data._id}`}" passHref><button className="bg-rose-500 px-5 py-3 text-white uppercase rounded-md font-medium">Enroll Now</button></Link>
+                        <button className="bg-rose-500 px-5 py-3 text-white uppercase rounded-md font-medium" disabled>Enrolled</button>
                         <p className="text-sm text-stone-300 mt-4 mx-4">* <span className='text-orange-500'>1025</span> Already Enrolled!</p>
                     </div>
                 </div>

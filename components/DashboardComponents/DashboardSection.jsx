@@ -124,13 +124,13 @@ const DashboardSection = () => {
                     <div className="grid grid-rows-1 md:grid-cols-[300px_minmax(200px,_1fr)] lg:grid-cols-[350px_minmax(400px,_1fr)] gap-5 mt-5">
                         <div>
                             <div className="bg-slate-200 shadow-md rounded-md p-5 h-auto mb-5 course-card dark:bg-slate-600">
-                                <div className="flex items-center justify-between text-violet-900 dark:text-violet-400">
+                                <div className="flex items-center justify-between text-violet-900 dark:text-violet-100">
                                     <div className="flex items-center">
                                         <FaClone className="mr-2 text-lg" />
                                         <h5 className="text-lg font-semibold">23 Courses</h5>
                                     </div>
                                     <Link href="/dashboard/courses/add-new-course" passHref>
-                                        <button className="px-4 py-1.5 hover:bg-stone-100 rounded-lg flex items-center uppercase">
+                                        <button className="px-4 py-1.5 hover:bg-stone-100 hover:text-slate-800 rounded-lg flex items-center uppercase">
                                             <FaPlus className="mr-2 text-sm" /> New Course
                                         </button>
                                     </Link>
@@ -218,12 +218,12 @@ const DashboardSection = () => {
                                 </style>
                             </div>
                             <div className="bg-slate-200 dark:bg-slate-600 shadow-md rounded-md p-5 h-auto mb-5">
-                                <div className="flex items-center justify-between text-violet-900 dark:text-violet-400">
+                                <div className="flex items-center justify-between text-violet-900 dark:text-violet-100">
                                     <div className="flex items-center">
                                         <FaInfoCircle className="mr-2 text-lg" />
                                         <h5 className="text-lg font-semibold">Account Info</h5>
                                     </div>
-                                    <button className="px-4 py-1.5 hover:bg-stone-100 rounded-lg flex items-center uppercase"><FaEdit className="mr-2" /> Edit</button>
+                                    <button className="px-4 py-1.5 hover:bg-stone-100 rounded-lg flex items-center uppercase hover:text-slate-800"><FaEdit className="mr-2" /> Edit</button>
                                 </div>
                                 <div className="border-[1px] border-stone-300 dark:border-stone-400 my-2"></div>
                                 <table className="table-compact text-slate-700 dark:text-slate-200">
@@ -255,13 +255,13 @@ const DashboardSection = () => {
                                     </tbody>
                                 </table>
                                 <div className="flex justify-end mt-3">
-                                    <button className="text-sm flex items-center px-4 py-1 font-semibold rounded-full hover:bg-stone-100 text-violet-900 dark:text-violet-400 dark:hover:bg-slate-700">See More Info <BsArrowRight className="ml-2 text-[15px] text-red-600 dark:text-red-400" /></button>
+                                    <button className="text-sm flex items-center px-4 py-1 font-semibold rounded-full hover:bg-stone-100 text-violet-900 dark:text-violet-300 dark:hover:bg-slate-700">See More Info <BsArrowRight className="ml-2 text-[15px] text-red-600 dark:text-red-400" /></button>
                                 </div>
                             </div>
                         </div>
                         <div>
                             <div className="bg-slate-200 shadow-md rounded-md p-5 h-auto mb-5 dark:bg-slate-600">
-                                <div className="flex items-center text-xl font-semibold pt-1 pb-4 border-b-2 text-violet-900 dark:text-violet-400 border-stone-300 dark:border-stone-400">
+                                <div className="flex items-center text-xl font-semibold pt-1 pb-4 border-b-2 text-violet-900 dark:text-violet-100 border-stone-300 dark:border-stone-400">
                                     <MdPending className="mr-2" />
                                     <h3>Pending Submissions</h3>
                                 </div>
@@ -269,7 +269,9 @@ const DashboardSection = () => {
                                     {
                                         allTopics.map(forum => (
                                             forum.status === false && <div className="p-5 dark:border-2 rounded-xl border-slate-500 shadow-md" key={forum._id}>
-                                                <h4 className="text-lg font-semibold mb-1 dark:text-slate-200">{forum.title}</h4>
+                                                <h4 className="text-lg font-semibold mb-1 dark:text-slate-200">
+                                                    {forum.title}
+                                                </h4>
                                                 <p className="text-[0.9em] text-gray-600 dark:text-slate-200 mb-1">
                                                     {forum.desc.split(' ').slice(0, 40).toString().replace(/,/g, ' ')}...
                                                 </p>
@@ -313,16 +315,16 @@ const DashboardSection = () => {
                                 </style>
 
                                 <div className="flex justify-center mt-3">
-                                    <button className="text-sm flex items-center px-4 py-1 font-semibold rounded-full hover:bg-stone-100 text-violet-900 dark:text-violet-400 dark:hover:bg-slate-700">See More Submissions <BsArrowRight className="ml-2 text-[15px] text-red-600" /></button>
+                                    <button className="text-sm flex items-center px-4 py-1 font-semibold rounded-full hover:bg-stone-100 text-violet-900 dark:text-violet-300 dark:hover:bg-slate-700">See More Submissions <BsArrowRight className="ml-2 text-[15px] text-red-600" /></button>
                                 </div>
                             </div>
                             <div className="bg-slate-200 dark:bg-slate-600 shadow-md rounded-md p-5 h-auto mb-5 ">
-                                <div className="flex items-center text-xl font-semibold pt-1 pb-4 border-b-2 border-stone-300 text-violet-900 dark:text-violet-400 dark:border-stone-400">
+                                <div className="flex items-center text-xl font-semibold pt-1 pb-4 border-b-2 border-stone-300 text-violet-900 dark:text-violet-100 dark:border-stone-400">
                                     <FaNewspaper className="mr-2" />
                                     <h3>Newsletters</h3>
                                 </div>
                                 <Slider {...settings}>
-                                    <div className="p-5 text-violet-900 dark:text-violet-400">
+                                    <div className="p-5 text-violet-900 dark:text-violet-200">
                                         <h4 className="text-lg font-semibold mb-1">Email Subject</h4>
                                         <p className="text-[0.9em] text-slate-700 dark:text-slate-200 mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae rerum pariatur debitis omnis consequatur perferendis nisi cumque corrupti iure repudiandae.</p>
                                         <div className="flex items-center justify-end text-slate-700 dark:text-slate-200">
@@ -331,7 +333,7 @@ const DashboardSection = () => {
                                         </div>
                                     </div>
                                     <div className="p-5 text-slate-700 dark:text-slate-200">
-                                        <h4 className="text-lg font-semibold mb-1 text-violet-900 dark:text-violet-400">Email Subject</h4>
+                                        <h4 className="text-lg font-semibold mb-1 text-violet-900 dark:text-violet-200">Email Subject</h4>
                                         <p className="text-[0.9em] mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae rerum pariatur debitis omnis consequatur perferendis nisi cumque corrupti iure repudiandae.</p>
                                         <div className="flex items-center justify-end">
                                             <FaClock className="mr-2 text-right text-sm" />
@@ -339,7 +341,7 @@ const DashboardSection = () => {
                                         </div>
                                     </div>
                                 </Slider>
-                                <div className="flex justify-center mt-3 text-violet-900 dark:text-violet-400">
+                                <div className="flex justify-center mt-3 text-violet-900 dark:text-violet-300">
                                     <button className="text-sm flex items-center px-4 py-1 font-semibold rounded-full hover:bg-stone-100 dark:hover:bg-slate-700">See More Newsletters <BsArrowRight className="ml-2 text-[15px] text-red-600 dark:text-red-400" /></button>
                                 </div>
                             </div>
