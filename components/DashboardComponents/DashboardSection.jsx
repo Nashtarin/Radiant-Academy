@@ -2,9 +2,10 @@ import { ArcElement, Chart } from 'chart.js';
 import Link from 'next/link';
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
-import { BsArrowRight } from 'react-icons/bs';
+import { BsArrowRight, BsCheck2Circle } from 'react-icons/bs';
 import { FaBookmark, FaClock, FaClone, FaCopy, FaEdit, FaEnvelope, FaEye, FaHashtag, FaHeart, FaIdCardAlt, FaInfoCircle, FaNewspaper, FaPhoneSquareAlt, FaPlus, FaShare } from 'react-icons/fa';
 import { MdPending } from 'react-icons/md';
+import { CgArrowRightO } from 'react-icons/cg';
 import { useSelector } from 'react-redux';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
@@ -284,7 +285,12 @@ const DashboardSection = () => {
                                                         <FaHeart className="mr-2 text-sm text-red-500" />
                                                         <p className="text-[0.9em] dark:text-slate-200">{forum.reacts}</p>
                                                     </span>
-                                                    <Link href={`/forum/${forum._id}`} passHref><button><FaShare /></button></Link>
+                                                    <span className="flex items-center">
+                                                        <BsCheck2Circle className="mr-2 text-lg dark:text-slate-200" />
+                                                    </span>
+                                                    <Link href={`/forum/${forum._id}`} passHref>
+                                                        <button><CgArrowRightO className="dark:text-slate-200 text-lg" /></button>
+                                                    </Link>
                                                 </div>
                                             </div>
                                         ))}
