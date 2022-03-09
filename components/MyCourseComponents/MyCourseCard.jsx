@@ -16,7 +16,7 @@ const MyCourseCard = ({ course }) => {
                             draggable="false"
                         />
                         <div className="pt-3">
-                            <Link href={`/my-course/course-contents/${course?._id}`}  passHref>
+                            <Link href={`/my-course/course-contents/${course?._id}`} passHref>
                                 <button className="bg-slate-600 dark:bg-slate-500 text-white px-5 py-1.5 rounded-full flex items-center hover:shadow-lg">
                                     Continue Course <BsArrowRight className="ml-2" />
                                 </button>

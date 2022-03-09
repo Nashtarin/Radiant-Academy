@@ -24,7 +24,11 @@ const CourseContent = ({course}) => {
                         <div className='text-3xl font-bold py-3 text-center'>
                             <h2><span>$</span> {course?.data.price}</h2>
                         </div>
-                        <Link href="{`/courses/payment/${course?.data._id}`}" passHref><button className="bg-rose-500 px-5 py-3 text-white uppercase rounded-md font-medium">Enroll Now</button></Link>
+                        <Link href={`/quiz/${course?.data._id}`} passHref>
+                            <button className="bg-rose-500 animate-[pulse_1s_ease-in-out_infinite] rounded-md text-white px-7 py-3 flex justify-center items-center mx-auto">
+                                START QUIZ NOW &nbsp; <FaArrowRight style={{ fontSize: '14px', marginTop: '2px' }} />
+                            </button>
+                        </Link>
                         <p className="text-sm text-stone-300 mt-4 mx-4">* <span className='text-orange-500'>1025</span> Already Enrolled!</p>
                     </div>
                 </div>
@@ -67,19 +71,21 @@ const CourseContent = ({course}) => {
                         <h3 className="text-xl mt-3 mb-2">Examples</h3>
                         <article>Let’s start with a very very simple example, solving an almost daily problem: perfect centering. It couldn’t be any simpler if you use flexbox. This relies on the fact a margin set to auto in a flex container absorb extra space. So setting a margin of auto will make the item perfectly centered in both axes. Now let’s use some more properties. Consider a list of 6 items, all with fixed dimensions, but can be auto-sized. We want them to be evenly distributed on the horizontal axis so that when we resize the browser, everything scales nicely, and without media queries. Done. Everything else is just some styling concern. Below is a pen featuring this example. Be sure to go to CodePen and try resizing your windows to see what happens. Let’s try something else. Imagine we have a right-aligned navigation element on the very top of our website, but we want it to be centered on medium-sized screens and single-columned on small devices. Easy enough. Let’s try something even better by playing with flex items flexibility! What about a mobile-first 3-columns layout with full-width header and footer. And independent from source order. </article>
                         <div className="pt-5">
-                            <a className="text-2xl hover:text-rose-500 flex items-center" href="https://codepen.io/chriscoyier/pen/vWEMWw">Live Example <BiRightArrow style={{ fontSize: 20, marginLeft: 5}} /></a>
+                            <a className="text-xl hover:text-rose-500 flex items-center" href="https://codepen.io/chriscoyier/pen/vWEMWw" target="_blank" rel="noopener noreferrer">Live Example <BiRightArrow style={{ fontSize: 20, marginLeft: 5}} /></a>
                         </div>
                     </section>
-                    <section id="quizzes">
-                        <button className="bg-rose-500 animate-[pulse_1s_ease-in-out_infinite] rounded-md text-white px-7 py-3 my-10 flex justify-center items-center mx-auto">
-                            START QUIZ NOW &nbsp; <FaArrowRight style={{ fontSize: '14px', marginTop: '2px' }} />
-                        </button>
-                    </section>
                     <section id="problem-solving">
-                        <div className="pt-8 text-center">
+                        <div className="py-20 text-center">
                             <h1 className="text-4xl font-medium">Problem Solving</h1>
                             <h2 className="text-2xl text-blue-200 mt-4">Coming Soon!</h2>
                         </div>
+                    </section>
+                    <section id="quizzes">
+                        <Link href={`/quiz/${course?.data._id}`} passHref>
+                            <button className="bg-rose-500 animate-[pulse_1s_ease-in-out_infinite] rounded-md text-white px-7 py-3 my-10 flex justify-center items-center mx-auto">
+                                START QUIZ NOW &nbsp; <FaArrowRight style={{ fontSize: '14px', marginTop: '2px' }} />
+                            </button>
+                        </Link>
                     </section>
                 </div>
             </div>

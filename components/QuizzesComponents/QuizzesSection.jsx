@@ -6,15 +6,13 @@ import Lottie from 'react-lottie';
 import animationData from '../../public/img/success.json';
 import { useRouter } from 'next/router';
 import QuizOptions from './QuizOptions';
-import { addToAnsweredList, clearAnsweredList } from '../../utilities/redux/slices/quizSlice';
+import { addToAnsweredList, addToScore } from '../../utilities/redux/slices/quizSlice';
 
 const QuizzesSection = () => {
-    //these are all the answers of the users from the redux
-    const { answeredList } = useSelector((state) => state.quizzes);
-    console.log(answeredList);
-
     //this is to store answers inside redux with onChange
-    const [answered, setAnswered] = useState([]);
+    // const [answered, setAnswered] = useState([]);
+
+    const [score, setScore] = useState(0);
     const dispatch = useDispatch();
 
     const router = useRouter();
@@ -57,7 +55,7 @@ const QuizzesSection = () => {
     }
     
     const nextQuestion = (questionId) => {
-        dispatch(addToAnsweredList(answered));
+        // dispatch(addToAnsweredList(answered));
         setOptionsList([]);
         const question = enrolledQuizzes.find((val) => val.surveyStep === questionId);
         const next = '';
@@ -104,17 +102,15 @@ const QuizzesSection = () => {
     }
 
     const validateScreen = () => {
+        console.log(score);
+        dispatch(addToScore(score));
+        isValidated(true);
+        document.getElementById('questionText').style.display = 'none';
         setTimeout(() => {
             document.getElementById('timer').style.display = 'none';
-            document.getElementById('questionText').style.display = 'none';
-            document.getElementById('questionBody').style.display = 'none';
-            isValidated(true);
         }, 1500);
         setTimeout(() => {
-            router.push('/code-editor');
-            
-            //clearing the answers, will have to perform mitch match here!
-            dispatch(clearAnsweredList());
+            router.push('/quiz/quiz-result');
         }, 6500);
     }
 
@@ -126,6 +122,14 @@ const QuizzesSection = () => {
             preserveAspectRatio: 'xMidYMid slice'
         }
     };
+
+    
+    const handleOnScore = (isCorrect) => {
+		if (isCorrect) {
+			setScore(score + 1);
+		}
+        nextQuestion(nextId);
+	};
     // console.log(thisUser._id, course.data._id);
     // const { user } = useAuth();
 
@@ -182,8 +186,8 @@ const QuizzesSection = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5 mx-auto" id="questionBody">
                             {/* questions will be appended here! */}
                             {
-                                optionsList.map(quiz => (
-                                    <QuizOptions quiz={quiz} setAnswered={setAnswered} key={quiz._id} />
+                                optionsList.map((quiz, index) => (
+                                    <QuizOptions quiz={quiz} index={index} handleOnScore={handleOnScore} key={quiz._id} />
                                 ))
                             }
                         </div>
@@ -199,7 +203,7 @@ const QuizzesSection = () => {
                     </form>
                 </div>
                 
-                <div className="mx-auto w-3/4 sm:2/4 md:w-1/4">
+                {/* <div className="mx-auto w-3/4 sm:2/4 md:w-1/4">
                     {
                         answered.length === 0 ? <button className="flex justify-center items-center py-3 px-8 mt-8 mb-4 rounded-full bg-slate-300 text-white mx-auto cursor-not-allowed" disabled>
                                                     <p className="text-xl font-medium">Next </p>
@@ -210,7 +214,7 @@ const QuizzesSection = () => {
                                                     <FaArrowRight style={{ fontSize: 15 }} className="ml-2" />
                                                 </button>
                     }
-                </div>
+                </div> */}
             </div>
         </div>
     );
