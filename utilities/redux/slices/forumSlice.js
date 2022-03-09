@@ -4,7 +4,7 @@ import axios from 'axios';
 export const fetchForums = createAsyncThunk(
     'forum/fetchForums',
     async () => {
-        const response = await fetch('https://radiant-academy.vercel.app/api/forums')
+        const response = await fetch('http://localhost:3000/api/forums')
             .then(res => res.json())
         return response.data
     }
@@ -14,7 +14,7 @@ export const topicCreate = createAsyncThunk(
     'forum/topicCreate',
     async (forum) => {
         try {
-            const response = await axios.post("https://radiant-academy.vercel.app/api/forums", forum);
+            const response = await axios.post("http://localhost:3000/api/forums", forum);
             return response.data.data
         } catch (error) {
             console.log(error);
@@ -26,7 +26,7 @@ export const topicView = createAsyncThunk(
     'forum/topicView',
     async (forum) => {
         try {
-            const response = await axios.put(`https://radiant-academy.vercel.app/api/forums/views/${forum._id}`);
+            const response = await axios.put(`http://localhost:3000/api/forums/views/${forum._id}`);
             return response.data
         } catch (error) {
             console.log(error);
@@ -38,7 +38,7 @@ export const topicReact = createAsyncThunk(
     'forum/topicReact',
     async (forum) => {
         try {
-            const response = await axios.put(`https://radiant-academy.vercel.app/api/forums/reacts/${forum._id}`);
+            const response = await axios.put(`http://localhost:3000/api/forums/reacts/${forum._id}`);
             return response.data
         } catch (error) {
             console.log(error);
