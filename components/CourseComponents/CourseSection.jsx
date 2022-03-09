@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import CourseSlider from './CourseSlider';
+import toast, { Toaster } from 'react-hot-toast';
 
 const CourseSection = () => {
     const allCourses = useSelector((state) => state.courses.coursesList);
@@ -53,6 +54,10 @@ const CourseSection = () => {
                     </div>
                 </div>
             </div>
+            <Toaster
+                position="top-center"
+                reverseOrder={false}
+            />
         </div>
     );
 };
