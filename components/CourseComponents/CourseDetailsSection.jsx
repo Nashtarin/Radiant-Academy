@@ -3,8 +3,8 @@ import { FaBookmark, FaStar, FaStarHalf, FaLink } from 'react-icons/fa';
 import { BsCheck2All, BsCheck2Circle } from 'react-icons/bs';
 import ReactStars from "react-rating-stars-component";
 import Image from 'next/image';
-import CourseCard from './CourseCard';
 import Link from 'next/link';
+import CourseCard from './CourseCard';
 
 const CourseDetailsSection = ({ course }) => {
     const [rating, setRating] = useState(4.5);
@@ -63,6 +63,15 @@ const CourseDetailsSection = ({ course }) => {
 
                 <div className="mt-8 py-8">
                     <section id="#about-the-course">
+                        <div className='flex justify-center pb-14'>
+                            <Image
+                                src={course?.data?.image}
+                                alt="Course Cover"
+                                height="330px"
+                                width="600px"
+                                draggable="false"
+                            />
+                        </div>
                         <div className="flex items-center">
                             <div>
                                 <a href="#about-the-course">
@@ -81,7 +90,7 @@ const CourseDetailsSection = ({ course }) => {
                     </section>
                 </div>
                 <div className="mt-1 py-8">
-                    <section id="#syllabus">
+                    <section id="syllabus">
                         <div className="flex items-center">
                             <div>
                                 <a href="#syllabus"><FaLink className="hover:text-purple-900 mr-3 text-xl" /></a>
@@ -135,7 +144,7 @@ const CourseDetailsSection = ({ course }) => {
                     </section>
                 </div>
                 <div className="mt-1 py-8">
-                    <section id="#reviews">
+                    <section id="reviews">
                         <div>
                             <h3 className="text-2xl font-medium text-rose-500">Reviews</h3>
                         </div>
@@ -164,7 +173,7 @@ const CourseDetailsSection = ({ course }) => {
                             <div className="p-2 sm:p-5 flex items-start">
                                 <div className="px-2 pt-1.5 block w-[70px]">
                                     <Image
-                                        src="https://i.postimg.cc/26cqN0Rr/people-2.png"
+                                        src="https://i.postimg.cc/4dNK0r0W/people-1.png"
                                         alt="User Picture"
                                         height="100px"
                                         width="100px"
@@ -186,7 +195,7 @@ const CourseDetailsSection = ({ course }) => {
                     </section>
                 </div>
                 <div className="mt-1 pb-20 py-8">
-                    <section id="#related-course">
+                    {/* <section id="related-course">
                         <div className="flex items-center">
                             <div>
                                 <a href="#related-course"><FaLink className="hover:text-purple-900 mr-3 text-xl" /></a>
@@ -203,7 +212,7 @@ const CourseDetailsSection = ({ course }) => {
                                 <CourseCard />
                             </div>
                         </div>
-                    </section>
+                    </section> */}
                 </div>
             </div>
         </div>

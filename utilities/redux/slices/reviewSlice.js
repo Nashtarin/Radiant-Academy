@@ -4,9 +4,9 @@ import axios from 'axios';
 export const fetchReviews = createAsyncThunk(
     'review/fetchReviews',
     async () => {
-        const response = await fetch('https://radiant-academy.vercel.app/api/reviews')
+        const response = await fetch('http://localhost:3000/api/reviews')
             .then(res => res.json())
-        return response
+        return response.data
     }
 )
 
@@ -14,13 +14,8 @@ export const addReview = createAsyncThunk(
     'review/addReview',
     async (review) => {
         try {
-            const res = await axios.post("https://radiant-academy.vercel.app/api/reviews", review);
-
-            if (res.status === 200) {
-                console.log(res);
-                return res
-            }
-
+            const response = await axios.post("http://localhost:3000/api/reviews", review);
+            return response.data.data
         } catch (error) {
             console.log(error);
         }
@@ -49,7 +44,7 @@ const reviewSlice = createSlice({
         })
 
         builder.addCase(addReview.fulfilled, (state, action) => {
-            // state.reviewsList = [...state.reviewsList, action.payload];
+            state.reviewsList = [...state.reviewsList, action.payload];
             state.status = 'success';
         })
     },

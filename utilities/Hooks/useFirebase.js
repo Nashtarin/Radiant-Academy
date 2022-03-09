@@ -5,7 +5,8 @@ import { getAuth, createUserWithEmailAndPassword, FacebookAuthProvider, GithubAu
 import { useRouter } from "next/router";
 import toast from 'react-hot-toast';
 import jwt_decode from "jwt-decode";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUsers } from "../redux/slices/userSlice";
 
 initializeFirebase();
 const useFirebase = () => {
@@ -14,6 +15,7 @@ const useFirebase = () => {
     const [authError, setAuthError] = useState('');
     const [admin, setAdmin] = useState(false);
     const allUser = useSelector((state) => state.users.usersList);
+    const dispatch = useDispatch();
 
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
@@ -42,7 +44,8 @@ const useFirebase = () => {
                     name: displayName
                 };
                 setUser(signedInUser);
-                router.replace('/profile');
+                dispatch(fetchUsers());
+                router.replace(`/profile/${signedInUser.email}`);
                 toast.success("Successfully signed in!", {
                     position: "top-center"
                 });
@@ -171,7 +174,7 @@ const useFirebase = () => {
 
     //database uploading
     const saveUser = (email, displayName, photoURL, accessToken, method) => {
-        const alreadyUser = allUser.data.find(user => user.email === email && user.displayName === displayName);
+        const alreadyUser = allUser.find(user => user.email === email && user.displayName === displayName);
         if (alreadyUser) {
             console.log('already user!');
         } else {

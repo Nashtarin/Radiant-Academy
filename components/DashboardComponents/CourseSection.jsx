@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaClone, FaDollarSign, FaEdit, FaHeart, FaPlus, FaTrashAlt, FaUserFriends } from 'react-icons/fa';
+import { FaBookmark, FaClone, FaDollarSign, FaEdit, FaHeart, FaPlus, FaTrashAlt, FaUserFriends } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import DashboardSidebar from './DashboardSidebar';
 
@@ -18,40 +18,60 @@ const CourseSection = () => {
                         <button className="flex items-center btn"><FaPlus className="text-sm mr-2" /> Add Courses</button>
                     </div>
                     <section className="overflow-x-auto">
-                        {
-                            allCourses.data.map(course => (
-                                <div className='flex justify-between px-5 bg-white dark:bg-slate-600 rounded-md mb-2 py-4 shadow-md dark:shadow-slate-600' key={course._id}>
-                                    <h1>{course.title}</h1>
-                                    <h1 className='inline-flex'>
-                                        <span className='text-rose-500 dark:text-rose-400 my-auto mr-1'>
-                                            <FaDollarSign />
-                                        </span>
-                                        {course.price}
-                                    </h1>
-                                    <h1 className='inline-flex'>
-                                        <span className='text-violet-800 dark:text-violet-400 my-auto mr-1'>
-                                            <FaUserFriends />
-                                        </span>
-                                        1648
-                                    </h1>
-                                    <h1 className='inline-flex font-base'>
-                                        <span className='my-auto text-rose-600 dark:text-rose-400 mr-1'>
-                                            <FaHeart />
-                                        </span>
-                                        {course.rating}
-                                    </h1>
-                                    <h1 className='text-green-700 dark:text-green-500 font-semibold'>PREMIUM</h1>
-                                    <h1 className='inline-flex'>
-                                        <span className='text-slate-700 dark:text-slate-200 mr-1'>
-                                            <FaEdit />
-                                        </span>
-                                        <span className='text-red-500 dark:text-red-400'>
-                                            <FaTrashAlt />
-                                        </span>
-                                    </h1>
-                                </div>
-                           ))
-                        }
+                        <div>
+                            {
+                                allCourses.map(course => (
+                                    <div className='container grid md:grid-cols-7 xs:grid-cols-1 px-5 bg-white dark:bg-slate-600 rounded-md mb-2 py-4 shadow-md dark:shadow-slate-600' key={course._id}>
+                                        <div className='col-span-2'>
+                                            <h1 className='inline-flex'><span className="text-orange-500 my-auto mr-1.5">
+                                                <FaBookmark />
+                                                </span>
+                                                {course.title}
+                                            </h1>
+                                        </div>
+                                        <div className='flex justify-center'>
+                                            <h1 className='inline-flex'>
+                                                <span className='text-rose-500 dark:text-rose-400 my-auto mr-1'>
+                                                    <FaDollarSign />
+                                                </span>
+                                                {course.price}
+                                            </h1>
+                                        </div>
+                                        <div className='flex justify-center'>
+                                            <h1 className='inline-flex'>
+                                                <span className='text-violet-800 dark:text-violet-400 my-auto mr-1'>
+                                                    <FaUserFriends />
+                                                </span>
+                                                1648
+                                            </h1>
+                                        </div>
+                                        <div className='flex justify-center'>
+                                            <h1 className='inline-flex font-base'>
+                                                <span className='my-auto text-rose-600 dark:text-rose-400 mr-1'>
+                                                    <FaHeart />
+                                                </span>
+                                                {course.rating}
+                                            </h1>
+                                        </div>
+                                        <div className='flex justify-center'>
+                                            <h1 className='text-green-700 dark:text-green-500 font-semibold'>
+                                                PREMIUM
+                                            </h1>
+                                        </div>
+                                        <div className='flex justify-end'>
+                                            <h1 className='inline-flex'>
+                                                <span className='text-slate-700 dark:text-slate-200 mr-1'>
+                                                    <FaEdit />
+                                                </span>
+                                                <span className='text-red-500 dark:text-red-400'>
+                                                    <FaTrashAlt />
+                                                </span>
+                                            </h1>
+                                        </div>
+                                    </div>
+                            ))
+                            }
+                        </div>
                     </section>
                 </section>
             </div>

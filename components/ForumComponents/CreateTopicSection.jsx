@@ -76,8 +76,8 @@ const CreateTopicSection = () => {
                     <h1 className="text-4xl font-bold mt-8" style={{ color: '#3B058E' }}>Post Your Topic Here</h1>
                 </div>
                 <div className="text-center my-4 text-lg">
-                    <p style={{ color: '#3B058E', display: 'none' }} id="success">Successfully added the outlet!</p>
-                    <p style={{ color: '#F43F5E', display: 'none' }} id="error">There is a problem adding the outlet!</p>
+                    <p style={{ color: '#3B058E', display: 'none' }} id="success">Successfully added the Forum Post!</p>
+                    <p style={{ color: '#F43F5E', display: 'none' }} id="error">There is a problem adding the Forum Post!</p>
                 </div>
                 <div className="grid grid-rows-2 sm:grid-rows-none sm:gid-cols-2 lg:grid-cols-[350px_minmax(600px,_1fr)] gap-2 pb-20 px-8 sm:px-12 md:px-20">
                     <div className="p-2">
@@ -100,7 +100,7 @@ const CreateTopicSection = () => {
                             >
                                 <option>Select a Category</option>
                                 {
-                                    categories.data.map(category =>
+                                    categories.map(category =>
                                         <option key={category._id} >{category.subTitle}</option>
                                     )
                                 }

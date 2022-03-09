@@ -1,19 +1,18 @@
-import React from 'react';
-import Link from 'next/Link'
+import Link from "next/link";
 import { FaBookmark, FaStar, FaStarHalf, FaArrowRight } from 'react-icons/fa';
 import { BiRightArrow } from 'react-icons/bi';
 
-const CourseContent = () => {
+const CourseContent = ({ course }) => {
     return (
         <div className='bg-white dark:bg-[#2f3c4f]'>
             <div className="py-12 px-10 lg:px-32 text-white bg-blue-900 dark:bg-slate-800">
                 <div className="flex flex-col md:flex-row justify-between items-center">
                     <div>
                         <h1 className="my-1 text-[2.1em] font-medium">
-                            Course Title
+                            {course?.data.title}
                         </h1>
                         <p className="flex items-center">
-                            <FaBookmark className="text-orange-500" /> &nbsp; Radiant Academy Certificate Included
+                            <FaBookmark className="text-orange-500" /> &nbsp; {course?.data.subtitle}
                         </p>
                         <div className="flex items-center text-rose-500 my-3">
                             <span className="flex items-center text-2xl"><FaStar /><FaStar /><FaStar /><FaStar /><FaStarHalf /></span>
@@ -23,7 +22,7 @@ const CourseContent = () => {
                     </div>
                     <div className="flex flex-col py-10 md:py-0">
                         <div className='text-3xl font-bold py-3 text-center'>
-                            <h2><span>$</span> 50</h2>
+                            <h2><span>$</span> {course?.data.price}</h2>
                         </div>
                         <Link href="{`/courses/payment/${course?.data._id}`}" passHref><button className="bg-rose-500 px-5 py-3 text-white uppercase rounded-md font-medium">Enroll Now</button></Link>
                         <p className="text-sm text-stone-300 mt-4 mx-4">* <span className='text-orange-500'>1025</span> Already Enrolled!</p>
@@ -38,7 +37,7 @@ const CourseContent = () => {
                     </div>
                 </div>
                 <div className="py-16">
-                    <section id="#articles">
+                    <section id="articles">
                         <h1 className="text-3xl mb-2 text-rose-500">A Complete Guide to Flexbox</h1>
                         <h3 className="text-xl mt-3 mb-2">What is Flexbox?</h3>
                         <article>
@@ -68,7 +67,7 @@ const CourseContent = () => {
                         <h3 className="text-xl mt-3 mb-2">Examples</h3>
                         <article>Let’s start with a very very simple example, solving an almost daily problem: perfect centering. It couldn’t be any simpler if you use flexbox. This relies on the fact a margin set to auto in a flex container absorb extra space. So setting a margin of auto will make the item perfectly centered in both axes. Now let’s use some more properties. Consider a list of 6 items, all with fixed dimensions, but can be auto-sized. We want them to be evenly distributed on the horizontal axis so that when we resize the browser, everything scales nicely, and without media queries. Done. Everything else is just some styling concern. Below is a pen featuring this example. Be sure to go to CodePen and try resizing your windows to see what happens. Let’s try something else. Imagine we have a right-aligned navigation element on the very top of our website, but we want it to be centered on medium-sized screens and single-columned on small devices. Easy enough. Let’s try something even better by playing with flex items flexibility! What about a mobile-first 3-columns layout with full-width header and footer. And independent from source order. </article>
                         <div className="pt-5">
-                            <a className="text-2xl hover:text-rose-500 flex items-center" href="https://codepen.io/chriscoyier/pen/vWEMWw">Live Example <BiRightArrow style={{ fontSize: 20, marginLeft: 5}} /></a>
+                            <a className="text-2xl hover:text-rose-500 flex items-center" href="https://codepen.io/chriscoyier/pen/vWEMWw">Live Example <BiRightArrow style={{ fontSize: 20, marginLeft: 5 }} /></a>
                         </div>
                     </section>
                     <section id="quizzes">

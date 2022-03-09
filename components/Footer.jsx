@@ -19,8 +19,8 @@ const Footer = () => {
 
     return (
         <div>
-            <div className="px-1 sm:px-10 md:px-20 pt-8 md:pt-20 pb-[29rem] sm:pb-[25rem] md:pb-[17rem] h-[600px] sm:h-[0px] md:h-[430px] lg:h-[300px] bg-slate-200 dark:bg-slate-600 text-slate-700 dark:text-slate-300 block">
-                <div className="grid grid-row-2 sm:grid-cols-[110px_minmax(300px,_1fr)] md:grid-cols-[100px_minmax(300px,_1fr)] lg:grid-cols-[200px_minmax(600px,_1fr)]">
+            <div className="px-1 overflow-x-auto sm:px-10 md:px-20 pt-8 md:pt-20 pb-[29rem] sm:pb-[25rem] md:pb-[17rem] h-[600px] sm:h-[0px] md:h-[430px] lg:h-[300px] bg-slate-200 dark:bg-slate-600 text-slate-700 dark:text-slate-300 block">
+                <div className="grid grid-row-1 md:grid-cols-[100px_minmax(300px,_1fr)] lg:grid-cols-[200px_minmax(600px,_1fr)]">
                     <div className="flex justify-center items-start">
                         <Image src="https://i.postimg.cc/sDvkgk3h/logo.png" alt="Logo" width="80px" height="80px" className="cursor-pointer shadow-md" draggable="false" />
                     </div>
@@ -38,7 +38,7 @@ const Footer = () => {
                             </div>
                             <div className="pt-3.5 md:pt-7">
                                 <h3 className="text-violet-800 dark:text-violet-400 text-lg font-bold">Important Links</h3>
-                                <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-4 pt-3">
+                                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 pt-3">
                                     <div className="text-left">
                                         <Link href="/" passHref>
                                             <span className="mb-1 hover:text-rose-600 cursor-pointer">Home</span>

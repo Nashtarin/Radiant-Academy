@@ -1,11 +1,10 @@
 import React from 'react';
-import { FaBookmark, FaHeart, FaPenNib, FaPlus, FaTrash, FaUsers } from "react-icons/fa";
+import { FaHeart, FaPenNib, FaPlus, FaTrashAlt, FaUserFriends, FaUsers } from "react-icons/fa";
 import { useSelector } from 'react-redux';
 import DashboardSidebar from './DashboardSidebar';
 
 const AccountsSection = () => {
     const allUsers = useSelector((state) => state.users.usersList);
-    // console.log(allUsers.data);
 
     return (
         <div className="px-0 sm:px-6 lg:px-12 bg-white dark:bg-slate-800">
@@ -20,38 +19,43 @@ const AccountsSection = () => {
                         <button className="flex items-center btn"><FaPlus className="text-sm mr-2" /> Add Accounts</button>
                     </div>
                     <section className="overflow-x-auto">
-                        <table className="table w-full bg-slate-200 overflow-scroll">
-                            <tbody>
+                        <div className="w-full bg-slate-200 dark:bg-slate-700 overflow-y-scroll pr-2">
+                            <>
                                 {
                                     allUsers.data.map(user => (
-                                        <tr className="bg-slate-200" key={user._id}>
-                                            <td colSpan={2} className="font-semibold">{user.name}</td>
-                                            <td>
-                                                <span className="flex items-center">
-                                                    <FaBookmark className="text-orange-500 mr-1.5" /> Collaborator
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span className="flex items-center">
-                                                    <FaPenNib className="mr-1.5 text-purple-800" /> 12
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span className="flex items-center">
-                                                    <FaHeart className="mr-1.5 text-red-500" /> 1304
-                                                </span>
-                                            </td>
-                                            <td className="text-center text-green-600">Approved</td>
-                                            <td>
-                                                <button>
-                                                    <FaTrash className="hover:text-red-500" />
-                                                </button>
-                                            </td>
-                                        </tr>
+                                    <div className='container grid md:grid-cols-6 xs:grid-cols-1 px-5 bg-white dark:bg-slate-600 rounded-md mb-2 py-4 shadow-md dark:shadow-slate-600' key={user._id}>
+                                        <div className='col-span-2'>
+                                            <h1 className='text-white inline-flex'>
+                                                <span className="text-orange-500 my-auto mr-1.5">
+                                                <FaUserFriends />
+                                                </span> 
+                                                {user.displayName}
+                                            </h1>
+                                        </div>
+                                    
+                                    <h1 className='inline-flex'>
+                                    <span className="flex items-center justify-center">
+                                    <FaPenNib className="mr-1.5 text-purple-800" />
+                                    </span>
+                                        1648
+                                    </h1>
+                                    <h1 className='inline-flex font-base justify-center'>
+                                        <span className='my-auto text-rose-600 dark:text-rose-400 mr-1'>
+                                            <FaHeart />
+                                        </span>
+                                        1258
+                                    </h1>
+                                    <h1 className='text-green-700 dark:text-green-500 font-semibold flex justify-center'>Approved</h1>
+                                    <h1 className='inline-flex justify-end'>
+                                        <span className='text-red-500 dark:text-red-400'>
+                                            <FaTrashAlt />
+                                        </span>
+                                    </h1>
+                                </div>
                                     )
                                 )}
-                            </tbody>
-                        </table>
+                            </>
+                        </div>
                     </section>
                 </div>
             </div>

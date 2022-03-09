@@ -1,5 +1,6 @@
 import React from 'react';
-import { FaBookmark, FaEnvelope, FaPlus, FaUsers } from "react-icons/fa";
+import { FaBookmark, FaPlus, FaUsers } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 import DashboardSidebar from './DashboardSidebar';
 
 const AdminsSection = () => {
@@ -15,103 +16,123 @@ const AdminsSection = () => {
                         <h3 className="text-2xl flex items-center"><FaUsers className="mr-3" /> Admins</h3>
                         <button className="flex items-center btn"><FaPlus className="text-sm mr-2" /> Add Admins</button>
                     </div>
-                    <div className="overflow-x-auto">
-                        <table className="table w-full bg-slate-200 overflow-scroll">
-                            <tbody>
-                                <tr className="bg-slate-200">
-                                    <td className="font-semibold">Iftakher Hossen</td>
-                                    <td>
-                                        <span className="flex items-center">
-                                            <FaBookmark className="text-blue-500 mr-1.5" /> Admin
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <a href="mailto:iftakher.one@gmail.com" className="flex items-center">
-                                            <FaEnvelope className="mr-2 text-lg" />Send Email
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="font-semibold">Iftakher Rasha</td>
-                                    <td>
-                                        <span className="flex items-center">
-                                            <FaBookmark className="text-blue-500 mr-1.5" /> Admin
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <a href="mailto:" className="flex items-center">
-                                            <FaEnvelope className="mr-2 text-lg" />Send Email
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="font-semibold">MD. Jahidul Islam</td>
-                                    <td>
-                                        <span className="flex items-center">
-                                            <FaBookmark className="text-blue-500 mr-1.5" /> Admin
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <a href="mailto:" className="flex items-center">
-                                            <FaEnvelope className="mr-2 text-lg" />Send Email
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="font-semibold">Mostofa Kabir</td>
-                                    <td>
-                                        <span className="flex items-center">
-                                            <FaBookmark className="text-blue-500 mr-1.5" /> Admin
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <a href="mailto:" className="flex items-center">
-                                            <FaEnvelope className="mr-2 text-lg" />Send Email
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="font-semibold">MD. Asadujjaman</td>
-                                    <td>
-                                        <span className="flex items-center">
-                                            <FaBookmark className="text-blue-500 mr-1.5" /> Admin
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <a href="mailto:" className="flex items-center">
-                                            <FaEnvelope className="mr-2 text-lg" />Send Email
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="font-semibold">Shariar Mehedi</td>
-                                    <td>
-                                        <span className="flex items-center">
-                                            <FaBookmark className="text-blue-500 mr-1.5" /> Admin
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <a href="mailto:" className="flex items-center">
-                                            <FaEnvelope className="mr-2 text-lg" />Send Email
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="font-semibold">Nashtarin Nur</td>
-                                    <td>
-                                        <span className="flex items-center">
-                                            <FaBookmark className="text-blue-500 mr-1.5" /> Admin
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <a href="mailto:" className="flex items-center">
-                                            <FaEnvelope className="mr-2 text-lg" />Send Email
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <section className="overflow-x-auto">
+                        <div className='container grid md:grid-cols-4 xs:grid-cols-1 px-5 bg-white dark:bg-slate-600 rounded-md mb-2 py-4 shadow-md dark:shadow-slate-600'>
+                            <div className='col-span-2 flex'>
+                                <h1 className='my-auto'>
+                                Iftikher Rasha
+                                </h1>
+                            </div>
+                            <div className='flex justify-center'>
+                                <h1 className='inline-flex my-auto'>
+                                    <span className="text-blue-500 my-auto mr-1.5">
+                                        <FaBookmark />
+                                    </span>
+                                    Admin
+                                </h1>
+                            </div>
+                            <div className='flex justify-center'>
+                                <h1 className=' inline-flex'>
+                                    <span className="text-blue-500 my-auto mr-1.5">
+                                        <MdEmail />
+                                    </span> 
+                                    Send Email
+                                </h1>
+                            </div>
+                        </div>
+                        <div className='container grid md:grid-cols-4 xs:grid-cols-1 px-5 bg-white dark:bg-slate-600 rounded-md mb-2 py-4 shadow-md dark:shadow-slate-600'>
+                            <div className='col-span-2 flex'>
+                                <h1 className='my-auto'>
+                                Md. Sahriar Mehedi
+                                </h1>
+                            </div>
+                            <div className='flex justify-center'>
+                                <h1 className='inline-flex my-auto'>
+                                    <span className="text-blue-500 my-auto mr-1.5">
+                                        <FaBookmark />
+                                    </span>
+                                    Admin
+                                </h1>
+                            </div>
+                            <div className='flex justify-center'>
+                                <h1 className=' inline-flex'>
+                                    <span className="text-blue-500 my-auto mr-1.5">
+                                        <MdEmail />
+                                    </span> 
+                                    Send Email
+                                </h1>
+                            </div>
+                        </div>
+                        <div className='container grid md:grid-cols-4 xs:grid-cols-1 px-5 bg-white dark:bg-slate-600 rounded-md mb-2 py-4 shadow-md dark:shadow-slate-600'>
+                            <div className='col-span-2 flex'>
+                                <h1 className='my-auto'>
+                                Md. Jahidul Islam
+                                </h1>
+                            </div>
+                            <div className='flex justify-center'>
+                                <h1 className='inline-flex my-auto'>
+                                    <span className="text-blue-500 my-auto mr-1.5">
+                                        <FaBookmark />
+                                    </span>
+                                    Admin
+                                </h1>
+                            </div>
+                            <div className='flex justify-center'>
+                                <h1 className=' inline-flex'>
+                                    <span className="text-blue-500 my-auto mr-1.5">
+                                        <MdEmail />
+                                    </span> 
+                                    Send Email
+                                </h1>
+                            </div>
+                        </div>
+                        <div className='container grid md:grid-cols-4 xs:grid-cols-1 px-5 bg-white dark:bg-slate-600 rounded-md mb-2 py-4 shadow-md dark:shadow-slate-600'>
+                            <div className='col-span-2 flex'>
+                                <h1 className='my-auto'>
+                                Iftakher Hossain
+                                </h1>
+                            </div>
+                            <div className='flex justify-center'>
+                                <h1 className='inline-flex my-auto'>
+                                    <span className="text-blue-500 my-auto mr-1.5">
+                                        <FaBookmark />
+                                    </span>
+                                    Admin
+                                </h1>
+                            </div>
+                            <div className='flex justify-center'>
+                                <h1 className=' inline-flex'>
+                                    <span className="text-blue-500 my-auto mr-1.5">
+                                        <MdEmail />
+                                    </span> 
+                                    Send Email
+                                </h1>
+                            </div>
+                        </div>
+                        <div className='container grid md:grid-cols-4 xs:grid-cols-1 px-5 bg-white dark:bg-slate-600 rounded-md mb-2 py-4 shadow-md dark:shadow-slate-600'>
+                            <div className='col-span-2 flex'>
+                                <h1 className='my-auto'>
+                                Md. Ashadujjaman
+                                </h1>
+                            </div>
+                            <div className='flex justify-center'>
+                                <h1 className='inline-flex my-auto'>
+                                    <span className="text-blue-500 my-auto mr-1.5">
+                                        <FaBookmark />
+                                    </span>
+                                    Admin
+                                </h1>
+                            </div>
+                            <div className='flex justify-center'>
+                                <h1 className=' inline-flex'>
+                                    <span className="text-blue-500 my-auto mr-1.5">
+                                        <MdEmail />
+                                    </span> 
+                                    Send Email
+                                </h1>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </div>
         </div>

@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from 'react';
 import { FaInfoCircle, FaEnvelope, FaPhoneSquareAlt, FaBookmark, FaIdCardAlt } from 'react-icons/fa';
 import { BsArrowRight } from 'react-icons/bs';
 import coverImg from '../../public/img/css_flexbox 1.png';
@@ -7,24 +8,95 @@ import { useRouter } from 'next/router';
 import useAuth from '../../utilities/Hooks/useAuth';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
+import Swal from 'sweetalert2'
+import {
+    PayPalScriptProvider,
+    PayPalButtons,
+    usePayPalScriptReducer
+} from "@paypal/react-paypal-js";
 
 const PaymentSection = ({ course }) => {
     const router = useRouter();
     const { user } = useAuth();
     const allUserData = useSelector((state) => state.users.usersList);
-    const thisUser = allUserData.data.find(userData =>  userData.email === user.email);
-    // console.log(thisUser._id, course.data._id);
+    const thisUser = allUserData.find(userData => userData.email === user.email);
 
     const payAndEnroll = async (user) => {
         try {
             const res = await axios.put(`http://localhost:3000/api/users/enroll/${thisUser._id}/${course.data._id}`, user.data);
             if (res.status === 201) {
-                router.push("/quiz");
+                Swal.fire(
+                    'Payment Complete',
+                    'Thanks for the payment',
+                    'success'
+                )
+                router.push(`/quiz/${course?._id}`);
             }
         } catch (err) {
             console.log(err);
         }
     };
+
+
+    // PAYPAL VALUES
+    const amount = "2";
+    const currency = "USD";
+    const style = { "layout": "vertical" };
+
+
+    // Custom component to wrap the PayPalButtons and handle currency changes
+    const ButtonWrapper = ({ currency, showSpinner }) => {
+        // usePayPalScriptReducer can be use only inside children of PayPalScriptProviders
+        // This is the main reason to wrap the PayPalButtons in a new component
+        const [{ options, isPending }, dispatch] = usePayPalScriptReducer();
+
+        useEffect(() => {
+            dispatch({
+                type: "resetOptions",
+                value: {
+                    ...options,
+                    currency: currency,
+                },
+            });
+        }, [currency, showSpinner]);
+
+
+        return (
+            <>
+                {(showSpinner && isPending) && <div className="spinner" />}
+                <PayPalButtons
+                    style={style}
+                    disabled={false}
+                    forceReRender={[amount, currency, style]}
+                    fundingSource={undefined}
+                    createOrder={(data, actions) => {
+                        return actions.order
+                            .create({
+                                purchase_units: [
+                                    {
+                                        amount: {
+                                            currency_code: currency,
+                                            value: amount,
+                                        },
+                                    },
+                                ],
+                            })
+                            .then((orderId) => {
+                                // Your code here after create the order
+                                return orderId;
+                            });
+                    }}
+                    onApprove={function (data, actions) {
+                        return actions.order.capture().then(function () {
+                            // Your code here after capture the order
+                        });
+                    }}
+                />
+            </>
+        );
+    }
+
+
 
     return (
         <div className='bg-white dark:bg-slate-800'>
@@ -46,8 +118,8 @@ const PaymentSection = ({ course }) => {
                                 <p className="text-slate-400 text-[0.9em]">#html #css #beginners</p>
                                 <p className="text-sm mt-2 px-2 text-stone-600 dark:text-stone-200">● 10 Quizzes ● 10 Articles <br /> ● 10 Problem Solving</p>
                             </div>
-                            <div>
-                                <h4 className="text-2xl text-center sm:text-left font-bold text-violet-800 dark:text-violet-400 mt-4">Pay: <span>$</span>{course?.data?.price}</h4>
+                            <div className='bg-slate-100 mt-3 px-5 py-2 rounded-md'>
+                                <h4 className="text-2xl text-center sm:text-left font-bold text-rose-500 ">Pay: <span>$</span>{course?.data?.price}</h4>
                             </div>
                         </div>
                         <div className="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 shadow-md rounded-md p-5 h-auto mt-5">
@@ -62,13 +134,13 @@ const PaymentSection = ({ course }) => {
                                         <td className="flex items-center">
                                             <FaIdCardAlt /> &nbsp; Name
                                         </td>
-                                        <td>:&nbsp; Radiant Admin</td>
+                                        <td>:&nbsp;{thisUser?.displayName}</td>
                                     </tr>
                                     <tr>
                                         <td className="flex items-center">
                                             <FaBookmark /> &nbsp; Role
                                         </td>
-                                        <td>:&nbsp; Admin</td>
+                                        <td>:&nbsp; User</td>
                                     </tr>
                                     <tr>
                                         <td className="flex items-center">
@@ -80,7 +152,7 @@ const PaymentSection = ({ course }) => {
                                         <td className="flex items-center">
                                             <FaEnvelope /> &nbsp; Email
                                         </td>
-                                        <td>:&nbsp; info@radiantacademy.com</td>
+                                        <td>{thisUser?.email}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -97,9 +169,7 @@ const PaymentSection = ({ course }) => {
                         <div className="px-10 mb-8">
                             <form>
                                 <select name="payment-option" className="block appearance-none w-full bg-slate-100 dark:bg-slate-600 py-3 px-4 pr-8 rounded-lg leading-tight outline-none mt-5 mb-2 text-lg  " required>
-                                    <option>Pay with Stripe</option>
-                                    <option>Pay SSLCOMMERZE</option>
-                                    <option>Pay with bKash</option>
+                                    <option>Pay with Paypal</option>
                                 </select>
                                 <div className="mt-4">
                                     <label className='pl-1 text-lg  pb-2'>Your Email</label>
@@ -409,14 +479,32 @@ const PaymentSection = ({ course }) => {
                                     </div>
                                 </div>
                                 <div className="flex items-center">
-                                    <input type="checkbox" className="mr-2 my-3 checkbox" />
+                                    <input type="checkbox" checked className="mr-2 my-3 checkbox" />
                                     <label>Save Payment Information</label>
                                 </div>
-<<<<<<< HEAD
-                                <button onClick={payAndEnroll} type="submit" className="mt-5 py-2 px-6 text-lg flex items-center font-medium rounded-lg text-white bg-rose-600">PAY $59.50 <BsArrowRight className="ml-3" /></button>
-=======
-                                <button type="submit" className="mt-5 py-2 px-6 text-lg flex items-center font-medium rounded-lg text-white bg-rose-500"><span>Pay $</span> {course?.data?.price} <BsArrowRight className="ml-3" /></button>
->>>>>>> 607b1adbcde7e4dcca431bf93c467110948a7e39
+
+                                <h3 className='text-slate-700 dark:text-slate-200 text-2xl py-7'>Pay total <span>$</span>{course?.data?.price} with </h3>
+
+                                <button className=' w-full'>
+                                    <PayPalScriptProvider
+                                        className="z-10"
+                                        options={{
+                                            "client-id": "test",
+                                            components: "buttons",
+                                            currency: "USD",
+                                            "disable-funding": "credit,card,p24,venmo"
+                                        }}
+                                    >
+                                        <ButtonWrapper
+                                            currency={currency}
+                                            showSpinner={false}
+                                        />
+                                    </PayPalScriptProvider>
+                                </button>
+                                <div className='text-center py-5'>
+                                    <button className='text-center mx-auto bg-slate-300 dark:bg-slate-500 py-1 px-4' type="submit" onClick={payAndEnroll}>Mark Payment as done (For test)</button>
+                                </div>
+
                             </form>
                         </div>
                     </div>
