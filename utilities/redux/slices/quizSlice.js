@@ -15,6 +15,7 @@ const quizSlice = createSlice({
         quizzesList: [],
         answeredList: [],
         thisCourse: '',
+        quizScore: 0,
         status: 'idle',
     },
     reducers: {
@@ -24,14 +25,18 @@ const quizSlice = createSlice({
             // state.answeredList = state.answeredList.map(quiz => quiz._id === action.payload._id ? quiz : state.answeredList.push(action.payload));
             // state.answeredList = state.answeredList.filter(quiz => quiz._id !== action.payload);
         },
-        clearAnsweredList: (state, action) => {
+        clearQuizList: (state, action) => {
             state.answeredList = [];
+            state.quizScore = 0;
         },
         removeFrom: (state, action) => {
-            state.answeredList = state.answeredList.filter(course => course.id !== action.payload);
+            state.answeredList = state.answeredList.filter(quiz => quiz.id !== action.payload);
         },
         setWhichCourse: (state, action) => {
             state.thisCourse = action.payload;
+        },
+        addToScore: (state, action) => {
+            state.quizScore = action.payload;
         },
     },
     extraReducers: (builder) => {
@@ -44,5 +49,5 @@ const quizSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { addToAnsweredList, clearAnsweredList, setWhichCourse } = quizSlice.actions;
+export const { addToAnsweredList, clearQuizList, setWhichCourse, addToScore } = quizSlice.actions;
 export default quizSlice.reducer;
