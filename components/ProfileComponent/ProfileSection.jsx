@@ -10,7 +10,7 @@ import { useRouter } from 'next/router';
 import { fetchQuizzes } from '../../utilities/redux/slices/quizSlice';
 import { useDispatch } from 'react-redux';
 
-const ProfileSection = () => {
+const ProfileSection = ({ account }) => {
     const [rating, setRating] = useState(4.5);
     const { user, isLoading } = useAuth();
     const router = useRouter();
@@ -18,25 +18,26 @@ const ProfileSection = () => {
 
     useEffect(() => {
         dispatch(fetchQuizzes());
-      }, [dispatch]);
+    }, [dispatch]);
 
     const defaultOptions = {
-		loop: true,
-		autoplay: true, 
-		animationData: animationData,
-		rendererSettings: {
-		  preserveAspectRatio: 'xMidYMid slice'
-		}
-	};
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+        rendererSettings: {
+            preserveAspectRatio: 'xMidYMid slice'
+        }
+    };
 
-    if (isLoading && !user.isSignedIn) { return <div className="loading flex justify-center items-center min-h-screen m-auto">
-								<div>
-									<Lottie options={defaultOptions}
-                                        height={200}
-                                        width={200}/>
-								</div>
-							</div> 
-                        }
+    if (isLoading && !user.isSignedIn) {
+        return <div className="loading flex justify-center items-center min-h-screen m-auto">
+            <div>
+                <Lottie options={defaultOptions}
+                    height={200}
+                    width={200} />
+            </div>
+        </div>
+    }
 
     //rating system
     const ratingCount = {
@@ -59,42 +60,42 @@ const ProfileSection = () => {
 
     return (
         <div>
-            { user.isSignedIn &&
-            <div className="grid grid-rows-1 md:grid-cols-[300px_minmax(300px,_1fr)] lg:grid-cols-[350px_minmax(600px,_1fr)] p-2 bg-white dark:bg-slate-800">
-                <div className="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 m-5 rounded-lg py-6 flex justify-center">
-                    <div className="flex-col text-center">
-                        <div>
-                            <Image
-                                src={user.photo}
-                                alt="Profile Picture"
-                                width="100px"
-                                height="100px"
-                                className="rounded-full"
-                            />
-                        </div>
-                        <div className="py-2">
-                            <h2 className="text-xl font-bold">{user.name}</h2>
-                            <p className="text-stone-500 dark:text-stone-400">{user.email}</p>
-                        </div>
-                        <div>
-                            <p className="mt-3 flex items-center mb-1">
-                                <FaClock className="mr-2" />Joined: Feb 01, 2022
-                            </p>
-                            <p className="flex items-center mb-1">
-                                <FaPenNib className="mr-2" />Topics: 13</p>
-                            <p className="flex items-center mb-1">
-                                <FaHeart className="mr-2 text-rose-700 dark:text-rose-500" />Reputations: 1214
-                            </p>
-                            <p className="flex items-center mb-1">
-                                <FaBookmark className="mr-2 text-orange-500 dark:text-orange-400" />Rank: Collaborator
-                            </p>
-                        </div>
-                        <div className="py-3 text-center">
-                            <h5 className="text-lg">Overall Rating</h5>
-                            <div className="ratings flex">
-                                <ReactStars {...ratingCount} value={rating} edit={false} /> (50)
-                                <style jsx global>
-                                    {`
+            {user.isSignedIn &&
+                <div className="grid grid-rows-1 md:grid-cols-[300px_minmax(300px,_1fr)] lg:grid-cols-[350px_minmax(600px,_1fr)] p-2 bg-white dark:bg-slate-800">
+                    <div className="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 m-5 rounded-lg py-6 flex justify-center">
+                        <div className="flex-col text-center">
+                            <div>
+                                <Image
+                                    src={user.photo}
+                                    alt="Profile Picture"
+                                    width="100px"
+                                    height="100px"
+                                    className="rounded-full"
+                                />
+                            </div>
+                            <div className="py-2">
+                                <h2 className="text-xl font-bold">{user.name}</h2>
+                                <p className="text-stone-500 dark:text-stone-400">{user.email}</p>
+                            </div>
+                            <div>
+                                <p className="mt-3 flex items-center mb-1">
+                                    <FaClock className="mr-2" />Joined: Feb 01, 2022
+                                </p>
+                                <p className="flex items-center mb-1">
+                                    <FaPenNib className="mr-2" />Topics: 13</p>
+                                <p className="flex items-center mb-1">
+                                    <FaHeart className="mr-2 text-rose-700 dark:text-rose-500" />Reputations: 1214
+                                </p>
+                                <p className="flex items-center mb-1">
+                                    <FaBookmark className="mr-2 text-orange-500 dark:text-orange-400" />Rank: Collaborator
+                                </p>
+                            </div>
+                            <div className="py-3 text-center">
+                                <h5 className="text-lg">Overall Rating</h5>
+                                <div className="ratings flex">
+                                    <ReactStars {...ratingCount} value={rating} edit={false} /> (50)
+                                    <style jsx global>
+                                        {`
                                         .ratings {
                                             margin: 1rem;
                                         }
@@ -103,17 +104,17 @@ const ProfileSection = () => {
                                             font-size: 1.25rem;
                                         }
                                     `}
-                                </style>
+                                    </style>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div className="bg-slate-200 dark:bg-slate-700 m-5 rounded-md">
+                        <ProfileDetailsSection account={account} />
+                    </div>
                 </div>
-                <div className="bg-slate-200 m-5 rounded-md">
-                    <ProfileDetailsSection />
-                </div>
-            </div>
             }
-            
+
         </div>
     );
 };

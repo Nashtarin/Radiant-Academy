@@ -42,7 +42,7 @@ export default function EditorSection() {
           
         />
       </div>
-      <div className="pane py-5 px-10 bg-white dark:bg-slate-800 dark:text-white">
+      <div className="pane py-5 pb-20 px-10 bg-white dark:bg-slate-800 dark:text-white">
         <h3 className="ml-1.5 text-xl font-semibold flex items-center mb-2">Output <BsArrowRight className='ml-1' /></h3>
         <iframe
           srcDoc={srcDoc}

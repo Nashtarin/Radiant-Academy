@@ -4,7 +4,8 @@ import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import CourseCard from './CourseCard';
 
-const CourseSlider = ({allCourses}) => {
+const CourseSlider = ({allCourses, category}) => {
+
     const settings = {
         slidesToShow: 4,
         slidesToScroll: 1,
@@ -41,9 +42,20 @@ const CourseSlider = ({allCourses}) => {
             <div className="course-card">
                 <Slider {...settings}>
                     {
-                        allCourses?.data?.map(course => (
-                            <CourseCard key={course._id} course={course}/>
-                        ))
+                        allCourses.filter(course => {
+                            if (category === '') {
+                                return course;
+                            }
+                            else if (course.category.toString() === category) {
+                                return course;
+                            }
+                        }).map(course => <CourseCard
+                            key={course._id}
+                            course={course}
+                        />)
+                        // allCourses?.data?.map(course => (
+                        //     <CourseCard key={course._id} course={course}/>
+                        // ))
                     }
                 </Slider> 
                 <style jsx global>

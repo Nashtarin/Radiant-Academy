@@ -98,7 +98,7 @@ const DashboardSection = () => {
                                 <p>Subscribers</p>
                             </div>
                             <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-400">
-                                <h3 className="text-2xl">{allCourses?.data?.length}</h3>
+                                <h3 className="text-2xl">{allCourses.length}</h3>
                                 <p>Total Courses</p>
                             </div>
                             <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-400">
@@ -106,11 +106,11 @@ const DashboardSection = () => {
                                 <p>Total Quizzes</p>
                             </div>
                             <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-400">
-                                <h3 className="text-2xl">{allTopics?.data?.length}</h3>
+                                <h3 className="text-2xl">{allTopics.length}</h3>
                                 <p>Forum Posts</p>
                             </div>
                             <div className="flex flex-col items-start border-r-2 mb-2 border-r-zinc-200 dark:border-r-slate-400">
-                                <h3 className="text-2xl">{allReviews?.data?.length}</h3>
+                                <h3 className="text-2xl">{allReviews.length}</h3>
                                 <p>Total Reviews</p>
                             </div>
                         </div>
@@ -123,7 +123,7 @@ const DashboardSection = () => {
                                         <FaClone className="mr-2 text-lg" />
                                         <h5 className="text-lg font-semibold">23 Courses</h5>
                                     </div>
-                                    <Link href="/dashboard/courses/add-course" passHref>
+                                    <Link href="/dashboard/courses/add-new-course" passHref>
                                         <button className="px-4 py-1.5 hover:bg-stone-100 rounded-lg flex items-center uppercase">
                                             <FaPlus className="mr-2 text-sm" /> New Course
                                         </button>
@@ -131,14 +131,14 @@ const DashboardSection = () => {
                                 </div>
                                 <Slider {...settings}>
                                     {
-                                        allCourses?.data?.map(course => (
+                                        allCourses.map(course => (
                                             <div className="course-items" key={course}>
                                                 <div className="my-5 flex justify-center items-center text-white py-1.5 px-2" style={{ backgroundColor: '#32007E' }}>
                                                     <h5>{course.title}</h5>
                                                 </div>
                                                 <div className="my-4 flex justify-between items-center py-1.5 px-2 border-b-2 border-purple-800">
                                                     <p className="text-black">Enrollment</p>
-                                                    <p className="text-red-600 text-sm">Price ${course.price}</p>
+                                                    <p className="text-red-600 dark:text-white text-sm font-medium">Price ${course.price}</p>
                                                 </div>
                                                 <div className="mt-2 py-3 grid grid-rows-1">
                                                     <div className="flex flex-col sm:flex-row justify-center items-center">
@@ -212,7 +212,7 @@ const DashboardSection = () => {
                                 </style>
                             </div>
                             <div className="bg-slate-200 dark:bg-slate-600 shadow-md rounded-md p-5 h-auto mb-5">
-                                <div className="flex items-center justify-between text-violet-900 dark:text-violet-400" style={{ color: '' }}>
+                                <div className="flex items-center justify-between text-violet-900 dark:text-violet-400">
                                     <div className="flex items-center">
                                         <FaInfoCircle className="mr-2 text-lg" />
                                         <h5 className="text-lg font-semibold">Account Info</h5>
@@ -261,26 +261,28 @@ const DashboardSection = () => {
                                 </div>
                                 <Slider {...settings}>
                                     {
-                                        allTopics?.data?.map(forum => (
-                                            <div className="p-5" key={forum._id}>
-                                                <h4 className="text-lg font-semibold mb-1">{forum.title}</h4>
-                                                <p className="text-[0.9em] text-gray-600 mb-1">{forum.desc.split(' ').slice(0, 40).toString().replace(/,/g, ' ')}...</p>
+                                        allTopics.map(forum => (
+                                            <div className="p-5 dark:border-2 rounded-xl border-slate-500 shadow-md" key={forum._id}>
+                                                <h4 className="text-lg font-semibold mb-1 dark:text-slate-200">{forum.title}</h4>
+                                                <p className="text-[0.9em] text-gray-600 dark:text-slate-200 mb-1">
+                                                    {forum.desc.split(' ').slice(0, 40).toString().replace(/,/g, ' ')}...
+                                                </p>
                                                 <div className="flex items-center justify-between mt-3">
                                                     <span className="flex items-center">
                                                         <FaClock className="mr-2 text-sm" />
-                                                        <p className="text-[0.9em]">January 12</p>
+                                                        <p className="text-[0.9em] dark:text-slate-200">January 12</p>
                                                     </span>
                                                     <span className="flex items-center">
                                                         <FaHashtag className="mr-2 text-sm" />
-                                                        <p className="text-[0.9em]">{forum.category}</p>
+                                                        <p className="text-[0.9em] dark:text-slate-200">{forum.category}</p>
                                                     </span>
                                                     <span className="flex items-center">
                                                         <FaEye className="mr-2 text-sm text-purple-800" />
-                                                        <p className="text-[0.9em]">{forum.views}</p>
+                                                        <p className="text-[0.9em] dark:text-slate-200">{forum.views}</p>
                                                     </span>
                                                     <span className="flex items-center">
                                                         <FaHeart className="mr-2 text-sm text-red-500" />
-                                                        <p className="text-[0.9em]">{forum.reacts}</p>
+                                                        <p className="text-[0.9em] dark:text-slate-200">{forum.reacts}</p>
                                                     </span>
                                                     <Link href={`/forum/${forum._id}`} passHref><button><FaShare /></button></Link>
                                                 </div>

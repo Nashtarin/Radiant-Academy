@@ -1,14 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Toaster } from 'react-hot-toast';
 import { FaMoon, FaSun, FaUserCircle } from "react-icons/fa";
+import { useSelector } from "react-redux";
 import Logo from '../public/img/RA_Logo.png';
 import useAuth from "../utilities/Hooks/useAuth";
 import { useDarkMode } from "../utilities/Hooks/useDarkMode";
-import { Toaster } from 'react-hot-toast';
 
 const Navbar = () => {
     const { user, logout } = useAuth();
     const [isDarkMode, toggleDarkMode] = useDarkMode();
+    const allUserData = useSelector((state) => state.users.usersList);
+    // const thisUser = allUserData.find(userData =>  userData.email === user.email);
 
     return (
         <>
@@ -37,7 +40,7 @@ const Navbar = () => {
                         }
                         <span className='px-2 text-slate-700 dark:text-slate-200'><FaSun /></span>
                     </div>
-                    <div className="hidden px-2 mx-2 lg:flex pr-10">
+                    <div className="hidden px-2 mx-2 lg:flex">
                         <div className="flex items-center">
                             <Link href='/'>
                                 <a className="btn hover:bg-slate-300 dark:hover:bg-slate-600 btn-ghost rounded-btn mx-2">HOME </a>
@@ -57,63 +60,69 @@ const Navbar = () => {
                             {/* <Link href="/contact">
                                 <a className="btn hover:bg-slate-300 dark:hover:bg-slate-600 btn-ghost rounded-btn mx-3">CONTACT </a>
                             </Link>  */}
-                            {!user.isSignedIn && 
+                            {!user.isSignedIn &&
                                 <Link passHref href="/register">
                                     <button className="btn border-0 px-7 py-2 rounded bg-rose-500 text-white dark:hover:bg-slate-600 transition duration-500 mx-3">FREE TRIAL</button>
                                 </Link>
                             }
-                            {user.isSignedIn &&
-                                <div className="flex-none dropdown dropdown-end mx-1 sm:mx-2 my-auto">
-                                    <label tabIndex="0" className="btn btn-ghost btn-circle avatar hover:border-purple-800">
-                                        <div className="rounded-full">
-                                            {
-                                                user.photo ? <Image src={user.photo} alt="User Profile" width="90px" height="90px" draggable="false" /> :
-                                                    <div className="flex-none my-auto pr-2 sm:mr-3 lg:mr-12">
-                                                        <label tabIndex="0" className="btn btn-ghost btn-circle avatar hover:bg-transparent">
-                                                            <div className="rounded-full">
-                                                                <FaUserCircle className="text-4xl" />
-                                                            </div>
-                                                        </label>
-                                                    </div>
-                                            }
-                                        </div>
-                                    </label>
-                                    <ul tabIndex="0" className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-slate-100 dark:bg-slate-600 rounded-box w-52">
-                                        <li>
-                                            <Link href="/profile">
-                                                <a className=" hover:bg-rose-500 hover:text-white"> Profile</a>
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link href="/dashboard">
-                                                <a className=" hover:bg-rose-500 hover:text-white">
-                                                    Dashboard
-                                                    <span className="ml-2 badge">New</span>
-                                                </a>
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link href="/my-course">
-                                                <a className=" hover:bg-rose-500 hover:text-white">My Course</a>
-                                            </Link>
-                                        </li>
-                                        <li onClick={logout}>
-                                            <a className=" hover:bg-rose-500 hover:text-white">
-                                                Logout
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            }
+
                         </div>
                     </div>
+                    {user.isSignedIn &&
+                        <div className="flex-none dropdown dropdown-end mx-1 sm:mx-2 my-auto lg:pr-10">
+                            <label tabIndex="0" className="btn btn-ghost btn-circle avatar hover:border-purple-800">
+                                <div className="rounded-full">
+                                    {
+                                        user.photo ? <Image src={user.photo} alt="User Profile" width="90px" height="90px" draggable="false" /> :
+                                            <div className="flex-none my-auto pr-2 sm:mr-3 lg:mr-12">
+                                                <label tabIndex="0" className="btn btn-ghost btn-circle avatar hover:bg-transparent">
+                                                    <div className="rounded-full">
+                                                        <FaUserCircle className="text-4xl" />
+                                                    </div>
+                                                </label>
+                                            </div>
+                                    }
+                                </div>
+                            </label>
+                            <ul tabIndex="0" className="mt-3 p-2 relative top-10 shadow menu menu-compact dropdown-content bg-slate-100 dark:bg-slate-600 rounded-box w-52">
+                                <li>
+                                    <Link href={`/profile/${user.email}`}>
+                                        <a className=" hover:bg-rose-500 hover:text-white"> Profile</a>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/dashboard">
+                                        <a className=" hover:bg-rose-500 hover:text-white">
+                                            Dashboard
+                                            <span className="ml-2 badge">New</span>
+                                        </a>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href={`/my-course/${user.email}`}>
+                                        <a className=" hover:bg-rose-500 hover:text-white">My Course</a>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/vote">
+                                        <a className=" hover:bg-rose-500 hover:text-white">Vote</a>
+                                    </Link>
+                                </li>
+                                <li onClick={logout}>
+                                    <a className=" hover:bg-rose-500 hover:text-white">
+                                        Logout
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    }
                     <div className="flex-none lg:hidden dropdown dropdown-left">
                         <button tabIndex="0" className="m-1 btn hover:bg-gray-800 btn-square hover:text-white btn-ghost">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
                             </svg>
                         </button>
-                        <ul tabIndex="0" className="p-2 shadow menu dropdown-content bg-slate-100 dark:bg-slate-600 rounded-box w-52 mt-2">
+                        <ul tabIndex="0" className="p-2 relative top-10 shadow menu dropdown-content bg-slate-100 dark:bg-slate-600 rounded-box w-52 mt-2">
                             <li>
                                 <Link href='/'>
                                     <a className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-2">HOME </a>

@@ -5,7 +5,6 @@ import DashboardSidebar from './DashboardSidebar';
 
 const AccountsSection = () => {
     const allUsers = useSelector((state) => state.users.usersList);
-    // console.log(allUsers.data);
 
     return (
         <div className="px-0 sm:px-6 lg:px-12 bg-white dark:bg-slate-800">
