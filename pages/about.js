@@ -206,9 +206,10 @@ const about = () => {
                 </div>
             </div>
             
-            <section>
+            {/* Team section  */}
+            <section className="container mx-auto pb-7">
                 <h1 className="text-center text-white text-4xl font-bold py-12">Our Dedicated Team</h1>
-            <div className='container grid md:grid-cols-3 xs:grid-cols-1 pb-5 px-5 gap-4'>
+            <div className='container grid md:grid-cols-3 xs:grid-cols-1 gap-4 px-5'>
                 <div className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
                             <div className="grid place-content-center relative bottom-12">
                                 <Image
