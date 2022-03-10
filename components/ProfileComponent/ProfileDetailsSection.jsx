@@ -1,6 +1,5 @@
-import Link from 'next/link';
-import React from 'react';
 import { useRouter } from 'next/router';
+import React from 'react';
 import { FaDollarSign, FaEye, FaFlag, FaHashtag, FaHeart, FaTrash, FaUserFriends } from "react-icons/fa";
 import { useDispatch, useSelector } from 'react-redux';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
