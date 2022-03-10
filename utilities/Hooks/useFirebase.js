@@ -29,10 +29,9 @@ const useFirebase = () => {
             .then((result) => {
                 // The signed-in user info.
                 const user = result.user;
-                const role = 'user';
 
                 const { displayName, email, photoURL, accessToken } = user;
-                saveUser(user.email, user.displayName, user.photoURL, user.accessToken, role, 'POST');
+                saveUser(email, displayName, photoURL, accessToken, 'POST');
 
                 setAuthError('');
                 localStorage.setItem('token', accessToken);
@@ -45,6 +44,7 @@ const useFirebase = () => {
                     name: displayName,
                     role: 'user'
                 };
+                
                 setUser(signedInUser);
                 dispatch(fetchUsers());
                 router.replace(`/profile/${signedInUser.email}`);
@@ -176,11 +176,12 @@ const useFirebase = () => {
     }
 
     //database uploading
-    const saveUser = (email, displayName, photoURL, accessToken, role, method) => {
+    const saveUser = (email, displayName, photoURL, accessToken, method) => {
         const alreadyUser = allUser.find(user => user.email === email && user.displayName === displayName);
         if (alreadyUser) {
             console.log('already user!');
         } else {
+            const role = 'user';
             const user = { email, displayName, photoURL, accessToken, role };
             fetch('http://localhost:3000/api/users', {
                 method: method,

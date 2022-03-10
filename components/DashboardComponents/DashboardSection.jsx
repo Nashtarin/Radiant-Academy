@@ -21,7 +21,8 @@ import { useRouter } from 'next/router';
 
 const DashboardSection = () => {
     const { user, isLoading } = useAuth();
-    
+    console.log(user.role);
+
     const router = useRouter();
 
     const dispatch = useDispatch();
@@ -284,13 +285,13 @@ const DashboardSection = () => {
                                                 <td className="flex items-center">
                                                     <FaIdCardAlt /> &nbsp; Name
                                                 </td>
-                                                <td>:&nbsp; Radiant Admin</td>
+                                                <td>:&nbsp; {user.name}</td>
                                             </tr>
                                             <tr>
                                                 <td className="flex items-center">
                                                     <FaBookmark /> &nbsp; Role
                                                 </td>
-                                                <td>:&nbsp; Admin</td>
+                                                <td>:&nbsp; {user.role}</td>
                                             </tr>
                                             <tr>
                                                 <td className="flex items-center">
@@ -302,7 +303,7 @@ const DashboardSection = () => {
                                                 <td className="flex items-center">
                                                     <FaEnvelope /> &nbsp; Email
                                                 </td>
-                                                <td>:&nbsp; info@radiantacademy.com</td>
+                                                <td>{user.email}</td>
                                             </tr>
                                         </tbody>
                                     </table>
