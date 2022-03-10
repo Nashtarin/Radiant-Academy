@@ -1,10 +1,40 @@
 import React from 'react';
 import { FaBookmark, FaClone, FaDollarSign, FaEdit, FaHeart, FaPlus, FaTrashAlt, FaUserFriends } from 'react-icons/fa';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import Swal from 'sweetalert2';
+import { deleteCourse } from '../../utilities/redux/slices/courseSlice';
 import DashboardSidebar from './DashboardSidebar';
 
 const CourseSection = () => {
+    const dispatch = useDispatch();
+
     const allCourses = useSelector((state) => state.courses.coursesList);
+
+    const handleCourseRemove = (id) => {
+        Swal.fire({
+            title: 'Are you sure you want to remove this?',
+            text: "Warding: you won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#6B21A8',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                if (dispatch(deleteCourse(id))) {
+                    Swal.fire(
+                        'Deleted!',
+                        'Course has been deleted.',
+                        'success'
+                    )
+                } else {
+                    console.log('Something went wrong!');
+                }
+            } else {
+                console.log('Something went wrong!');
+            }
+          })
+    }
     
     return (
         <div className='px-0 sm:px-6 lg:px-12 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200'>
@@ -60,11 +90,11 @@ const CourseSection = () => {
                                         </div>
                                         <div className='flex justify-end'>
                                             <h1 className='inline-flex'>
-                                                <span className='text-slate-700 dark:text-slate-200 mr-1'>
+                                                <span className='text-slate-700 dark:text-slate-200 mr-3'>
                                                     <FaEdit />
                                                 </span>
-                                                <span className='text-red-500 dark:text-red-400'>
-                                                    <FaTrashAlt />
+                                                <span className='text-red-500 dark:text-red-400 cursor-pointer'>
+                                                    <FaTrashAlt  onClick={() => handleCourseRemove(course._id)}/>
                                                 </span>
                                             </h1>
                                         </div>

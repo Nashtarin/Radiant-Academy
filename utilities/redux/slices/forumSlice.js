@@ -46,6 +46,18 @@ export const topicReact = createAsyncThunk(
     }
 )
 
+export const approveTopic = createAsyncThunk(
+    'forum/approveTopic',
+    async (id) => {
+        try {
+            const response = await axios.put(`http://localhost:3000/api/forums/approve/${id}`);
+            return response.data
+        } catch (error) {
+            console.log(error);
+        }
+    }
+)
+
 const forumSlice = createSlice({
     name: 'forum',
     initialState: {
@@ -79,6 +91,11 @@ const forumSlice = createSlice({
 
         builder.addCase(topicReact.fulfilled, (state, action) => {
             state.forumsList = state.forumsList.map(forum => forum._id === action.payload._id ? { ...forum, loves: forum.loves + 1 } : forum);
+            state.status = 'success';
+        })
+
+        builder.addCase(approveTopic.fulfilled, (state, action) => {
+            state.forumsList = state.forumsList.map(forum => forum._id === action.payload._id ? { ...forum, status: true } : forum);
             state.status = 'success';
         })
     },

@@ -1,10 +1,40 @@
 import React from 'react';
 import { FaHeart, FaPenNib, FaPlus, FaTrashAlt, FaUserFriends, FaUsers } from "react-icons/fa";
-import { useSelector } from 'react-redux';
 import DashboardSidebar from './DashboardSidebar';
+import { useDispatch, useSelector } from 'react-redux';
+import Swal from 'sweetalert2';
+import { deleteUser } from '../../utilities/redux/slices/userSlice';
 
 const AccountsSection = () => {
+    const dispatch = useDispatch();
+
     const allUsers = useSelector((state) => state.users.usersList);
+
+    const handleAccountRemove = (id) => {
+        Swal.fire({
+            title: 'Are you sure you want to remove this?',
+            text: "Warding: you won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#6B21A8',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                if (dispatch(deleteUser(id))) {
+                    Swal.fire(
+                        'Deleted!',
+                        'User has been deleted.',
+                        'success'
+                    )
+                } else {
+                    console.log('Something went wrong!');
+                }
+            } else {
+                console.log('Something went wrong!');
+            }
+          })
+    }
 
     return (
         <div className="px-0 sm:px-6 lg:px-12 bg-white dark:bg-slate-800">
@@ -47,8 +77,8 @@ const AccountsSection = () => {
                                             </h1>
                                             <h1 className='text-green-700 dark:text-green-500 font-semibold flex justify-center'>Approved</h1>
                                             <h1 className='inline-flex justify-end'>
-                                                <span className='text-red-500 dark:text-red-400'>
-                                                    <FaTrashAlt />
+                                                <span className='text-red-500 dark:text-red-400 cursor-pointer'>
+                                                    <FaTrashAlt onClick={() => handleAccountRemove(user._id)}/>
                                                 </span>
                                             </h1>
                                         </div>

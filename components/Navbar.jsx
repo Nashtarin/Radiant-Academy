@@ -16,7 +16,6 @@ const Navbar = () => {
     const [isDarkMode, toggleDarkMode] = useDarkMode();
 
     const { wishList } = useSelector((state) => state.courses);
-    console.log(wishList);
 
     const [totalPrice, setTotalPrice] = useState(0);
     useEffect(() => {
