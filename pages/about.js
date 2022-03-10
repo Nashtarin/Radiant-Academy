@@ -1,9 +1,11 @@
+import Image from "next/image";
 import React from 'react';
 import { Fade, Zoom } from 'react-awesome-reveal';
-import Contact from '../components/Contact';
+import { FaFacebook, FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+import Contact from '../components/Contact';
 
 const about = () => {
     const settings = {
@@ -188,7 +190,7 @@ const about = () => {
             </div>
 
             <div className="container py-5 mx-auto">
-                <div className="mt-10 bg-[#1b222d]">
+                <div className="mt-10">
                     <div className="grid grid-cols-1 md:grid-cols-2 mx-auto px-5 sm:px-10 md:px-20 py-10">
                         <div>
                             <h1 className="text-rose-500 text-2xl font-semibold">Subscribe To Our Newsletter Today</h1>
@@ -203,6 +205,306 @@ const about = () => {
                     </div>
                 </div>
             </div>
+            
+            <section>
+                <h1 className="text-center text-white text-4xl font-bold py-12">Our Dedicated Team</h1>
+            <div className='container grid md:grid-cols-3 xs:grid-cols-1 pb-5 px-5 gap-4'>
+                <div className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
+                            <div className="grid place-content-center relative bottom-12">
+                                <Image
+                                    src="/img/jahid.jpg"
+                                    height="150"
+                                    width="150"
+                                    alt="User"
+                                    draggable="false"
+                                    className="rounded-full"
+                                />
+                            </div>
+                            <div className="flex justify-center">
+                                <h1 className="text-slate-700 dark:text-slate-200 font-semibold text-xl">
+                                    Md. Jahidul Islam
+                                </h1>
+                            </div>
+                            <div>
+                                <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-3">“I received my certificate, and I would like to thank you for your support. Your course was challenging, but you were always there supporting me and ready to help. I enjoyed your class tremendously.”</p>
+                            </div>
+                            <div className="flex justify-center pb-5">
+                                <a href="https://www.linkedin.com/in/jahidul-islam-076a8b216/" target="_new" className="mr-3">
+                                    <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-blue-500 hover:text-blue-500 duration-300">
+                                        <FaLinkedinIn/>
+                                    </span>
+                                </a>
+                                <a href="https://www.facebook.com/zahidul.islam.10420" target="_new" className="mr-3">
+                                    <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-blue-600 hover:text-blue-600 duration-300">
+                                        <FaFacebook/>
+                                    </span>
+                                </a>
+                                <a href="https://github.com/jahidulislamjahid" target="_new" className="mr-3">
+                                    <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-slate-900 hover:text-slate-900 duration-300">
+                                        <FaGithub/>
+                                    </span>
+                                </a>
+                                <a href="https://twitter.com/Zahidul15053004" target="_new" className="mr-3">
+                                    <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-blue-600 hover:text-blue-600 duration-300">
+                                        <FaTwitter/>
+                                    </span>
+                                </a>
+                            </div>
+                </div>
+                <div className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
+                            <div className="grid place-content-center relative bottom-12">
+                                <Image
+                                    src="/img/person1.png"
+                                    height="150"
+                                    width="150"
+                                    alt="User"
+                                    draggable="false"
+                                    className="rounded-full"
+                                />
+                            </div>
+                            <div className="flex justify-center">
+                                <h1 className="text-slate-700 dark:text-slate-200 font-semibold text-xl">
+                                    Iftikher Rasha
+                                </h1>
+                            </div>
+                            <div>
+                                <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-3">“I received my certificate, and I would like to thank you for your support. Your course was challenging, but you were always there supporting me and ready to help. I enjoyed your class tremendously.”</p>
+                            </div>
+                            <div className="flex justify-center pb-5">
+                                <a href="" target="_new" className="mr-3">
+                                    <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-blue-500 hover:text-blue-500 duration-300">
+                                        <FaLinkedinIn/>
+                                    </span>
+                                </a>
+                                <a href="" target="_new" className="mr-3">
+                                    <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-blue-600 hover:text-blue-600 duration-300">
+                                        <FaFacebook/>
+                                    </span>
+                                </a>
+                                <a href="" target="_new" className="mr-3">
+                                    <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-slate-900 hover:text-slate-900 duration-300">
+                                        <FaGithub/>
+                                    </span>
+                                </a>
+                                <a href="" target="_new" className="mr-3">
+                                    <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-blue-600 hover:text-blue-600 duration-300">
+                                        <FaTwitter/>
+                                    </span>
+                                </a>
+                            </div>
+                </div>
+                <div className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
+                            <div className="grid place-content-center relative bottom-12">
+                                <Image
+                                    src="/img/person1.png"
+                                    height="150"
+                                    width="150"
+                                    alt="User"
+                                    draggable="false"
+                                    className="rounded-full"
+                                />
+                            </div>
+                            <div className="flex justify-center">
+                                <h1 className="text-slate-700 dark:text-slate-200 font-semibold text-xl">
+                                    Md. Shahriar Mehedi
+                                </h1>
+                            </div>
+                            <div>
+                                <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-3">“I received my certificate, and I would like to thank you for your support. Your course was challenging, but you were always there supporting me and ready to help. I enjoyed your class tremendously.”</p>
+                            </div>
+                            <div className="flex justify-center pb-5">
+                                <a href="" target="_new" className="mr-3">
+                                    <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-blue-500 hover:text-blue-500 duration-300">
+                                        <FaLinkedinIn/>
+                                    </span>
+                                </a>
+                                <a href="" target="_new" className="mr-3">
+                                    <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-blue-600 hover:text-blue-600 duration-300">
+                                        <FaFacebook/>
+                                    </span>
+                                </a>
+                                <a href="" target="_new" className="mr-3">
+                                    <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-slate-900 hover:text-slate-900 duration-300">
+                                        <FaGithub/>
+                                    </span>
+                                </a>
+                                <a href="" target="_new" className="mr-3">
+                                    <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-blue-600 hover:text-blue-600 duration-300">
+                                        <FaTwitter/>
+                                    </span>
+                                </a>
+                            </div>
+                </div>
+                <div className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
+                            <div className="grid place-content-center relative bottom-12">
+                                <Image
+                                    src="/img/person1.png"
+                                    height="150"
+                                    width="150"
+                                    alt="User"
+                                    draggable="false"
+                                    className="rounded-full"
+                                />
+                            </div>
+                            <div className="flex justify-center">
+                                <h1 className="text-slate-700 dark:text-slate-200 font-semibold text-xl">
+                                    Nastarin Nur
+                                </h1>
+                            </div>
+                            <div>
+                                <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-3">“I received my certificate, and I would like to thank you for your support. Your course was challenging, but you were always there supporting me and ready to help. I enjoyed your class tremendously.”</p>
+                            </div>
+                            <div className="flex justify-center pb-5">
+                                <a href="" target="_new" className="mr-3">
+                                    <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-blue-500 hover:text-blue-500 duration-300">
+                                        <FaLinkedinIn/>
+                                    </span>
+                                </a>
+                                <a href="" target="_new" className="mr-3">
+                                    <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-blue-600 hover:text-blue-600 duration-300">
+                                        <FaFacebook/>
+                                    </span>
+                                </a>
+                                <a href="" target="_new" className="mr-3">
+                                    <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-slate-900 hover:text-slate-900 duration-300">
+                                        <FaGithub/>
+                                    </span>
+                                </a>
+                                <a href="" target="_new" className="mr-3">
+                                    <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-blue-600 hover:text-blue-600 duration-300">
+                                        <FaTwitter/>
+                                    </span>
+                                </a>
+                            </div>
+                </div>
+                <div className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
+                            <div className="grid place-content-center relative bottom-12">
+                                <Image
+                                    src="/img/person1.png"
+                                    height="150"
+                                    width="150"
+                                    alt="User"
+                                    draggable="false"
+                                    className="rounded-full"
+                                />
+                            </div>
+                            <div className="flex justify-center">
+                                <h1 className="text-slate-700 dark:text-slate-200 font-semibold text-xl">
+                                    Iftaker Hossain
+                                </h1>
+                            </div>
+                            <div>
+                                <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-3">“I received my certificate, and I would like to thank you for your support. Your course was challenging, but you were always there supporting me and ready to help. I enjoyed your class tremendously.”</p>
+                            </div>
+                            <div className="flex justify-center pb-5">
+                                <a href="" target="_new" className="mr-3">
+                                    <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-blue-500 hover:text-blue-500 duration-300">
+                                        <FaLinkedinIn/>
+                                    </span>
+                                </a>
+                                <a href="" target="_new" className="mr-3">
+                                    <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-blue-600 hover:text-blue-600 duration-300">
+                                        <FaFacebook/>
+                                    </span>
+                                </a>
+                                <a href="" target="_new" className="mr-3">
+                                    <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-slate-900 hover:text-slate-900 duration-300">
+                                        <FaGithub/>
+                                    </span>
+                                </a>
+                                <a href="" target="_new" className="mr-3">
+                                    <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-blue-600 hover:text-blue-600 duration-300">
+                                        <FaTwitter/>
+                                    </span>
+                                </a>
+                            </div>
+                </div>
+                <div className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
+                            <div className="grid place-content-center relative bottom-12">
+                                <Image
+                                    src="/img/person1.png"
+                                    height="150"
+                                    width="150"
+                                    alt="User"
+                                    draggable="false"
+                                    className="rounded-full"
+                                />
+                            </div>
+                            <div className="flex justify-center">
+                                <h1 className="text-slate-700 dark:text-slate-200 font-semibold text-xl">
+                                    Mostofa Kabir
+                                </h1>
+                            </div>
+                            <div>
+                                <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-3">“I received my certificate, and I would like to thank you for your support. Your course was challenging, but you were always there supporting me and ready to help. I enjoyed your class tremendously.”</p>
+                            </div>
+                            <div className="flex justify-center pb-5">
+                                <a href="" target="_new" className="mr-3">
+                                    <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-blue-500 hover:text-blue-500 duration-300">
+                                        <FaLinkedinIn/>
+                                    </span>
+                                </a>
+                                <a href="" target="_new" className="mr-3">
+                                    <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-blue-600 hover:text-blue-600 duration-300">
+                                        <FaFacebook/>
+                                    </span>
+                                </a>
+                                <a href="" target="_new" className="mr-3">
+                                    <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-slate-900 hover:text-slate-900 duration-300">
+                                        <FaGithub/>
+                                    </span>
+                                </a>
+                                <a href="" target="_new" className="mr-3">
+                                    <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-blue-600 hover:text-blue-600 duration-300">
+                                        <FaTwitter/>
+                                    </span>
+                                </a>
+                            </div>
+                </div>
+                <div className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
+                            <div className="grid place-content-center relative bottom-12">
+                                <Image
+                                    src="/img/person1.png"
+                                    height="150"
+                                    width="150"
+                                    alt="User"
+                                    draggable="false"
+                                    className="rounded-full"
+                                />
+                            </div>
+                            <div className="flex justify-center">
+                                <h1 className="text-slate-700 dark:text-slate-200 font-semibold text-xl">
+                                    Md. Ashadujjaman
+                                </h1>
+                            </div>
+                            <div>
+                                <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-3">“I received my certificate, and I would like to thank you for your support. Your course was challenging, but you were always there supporting me and ready to help. I enjoyed your class tremendously.”</p>
+                            </div>
+                            <div className="flex justify-center pb-5">
+                                <a href="" target="_new" className="mr-3">
+                                    <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-blue-500 hover:text-blue-500 duration-300">
+                                        <FaLinkedinIn/>
+                                    </span>
+                                </a>
+                                <a href="" target="_new" className="mr-3">
+                                    <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-blue-600 hover:text-blue-600 duration-300">
+                                        <FaFacebook/>
+                                    </span>
+                                </a>
+                                <a href="" target="_new" className="mr-3">
+                                    <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-slate-900 hover:text-slate-900 duration-300">
+                                        <FaGithub/>
+                                    </span>
+                                </a>
+                                <a href="" target="_new" className="mr-3">
+                                    <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-blue-600 hover:text-blue-600 duration-300">
+                                        <FaTwitter/>
+                                    </span>
+                                </a>
+                            </div>
+                </div>
+            </div>
+            </section>
 
             <Fade>
                 <Contact />
