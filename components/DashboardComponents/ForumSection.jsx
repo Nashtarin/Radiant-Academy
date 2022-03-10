@@ -1,16 +1,16 @@
 import React from 'react';
-import { FaBookmark, FaClone, FaDollarSign, FaEdit, FaHeart, FaPlus, FaTrashAlt, FaUserFriends } from 'react-icons/fa';
+import { FaBookmark, FaClone, FaEdit, FaHeart, FaPlus, FaTrashAlt, FaEye } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
-import { deleteCourse } from '../../utilities/redux/slices/courseSlice';
+import { deleteTopic, approveTopic } from '../../utilities/redux/slices/forumSlice';
 import DashboardSidebar from './DashboardSidebar';
 
-const CourseSection = () => {
+const ForumSection = () => {
     const dispatch = useDispatch();
 
-    const allCourses = useSelector((state) => state.courses.coursesList);
+    const allTopics = useSelector((state) => state.forums.forumsList);
 
-    const handleCourseRemove = (id) => {
+    const handleForumRemove = (id) => {
         Swal.fire({
             title: 'Are you sure you want to remove this?',
             text: "Warding: you won't be able to revert this!",
@@ -21,10 +21,36 @@ const CourseSection = () => {
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
             if (result.isConfirmed) {
-                if (dispatch(deleteCourse(id))) {
+                if (dispatch(deleteTopic(id))) {
                     Swal.fire(
                         'Deleted!',
-                        'Course has been deleted.',
+                        'Topic has been deleted.',
+                        'success'
+                    )
+                } else {
+                    console.log('Something went wrong!');
+                }
+            } else {
+                console.log('Something went wrong!');
+            }
+          })
+    }
+
+    const handleApproveTopic = (id) => {
+        Swal.fire({
+            title: 'Are you sure you want to approve this?',
+            text: "Warding: the post will be public now!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#6B21A8',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Approve it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                if (dispatch(approveTopic(id))) {
+                    Swal.fire(
+                        'Approved!',
+                        'Topic has been approved.',
                         'success'
                     )
                 } else {
@@ -44,35 +70,27 @@ const CourseSection = () => {
                 </section>
                 <section className='bg-white dark:bg-slate-700 shadow-md rounded-md py-8 px-5 h-auto'>
                     <div className="flex justify-between items-center px-3 mb-4">
-                        <h3 className="text-2xl flex items-center"><FaClone className="mr-3" /> Courses</h3>
-                        <button className="flex items-center btn"><FaPlus className="text-sm mr-2" /> Add Courses</button>
+                        <h3 className="text-2xl flex items-center"><FaClone className="mr-3" /> Forum Topics</h3>
+                        <button className="flex items-center btn"><FaPlus className="text-sm mr-2" /> Add Topics</button>
                     </div>
                     <section className="overflow-x-auto">
                         <div>
                             {
-                                allCourses.map(course => (
-                                    <div className='container grid md:grid-cols-7 xs:grid-cols-1 px-5 bg-white dark:bg-slate-600 rounded-md mb-2 py-4 shadow-md dark:shadow-slate-600' key={course._id}>
+                                allTopics.map(forum => (
+                                    <div className='container grid md:grid-cols-6 xs:grid-cols-1 px-5 bg-white dark:bg-slate-600 rounded-md mb-2 py-4 shadow-md dark:shadow-slate-600' key={forum._id}>
                                         <div className='col-span-2'>
                                             <h2 className='inline-flex'><span className="text-orange-500 my-auto mr-1.5">
                                                 <FaBookmark />
                                                 </span>
-                                                {course.title}
-                                            </h2>
-                                        </div>
-                                        <div className='flex justify-center'>
-                                            <h2 className='inline-flex'>
-                                                <span className='text-rose-500 dark:text-rose-400 my-auto mr-1'>
-                                                    <FaDollarSign />
-                                                </span>
-                                                {course.price}
+                                                {forum.title.split(' ').slice(0, 7).toString().replace(/,/g, ' ')}...
                                             </h2>
                                         </div>
                                         <div className='flex justify-center'>
                                             <h2 className='inline-flex'>
                                                 <span className='text-violet-800 dark:text-violet-400 my-auto mr-1'>
-                                                    <FaUserFriends />
+                                                    <FaEye />
                                                 </span>
-                                                1648
+                                                {forum.views}
                                             </h2>
                                         </div>
                                         <div className='flex justify-center'>
@@ -80,13 +98,17 @@ const CourseSection = () => {
                                                 <span className='my-auto text-rose-600 dark:text-rose-400 mr-1'>
                                                     <FaHeart />
                                                 </span>
-                                                {course.rating}
+                                                {forum.loves}
                                             </h2>
                                         </div>
                                         <div className='flex justify-center'>
-                                            <h2 className='text-green-700 dark:text-green-500 font-semibold'>
-                                                PREMIUM
-                                            </h2>
+                                        {
+                                            forum.status ? <button className='text-green-700 dark:text-green-500 font-semibold'>
+                                                    APPROVED
+                                                </button> : <button className='text-rose-400 dark:text-rose-400 font-semibold' onClick={() => handleApproveTopic(forum._id)}>
+                                                    PENDING
+                                                </button>
+                                        }
                                         </div>
                                         <div className='flex justify-end'>
                                             <h2 className='inline-flex'>
@@ -94,7 +116,7 @@ const CourseSection = () => {
                                                     <FaEdit />
                                                 </span>
                                                 <span className='text-red-500 dark:text-red-400 cursor-pointer'>
-                                                    <FaTrashAlt  onClick={() => handleCourseRemove(course._id)}/>
+                                                    <FaTrashAlt  onClick={() => handleForumRemove(forum._id)}/>
                                                 </span>
                                             </h2>
                                         </div>
@@ -109,4 +131,4 @@ const CourseSection = () => {
     );
 };
 
-export default CourseSection;
+export default ForumSection;

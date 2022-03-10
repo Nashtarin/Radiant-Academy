@@ -17,15 +17,14 @@ export default async function handler(req, res) {
     }
 
     if (method === "DELETE") {
+        const filter = {_id: id};
+
         try {
-            const singleCourse = await Course.deleteOne(id);
+            const singleCourse = await Course.findOneAndDelete(filter);
             res.status(201).json(singleCourse);
 
         } catch (error) {
             res.status(500).json({ success: false });
         }
     }
-
-
-
 }

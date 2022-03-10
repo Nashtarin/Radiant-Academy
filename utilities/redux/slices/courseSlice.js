@@ -1,10 +1,19 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 export const fetchCourses = createAsyncThunk(
     'course/fetchCourses',
     async () => {
         const response = await fetch('http://localhost:3000/api/courses')
             .then(res => res.json())
+        return response.data
+    }
+)
+
+export const deleteCourse = createAsyncThunk(
+    'course/deleteCourse',
+    async (id) => {
+        const response = await axios.delete(`http://localhost:3000/api/courses/${id}`, id);
         return response.data
     }
 )
@@ -40,6 +49,11 @@ const courseSlice = createSlice({
         // Add reducers for additional action types here, and handle loading state as needed
         builder.addCase(fetchCourses.fulfilled, (state, action) => {
             state.coursesList = action.payload;
+            state.status = 'success';
+        })
+
+        builder.addCase(deleteCourse.fulfilled, (state, action) => {
+            state.coursesList = state.coursesList.filter(course => course._id !== action.payload._id);
             state.status = 'success';
         })
     },
