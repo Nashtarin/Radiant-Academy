@@ -15,7 +15,6 @@ export const dropVote = createAsyncThunk(
     async (vote) => {
         try {
             const response = await axios.put(`http://localhost:3000/api/vote/${vote._id}`);
-            console.log(response.data);
             return response.data
         } catch (error) {
             console.log(error);

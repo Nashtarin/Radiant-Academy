@@ -42,6 +42,10 @@ const DashboardSection = () => {
     };
 
     const data = {
+        labels: [
+            'Enrolled',
+            'Available'
+        ],
         datasets: [{
             label: 'Enrollment Chart',
             data: [250, 50],
@@ -49,10 +53,7 @@ const DashboardSection = () => {
                 'rgb(50, 0, 126)',
                 'rgb(255, 202, 48)'
             ],
-            labels: [
-                'Enrolled',
-                'Available'
-            ]
+            hoverOffset: 2
         }]
     };
 
@@ -198,13 +199,13 @@ const DashboardSection = () => {
                                                             <div>
                                                                 <div className="flex items-center">
                                                                     <div className=" mr-2 rounded-md" style={{ backgroundColor: '#32007E', width: '15px', height: '15px' }}></div>
-                                                                    <p className="text-sm text-gray-500">Enrolled - <span className="text-black">2500</span></p>
+                                                                    <p className="text-sm text-gray-500">Enrolled - <span className="text-black">250</span></p>
                                                                 </div>
                                                                 <div className="flex items-center">
                                                                     <div className="mr-2 rounded-md" style={{
                                                                         backgroundColor: '#FFCA30', width: '15px', height: '15px'
                                                                     }}></div>
-                                                                    <p className="text-sm text-gray-500">Available - <span className="text-black">500</span></p>
+                                                                    <p className="text-sm text-gray-500">Available - <span className="text-black">50</span></p>
                                                                 </div>
                                                             </div>
                                                         </div>

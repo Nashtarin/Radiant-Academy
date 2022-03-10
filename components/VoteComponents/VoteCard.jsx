@@ -74,7 +74,7 @@ const VoteCard = ({ votes }) => {
 
     return (
         <div className="text-slate-700 dark:text-slate-200 ">
-            <div className="bg-slate-100 dark:bg-[#37465b] p-5  rounded-lg card-single">
+            <div className="bg-slate-100 dark:bg-[#37465b] p-5 rounded-lg card-single">
                 <div>
                     <div className="flex justify-center">
                         <Image

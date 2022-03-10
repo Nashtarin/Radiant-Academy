@@ -1,17 +1,18 @@
 import Head from 'next/head';
 import React from 'react';
-import VoteNewCourses from '../../components/VoteComponents/VoteNewCourses';
+import QuizzesSection from '../../../components/DashboardComponents/QuizzesSection';
 
 const index = () => {
     return (
-        <div className='bg-white dark:bg-slate-800'>
+        <div>
             <Head>
-                <title>Radiant Academy | Vote</title>
+                <title>Radiant Academy | Quizzes Dashboard</title>
                 <meta name="Your learning partner" content="Best learning app for the curious learners" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <VoteNewCourses />
+            {/* QUIZ CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
+            <QuizzesSection />
         </div>
     );
 };

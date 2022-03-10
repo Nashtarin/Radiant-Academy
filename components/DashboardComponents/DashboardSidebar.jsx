@@ -24,7 +24,7 @@ const DashboardSidebar = () => {
                     <FaClone className="mr-5" /> Course
                 </button>
             </Link>
-            <Link href="/quiz" passHref>
+            <Link href="/dashboard/quizzes" passHref>
                 <button className="btn-ghost w-full px-4 py-1 dark:hover:text-slate-500 hover:bg-slate-200 text-lg text-left flex items-center my-1 rounded-full">
                     <FaDiceD6 className="mr-5" /> Quiz
                 </button>
