@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 
 
 const CounterSection = () => {
-    const data = useSelector((state) => state.courses.coursesList.books);
 
     return (
         <div className="p-20 bg-white dark:bg-slate-800">
