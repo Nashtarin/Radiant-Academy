@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@emailjs/browser": "^3.4.0",
+    "@paypal/react-paypal-js": "^7.6.0",
     "@redux-devtools/extension": "^3.2.2",
     "@reduxjs/toolkit": "^1.7.2",
     "axios": "^0.25.0",
