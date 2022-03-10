@@ -2,15 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 import VoteNewCourses from '../../components/VoteComponents/VoteNewCourses';
 
-export const getStaticProps = async () => {
-    const res = await fetch('http://localhost:3000/api/vote')
-    const vote = await res.json()
-    return {
-        props: {
-            vote,
-        }
-    }
-}
+
 
 const index = ({ vote }) => {
     return (
@@ -25,5 +17,15 @@ const index = ({ vote }) => {
         </div>
     );
 };
+
+export const getServerSideProps = async () => {
+    const res = await fetch('http://localhost:3000/api/vote')
+    const vote = await res.json()
+    return {
+        props: {
+            vote,
+        }
+    }
+}
 
 export default index;

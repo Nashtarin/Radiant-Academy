@@ -44,7 +44,7 @@ const useFirebase = () => {
                     name: displayName,
                     role: 'user'
                 };
-                
+
                 setUser(signedInUser);
                 dispatch(fetchUsers());
                 router.replace(`/profile/${signedInUser.email}`);
