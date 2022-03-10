@@ -29,9 +29,10 @@ const useFirebase = () => {
             .then((result) => {
                 // The signed-in user info.
                 const user = result.user;
+                const role = 'user';
 
                 const { displayName, email, photoURL, accessToken } = user;
-                saveUser(user.email, user.displayName, user.photoURL, user.accessToken, 'POST');
+                saveUser(user.email, user.displayName, user.photoURL, user.accessToken, role, 'POST');
 
                 setAuthError('');
                 localStorage.setItem('token', accessToken);
@@ -41,7 +42,8 @@ const useFirebase = () => {
                     email: email,
                     photo: photoURL,
                     success: true,
-                    name: displayName
+                    name: displayName,
+                    role: 'user'
                 };
                 setUser(signedInUser);
                 dispatch(fetchUsers());
@@ -142,6 +144,7 @@ const useFirebase = () => {
                     photo: picture,
                     success: true,
                     name: name,
+                    role: 'user'
                 }
                 setUser(decodedUser);
             }
@@ -173,12 +176,12 @@ const useFirebase = () => {
     }
 
     //database uploading
-    const saveUser = (email, displayName, photoURL, accessToken, method) => {
+    const saveUser = (email, displayName, photoURL, accessToken, role, method) => {
         const alreadyUser = allUser.find(user => user.email === email && user.displayName === displayName);
         if (alreadyUser) {
             console.log('already user!');
         } else {
-            const user = { email, displayName, photoURL, accessToken };
+            const user = { email, displayName, photoURL, accessToken, role };
             fetch('http://localhost:3000/api/users', {
                 method: method,
                 headers: {

@@ -18,6 +18,30 @@ export const deleteUser = createAsyncThunk(
     }
 )
 
+export const makeAdmin = createAsyncThunk(
+    'user/makeAdmin',
+    async (id) => {
+        try {
+            const response = await axios.put(`http://localhost:3000/api/users/roles/admin/${id}`);
+            return response.data
+        } catch (error) {
+            console.log(error);
+        }
+    }
+)
+
+export const removeAdmin = createAsyncThunk(
+    'user/removeAdmin',
+    async (id) => {
+        try {
+            const response = await axios.put(`http://localhost:3000/api/users/roles/user/${id}`);
+            return response.data
+        } catch (error) {
+            console.log(error);
+        }
+    }
+)
+
 const userSlice = createSlice({
     name: 'user',
     initialState: {
@@ -41,6 +65,16 @@ const userSlice = createSlice({
 
         builder.addCase(deleteUser.fulfilled, (state, action) => {
             state.usersList = state.usersList.filter(user => user._id !== action.payload._id);
+            state.status = 'success';
+        })
+
+        builder.addCase(makeAdmin.fulfilled, (state, action) => {
+            state.usersList = state.usersList.map(user => user._id === action.payload._id ? { ...user, role: 'admin' } : user);
+            state.status = 'success';
+        })
+
+        builder.addCase(removeAdmin.fulfilled, (state, action) => {
+            state.usersList = state.usersList.map(user => user._id === action.payload._id ? { ...user, role: 'user' } : user);
             state.status = 'success';
         })
     },
