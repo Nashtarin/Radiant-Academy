@@ -16,7 +16,6 @@ const Navbar = () => {
     const [isDarkMode, toggleDarkMode] = useDarkMode();
 
     const { wishList } = useSelector((state) => state.courses);
-    console.log(wishList);
 
     const [totalPrice, setTotalPrice] = useState(0);
     useEffect(() => {
@@ -210,11 +209,13 @@ const Navbar = () => {
                                     <a className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3">CONTACT </a>
                                 </Link>
                             </li>  */}
-                            <li className="text-white mt-3">
-                                <Link passHref href="/register">
-                                    <button className="btn border-0 px-7 py-2 rounded-btn bg-rose-500 text-white transition duration-500 mx-3">FREE TRIAL</button>
-                                </Link>
-                            </li>
+                            {!user.isSignedIn && 
+                                <li className="text-white mt-3">
+                                    <Link passHref href="/register">
+                                        <button className="btn border-0 px-7 py-2 rounded-btn bg-rose-500 text-white transition duration-500 mx-3">FREE TRIAL</button>
+                                    </Link>
+                                </li>
+                            }
                         </ul>
                     </div>
                 </div>
