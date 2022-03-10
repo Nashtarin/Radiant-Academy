@@ -15,13 +15,10 @@ Chart.register(ArcElement);
 import Swal from 'sweetalert2';
 import { approveTopic } from '../../utilities/redux/slices/forumSlice';
 import useAuth from '../../utilities/Hooks/useAuth';
-// import Lottie from 'react-lottie';
-// import animationData from '../../public/img/loading.json';
 import { useRouter } from 'next/router';
 
 const DashboardSection = () => {
-    const { user, isLoading } = useAuth();
-    console.log(user.role);
+    const { user } = useAuth();
 
     const router = useRouter();
 
@@ -29,8 +26,11 @@ const DashboardSection = () => {
     const allCourses = useSelector((state) => state.courses.coursesList);
     const allTopics = useSelector((state) => state.forums.forumsList);
     const allReviews = useSelector((state) => state.reviews.reviewsList);
-    const allUsers = useSelector((state) => state.users.usersList);
     const allQuizzes = useSelector((state) => state.quizzes.quizzesList);
+    const allUsers = useSelector((state) => state.users.usersList);
+
+    const thisUser = allUsers.find(userData => userData.email === user.email);
+
     const pendingList = allTopics.filter(forum => {
     if(forum.status === false){
         return forum
@@ -113,22 +113,13 @@ const DashboardSection = () => {
           })
     }
 
-    if (isLoading && !user.isSignedIn) {
-        return <div className="loading flex justify-center items-center min-h-screen m-auto">
-            {/* <div>
-                <Lottie options={defaultOptions}
-                    height={200}
-                    width={200} />
-            </div> */}
-        </div>
+    if (thisUser?.role !== 'admin' || thisUser?.role === undefined) {
+        router.push('./')
     }
-
-    // user.role !== 'admin' && router.replace('/404');
-    !user.isSignedIn && router.replace('/login');
 
     return (
         <>
-         {(user.isSignedIn && user.role === 'user') &&
+         {(user.isSignedIn && thisUser.role === 'admin') &&
             <div className="px-0 sm:px-6 lg:px-12">
                 <div className="grid grid-rows-1 md:grid-cols-[250px_minmax(300px,_1fr)] lg:grid-cols-[250px_minmax(600px,_1fr)] p-8 gap-5">
                     <div>
