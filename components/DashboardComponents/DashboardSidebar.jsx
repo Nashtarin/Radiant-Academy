@@ -29,7 +29,7 @@ const DashboardSidebar = () => {
                     <FaDiceD6 className="mr-5" /> Quiz
                 </button>
             </Link>
-            <Link href="/forum" passHref>
+            <Link href="/dashboard/forums" passHref>
                 <button className="btn-ghost w-full px-4 py-1 dark:hover:text-slate-500 rounded-full hover:bg-slate-200 text-lg text-left flex items-center">
                     <FaFolder className="mr-5" /> Forum
                 </button>
