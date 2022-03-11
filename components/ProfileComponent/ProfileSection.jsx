@@ -61,7 +61,7 @@ const ProfileSection = ({ account }) => {
     return (
         <div>
             {user.isSignedIn &&
-                <div className="grid grid-rows-1 md:grid-cols-[300px_minmax(300px,_1fr)] lg:grid-cols-[350px_minmax(600px,_1fr)] p-2 bg-white dark:bg-slate-800">
+                <div className="grid grid-rows-1 md:grid-cols-[300px_minmax(300px,_1fr)] lg:grid-cols-[350px_minmax(600px,_1fr)] p-2 bg-slate-200 dark:bg-slate-800">
                     <div className="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 m-5 rounded-lg py-6 flex justify-center">
                         <div className="flex-col text-center">
                             <div>

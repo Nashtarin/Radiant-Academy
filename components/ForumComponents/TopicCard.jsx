@@ -12,7 +12,7 @@ import { useDispatch } from 'react-redux';
 import { topicReact } from '../../utilities/redux/slices/forumSlice';
 
 const TopicCard = ({ forum }) => {
-    const { _id, title, desc, createdAt, category, loves, views } = forum;
+    const { _id, title, desc, createdAt, category, loves, views, status } = forum;
     const [reacts, setReacts] = useState(loves);
 
     useEffect(() => {
@@ -80,6 +80,8 @@ const TopicCard = ({ forum }) => {
     const updateStorage = cart => {
         localStorage.setItem('liked_id', JSON.stringify(cart));
     }
+
+
 
     return (
         <div className='grid grid-rows-1 sm:grid-cols-3 my-5 mx-5 bg-slate-100 rounded-md shadow-md pt-5 dark:bg-slate-700'>

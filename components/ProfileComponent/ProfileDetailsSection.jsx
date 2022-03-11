@@ -32,8 +32,8 @@ const ProfileDetailsSection = ({ account }) => {
     }
 
     return (
-        <div className='bg-white dark:bg-slate-700'>
-            <div className="p-5 bg-white dark:bg-slate-700">
+        <div className='bg-slate-200 dark:bg-slate-700'>
+            <div className="p-5 bg-slate-200 dark:bg-slate-700">
                 <Tabs>
                     <TabList className="grid grid-cols-4 mb-5 text-center gap-2 border-b-2 border-black text-slate-700 dark:text-slate-200">
                         <Tab className="bg-transparent border-0 shadow-none text-lg px-2 py-1.5 mx-1 font-medium">Courses</Tab>
@@ -42,8 +42,8 @@ const ProfileDetailsSection = ({ account }) => {
                         <Tab className="bg-transparent border-0 shadow-none text-lg px-2 py-1.5 mx-1 font-medium">Settings</Tab>
                     </TabList>
 
-                    <div className="tab-panes bg-white dark:bg-slate-700">
-                        <TabPanel className="px-5 pt-0">
+                    <div className="tab-panes bg-slate-200 dark:bg-slate-700">
+                        <TabPanel className="p-5">
                             <div className="overflow-x-auto">
                                 <table className="table w-full bg-slate-200 overflow-scroll">
                                     <tbody>
@@ -85,7 +85,7 @@ const ProfileDetailsSection = ({ account }) => {
                             <div className="overflow-x-auto">
                                 <table className="table w-full bg-slate-200 dark:bg-slate-700 overflow-scroll">
                                     <tbody>
-                                        <tr className="bg-slate-200">
+                                        <tr className="bg-slate-200 dark:bg-slate-400 dark:text-white">
                                             <td colSpan={2} className="font-semibold">Radiant Academy turned 2 today!</td>
                                             <td>
                                                 <span className="flex items-center">
@@ -109,7 +109,7 @@ const ProfileDetailsSection = ({ account }) => {
                                                 </button>
                                             </td>
                                         </tr>
-                                        <tr className="bg-slate-200 ">
+                                        <tr className="bg-slate-200 dark:bg-slate-400 dark:text-white">
                                             <td colSpan={2} className="font-semibold">Radiant Academy turned 1 today!</td>
                                             <td>
                                                 <span className="flex items-center">

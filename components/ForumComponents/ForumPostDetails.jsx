@@ -3,8 +3,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { FaCalendarAlt, FaEye, FaHashtag, FaHeart } from "react-icons/fa";
+import Linkify from 'react-linkify';
 
-const ForumPostDetails = ({forum}) => {
+const ForumPostDetails = ({ forum }) => {
     const { _id, title, author, authorImg, category, createdAt, desc, loves, views } = forum;
 
     return (
@@ -15,7 +16,9 @@ const ForumPostDetails = ({forum}) => {
                         <h1 className="text-3xl mt-2 mb-4 font-bold text-purple-900 dark:text-violet-400">
                             {title}
                         </h1>
-                        <article className='text-slate-700 dark:text-slate-200'>{desc}</article>
+                        <article className="text-slate-700 dark:text-slate-200 whitespace-pre-line">
+                            <Linkify properties={{ style: { color: 'blue', textDecoration: 'none' } }}>{desc}</Linkify>
+                        </article>
                     </div>
                 </div>
                 <div>
@@ -37,19 +40,19 @@ const ForumPostDetails = ({forum}) => {
                                 </h3>
                                 <div>
                                     <p className="mt-2 flex items-center text-slate-700 dark:text-slate-200">
-                                        <FaCalendarAlt /> 
+                                        <FaCalendarAlt />
                                         &nbsp; {moment(createdAt).fromNow()}
                                     </p>
                                     <p className="flex items-center text-slate-700 dark:text-slate-200">
                                         <FaHashtag />
-                                         &nbsp; {category}
+                                        &nbsp; {category}
                                     </p>
                                     <p className="flex items-center text-slate-700 dark:text-slate-200">
-                                        <FaEye style={{color: ''}} />
-                                         &nbsp; {views}
+                                        <FaEye style={{ color: '' }} />
+                                        &nbsp; {views}
                                     </p>
                                     <p className="flex items-center text-slate-700 dark:text-slate-200">
-                                        <FaHeart style={{color: 'red'}} /> 
+                                        <FaHeart style={{ color: 'red' }} />
                                         &nbsp; {loves}
                                     </p>
                                 </div>
