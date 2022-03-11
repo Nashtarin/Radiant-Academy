@@ -22,6 +22,7 @@ const UsersSchema = new mongoose.Schema({
     },
     role: {
         type: String,
+        default: 'user',
     },
     enrolledCourses: [{
         courseId: { type: String, default: "620f957278b8225254db86d6"},

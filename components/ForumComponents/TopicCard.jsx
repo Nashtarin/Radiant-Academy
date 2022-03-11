@@ -25,9 +25,6 @@ const TopicCard = ({ forum }) => {
             if (color_cart[_id]) {
                 document.getElementById(`icon-heart-${_id}`).classList.add('text-rose-500');
             }
-            // else {
-            //     document.getElementById('icon-heart').style.color = '$primary';
-            // }
         }
     }, [views])
 
