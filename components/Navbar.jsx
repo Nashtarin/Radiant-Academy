@@ -168,7 +168,7 @@ const Navbar = () => {
                                 <li>
                                     <Link href="/vote">
                                         <a className=" hover:bg-rose-500 hover:text-white">
-                                            Vote <span className="ml-2 badge">New</span>
+                                            Vote
                                         </a>
                                     </Link>
                                 </li>
