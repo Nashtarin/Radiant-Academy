@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { BsArrowRight } from 'react-icons/bs';
 
-const MyCourseCard = ({ course }) => {
+const MyCourseCard = ({ course, account }) => {
 
     return (
         <div>

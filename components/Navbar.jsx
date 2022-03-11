@@ -143,14 +143,15 @@ const Navbar = () => {
                             <ul tabIndex="0" className="mt-3 p-2 relative top-10 shadow menu menu-compact dropdown-content bg-slate-100 dark:bg-slate-600 rounded-box w-52">
                                 <li>
                                     <Link href={`/profile/${user.email}`}>
-                                        <a className=" hover:bg-rose-500 hover:text-white"> Profile</a>
+                                        <a className=" hover:bg-rose-500 hover:text-white">
+                                            Profile
+                                        </a>
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/dashboard">
                                         <a className=" hover:bg-rose-500 hover:text-white">
                                             Dashboard
-                                            <span className="ml-2 badge">New</span>
                                         </a>
                                     </Link>
                                 </li>
@@ -161,7 +162,9 @@ const Navbar = () => {
                                 </li>
                                 <li>
                                     <Link href="/vote">
-                                        <a className=" hover:bg-rose-500 hover:text-white">Vote</a>
+                                        <a className=" hover:bg-rose-500 hover:text-white">
+                                            Vote <span className="ml-2 badge">New</span>
+                                        </a>
                                     </Link>
                                 </li>
                                 <li onClick={logout}>

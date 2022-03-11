@@ -1,11 +1,12 @@
 import React from 'react';
 import TopicCard from './TopicCard';
 
-const FeaturedTopicSection = ({forums}) => {
+const FeaturedTopicSection = ({ forums }) => {
     const approvedTopics = forums.data.filter(forum => {
-    if(forum.status === true){
-        return forum
-    }})
+        if (forum.status === true) {
+            return forum;
+        }
+    });
 
     return (
         <section className='container mx-auto mt-[8.5rem] pb-20 px-2 lg:px-4'>
