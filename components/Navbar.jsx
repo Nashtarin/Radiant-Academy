@@ -172,6 +172,13 @@ const Navbar = () => {
                                         </a>
                                     </Link>
                                 </li>
+                                <li>
+                                    <Link href="/canvas">
+                                        <a className=" hover:bg-rose-500 hover:text-white">
+                                            Canvas
+                                        </a>
+                                    </Link>
+                                </li>
                                 <li onClick={logout}>
                                     <a className=" hover:bg-rose-500 hover:text-white">
                                         Logout
