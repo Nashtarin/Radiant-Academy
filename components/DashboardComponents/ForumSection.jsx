@@ -1,66 +1,12 @@
 import React from 'react';
 import { FaBookmark, FaClone, FaEdit, FaHeart, FaPlus, FaTrashAlt, FaEye } from 'react-icons/fa';
-import { useDispatch, useSelector } from 'react-redux';
-import Swal from 'sweetalert2';
-import { deleteTopic, approveTopic } from '../../utilities/redux/slices/forumSlice';
+import { useSelector } from 'react-redux';
+import useCrud from '../../utilities/Hooks/useCrud';
 import DashboardSidebar from './DashboardSidebar';
 
 const ForumSection = () => {
-    const dispatch = useDispatch();
-
+    const { handleApprove, handleRemove } = useCrud();
     const allTopics = useSelector((state) => state.forums.forumsList);
-
-    const handleForumRemove = (id) => {
-        Swal.fire({
-            title: 'Are you sure you want to remove this?',
-            text: "Warding: you won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#6B21A8',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-          }).then((result) => {
-            if (result.isConfirmed) {
-                if (dispatch(deleteTopic(id))) {
-                    Swal.fire(
-                        'Deleted!',
-                        'Topic has been deleted.',
-                        'success'
-                    )
-                } else {
-                    console.log('Something went wrong!');
-                }
-            } else {
-                console.log('Something went wrong!');
-            }
-          })
-    }
-
-    const handleApproveTopic = (id) => {
-        Swal.fire({
-            title: 'Are you sure you want to approve this?',
-            text: "Warding: the post will be public now!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#6B21A8',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, Approve it!'
-          }).then((result) => {
-            if (result.isConfirmed) {
-                if (dispatch(approveTopic(id))) {
-                    Swal.fire(
-                        'Approved!',
-                        'Topic has been approved.',
-                        'success'
-                    )
-                } else {
-                    console.log('Something went wrong!');
-                }
-            } else {
-                console.log('Something went wrong!');
-            }
-          })
-    }
     
     return (
         <div className='px-0 sm:px-6 lg:px-12 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200'>
@@ -105,7 +51,7 @@ const ForumSection = () => {
                                         {
                                             forum.status ? <button className='text-green-700 dark:text-green-500 font-semibold'>
                                                     APPROVED
-                                                </button> : <button className='text-rose-400 dark:text-rose-400 font-semibold' onClick={() => handleApproveTopic(forum._id)}>
+                                                </button> : <button className='text-rose-400 dark:text-rose-400 font-semibold' onClick={() => handleApprove(forum._id, 'topic')}>
                                                     PENDING
                                                 </button>
                                         }
@@ -116,7 +62,7 @@ const ForumSection = () => {
                                                     <FaEdit />
                                                 </span>
                                                 <span className='text-red-500 dark:text-red-400 cursor-pointer'>
-                                                    <FaTrashAlt  onClick={() => handleForumRemove(forum._id)}/>
+                                                    <FaTrashAlt  onClick={() => handleRemove(forum._id, 'topic')}/>
                                                 </span>
                                             </h2>
                                         </div>

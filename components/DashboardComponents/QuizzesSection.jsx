@@ -1,40 +1,12 @@
 import React from 'react';
 import { FaBookmark, FaClone, FaDollarSign, FaEdit, FaHeart, FaPlus, FaTrashAlt, FaUserFriends } from 'react-icons/fa';
-import { useDispatch, useSelector } from 'react-redux';
-import Swal from 'sweetalert2';
-import { deleteCourse } from '../../utilities/redux/slices/courseSlice';
+import { useSelector } from 'react-redux';
+import useCrud from '../../utilities/Hooks/useCrud';
 import DashboardSidebar from './DashboardSidebar';
 
 const QuizzesSection = () => {
-    const dispatch = useDispatch();
-
+    const { handleRemove } = useCrud();
     const allQuizzes = useSelector((state) => state.quizzes.quizzesList);
-
-    // const handleCourseRemove = (id) => {
-    //     Swal.fire({
-    //         title: 'Are you sure you want to remove this?',
-    //         text: "Warding: you won't be able to revert this!",
-    //         icon: 'warning',
-    //         showCancelButton: true,
-    //         confirmButtonColor: '#6B21A8',
-    //         cancelButtonColor: '#d33',
-    //         confirmButtonText: 'Yes, delete it!'
-    //       }).then((result) => {
-    //         if (result.isConfirmed) {
-    //             if (dispatch(deleteCourse(id))) {
-    //                 Swal.fire(
-    //                     'Deleted!',
-    //                     'quiz has been deleted.',
-    //                     'success'
-    //                 )
-    //             } else {
-    //                 console.log('Something went wrong!');
-    //             }
-    //         } else {
-    //             console.log('Something went wrong!');
-    //         }
-    //       })
-    // }
     
     return (
         <div className='px-0 sm:px-6 lg:px-12 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200'>
@@ -94,7 +66,7 @@ const QuizzesSection = () => {
                                                     <FaEdit />
                                                 </span>
                                                 <span className='text-red-500 dark:text-red-400 cursor-pointer'>
-                                                    <FaTrashAlt/>
+                                                    <FaTrashAlt onClick={() => handleRemove(quiz._id, 'quiz')}/>
                                                 </span>
                                             </h2>
                                         </div>

@@ -1,28 +1,27 @@
 import { ArcElement, Chart } from 'chart.js';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { BsArrowRight, BsCheck2Circle } from 'react-icons/bs';
 import { FaBookmark, FaClock, FaClone, FaCopy, FaEdit, FaEnvelope, FaEye, FaHashtag, FaHeart, FaIdCardAlt, FaInfoCircle, FaNewspaper, FaPhoneSquareAlt, FaPlus } from 'react-icons/fa';
 import { MdPending } from 'react-icons/md';
 import { CgArrowRightO } from 'react-icons/cg';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import DashboardSidebar from './DashboardSidebar';
-Chart.register(ArcElement);
-import Swal from 'sweetalert2';
-import { approveTopic } from '../../utilities/redux/slices/forumSlice';
 import useAuth from '../../utilities/Hooks/useAuth';
+import useCrud from '../../utilities/Hooks/useCrud';
 import { useRouter } from 'next/router';
 
+Chart.register(ArcElement);
+
 const DashboardSection = () => {
-    const { user } = useAuth();
-
     const router = useRouter();
+    const { user } = useAuth();
+    const { handleApprove } = useCrud();
 
-    const dispatch = useDispatch();
     const allCourses = useSelector((state) => state.courses.coursesList);
     const allTopics = useSelector((state) => state.forums.forumsList);
     const allReviews = useSelector((state) => state.reviews.reviewsList);
@@ -32,9 +31,10 @@ const DashboardSection = () => {
     const thisUser = allUsers.find(userData => userData.email === user.email);
 
     const pendingList = allTopics.filter(forum => {
-    if(forum.status === false){
-        return forum
-    }})
+        if(forum.status === false){
+            return forum
+        }
+    })
 
     const config = {
         type: 'doughnut',
@@ -87,32 +87,6 @@ const DashboardSection = () => {
             },
         ],
     };
-
-    const handleApproveTopic = (id) => {
-        Swal.fire({
-            title: 'Are you sure you want to approve this?',
-            text: "Warding: the post will be public now!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#6B21A8',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, Approve it!'
-          }).then((result) => {
-            if (result.isConfirmed) {
-                if (dispatch(approveTopic(id))) {
-                    Swal.fire(
-                        'Approved!',
-                        'Topic has been approved.',
-                        'success'
-                    )
-                } else {
-                    console.log('Something went wrong!');
-                }
-            } else {
-                console.log('Something went wrong!');
-            }
-          })
-    }
 
     if (thisUser?.role !== 'admin' || thisUser?.role === undefined) {
         router.push('./')
@@ -338,7 +312,7 @@ const DashboardSection = () => {
                                                                 <p className="text-[0.9em] dark:text-slate-200">{forum.reacts}</p>
                                                             </span>
                                                             <span className="flex items-center">
-                                                                <button onClick={() => handleApproveTopic(forum._id)}>
+                                                                <button onClick={() => handleApprove(forum._id, 'topic')}>
                                                                     <BsCheck2Circle className="mr-2 text-lg dark:text-slate-200" />
                                                                 </button>
                                                             </span>
