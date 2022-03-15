@@ -7,20 +7,21 @@ import 'react-tabs/style/react-tabs.css';
 import { setWhichCourse } from '../../utilities/redux/slices/quizSlice';
 
 const ProfileDetailsSection = ({ account }) => {
+    console.log('account',account)
     const router = useRouter();
     const dispatch = useDispatch();
 
     const allCourses = useSelector((state) => state.courses.coursesList);
     const allUsers = useSelector((state) => state.users.usersList);
-    const enrolled = account.data[0].enrolledCourses;
-
-    const enrolledChecker = enrolled.map(enroll => {
+    const enrolled = account?.data[0]?.enrolledCourses;
+    console.log('enrolled',enrolled,'acd',account.data.length)
+    const enrolledChecker = account.data.length!==0 ? enrolled.map(enroll => {
         let index = allCourses.findIndex(course => enroll.courseId === course._id);
         if (index > -1) {
             return allCourses[index];
         }
         return 0;
-    })
+    }): '';
 
     const handleDelete = () => {
         console.log('clicked')
@@ -48,7 +49,7 @@ const ProfileDetailsSection = ({ account }) => {
                                 <table className="table w-full bg-slate-200 overflow-scroll">
                                     <tbody>
                                         {
-                                            enrolledChecker.map(course => (
+                                            account.data.length!==0 ? enrolledChecker.map(course => (
                                                 <tr className="bg-slate-200" key={course._id}>
                                                     <td colSpan={2} className="font-semibold">{course.title}</td>
                                                     <td>
@@ -75,7 +76,7 @@ const ProfileDetailsSection = ({ account }) => {
                                                     </td>
                                                 </tr>
                                             )
-                                            )
+                                            ):<h1 className='text-4xl text-center bg-white dark:text-white dark:bg-slate-700 overflow-hidden'>You don't enroll any courses</h1>
                                         }
                                     </tbody>
                                 </table>

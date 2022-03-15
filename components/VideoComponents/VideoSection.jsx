@@ -94,13 +94,13 @@ export default function App() {
     return (
         <div>
             <div>
-                <div className="video p-3 m-5">
+                <div className="video p-5 flex justify-center pt-10">
                     {stream && <video
                         playsInline
                         muted
                         ref={myVideo}
                         autoPlay
-                        style={{ width: "300px" }}
+                        style={{ width: "700px" }}
                     />}
                 </div>
                 <div>

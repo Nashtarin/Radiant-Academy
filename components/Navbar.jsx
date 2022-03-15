@@ -16,7 +16,6 @@ const Navbar = () => {
     const [isDarkMode, toggleDarkMode] = useDarkMode();
 
     const { wishList } = useSelector((state) => state.courses);
-    console.log(wishList);
 
     const [totalPrice, setTotalPrice] = useState(0);
     useEffect(() => {
@@ -33,6 +32,9 @@ const Navbar = () => {
             position: "top-center"
         });
     }
+    const allUsers = useSelector((state) => state.users.usersList);
+    const thisUser = allUsers.find(userData => userData.email === user.email);
+    console.log('all users',allUsers,'users',thisUser)
 
     return (
         <>
@@ -107,9 +109,9 @@ const Navbar = () => {
                                         <div className="p-4 justify-center flex">
                                             <Link href="/courses/payment" passHref>
                                                 <button className="text-sm undefined hover:scale-110 focus:outline-none
-                                                    flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
+                                                    flex justify-center px-4 py-2 rounded font-bold
                                                     hover:bg-rose-700 hover:text-white bg-violet-500 
-                                                    text-white border duration-200 ease-in-out border-white-600 transition">
+                                                    text-white border duration-200 ease-in-out border-white-600 transition cursor-not-allowed" disabled>
                                                     Checkout ${totalPrice}
                                                 </button>
                                             </Link>
@@ -149,13 +151,16 @@ const Navbar = () => {
                                         </a>
                                     </Link>
                                 </li>
-                                <li>
-                                    <Link href="/dashboard">
-                                        <a className=" hover:bg-rose-500 hover:text-white">
-                                            Dashboard
-                                        </a>
-                                    </Link>
-                                </li>
+                                {
+                                    thisUser?.role === 'admin' && <li>
+                                                                    <Link href="/dashboard">
+                                                                        <a className=" hover:bg-rose-500 hover:text-white">
+                                                                            Dashboard
+                                                                            <span className="ml-2 badge">New</span>
+                                                                        </a>
+                                                                    </Link>
+                                                                </li> 
+                                }
                                 <li>
                                     <Link href={`/my-course/${user.email}`}>
                                         <a className=" hover:bg-rose-500 hover:text-white">My Course</a>
@@ -164,7 +169,14 @@ const Navbar = () => {
                                 <li>
                                     <Link href="/vote">
                                         <a className=" hover:bg-rose-500 hover:text-white">
-                                            Vote <span className="ml-2 badge">New</span>
+                                            Vote
+                                        </a>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/canvas">
+                                        <a className=" hover:bg-rose-500 hover:text-white">
+                                            Canvas
                                         </a>
                                     </Link>
                                 </li>
@@ -213,11 +225,13 @@ const Navbar = () => {
                                     <a className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3">CONTACT </a>
                                 </Link>
                             </li>  */}
-                            <li className="text-white mt-3">
-                                <Link passHref href="/register">
-                                    <button className="btn border-0 px-7 py-2 rounded-btn bg-rose-500 text-white transition duration-500 mx-3">FREE TRIAL</button>
-                                </Link>
-                            </li>
+                            {!user.isSignedIn && 
+                                <li className="text-white mt-3">
+                                    <Link passHref href="/register">
+                                        <button className="btn border-0 px-7 py-2 rounded-btn bg-rose-500 text-white transition duration-500 mx-3">FREE TRIAL</button>
+                                    </Link>
+                                </li>
+                            }
                         </ul>
                     </div>
                 </div>

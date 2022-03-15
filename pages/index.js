@@ -6,6 +6,7 @@ import { fetchForums } from "../utilities/redux/slices/forumSlice";
 import { fetchCategories } from "../utilities/redux/slices/categorySlice";
 import { fetchReviews } from "../utilities/redux/slices/reviewSlice";
 import { fetchUsers } from "../utilities/redux/slices/userSlice";
+import { fetchVotes } from "../utilities/redux/slices/voteSlice";
 import PackageSection from "../components/HomeComponents/PackageSection";
 import QuizSection from "../components/HomeComponents/QuizSection";
 import HeroSection from "../components/HomeComponents/HeroSection";
@@ -24,6 +25,7 @@ export default function Home() {
     dispatch(fetchCategories());
     dispatch(fetchReviews());
     dispatch(fetchUsers());
+    dispatch(fetchVotes());
   }, [dispatch]);
 
   return (

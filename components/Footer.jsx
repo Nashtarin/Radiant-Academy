@@ -1,8 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { BsArrowUpCircleFill } from 'react-icons/bs';
+import { FaHeadset } from "react-icons/fa";
 
 const Footer = () => {
+
+    function helpLine(){
+        const chatBtn = document.getElementById("chat-icon");
+        chatBtn.classList.toggle("expanded");
+    };
+
     window.onscroll = (function () {
         if (window.scrollY > 15) {
             document.getElementById("sticky").classList.add("popup");
@@ -121,6 +128,60 @@ const Footer = () => {
                 </style>
                 <BsArrowUpCircleFill style={{ fontSize: 25 }} />
             </button>
+
+            <div id="chat-bot">
+               
+                    <div className="icon" id="chat-icon" onClick={() => helpLine()}>
+                        <Link href="/video-chat" passHref>
+                            <div className="user">
+                                Call Radiant Help Center!
+                            </div>
+                        </Link>
+                        <FaHeadset className="text-4xl"/>
+                    </div>
+                <style jsx>
+                        {`
+                            #chat-bot {
+                                position: fixed;
+                                bottom: 5rem;
+                                right: 6rem;
+                                z-index: 99999999999999999;
+                                height: auto;
+                                float: right;
+                            }
+                            #chat-bot .icon {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                text-align: center;
+                                cursor: pointer;
+                                color: #ffffff;
+                                background: #7157F6;
+                                width: 50px;
+                                height: 50px;
+                                float: right;
+                                border-radius: 10px;
+                                padding: 10px 15px;
+                                transition: 0.2s all;
+                                overflow: hidden;
+                            }
+                            #chat-bot .icon .user {
+                                visibility: hidden;
+                                margin-left: -100px;
+                            }
+                            #chat-bot .icon.expanded {
+                                width: 270px;
+                                justify-content: space-between;
+                            }
+                            
+                            #chat-bot .icon.expanded .user {
+                                visibility: visible;
+                                margin-left: 0;
+                                transition: 0.5s;
+                            }
+                        `}
+                </style>
+            </div>
         </div >
     );
 };

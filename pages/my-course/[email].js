@@ -33,6 +33,7 @@ const MyCourse = (account) => {
 // }
 
 export async function getServerSideProps({ params }) {
+
     // params contains the forum `id`.
     // If the route is like /forums/1, then params.id is 1
     const res = await fetch(`http://localhost:3000/api/users/emails/${params.email}`)

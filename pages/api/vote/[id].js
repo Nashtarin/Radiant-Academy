@@ -1,5 +1,5 @@
-import dbConnect from "../../../../utilities/mongoose";
-import Forum from '../../../../models/ForumModel';
+import dbConnect from "../../../utilities/mongoose";
+import Vote from '../../../models/VoteModel';
 
 export default async function handler(req, res) {
     const { method, query: { id } } = req;
@@ -8,11 +8,11 @@ export default async function handler(req, res) {
 
     if (method === "PUT") {
         const filter = {_id: id};
-        const update =  {status : true};
+        const update =  { $inc : {'votesTotal' : 1} };
 
         try {
-            const updatedForum = await Forum.findOneAndUpdate(filter, update);
-            res.status(201).json(updatedForum);
+            const updatedVote = await Vote.findOneAndUpdate(filter, update);
+            res.status(201).json(updatedVote);
 
         } catch (error) {
             res.status(500).json({ success: false });

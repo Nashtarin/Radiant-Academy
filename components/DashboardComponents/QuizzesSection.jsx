@@ -5,36 +5,36 @@ import Swal from 'sweetalert2';
 import { deleteCourse } from '../../utilities/redux/slices/courseSlice';
 import DashboardSidebar from './DashboardSidebar';
 
-const CourseSection = () => {
+const QuizzesSection = () => {
     const dispatch = useDispatch();
 
-    const allCourses = useSelector((state) => state.courses.coursesList);
+    const allQuizzes = useSelector((state) => state.quizzes.quizzesList);
 
-    const handleCourseRemove = (id) => {
-        Swal.fire({
-            title: 'Are you sure you want to remove this?',
-            text: "Warding: you won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#6B21A8',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-          }).then((result) => {
-            if (result.isConfirmed) {
-                if (dispatch(deleteCourse(id))) {
-                    Swal.fire(
-                        'Deleted!',
-                        'Course has been deleted.',
-                        'success'
-                    )
-                } else {
-                    console.log('Something went wrong!');
-                }
-            } else {
-                console.log('Something went wrong!');
-            }
-          })
-    }
+    // const handleCourseRemove = (id) => {
+    //     Swal.fire({
+    //         title: 'Are you sure you want to remove this?',
+    //         text: "Warding: you won't be able to revert this!",
+    //         icon: 'warning',
+    //         showCancelButton: true,
+    //         confirmButtonColor: '#6B21A8',
+    //         cancelButtonColor: '#d33',
+    //         confirmButtonText: 'Yes, delete it!'
+    //       }).then((result) => {
+    //         if (result.isConfirmed) {
+    //             if (dispatch(deleteCourse(id))) {
+    //                 Swal.fire(
+    //                     'Deleted!',
+    //                     'quiz has been deleted.',
+    //                     'success'
+    //                 )
+    //             } else {
+    //                 console.log('Something went wrong!');
+    //             }
+    //         } else {
+    //             console.log('Something went wrong!');
+    //         }
+    //       })
+    // }
     
     return (
         <div className='px-0 sm:px-6 lg:px-12 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200'>
@@ -44,19 +44,19 @@ const CourseSection = () => {
                 </section>
                 <section className='bg-white dark:bg-slate-700 shadow-md rounded-md py-8 px-5 h-auto'>
                     <div className="flex justify-between items-center px-3 mb-4">
-                        <h3 className="text-2xl flex items-center"><FaClone className="mr-3" /> Courses</h3>
-                        <button className="flex items-center btn"><FaPlus className="text-sm mr-2" /> Add Courses</button>
+                        <h3 className="text-2xl flex items-center"><FaClone className="mr-3" /> Quizzes</h3>
+                        <button className="flex items-center btn"><FaPlus className="text-sm mr-2" /> Add Quizzes</button>
                     </div>
                     <section className="overflow-x-auto">
                         <div>
                             {
-                                allCourses.map(course => (
-                                    <div className='container grid md:grid-cols-7 xs:grid-cols-1 px-5 bg-white dark:bg-slate-600 rounded-md mb-2 py-4 shadow-md dark:shadow-slate-600' key={course._id}>
+                                allQuizzes.map(quiz => (
+                                    <div className='container grid md:grid-cols-7 xs:grid-cols-1 px-5 bg-white dark:bg-slate-600 rounded-md mb-2 py-4 shadow-md dark:shadow-slate-600' key={quiz._id}>
                                         <div className='col-span-2'>
                                             <h2 className='inline-flex'><span className="text-orange-500 my-auto mr-1.5">
                                                 <FaBookmark />
                                                 </span>
-                                                {course.title}
+                                                {quiz.questionText}
                                             </h2>
                                         </div>
                                         <div className='flex justify-center'>
@@ -64,7 +64,7 @@ const CourseSection = () => {
                                                 <span className='text-rose-500 dark:text-rose-400 my-auto mr-1'>
                                                     <FaDollarSign />
                                                 </span>
-                                                {course.price}
+                                                {quiz.answer}
                                             </h2>
                                         </div>
                                         <div className='flex justify-center'>
@@ -80,7 +80,7 @@ const CourseSection = () => {
                                                 <span className='my-auto text-rose-600 dark:text-rose-400 mr-1'>
                                                     <FaHeart />
                                                 </span>
-                                                {course.rating}
+                                                {quiz.totalSurveySteps}
                                             </h2>
                                         </div>
                                         <div className='flex justify-center'>
@@ -94,7 +94,7 @@ const CourseSection = () => {
                                                     <FaEdit />
                                                 </span>
                                                 <span className='text-red-500 dark:text-red-400 cursor-pointer'>
-                                                    <FaTrashAlt  onClick={() => handleCourseRemove(course._id)}/>
+                                                    <FaTrashAlt/>
                                                 </span>
                                             </h2>
                                         </div>
@@ -109,4 +109,4 @@ const CourseSection = () => {
     );
 };
 
-export default CourseSection;
+export default QuizzesSection;
