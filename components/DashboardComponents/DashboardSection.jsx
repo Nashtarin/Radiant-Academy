@@ -18,19 +18,9 @@ import useAuth from '../../utilities/Hooks/useAuth';
 import { approveTopic } from '../../utilities/redux/slices/forumSlice';
 import DashboardSidebar from './DashboardSidebar';
 Chart.register(ArcElement);
-<<<<<<< HEAD
-
-const DashboardSection = () => {
-    const { user, isLoading } = useAuth();
-=======
-import Swal from 'sweetalert2';
-import { approveTopic } from '../../utilities/redux/slices/forumSlice';
-import useAuth from '../../utilities/Hooks/useAuth';
-import { useRouter } from 'next/router';
 
 const DashboardSection = () => {
     const { user } = useAuth();
->>>>>>> 955738350746d9ad5827e56683c203e65cb878e0
 
     const router = useRouter();
 
@@ -280,40 +270,6 @@ const DashboardSection = () => {
                                             <FaInfoCircle className="mr-2 text-lg" />
                                             <h5 className="text-lg font-semibold">Account Info</h5>
                                         </div>
-<<<<<<< HEAD
-                                        <div className="border-[1px] border-stone-300 dark:border-stone-400 my-2"></div>
-                                        <table className="table-compact text-slate-700 dark:text-slate-200">
-                                            <tbody>
-                                                <tr>
-                                                    <td className="flex items-center">
-                                                        <FaIdCardAlt /> &nbsp; Name
-                                                    </td>
-                                                    <td>:&nbsp; Radiant Admin</td>
-                                                </tr>
-                                                <tr>
-                                                    <td className="flex items-center">
-                                                        <FaBookmark /> &nbsp; Role
-                                                    </td>
-                                                    <td>:&nbsp; Admin</td>
-                                                </tr>
-                                                <tr>
-                                                    <td className="flex items-center">
-                                                        <FaPhoneSquareAlt /> &nbsp; Phone
-                                                    </td>
-                                                    <td>:&nbsp; +880 123456</td>
-                                                </tr>
-                                                <tr>
-                                                    <td className="flex items-center">
-                                                        <FaEnvelope /> &nbsp; Email
-                                                    </td>
-                                                    <td>:&nbsp; info@radiantacademy.com</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <div className="flex justify-end mt-3">
-                                            <button className="text-sm flex items-center px-4 py-1 font-semibold rounded-full hover:bg-stone-100 text-violet-900 dark:text-violet-300 dark:hover:bg-slate-700">See More Info <BsArrowRight className="ml-2 text-[15px] text-red-600 dark:text-red-400" /></button>
-                                        </div>
-=======
                                         <button className="px-4 py-1.5 hover:bg-stone-100 rounded-lg flex items-center uppercase hover:text-slate-800"><FaEdit className="mr-2" /> Edit</button>
                                     </div>
                                     <div className="border-[1px] border-stone-300 dark:border-stone-400 my-2"></div>
@@ -347,7 +303,6 @@ const DashboardSection = () => {
                                     </table>
                                     <div className="flex justify-end mt-3">
                                         <button className="text-sm flex items-center px-4 py-1 font-semibold rounded-full hover:bg-stone-100 text-violet-900 dark:text-violet-300 dark:hover:bg-slate-700">See More Info <BsArrowRight className="ml-2 text-[15px] text-red-600 dark:text-red-400" /></button>
->>>>>>> 955738350746d9ad5827e56683c203e65cb878e0
                                     </div>
                                 </div>
                             </div>

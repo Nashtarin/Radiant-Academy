@@ -51,7 +51,7 @@ export default function board() {
     }
 
     return (
-        <div className='w-5/6 h-5/6 mx-auto' id='sketch'>
+        <div className='w-5/6 h-5/6 mx-auto pt-8' id='sketch'>
             <canvas className='bg-white' id='board'></canvas>
         </div>
     )
