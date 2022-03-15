@@ -22,38 +22,38 @@ const AccountsSection = () => {
                         <div className="w-full bg-slate-200 dark:bg-slate-700 overflow-y-scroll pr-2">
                             <>
                                 {
-                                    allUsers.data.map(user => (
-                                    <div className='container grid md:grid-cols-6 xs:grid-cols-1 px-5 bg-white dark:bg-slate-600 rounded-md mb-2 py-4 shadow-md dark:shadow-slate-600' key={user._id}>
-                                        <div className='col-span-2'>
-                                            <h1 className='text-white inline-flex'>
-                                                <span className="text-orange-500 my-auto mr-1.5">
-                                                <FaUserFriends />
-                                                </span> 
-                                                {user.displayName}
+                                    allUsers?.map(user => (
+                                        <div className='container grid md:grid-cols-6 xs:grid-cols-1 px-5 bg-white dark:bg-slate-600 rounded-md mb-2 py-4 shadow-md dark:shadow-slate-600' key={user._id}>
+                                            <div className='col-span-2'>
+                                                <h1 className='text-white inline-flex'>
+                                                    <span className="text-orange-500 my-auto mr-1.5">
+                                                        <FaUserFriends />
+                                                    </span>
+                                                    {user.displayName}
+                                                </h1>
+                                            </div>
+
+                                            <h1 className='inline-flex'>
+                                                <span className="flex items-center justify-center">
+                                                    <FaPenNib className="mr-1.5 text-purple-800" />
+                                                </span>
+                                                1648
+                                            </h1>
+                                            <h1 className='inline-flex font-base justify-center'>
+                                                <span className='my-auto text-rose-600 dark:text-rose-400 mr-1'>
+                                                    <FaHeart />
+                                                </span>
+                                                1258
+                                            </h1>
+                                            <h1 className='text-green-700 dark:text-green-500 font-semibold flex justify-center'>Approved</h1>
+                                            <h1 className='inline-flex justify-end'>
+                                                <span className='text-red-500 dark:text-red-400'>
+                                                    <FaTrashAlt />
+                                                </span>
                                             </h1>
                                         </div>
-                                    
-                                    <h1 className='inline-flex'>
-                                    <span className="flex items-center justify-center">
-                                    <FaPenNib className="mr-1.5 text-purple-800" />
-                                    </span>
-                                        1648
-                                    </h1>
-                                    <h1 className='inline-flex font-base justify-center'>
-                                        <span className='my-auto text-rose-600 dark:text-rose-400 mr-1'>
-                                            <FaHeart />
-                                        </span>
-                                        1258
-                                    </h1>
-                                    <h1 className='text-green-700 dark:text-green-500 font-semibold flex justify-center'>Approved</h1>
-                                    <h1 className='inline-flex justify-end'>
-                                        <span className='text-red-500 dark:text-red-400'>
-                                            <FaTrashAlt />
-                                        </span>
-                                    </h1>
-                                </div>
                                     )
-                                )}
+                                    )}
                             </>
                         </div>
                     </section>

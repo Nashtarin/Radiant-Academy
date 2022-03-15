@@ -1,17 +1,38 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Toaster } from 'react-hot-toast';
 import { FaMoon, FaSun, FaUserCircle } from "react-icons/fa";
-import { useSelector } from "react-redux";
 import Logo from '../public/img/RA_Logo.png';
-import useAuth from "../utilities/Hooks/useAuth";
 import { useDarkMode } from "../utilities/Hooks/useDarkMode";
+import { BsFillCartFill, BsTrashFill } from 'react-icons/bs';
+import useAuth from "../utilities/Hooks/useAuth";
+import toast, { Toaster } from 'react-hot-toast';
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { removeFromWishList } from "../utilities/redux/slices/courseSlice";
 
 const Navbar = () => {
+    const dispatch = useDispatch();
     const { user, logout } = useAuth();
     const [isDarkMode, toggleDarkMode] = useDarkMode();
-    const allUserData = useSelector((state) => state.users.usersList);
-    // const thisUser = allUserData.find(userData =>  userData.email === user.email);
+
+    const { wishList } = useSelector((state) => state.courses);
+    console.log(wishList);
+
+    const [totalPrice, setTotalPrice] = useState(0);
+    useEffect(() => {
+        let total = 0;
+        wishList.forEach((item, i) => {
+            total += item.price;
+            setTotalPrice(total);
+        })
+    }, [wishList]);
+
+    const handleCartRemove = (id) => {
+        dispatch(removeFromWishList(id));
+        toast.success("Successfully removed from cart!", {
+            position: "top-center"
+        });
+    }
 
     return (
         <>
@@ -60,6 +81,42 @@ const Navbar = () => {
                             {/* <Link href="/contact">
                                 <a className="btn hover:bg-slate-300 dark:hover:bg-slate-600 btn-ghost rounded-btn mx-3">CONTACT </a>
                             </Link>  */}
+                            {
+                                wishList.length > 0 &&
+                                <div className="flex-none dropdown dropdown-end mx-1 sm:mx-2 my-auto">
+                                    <label tabIndex="0" className="btn btn-ghost btn-circle avatar hover:border-purple-800 relative">
+                                        <div className="rounded-full">
+                                            <div className="flex-none my-auto pr-2 sm:mr-3 lg:mr-12">
+                                                <label tabIndex="0" className="btn btn-ghost btn-circle avatar hover:bg-transparent">
+                                                    <BsFillCartFill className="text-xl" />
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div className="absolute text-xs rounded-full px-1 top-0 right-0 bg-rose-700 text-white z-10">{wishList.length}</div>
+                                    </label>
+                                    <ul tabIndex="0" className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-slate-100 dark:bg-slate-600 rounded-box border-solid w-52">
+                                        {
+                                            wishList.map((cart) => (
+                                                <li key={cart._id}>
+                                                    <div className="bg-slate-300 hover:bg-rose-500 hover:text-white dark:bg-slate-700 flex justify-between mt-1">
+                                                        <Link href={`/courses/${cart._id}`} passHref>{cart.title}</Link><BsTrashFill className="text-lg" onClick={() => handleCartRemove(cart._id)} />
+                                                    </div>
+                                                </li>
+                                            ))
+                                        }
+                                        <div className="p-4 justify-center flex">
+                                            <Link href="/courses/payment" passHref>
+                                                <button className="text-sm undefined hover:scale-110 focus:outline-none
+                                                    flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
+                                                    hover:bg-rose-700 hover:text-white bg-violet-500 
+                                                    text-white border duration-200 ease-in-out border-white-600 transition">
+                                                    Checkout ${totalPrice}
+                                                </button>
+                                            </Link>
+                                        </div>
+                                    </ul>
+                                </div>
+                            }
                             {!user.isSignedIn &&
                                 <Link passHref href="/register">
                                     <button className="btn border-0 px-7 py-2 rounded bg-rose-500 text-white dark:hover:bg-slate-600 transition duration-500 mx-3">FREE TRIAL</button>
@@ -87,14 +144,15 @@ const Navbar = () => {
                             <ul tabIndex="0" className="mt-3 p-2 relative top-10 shadow menu menu-compact dropdown-content bg-slate-100 dark:bg-slate-600 rounded-box w-52">
                                 <li>
                                     <Link href={`/profile/${user.email}`}>
-                                        <a className=" hover:bg-rose-500 hover:text-white"> Profile</a>
+                                        <a className=" hover:bg-rose-500 hover:text-white">
+                                            Profile
+                                        </a>
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/dashboard">
                                         <a className=" hover:bg-rose-500 hover:text-white">
                                             Dashboard
-                                            <span className="ml-2 badge">New</span>
                                         </a>
                                     </Link>
                                 </li>
@@ -105,7 +163,9 @@ const Navbar = () => {
                                 </li>
                                 <li>
                                     <Link href="/vote">
-                                        <a className=" hover:bg-rose-500 hover:text-white">Vote</a>
+                                        <a className=" hover:bg-rose-500 hover:text-white">
+                                            Vote <span className="ml-2 badge">New</span>
+                                        </a>
                                     </Link>
                                 </li>
                                 <li onClick={logout}>

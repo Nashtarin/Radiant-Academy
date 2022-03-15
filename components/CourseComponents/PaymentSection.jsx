@@ -30,7 +30,7 @@ const PaymentSection = ({ course }) => {
                     'Thanks for the payment',
                     'success'
                 )
-                router.push(`/quiz/${course?._id}`);
+                router.push(`/my-course/${user.email}`);
             }
         } catch (err) {
             console.log(err);
