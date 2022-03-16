@@ -41,8 +41,7 @@ const useFirebase = () => {
                     email: email,
                     photo: photoURL,
                     success: true,
-                    name: displayName,
-                    role: 'user'
+                    name: displayName
                 };
 
                 setUser(signedInUser);
@@ -143,8 +142,7 @@ const useFirebase = () => {
                     email: email,
                     photo: picture,
                     success: true,
-                    name: name,
-                    role: 'user'
+                    name: name
                 }
                 setUser(decodedUser);
             }

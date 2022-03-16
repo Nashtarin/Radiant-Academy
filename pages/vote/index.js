@@ -2,9 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 import VoteNewCourses from '../../components/VoteComponents/VoteNewCourses';
 
-
-
-const index = ({ vote }) => {
+const index = () => {
     return (
         <div className='bg-white dark:bg-slate-800'>
             <Head>
@@ -13,7 +11,7 @@ const index = ({ vote }) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <VoteNewCourses vote={vote} />
+            <VoteNewCourses />
         </div>
     );
 };

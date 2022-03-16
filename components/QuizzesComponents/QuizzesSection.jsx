@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import QuizOptions from './QuizOptions';
 import { addToAnsweredList, addToScore } from '../../utilities/redux/slices/quizSlice';
+import { InfinitySpin } from 'react-loader-spinner';
 
 const QuizzesSection = () => {
     //this is to store answers inside redux with onChange
@@ -198,6 +199,7 @@ const QuizzesSection = () => {
                                         height={300}
                                         width={300} />
                                 </div> */}
+                                <InfinitySpin color="grey" />
                             </div>
                         }
                     </form>

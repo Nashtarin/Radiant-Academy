@@ -1,40 +1,40 @@
 import { ArcElement, Chart } from 'chart.js';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { BsArrowRight, BsCheck2Circle } from 'react-icons/bs';
 import { FaBookmark, FaClock, FaClone, FaCopy, FaEdit, FaEnvelope, FaEye, FaHashtag, FaHeart, FaIdCardAlt, FaInfoCircle, FaNewspaper, FaPhoneSquareAlt, FaPlus } from 'react-icons/fa';
 import { MdPending } from 'react-icons/md';
 import { CgArrowRightO } from 'react-icons/cg';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import DashboardSidebar from './DashboardSidebar';
-Chart.register(ArcElement);
-import Swal from 'sweetalert2';
-import { approveTopic } from '../../utilities/redux/slices/forumSlice';
 import useAuth from '../../utilities/Hooks/useAuth';
-// import Lottie from 'react-lottie';
-// import animationData from '../../public/img/loading.json';
+import useCrud from '../../utilities/Hooks/useCrud';
 import { useRouter } from 'next/router';
 
+Chart.register(ArcElement);
+
 const DashboardSection = () => {
-    const { user, isLoading } = useAuth();
-    console.log(user.role);
-
     const router = useRouter();
+    const { user } = useAuth();
+    const { handleApprove } = useCrud();
 
-    const dispatch = useDispatch();
     const allCourses = useSelector((state) => state.courses.coursesList);
     const allTopics = useSelector((state) => state.forums.forumsList);
     const allReviews = useSelector((state) => state.reviews.reviewsList);
-    const allUsers = useSelector((state) => state.users.usersList);
     const allQuizzes = useSelector((state) => state.quizzes.quizzesList);
+    const allUsers = useSelector((state) => state.users.usersList);
+
+    const thisUser = allUsers.find(userData => userData.email === user.email);
+
     const pendingList = allTopics.filter(forum => {
-    if(forum.status === false){
-        return forum
-    }})
+        if(forum.status === false){
+            return forum
+        }
+    })
 
     const config = {
         type: 'doughnut',
@@ -42,6 +42,10 @@ const DashboardSection = () => {
     };
 
     const data = {
+        labels: [
+            'Enrolled',
+            'Available'
+        ],
         datasets: [{
             label: 'Enrollment Chart',
             data: [250, 50],
@@ -49,10 +53,7 @@ const DashboardSection = () => {
                 'rgb(50, 0, 126)',
                 'rgb(255, 202, 48)'
             ],
-            labels: [
-                'Enrolled',
-                'Available'
-            ]
+            hoverOffset: 2
         }]
     };
 
@@ -87,48 +88,13 @@ const DashboardSection = () => {
         ],
     };
 
-    const handleApproveTopic = (id) => {
-        Swal.fire({
-            title: 'Are you sure you want to approve this?',
-            text: "Warding: the post will be public now!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#6B21A8',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, Approve it!'
-          }).then((result) => {
-            if (result.isConfirmed) {
-                if (dispatch(approveTopic(id))) {
-                    Swal.fire(
-                        'Approved!',
-                        'Topic has been approved.',
-                        'success'
-                    )
-                } else {
-                    console.log('Something went wrong!');
-                }
-            } else {
-                console.log('Something went wrong!');
-            }
-          })
+    if (thisUser?.role !== 'admin' || thisUser?.role === undefined) {
+        router.push('./')
     }
-
-    if (isLoading && !user.isSignedIn) {
-        return <div className="loading flex justify-center items-center min-h-screen m-auto">
-            {/* <div>
-                <Lottie options={defaultOptions}
-                    height={200}
-                    width={200} />
-            </div> */}
-        </div>
-    }
-
-    // user.role !== 'admin' && router.replace('/404');
-    !user.isSignedIn && router.replace('/login');
 
     return (
         <>
-         {(user.isSignedIn && user.role === 'user') &&
+         {(user.isSignedIn && thisUser.role === 'admin') &&
             <div className="px-0 sm:px-6 lg:px-12">
                 <div className="grid grid-rows-1 md:grid-cols-[250px_minmax(300px,_1fr)] lg:grid-cols-[250px_minmax(600px,_1fr)] p-8 gap-5">
                     <div>
@@ -207,13 +173,13 @@ const DashboardSection = () => {
                                                             <div>
                                                                 <div className="flex items-center">
                                                                     <div className=" mr-2 rounded-md" style={{ backgroundColor: '#32007E', width: '15px', height: '15px' }}></div>
-                                                                    <p className="text-sm text-gray-500">Enrolled - <span className="text-black">2500</span></p>
+                                                                    <p className="text-sm text-gray-500">Enrolled - <span className="text-black">250</span></p>
                                                                 </div>
                                                                 <div className="flex items-center">
                                                                     <div className="mr-2 rounded-md" style={{
                                                                         backgroundColor: '#FFCA30', width: '15px', height: '15px'
                                                                     }}></div>
-                                                                    <p className="text-sm text-gray-500">Available - <span className="text-black">500</span></p>
+                                                                    <p className="text-sm text-gray-500">Available - <span className="text-black">50</span></p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -346,7 +312,7 @@ const DashboardSection = () => {
                                                                 <p className="text-[0.9em] dark:text-slate-200">{forum.reacts}</p>
                                                             </span>
                                                             <span className="flex items-center">
-                                                                <button onClick={() => handleApproveTopic(forum._id)}>
+                                                                <button onClick={() => handleApprove(forum._id, 'topic')}>
                                                                     <BsCheck2Circle className="mr-2 text-lg dark:text-slate-200" />
                                                                 </button>
                                                             </span>
