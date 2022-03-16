@@ -1,6 +1,18 @@
 import VoteCard from "./VoteCard";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
-const VoteNewCourses = ({ vote }) => {
+const VoteNewCourses = () => {
+    const allVotes = useSelector((state) => state.votes.votesList);
+    const [totalPrice, setTotalPrice] = useState(0);
+    useEffect(() => {
+        let total = 0;
+        allVotes.forEach((item, i) => {
+            total += item.votesTotal;
+            setTotalPrice(total);
+        })
+    }, [allVotes]);
+
     return (
         <div className='bg-white dark:bg-slate-800 min-h-screen w-5/6 mx-auto'>
             <div className="text-center pt-[4rem] pb-14">
@@ -9,14 +21,14 @@ const VoteNewCourses = ({ vote }) => {
             <div className="flex flex-col lg:flex-row">
                 <div className="lg:w-[80%] md:px-10 xl:px-40 grid grid-cols-1 md:grid-cols-2  xl:grid-cols-3 gap-5">
                     {
-                        vote?.data?.map(votes => (
+                        allVotes.map(votes => (
                             <VoteCard votes={votes} key={votes._id} />
                         ))
                     }
                 </div>
                 <div className="lg:w-[20%] bg-slate-100 dark:bg-[#37465b] text-slate-700 dark:text-slate-200 p-10 text-center  rounded-lg">
                     <h2 className="text-2xl pb-5">Total votes</h2>
-                    <h3 className="text-6xl font-bold">00</h3>
+                    <h3 className="text-6xl font-bold">{totalPrice}</h3>
 
                 </div>
             </div>

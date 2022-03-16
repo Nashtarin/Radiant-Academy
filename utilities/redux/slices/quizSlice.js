@@ -1,10 +1,19 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 export const fetchQuizzes = createAsyncThunk(
     'quiz/fetchQuizzes',
     async () => {
         const response = await fetch('http://localhost:3000/api/quizzes')
             .then(res => res.json())
+        return response.data
+    }
+)
+
+export const deleteQuiz = createAsyncThunk(
+    'quiz/deleteQuiz',
+    async (id) => {
+        const response = await axios.delete(`http://localhost:3000/api/quizzes/${id}`, id);
         return response.data
     }
 )
@@ -43,6 +52,11 @@ const quizSlice = createSlice({
         // Add reducers for additional action types here, and handle loading state as needed
         builder.addCase(fetchQuizzes.fulfilled, (state, action) => {
             state.quizzesList = action.payload;
+            state.status = 'success';
+        })
+
+        builder.addCase(deleteQuiz.fulfilled, (state, action) => {
+            state.quizzesList = state.quizzesList.filter(quiz => quiz._id !== action.payload._id);
             state.status = 'success';
         })
     },

@@ -1,8 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { BsArrowUpCircleFill } from 'react-icons/bs';
+import { FaHeadset } from "react-icons/fa";
 
 const Footer = () => {
+
+    function helpLine(){
+        const chatBtn = document.getElementById("chat-icon");
+        chatBtn.classList.toggle("expanded");
+    };
+
     window.onscroll = (function () {
         if (window.scrollY > 15) {
             document.getElementById("sticky").classList.add("popup");
@@ -19,7 +26,7 @@ const Footer = () => {
 
     return (
         <div>
-            <div className="px-1 overflow-x-auto sm:px-10 md:px-20 pt-8 md:pt-20 pb-[29rem] sm:pb-[25rem] md:pb-[17rem] h-[600px] sm:h-[0px] md:h-[430px] lg:h-[300px] bg-slate-200 dark:bg-slate-600 text-slate-700 dark:text-slate-300 block">
+            <div className="px-1 sm:px-10 md:px-20 pt-8 md:pt-20 pb-[29rem] sm:pb-[25rem] md:pb-[17rem] h-[600px] sm:h-[0px] md:h-[430px] lg:h-[300px] bg-slate-200 dark:bg-slate-600 text-slate-700 dark:text-slate-300 block">
                 <div className="grid grid-row-1 md:grid-cols-[100px_minmax(300px,_1fr)] lg:grid-cols-[200px_minmax(600px,_1fr)]">
                     <div className="flex justify-center items-start">
                         <Image src="https://i.postimg.cc/sDvkgk3h/logo.png" alt="Logo" width="80px" height="80px" className="cursor-pointer shadow-md" draggable="false" />
@@ -120,6 +127,60 @@ const Footer = () => {
                 </style>
                 <BsArrowUpCircleFill style={{ fontSize: 25 }} />
             </button>
+
+            <div id="chat-bot">
+               
+                    <div className="icon" id="chat-icon" onClick={() => helpLine()}>
+                        <Link href="/video-chat" passHref>
+                            <div className="user">
+                                Call Radiant Help Center!
+                            </div>
+                        </Link>
+                        <FaHeadset className="text-4xl"/>
+                    </div>
+                <style jsx>
+                        {`
+                            #chat-bot {
+                                position: fixed;
+                                bottom: 5rem;
+                                right: 6rem;
+                                z-index: 99999999999999999;
+                                height: auto;
+                                float: right;
+                            }
+                            #chat-bot .icon {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                text-align: center;
+                                cursor: pointer;
+                                color: #ffffff;
+                                background: #7157F6;
+                                width: 50px;
+                                height: 50px;
+                                float: right;
+                                border-radius: 10px;
+                                padding: 10px 15px;
+                                transition: 0.2s all;
+                                overflow: hidden;
+                            }
+                            #chat-bot .icon .user {
+                                visibility: hidden;
+                                margin-left: -100px;
+                            }
+                            #chat-bot .icon.expanded {
+                                width: 270px;
+                                justify-content: space-between;
+                            }
+                            
+                            #chat-bot .icon.expanded .user {
+                                visibility: visible;
+                                margin-left: 0;
+                                transition: 0.5s;
+                            }
+                        `}
+                </style>
+            </div>
         </div >
     );
 };

@@ -1,9 +1,11 @@
 import React from 'react';
-import { FaHeart, FaPenNib, FaPlus, FaTrashAlt, FaUserFriends, FaUsers } from "react-icons/fa";
-import { useSelector } from 'react-redux';
+import { FaPenNib, FaPlus, FaTrashAlt, FaUserFriends, FaUsers, FaUsersCog, FaBuffer, FaSyncAlt } from "react-icons/fa";
 import DashboardSidebar from './DashboardSidebar';
+import { useSelector } from 'react-redux';
+import useCrud from '../../utilities/Hooks/useCrud';
 
 const AccountsSection = () => {
+    const { handleRemove, handleRole } = useCrud();
     const allUsers = useSelector((state) => state.users.usersList);
 
     return (
@@ -19,42 +21,48 @@ const AccountsSection = () => {
                         <button className="flex items-center btn"><FaPlus className="text-sm mr-2" /> Add Accounts</button>
                     </div>
                     <section className="overflow-x-auto">
-                        <div className="w-full bg-slate-200 dark:bg-slate-700 overflow-y-scroll pr-2">
-                            <>
-                                {
-                                    allUsers?.map(user => (
-                                        <div className='container grid md:grid-cols-6 xs:grid-cols-1 px-5 bg-white dark:bg-slate-600 rounded-md mb-2 py-4 shadow-md dark:shadow-slate-600' key={user._id}>
-                                            <div className='col-span-2'>
-                                                <h1 className='text-white inline-flex'>
-                                                    <span className="text-orange-500 my-auto mr-1.5">
-                                                        <FaUserFriends />
-                                                    </span>
-                                                    {user.displayName}
-                                                </h1>
-                                            </div>
+                        <div>
+                            {
+                                allUsers?.map(user => (
+                                    <div className='container grid md:grid-cols-6 xs:grid-cols-1 px-5 bg-white dark:bg-slate-600 rounded-md mb-2 py-4 shadow-md dark:shadow-slate-600' key={user._id}>
+                                        <h2 className='text-white inline-flex col-span-1'>
+                                            <span className="text-orange-500 my-auto mr-1.5">
+                                                <FaUserFriends />
+                                            </span>
+                                            {user.displayName}
+                                        </h2>
 
-                                            <h1 className='inline-flex'>
-                                                <span className="flex items-center justify-center">
-                                                    <FaPenNib className="mr-1.5 text-purple-800" />
-                                                </span>
-                                                1648
-                                            </h1>
-                                            <h1 className='inline-flex font-base justify-center'>
-                                                <span className='my-auto text-rose-600 dark:text-rose-400 mr-1'>
-                                                    <FaHeart />
-                                                </span>
-                                                1258
-                                            </h1>
-                                            <h1 className='text-green-700 dark:text-green-500 font-semibold flex justify-center'>Approved</h1>
-                                            <h1 className='inline-flex justify-end'>
-                                                <span className='text-red-500 dark:text-red-400'>
-                                                    <FaTrashAlt />
-                                                </span>
-                                            </h1>
-                                        </div>
-                                    )
-                                    )}
-                            </>
+                                        <h2 className='inline-flex col-span-2'>
+                                            <span className="flex items-center justify-center">
+                                                <FaPenNib className="mr-1.5 text-orange-500 dark:text-orange-400"/>
+                                            </span>
+                                            {user.email}
+                                        </h2>
+                                        <h2 className='inline-flex font-base justify-center'>
+                                            <span className='my-auto text-orange-600 dark:text-orange-400 mr-1'>
+                                                <FaBuffer />
+                                            </span>
+                                            {user.enrolledCourses.length}
+                                        </h2>
+                                        <h2 className='text-green-700 dark:text-green-500 font-semibold flex justify-center'>
+                                            <span className='my-auto text-orange-600 dark:text-orange-400 mr-1 text-lg'>
+                                                <FaUsersCog/>
+                                            </span>
+                                            ROLE: <span>{user.role}</span>
+                                        </h2>
+                                        <h2 className='inline-flex justify-end'>
+                                            <span className='text-slate-700 dark:text-slate-200 mr-3 cursor-pointer'>
+                                            {
+                                                user.role === 'user' ? <FaSyncAlt  onClick={() => handleRole(user._id, 'admin')}/> : <FaSyncAlt onClick={() => handleRole(user._id, 'user')}/>
+                                            }
+                                            </span>
+                                            <span className='text-rose-500 dark:text-rose-400 cursor-pointer'>
+                                                <FaTrashAlt onClick={() => handleRemove(user._id, 'account')}/>
+                                            </span>
+                                        </h2>
+                                    </div>
+                                )
+                                )}
                         </div>
                     </section>
                 </div>

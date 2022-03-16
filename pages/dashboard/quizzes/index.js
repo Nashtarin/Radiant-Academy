@@ -1,18 +1,18 @@
-import Head from "next/head";
+import Head from 'next/head';
 import React from 'react';
-import CanvasBoard from "../../components/CanvasComponents/CanvasBoard";
+import QuizzesSection from '../../../components/DashboardComponents/QuizzesSection';
 
 const index = () => {
     return (
         <div>
             <Head>
-                <title>Radiant Academy | Canvas</title>
+                <title>Radiant Academy | Quizzes Dashboard</title>
                 <meta name="Your learning partner" content="Best learning app for the curious learners" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            {/* CANVAS CONTENTS GOES HERE (WITHOUT NAVBAR & FOOTER) */}
-            <CanvasBoard />
+            {/* QUIZ CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
+            <QuizzesSection />
         </div>
     );
 };
