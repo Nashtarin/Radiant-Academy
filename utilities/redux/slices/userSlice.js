@@ -4,7 +4,7 @@ import axios from 'axios';
 export const fetchUsers = createAsyncThunk(
     'user/fetchUsers',
     async () => {
-        const response = await fetch('http://localhost:3000/api/users')
+        const response = await fetch('https://radiant-academy.vercel.app/api/users')
             .then(res => res.json())
         return response.data
     }
@@ -13,7 +13,7 @@ export const fetchUsers = createAsyncThunk(
 export const deleteUser = createAsyncThunk(
     'user/deleteUser',
     async (id) => {
-        const response = await axios.delete(`http://localhost:3000/api/users/${id}`, id);
+        const response = await axios.delete(`https://radiant-academy.vercel.app/api/users/${id}`, id);
         return response.data
     }
 )
@@ -22,7 +22,7 @@ export const makeAdmin = createAsyncThunk(
     'user/makeAdmin',
     async (id) => {
         try {
-            const response = await axios.put(`http://localhost:3000/api/users/roles/admin/${id}`);
+            const response = await axios.put(`https://radiant-academy.vercel.app/api/users/roles/admin/${id}`);
             return response.data
         } catch (error) {
             console.log(error);
@@ -34,7 +34,7 @@ export const removeAdmin = createAsyncThunk(
     'user/removeAdmin',
     async (id) => {
         try {
-            const response = await axios.put(`http://localhost:3000/api/users/roles/user/${id}`);
+            const response = await axios.put(`https://radiant-academy.vercel.app/api/users/roles/user/${id}`);
             return response.data
         } catch (error) {
             console.log(error);

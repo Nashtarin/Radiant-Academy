@@ -152,13 +152,13 @@ const Navbar = () => {
                                 </li>
                                 {
                                     thisUser.role === 'admin' && <li>
-                                                                    <Link href="/dashboard">
-                                                                        <a className=" hover:bg-rose-500 hover:text-white">
-                                                                            Dashboard
-                                                                            <span className="ml-2 badge">New</span>
-                                                                        </a>
-                                                                    </Link>
-                                                                </li>
+                                        <Link href="/dashboard">
+                                            <a className=" hover:bg-rose-500 hover:text-white">
+                                                Dashboard
+                                                <span className="ml-2 badge">New</span>
+                                            </a>
+                                        </Link>
+                                    </li>
                                 }
                                 <li>
                                     <Link href={`/my-course/${user.email}`}>
@@ -224,7 +224,7 @@ const Navbar = () => {
                                     <a className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3">CONTACT </a>
                                 </Link>
                             </li>  */}
-                            {!user.isSignedIn && 
+                            {!user.isSignedIn &&
                                 <li className="text-white mt-3">
                                     <Link passHref href="/register">
                                         <button className="btn border-0 px-7 py-2 rounded-btn bg-rose-500 text-white transition duration-500 mx-3">FREE TRIAL</button>

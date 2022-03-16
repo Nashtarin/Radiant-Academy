@@ -43,7 +43,7 @@ const useFirebase = () => {
                     success: true,
                     name: displayName
                 };
-                
+
                 setUser(signedInUser);
                 dispatch(fetchUsers());
                 router.replace(`/profile/${signedInUser.email}`);
@@ -181,7 +181,7 @@ const useFirebase = () => {
         } else {
             const role = 'user';
             const user = { email, displayName, photoURL, accessToken, role };
-            fetch('http://localhost:3000/api/users', {
+            fetch('https://radiant-academy.vercel.app/api/users', {
                 method: method,
                 headers: {
                     'content-type': 'application/json'
