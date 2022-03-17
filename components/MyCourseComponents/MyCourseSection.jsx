@@ -15,10 +15,9 @@ const MyCourseSection = ({ account }) => {
         }
         return 0;
     })
-
     return (
         <div className='bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200'>
-            <div className='container mx-auto'>
+            <div className='container mx-auto' style={{minHeight:'46vh'}}>
                 <h1 className='text-4xl	font-bold text-violet-900 dark:text-violet-400 mb-2 pt-20 pb-10 text-center'>
                     My Course
                 </h1>

@@ -1,8 +1,7 @@
 import React from 'react';
+import { Toaster } from 'react-hot-toast';
 import { useSelector } from 'react-redux';
 import CourseSlider from './CourseSlider';
-import { Toaster } from 'react-hot-toast';
-import useAuth from '../../utilities/Hooks/useAuth';
 
 const CourseSection = () => {
     const allCourses = useSelector((state) => state.courses.coursesList);
@@ -15,7 +14,7 @@ const CourseSection = () => {
     return (
         <div className='bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200'>
             <div className='container mx-auto'>
-                <h1 className='text-4xl	font-bold text-violet-900 dark:text-violet-400 mb-2 pt-20 pb-12 text-center'>
+                <h1 className='text-4xl	font-bold text-violet-900 dark:text-violet-400 mb-2 pt-20 pb-12 text-center mx-2'>
                     Find Premium Courses With Radiant Plus
                 </h1>
                 <div className="px-16 pb-20">

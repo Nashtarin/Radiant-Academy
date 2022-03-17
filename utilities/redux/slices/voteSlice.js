@@ -23,7 +23,7 @@ export const dropVote = createAsyncThunk(
 )
 
 const voteSlice = createSlice({
-    name: 'quiz',
+    name: 'vote',
     initialState: {
         votesList: [],
         status: 'idle',

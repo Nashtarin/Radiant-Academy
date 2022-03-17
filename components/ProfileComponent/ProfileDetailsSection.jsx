@@ -7,20 +7,21 @@ import 'react-tabs/style/react-tabs.css';
 import { setWhichCourse } from '../../utilities/redux/slices/quizSlice';
 
 const ProfileDetailsSection = ({ account }) => {
+    console.log('account',account)
     const router = useRouter();
     const dispatch = useDispatch();
 
     const allCourses = useSelector((state) => state.courses.coursesList);
     const allUsers = useSelector((state) => state.users.usersList);
-    const enrolled = account.data[0].enrolledCourses;
-
-    const enrolledChecker = enrolled.map(enroll => {
+    const enrolled = account?.data[0]?.enrolledCourses;
+    console.log('enrolled',enrolled,'acd',account.data.length)
+    const enrolledChecker = account.data.length!==0 ? enrolled.map(enroll => {
         let index = allCourses.findIndex(course => enroll.courseId === course._id);
         if (index > -1) {
             return allCourses[index];
         }
         return 0;
-    })
+    }): '';
 
     const handleDelete = () => {
         console.log('clicked')
@@ -48,6 +49,7 @@ const ProfileDetailsSection = ({ account }) => {
                                 <div className=" w-full overflow-none">
                                     <div>
                                         {
+                                        account.data.length!==0 ?
                                             enrolledChecker.map(course => (
                                                 <div className="container grid grid-cols-8 bg-slate-700 text-slate-200 dark:text-slate-800 dark:bg-slate-200 p-2 rounded-md mb-2 items-center" key={course._id}>
                                                     <h1 className="font-semibold col-span-2">{course.title}</h1>
@@ -75,7 +77,7 @@ const ProfileDetailsSection = ({ account }) => {
                                                     </h1>
                                                 </div>
                                             )
-                                            )
+                                            ):<h1 className='text-4xl text-center bg-white dark:text-white dark:bg-slate-700 overflow-hidden'>You don't enroll any courses</h1>
                                         }
                                     </div>
                                 </div>
@@ -166,7 +168,7 @@ const ProfileDetailsSection = ({ account }) => {
                             <section className="overflow-x-auto">
                                 <div className=" w-full bg-slate-200 dark:bg-slate-700 overflow-none">
                                     <div>
-                                        <div className="bg-slate-700 dark:bg-slate-200 text-slate-200 dark:text-slate-700 grid grid-cols-6 p-3 rounded-md mb-3">
+                                        <div className="bg-slate-700 dark:bg-slate-200 text-slate-200 dark:text-slate-700 grid grid-cols-6 p-3 rounded-md mb-2">
                                             <h1 className="text-lg font-semibold col-span-2">Quiz Name</h1>
                                             <h1 className="text-green-600 font-semibold uppercase">Premium</h1>
                                             <h1>
@@ -181,7 +183,7 @@ const ProfileDetailsSection = ({ account }) => {
                                             </h1>
                                             <h1 className="text-green-600 font-semibold">Completed</h1>
                                         </div>
-                                        <div className="bg-slate-700 dark:bg-slate-200 text-slate-200 dark:text-slate-700 grid grid-cols-6 p-3 rounded-md mb-3">
+                                        <div className="bg-slate-700 dark:bg-slate-200 text-slate-200 dark:text-slate-700 grid grid-cols-6 p-3 rounded-md mb-2">
                                             <h1 className="text-lg font-semibold col-span-2">Quiz Name</h1>
                                             <h1 className="text-green-600 font-semibold uppercase">Premium</h1>
                                             <h1>
@@ -196,7 +198,7 @@ const ProfileDetailsSection = ({ account }) => {
                                             </h1>
                                             <h1 className="text-green-600 font-semibold">Completed</h1>
                                         </div>
-                                        <div className="bg-slate-700 dark:bg-slate-200 text-slate-200 dark:text-slate-700 grid grid-cols-6 p-3 rounded-md mb-3">
+                                        <div className="bg-slate-700 dark:bg-slate-200 text-slate-200 dark:text-slate-700 grid grid-cols-6 p-3 rounded-md mb-2">
                                             <h1 className="text-lg font-semibold col-span-2">Quiz Name</h1>
                                             <h1 className="text-green-600 font-semibold uppercase">Premium</h1>
                                             <h1>
@@ -218,7 +220,7 @@ const ProfileDetailsSection = ({ account }) => {
                         </TabPanel>
                         <TabPanel className="px-5 pt-0">
                             <div className="flex justify-center items-center">
-                                <h1 className="text-4xl font-semibold text-purple-800">Coming Soon!</h1>
+                                <h1 className="text-4xl font-semibold text-purple-800 dark:text-purple-400">Coming Soon!</h1>
                             </div>
                         </TabPanel>
                     </div>

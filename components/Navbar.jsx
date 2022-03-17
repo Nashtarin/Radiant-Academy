@@ -34,6 +34,7 @@ const Navbar = () => {
     }
     const allUsers = useSelector((state) => state.users.usersList);
     const thisUser = allUsers.find(userData => userData.email === user.email);
+    console.log('all users',allUsers,'users',thisUser)
 
     return (
         <>
@@ -151,14 +152,14 @@ const Navbar = () => {
                                     </Link>
                                 </li>
                                 {
-                                    thisUser.role === 'admin' && <li>
+                                    thisUser!==undefined? thisUser.role === 'admin' && <li>
                                                                     <Link href="/dashboard">
                                                                         <a className=" hover:bg-rose-500 hover:text-white">
                                                                             Dashboard
                                                                             <span className="ml-2 badge">New</span>
                                                                         </a>
                                                                     </Link>
-                                                                </li>
+                                                                </li> : ''
                                 }
                                 <li>
                                     <Link href={`/my-course/${user.email}`}>

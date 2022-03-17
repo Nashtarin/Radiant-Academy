@@ -71,7 +71,7 @@ const HeroSection = () => {
                                 </style>
                             </div>
                             <Link passHref href="/register">
-                                <button className="bg-rose-500 animate-[pulse_1s_ease-in-out_infinite] rounded-md text-white px-7 py-3 my-5 flex justify-center items-center">
+                                <button className="bg-rose-500 animate-[pulse_2s_ease-in-out_infinite] rounded-md text-white px-7 py-3 my-5 flex justify-center items-center">
                                     Try it out &nbsp; <FaArrowRight style={{ fontSize: '14px', marginTop: '2px' }} />
                                 </button>
                             </Link>
