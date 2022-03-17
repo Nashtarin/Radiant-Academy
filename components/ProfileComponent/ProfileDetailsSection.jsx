@@ -77,7 +77,7 @@ const ProfileDetailsSection = ({ account }) => {
                                                     </h1>
                                                 </div>
                                             )
-                                            ):<h1 className='text-4xl text-center bg-white dark:text-white dark:bg-slate-700 overflow-hidden'>You don't enroll any courses</h1>
+                                            ):<h1 className='text-4xl text-center bg-white dark:text-white dark:bg-slate-700 overflow-hidden'>You have not enrolled any courses</h1>
                                         }
                                     </div>
                                 </div>
