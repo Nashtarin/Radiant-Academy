@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useEffect } from "react";
 
-
 export default function board() {
 
     useEffect(() => {
@@ -51,8 +50,10 @@ export default function board() {
     }
 
     return (
-        <div className='w-5/6 h-5/6 mx-auto' id='sketch'>
-            <canvas className='bg-white' id='board'></canvas>
+        <div className="bg-slate-300 py-10 overflow-auto" style={{minHeight:'60vh'}}>
+            <div className='w-5/6 h-5/6 mx-auto' id='sketch'>
+                <canvas className='bg-white container' id='board' style={{height:'60vh'}}></canvas>
+            </div>
         </div>
     )
 }

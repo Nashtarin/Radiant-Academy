@@ -152,14 +152,14 @@ const Navbar = () => {
                                     </Link>
                                 </li>
                                 {
-                                    thisUser?.role === 'admin' && <li>
+                                    thisUser!==undefined? thisUser.role === 'admin' && <li>
                                                                     <Link href="/dashboard">
                                                                         <a className=" hover:bg-rose-500 hover:text-white">
                                                                             Dashboard
                                                                             <span className="ml-2 badge">New</span>
                                                                         </a>
                                                                     </Link>
-                                                                </li> 
+                                                                </li> : ''
                                 }
                                 <li>
                                     <Link href={`/my-course/${user.email}`}>
