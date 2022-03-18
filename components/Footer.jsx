@@ -35,7 +35,8 @@ const Footer = () => {
                         <div>
                             <h2 className="text-2xl font-bold">Join Radiant Academy to unleash your unstoppable coding potential</h2>
                         </div>
-                        <div className="grid md:grid-cols-[250px_minmax(320px,_1fr)] lg:grid-cols-[350px_minmax(600px,_1fr)]">
+                        {/* <div className="grid md:grid-cols-[250px_minmax(320px,_1fr)] lg:grid-cols-[350px_minmax(600px,_1fr)]"> */}
+                        <div className="grid md:grid-cols-[250px_minmax(320px,_1fr)] lg:grid-cols-2">
                             <div className="pt-4 md:pt-8 pr-5">
                                 <p>
                                     1k+ Junior Developers
@@ -45,7 +46,7 @@ const Footer = () => {
                             </div>
                             <div className="pt-3.5 md:pt-7">
                                 <h3 className="text-violet-800 dark:text-violet-400 text-lg font-bold">Important Links</h3>
-                                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 pt-3">
+                                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 pt-3 pb-6 my-4">
                                     <div className="text-left">
                                         <Link href="/" passHref>
                                             <span className="mb-1 hover:text-rose-600 cursor-pointer">Home</span>

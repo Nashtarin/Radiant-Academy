@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaBookmark, FaClone, FaEdit, FaHeart, FaPlus, FaTrashAlt, FaEye } from 'react-icons/fa';
+import { FaBookmark, FaClone, FaEdit, FaEye, FaHeart, FaPlus, FaTrashAlt } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import useCrud from '../../utilities/Hooks/useCrud';
 import DashboardSidebar from './DashboardSidebar';
@@ -9,8 +9,8 @@ const ForumSection = () => {
     const allTopics = useSelector((state) => state.forums.forumsList);
     
     return (
-        <div className='px-0 sm:px-6 lg:px-12 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200'>
-            <div className='grid grid-rows-1 md:grid-cols-[250px_minmax(300px,_1fr)] lg:grid-cols-[250px_minmax(600px,_1fr)] p-8 gap-5'>
+        <div className='px-5 sm:px-6 lg:px-12 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200'>
+            <div className='grid grid-rows-1 md:grid-cols-[250px_minmax(300px,_1fr)] lg:grid-cols-[250px_minmax(600px,_1fr)] py-8 gap-5'>
                 <section>
                     <DashboardSidebar />
                 </section>
@@ -23,7 +23,7 @@ const ForumSection = () => {
                         <div>
                             {
                                 allTopics.map(forum => (
-                                    <div className='container grid md:grid-cols-6 xs:grid-cols-1 px-5 bg-white dark:bg-slate-600 rounded-md mb-2 py-4 shadow-md dark:shadow-slate-600' key={forum._id}>
+                                    <div className='container flex flex-wrap align-center items-center justify-between px-5 bg-white dark:bg-slate-600 rounded-md mb-2 py-4 shadow-md dark:shadow-slate-600' key={forum._id}>
                                         <div className='col-span-2'>
                                             <h2 className='inline-flex'><span className="text-orange-500 my-auto mr-1.5">
                                                 <FaBookmark />
