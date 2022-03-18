@@ -20,7 +20,7 @@ const TalentSection = () => {
                         <h1 className='text-4xl md:text-5xl font-bold text-violet-800 dark:text-violet-400 my-5'>Grab your place</h1>
                         <p className=' text-xl mb-5 text-slate-800 dark:text-slate-400'>Enjoy the thrilling experience of our Live talent hunt <br /> with Radiant Academy. </p>
                         <Link passHref href="/register">
-                            <button className="bg-rose-500 animate-[pulse_1s_ease-in-out_infinite] rounded-md text-white px-7 py-3 my-5">
+                            <button className="bg-rose-500 animate-[pulse_2s_ease-in-out_infinite] rounded-md text-white px-7 py-3 my-5">
                                 Create Account
                             </button>
                         </Link>

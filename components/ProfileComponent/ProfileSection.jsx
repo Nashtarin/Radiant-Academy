@@ -1,14 +1,14 @@
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
-import { FaBookmark, FaClock, FaHeart, FaPenNib } from "react-icons/fa";
-import ReactStars from "react-rating-stars-component";
-import ProfileDetailsSection from './ProfileDetailsSection';
-import useAuth from '../../utilities/Hooks/useAuth';
 // import Lottie from 'react-lottie';
 // import animationData from '../../public/img/loading.json';
 import { useRouter } from 'next/router';
-import { fetchQuizzes } from '../../utilities/redux/slices/quizSlice';
+import React, { useEffect, useState } from 'react';
+import { FaBookmark, FaClock, FaHeart, FaPenNib } from "react-icons/fa";
+import ReactStars from "react-rating-stars-component";
 import { useDispatch } from 'react-redux';
+import useAuth from '../../utilities/Hooks/useAuth';
+import { fetchQuizzes } from '../../utilities/redux/slices/quizSlice';
+import ProfileDetailsSection from './ProfileDetailsSection';
 
 const ProfileSection = ({ account }) => {
     const [rating, setRating] = useState(4.5);
@@ -61,8 +61,8 @@ const ProfileSection = ({ account }) => {
     return (
         <div>
             {user.isSignedIn &&
-                <div className="grid grid-rows-1 md:grid-cols-[300px_minmax(300px,_1fr)] lg:grid-cols-[350px_minmax(600px,_1fr)] p-2 bg-slate-200 dark:bg-slate-800">
-                    <div className="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 m-5 rounded-lg py-6 flex justify-center">
+                <div className="grid xs:grid-cols-1 md:grid-cols-4 p-8 bg-white dark:bg-slate-800 gap-5">
+                    <div className="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 p-5 rounded-lg py-6 flex justify-center">
                         <div className="flex-col text-center">
                             <div>
                                 <Image
@@ -100,7 +100,7 @@ const ProfileSection = ({ account }) => {
                                             margin: 1rem;
                                         }
                                         .ratings span i{
-                                            color: #f4dd1e;
+                                            color: orange;
                                             font-size: 1.25rem;
                                         }
                                     `}
@@ -109,7 +109,7 @@ const ProfileSection = ({ account }) => {
                             </div>
                         </div>
                     </div>
-                    <div className="bg-slate-200 dark:bg-slate-700 m-5 rounded-md">
+                    <div className="col-span-3 bg-slate-200 dark:bg-slate-700 p-5 rounded-lg">
                         <ProfileDetailsSection account={account} />
                     </div>
                 </div>

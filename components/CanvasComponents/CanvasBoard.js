@@ -50,9 +50,9 @@ export default function board() {
     }
 
     return (
-        <div className="bg-slate-300 h-screen pt-10">
+        <div className="bg-slate-300 py-10 overflow-auto" style={{minHeight:'60vh'}}>
             <div className='w-5/6 h-5/6 mx-auto' id='sketch'>
-                <canvas className='bg-white' id='board'></canvas>
+                <canvas className='bg-white container' id='board' style={{height:'80vh'}}></canvas>
             </div>
         </div>
     )
