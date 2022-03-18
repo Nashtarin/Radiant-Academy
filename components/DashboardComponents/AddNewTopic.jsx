@@ -7,7 +7,7 @@ import DashboardSidebar from './DashboardSidebar';
 import toast, { Toaster } from 'react-hot-toast';
 import { useRouter } from "next/router";
 
-const ForumSection = () => {
+const AddNewTopic = () => {
     const { user } = useAuth();
     const router = useRouter();
     const categories = useSelector((state) => state.categories.categoriesList);
@@ -106,4 +106,4 @@ const ForumSection = () => {
     );
 };
 
-export default ForumSection;
+export default AddNewTopic;

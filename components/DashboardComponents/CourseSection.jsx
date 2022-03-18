@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { FaBookmark, FaClone, FaDollarSign, FaEdit, FaHeart, FaPlus, FaTrashAlt, FaUserFriends } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import useCrud from '../../utilities/Hooks/useCrud';
@@ -17,7 +18,9 @@ const CourseSection = () => {
                 <section className='bg-white dark:bg-slate-700 shadow-md rounded-md py-8 px-5 h-auto'>
                     <div className="flex justify-between items-center px-3 mb-4">
                         <h3 className="text-2xl flex items-center"><FaClone className="mr-3" /> Courses</h3>
-                        <button className="flex items-center btn"><FaPlus className="text-sm mr-2" /> Add Courses</button>
+                        <Link href="/dashboard/courses/add-new-course" passHref>
+                            <button className="flex items-center btn"><FaPlus className="text-sm mr-2" /> Add Courses</button>
+                        </Link>
                     </div>
                     <section className="overflow-x-auto">
                         <div>
