@@ -1,28 +1,27 @@
 import { ArcElement, Chart } from 'chart.js';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import { useRouter } from 'next/router';
+import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { BsArrowRight, BsCheck2Circle } from 'react-icons/bs';
+import { CgArrowRightO } from 'react-icons/cg';
 import { FaBookmark, FaClock, FaClone, FaCopy, FaEdit, FaEnvelope, FaEye, FaHashtag, FaHeart, FaIdCardAlt, FaInfoCircle, FaNewspaper, FaPhoneSquareAlt, FaPlus } from 'react-icons/fa';
 import { MdPending } from 'react-icons/md';
-import { CgArrowRightO } from 'react-icons/cg';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import DashboardSidebar from './DashboardSidebar';
-Chart.register(ArcElement);
-import Swal from 'sweetalert2';
-import { approveTopic } from '../../utilities/redux/slices/forumSlice';
 import useAuth from '../../utilities/Hooks/useAuth';
-import { useRouter } from 'next/router';
+import useCrud from '../../utilities/Hooks/useCrud';
+import DashboardSidebar from './DashboardSidebar';
+
+Chart.register(ArcElement);
 
 const DashboardSection = () => {
-    const { user } = useAuth();
-
     const router = useRouter();
+    const { user } = useAuth();
+    const { handleApprove } = useCrud();
 
-    const dispatch = useDispatch();
     const allCourses = useSelector((state) => state.courses.coursesList);
     const allTopics = useSelector((state) => state.forums.forumsList);
     const allReviews = useSelector((state) => state.reviews.reviewsList);
@@ -32,9 +31,10 @@ const DashboardSection = () => {
     const thisUser = allUsers.find(userData => userData.email === user.email);
 
     const pendingList = allTopics.filter(forum => {
-    if(forum.status === false){
-        return forum
-    }})
+        if(forum.status === false){
+            return forum
+        }
+    })
 
     const config = {
         type: 'doughnut',
@@ -88,32 +88,6 @@ const DashboardSection = () => {
         ],
     };
 
-    const handleApproveTopic = (id) => {
-        Swal.fire({
-            title: 'Are you sure you want to approve this?',
-            text: "Warding: the post will be public now!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#6B21A8',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, Approve it!'
-          }).then((result) => {
-            if (result.isConfirmed) {
-                if (dispatch(approveTopic(id))) {
-                    Swal.fire(
-                        'Approved!',
-                        'Topic has been approved.',
-                        'success'
-                    )
-                } else {
-                    console.log('Something went wrong!');
-                }
-            } else {
-                console.log('Something went wrong!');
-            }
-          })
-    }
-
     if (thisUser?.role !== 'admin' || thisUser?.role === undefined) {
         router.push('./')
     }
@@ -121,17 +95,17 @@ const DashboardSection = () => {
     return (
         <>
          {(user.isSignedIn && thisUser.role === 'admin') &&
-            <div className="px-0 sm:px-6 lg:px-12">
-                <div className="grid grid-rows-1 md:grid-cols-[250px_minmax(300px,_1fr)] lg:grid-cols-[250px_minmax(600px,_1fr)] p-8 gap-5">
-                    <div>
+            <div className="px-0 ">
+                <div className="grid xs:grid-cols-1 md:grid-cols-4 p-8 gap-5">
+                    <div className=''>
                         <DashboardSidebar />
                     </div>
 
-                    <div className="bg-slate-100 dark:bg-slate-700 shadow-md rounded-md py-8 px-5 h-auto">
+                    <div className="bg-slate-100 dark:bg-slate-700 shadow-md rounded-md py-8 px-5 h-auto col-span-3">
                         <div className="rounded-md p-5 text-white bg-violet-900 dark:bg-violet-800 dark:text-slate-200" >
                             <h5 className="text-lg">Site Overview</h5>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-8 pb-1 px-4">
+                            <div className="grid xs:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-8 pb-1 px-4">
                                 <div className="flex flex-col items-start pl-4 border-l-2 mb-2 border-l-zinc-200 dark:border-l-slate-400">
                                     <h3 className="text-2xl">{pendingList.length}</h3>
                                     <p>Pending Submissions</p>
@@ -166,7 +140,7 @@ const DashboardSection = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="grid grid-rows-1 md:grid-cols-[300px_minmax(200px,_1fr)] lg:grid-cols-[350px_minmax(400px,_1fr)] gap-5 mt-5">
+                        <div className="grid grid-rows-1 grid-cols-1 lg:grid-cols-2 gap-5 mt-5">
                             <div>
                                 <div className="bg-slate-200 shadow-md rounded-md p-5 h-auto mb-5 course-card dark:bg-slate-600">
                                     <div className="flex items-center justify-between text-violet-900 dark:text-violet-100">
@@ -271,34 +245,34 @@ const DashboardSection = () => {
                                         <button className="px-4 py-1.5 hover:bg-stone-100 rounded-lg flex items-center uppercase hover:text-slate-800"><FaEdit className="mr-2" /> Edit</button>
                                     </div>
                                     <div className="border-[1px] border-stone-300 dark:border-stone-400 my-2"></div>
-                                    <table className="table-compact text-slate-700 dark:text-slate-200">
-                                        <tbody>
-                                            <tr>
-                                                <td className="flex items-center">
+                                    <div className=" text-slate-700 dark:text-slate-200">
+                                        <div>
+                                            <div className='flex'>
+                                                <h1 className="flex items-center">
                                                     <FaIdCardAlt /> &nbsp; Name
-                                                </td>
-                                                <td>:&nbsp; {user.name}</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="flex items-center">
+                                                </h1>
+                                                <h1>:&nbsp; {user.name}</h1>
+                                            </div>
+                                            <div className='flex'>
+                                                <h1 className="flex items-center">
                                                     <FaBookmark /> &nbsp; Role
-                                                </td>
-                                                <td>:&nbsp; {user.role}</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="flex items-center">
+                                                </h1>
+                                                <h1>:&nbsp; {user.role}</h1>
+                                            </div>
+                                            <div className='flex'>
+                                                <h1 className="flex items-center">
                                                     <FaPhoneSquareAlt /> &nbsp; Phone
-                                                </td>
-                                                <td>:&nbsp; +880 123456</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="flex items-center">
+                                                </h1>
+                                                <h1>:&nbsp; +880 123456</h1>
+                                            </div>
+                                            <div className='flex break-all'>
+                                                <h1 className="flex items-center pr-2">
                                                     <FaEnvelope /> &nbsp; Email
-                                                </td>
-                                                <td>{user.email}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                                </h1>
+                                                <h1>{user.email}</h1>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div className="flex justify-end mt-3">
                                         <button className="text-sm flex items-center px-4 py-1 font-semibold rounded-full hover:bg-stone-100 text-violet-900 dark:text-violet-300 dark:hover:bg-slate-700">See More Info <BsArrowRight className="ml-2 text-[15px] text-red-600 dark:text-red-400" /></button>
                                     </div>
@@ -338,7 +312,7 @@ const DashboardSection = () => {
                                                                 <p className="text-[0.9em] dark:text-slate-200">{forum.reacts}</p>
                                                             </span>
                                                             <span className="flex items-center">
-                                                                <button onClick={() => handleApproveTopic(forum._id)}>
+                                                                <button onClick={() => handleApprove(forum._id, 'topic')}>
                                                                     <BsCheck2Circle className="mr-2 text-lg dark:text-slate-200" />
                                                                 </button>
                                                             </span>

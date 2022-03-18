@@ -26,7 +26,7 @@ const VoteNewCourses = () => {
                         ))
                     }
                 </div>
-                <div className="lg:w-[20%] bg-slate-100 dark:bg-[#37465b] text-slate-700 dark:text-slate-200 p-10 text-center  rounded-lg">
+                <div className="lg:w-[20%] my-10 bg-slate-100 dark:bg-[#37465b] text-slate-700 dark:text-slate-200 p-10 text-center  rounded-lg flex flex-col justify-center" style={{maxHeight:'365px'}}>
                     <h2 className="text-2xl pb-5">Total votes</h2>
                     <h3 className="text-6xl font-bold">{totalPrice}</h3>
 

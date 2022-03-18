@@ -7,8 +7,8 @@ export default async function handler(req, res) {
     await dbConnect()
 
     if (method === "PUT") {
-        const filter = {_id: id};
-        const update =  { $inc : {'votesTotal' : 1} };
+        const filter = { _id: id };
+        const update = { $inc: { 'votesTotal': 1 } };
 
         try {
             const updatedVote = await Vote.findOneAndUpdate(filter, update);

@@ -1,7 +1,7 @@
-import React from 'react';
 import Head from 'next/head';
-import ProfileSection from '../../components/ProfileComponent/ProfileSection';
 import Script from 'next/script';
+import React from 'react';
+import ProfileSection from '../../components/ProfileComponent/ProfileSection';
 
 const Profile = ({ account }) => {
     return (
