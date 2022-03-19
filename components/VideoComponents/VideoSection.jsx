@@ -93,14 +93,15 @@ export default function App() {
 
     return (
         <div>
-            <div className="video flex lg:justify-center p-5 pt-10">
+            <div className="video flex items-center md:justify-center p-5 pt-10">
                 <div>
                     {stream && <video
                         playsInline
                         muted
                         ref={myVideo}
                         autoPlay
-                        style={{ width: "600px" }}
+                        // style={{ width: "600px" }}
+                        className="w-full md:w-3/6"
                     />}
                 </div>
                 <div>
@@ -109,8 +110,8 @@ export default function App() {
                             playsInline
                             ref={userVideo}
                             autoPlay
-                            style={{ width: "600px" }}
-                            className="lg:ml-5"
+                            // style={{ width: "600px" }}
+                            className="w-full md:w-3/6 md:ml-5"
                         /> :
                         null}
                 </div>
