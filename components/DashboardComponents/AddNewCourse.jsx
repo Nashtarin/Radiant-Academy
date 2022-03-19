@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaClone } from 'react-icons/fa';
+import { FaClone, FaCamera } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import useAuth from '../../utilities/Hooks/useAuth';
 import DashboardSidebar from './DashboardSidebar';
@@ -103,14 +103,19 @@ const AddNewCourse = () => {
                                         value={postData.title}
                                         onChange={(e) => setPostData({ ...postData, title: e.target.value })}
                                     />
-                                    <input
-                                        type="file"
-                                        multiple={false}
-                                        name="hashtags"
-                                        placeholder="image"
-                                        className="bg-slate-200 w-full py-2 px-3 outline-none text-lg rounded-lg"
-                                        onChange={handleImageUpload}
-                                    />
+                                    <div>
+                                        <label for="fileInput" className="flex itemes-center bg-slate-200 w-full py-2 px-3 outline-none text-lg rounded-lg cursor-pointer">
+                                            <FaCamera className="mr-2 text-black dark:text-white" /> Choose Course Cover
+                                        </label>    
+                                        <input
+                                            type="file"
+                                            multiple={false}
+                                            name="image"
+                                            placeholder="image"
+                                            className="hidden"
+                                            onChange={handleImageUpload}
+                                        />
+                                    </div>
                                     <input
                                         type="number"
                                         name="price"
