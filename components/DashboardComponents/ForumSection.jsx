@@ -61,8 +61,10 @@ const ForumSection = () => {
                                         </div>
                                         <div className='flex justify-end'>
                                             <h2 className='inline-flex'>
-                                                <span className='text-slate-700 dark:text-slate-200 mr-3'>
-                                                    <FaEdit />
+                                                <span className='text-slate-700 dark:text-slate-200 mr-3 cursor-pointer'>
+                                                    <Link href={`/dashboard/forums/edit-topic/${forum._id}`} passHref>
+                                                        <FaEdit />
+                                                    </Link>
                                                 </span>
                                                 <span className='text-red-500 dark:text-red-400 cursor-pointer'>
                                                     <FaTrashAlt  onClick={() => handleRemove(forum._id, 'topic')}/>

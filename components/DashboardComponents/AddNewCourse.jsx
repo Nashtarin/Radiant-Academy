@@ -9,11 +9,10 @@ import axios from 'axios';
 import { courseCreate } from '../../utilities/redux/slices/courseSlice';
 
 const AddNewCourse = () => {
-    const { user } = useAuth();
     const router = useRouter();
     const [imageStore, setImageStore] = useState({});
 
-    const categories = [,
+    const categories = [
         {
             "id": 1,
             "category": "premium",
