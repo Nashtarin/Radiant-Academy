@@ -100,8 +100,7 @@ export default function App() {
                         muted
                         ref={myVideo}
                         autoPlay
-                        // style={{ width: "600px" }}
-                        className="w-full md:w-3/6"
+                        className="w-full md:w-3/6 rounded-md"
                     />}
                 </div>
                 <div>
@@ -110,8 +109,7 @@ export default function App() {
                             playsInline
                             ref={userVideo}
                             autoPlay
-                            // style={{ width: "600px" }}
-                            className="w-full md:w-3/6 md:ml-5"
+                            className="w-full md:w-3/6 md:ml-5 rounded-md"
                         /> :
                         null}
                 </div>
