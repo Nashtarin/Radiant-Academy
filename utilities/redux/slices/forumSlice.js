@@ -125,7 +125,8 @@ const forumSlice = createSlice({
         })
 
         builder.addCase(updateTopic.fulfilled, (state, action) => {
-            state.forumsList = state.forumsList.map(forum => forum._id === action.payload._id ? { ...forum, 
+            state.forumsList = state.forumsList.map(forum => forum._id === action.payload._id ? {
+                ...forum,
                 title: action.payload.title,
                 category: action.payload.category,
                 desc: action.payload.desc,
