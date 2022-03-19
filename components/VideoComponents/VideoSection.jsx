@@ -93,14 +93,14 @@ export default function App() {
 
     return (
         <div>
-            <div>
-                <div className="video p-5 flex justify-center pt-10">
+            <div className="video flex lg:justify-center p-5 pt-10">
+                <div>
                     {stream && <video
                         playsInline
                         muted
                         ref={myVideo}
                         autoPlay
-                        style={{ width: "700px" }}
+                        style={{ width: "600px" }}
                     />}
                 </div>
                 <div>
@@ -109,7 +109,8 @@ export default function App() {
                             playsInline
                             ref={userVideo}
                             autoPlay
-                            style={{ width: "300px" }}
+                            style={{ width: "600px" }}
+                            className="lg:ml-5"
                         /> :
                         null}
                 </div>
@@ -145,13 +146,13 @@ export default function App() {
 
                 </div>
                 <div className="text-center pb-10">
-                    {receivingCall === true  ? null : (<h2>Calling to <span className="text-green-600 font-medium">{idToCall}</span></h2>)}
+                    {receivingCall === true ? null : (<h2 className="dark:text-white">Calling to <span className="text-green-600 dark:text-green-600 font-medium">{idToCall}</span></h2>)}
                 </div>
             </div>
             <div className="flex justify-center pb-14">
                 {receivingCall && !callAccepted ? (
                     <div className="flex flex-col justify-center items-center">
-                        <h1 className="text-xl font-medium first-letter:uppercase">
+                        <h1 className="text-xl font-medium first-letter:uppercase dark:text-white">
                             {name} is calling...
                         </h1>
                         <button className="bg-green-400 w-12 flex justify-center mt-3 py-2.5 px-1 font-medium rounded-full" onClick={answerCall}>
