@@ -19,6 +19,9 @@ const ForumSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    authorEmail: {
+        type: String,
+    },
     featured: {
         type: Boolean,
         required: true,

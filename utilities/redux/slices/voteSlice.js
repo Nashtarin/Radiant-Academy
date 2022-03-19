@@ -4,7 +4,7 @@ import axios from 'axios';
 export const fetchVotes = createAsyncThunk(
     'vote/fetchVotes',
     async () => {
-        const response = await fetch('https://radiant-academy.vercel.app/api/vote')
+        const response = await fetch('http://localhost:3000/api/vote')
             .then(res => res.json())
         return response.data
     }
@@ -14,7 +14,7 @@ export const dropVote = createAsyncThunk(
     'vote/dropVote',
     async (vote) => {
         try {
-            const response = await axios.put(`https://radiant-academy.vercel.app/api/vote/${vote._id}`);
+            const response = await axios.put(`http://localhost:3000/api/vote/${vote._id}`);
             return response.data
         } catch (error) {
             console.log(error);

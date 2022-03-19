@@ -1,72 +1,37 @@
 import React, { useState } from 'react';
-import Dynamic from 'next/dynamic';
 import { useDispatch, useSelector } from 'react-redux';
+import useAuth from '../../utilities/Hooks/useAuth';
 import { topicCreate } from '../../utilities/redux/slices/forumSlice';
-
-const QuillNoSSRWrapper = Dynamic(import('react-quill'), {
-    ssr: false,
-    loading: () => <p>Loading ...</p>,
-})
-
-const modules = {
-    toolbar: [
-        [{ header: '1' }, { header: '2' }, { font: [] }],
-        [{ size: [] }],
-        ['bold', 'italic', 'underline', 'strike', 'blockquote', 'code-block', 'link'],
-        [
-            { list: 'ordered' },
-            { list: 'bullet' },
-            { indent: '-1' },
-            { indent: '+1' },
-            { 'align': [] },
-        ],
-        [
-            { 'color': [] },
-            { 'background': [] },
-            'image', 'video'],
-    ],
-    clipboard: {
-        // toggle to add extra line breaks when pasting HTML:
-        matchVisual: false,
-    },
-}
-
-const formats = [
-    'header',
-    'font',
-    'size',
-    'bold',
-    'italic',
-    'underline',
-    'strike',
-    'code-block',
-    'blockquote',
-    'list',
-    'bullet',
-    'indent',
-    'link',
-    'image',
-    'video',
-]
+import { useRouter } from "next/router";
+import toast, { Toaster } from 'react-hot-toast';
 
 const CreateTopicSection = () => {
+    const { user } = useAuth();
+    const router = useRouter();
     const categories = useSelector((state) => state.categories.categoriesList);
 
-    const [postData, setPostData] = useState({ title: '', category: '', desc: '', author: 'Radiant Admin', authorImg: 'https://i.postimg.cc/4dNK0r0W/people-1.png', loves: 0, views: 0, status: false, featured: false });
+    const [postData, setPostData] = useState({ title: '', category: '', desc: '', author: `${user.name}`, authorEmail: `${user.email}`, authorImg: 'https://i.postimg.cc/4dNK0r0W/people-1.png', loves: 0, views: 0, status: false, featured: false });
 
     const dispatch = useDispatch();
     const postTopic = e => {
+        const loading = toast.loading('Please wait ...');
+        toast.dismiss(loading);
         if (dispatch(topicCreate(postData))) {
-            document.getElementById('success').style.display = 'block';
+            toast.dismiss(loading);
+            toast.success("Your submission is under review!", {
+                position: "top-center"
+            });
             clear();
+            router.replace('/forum');
         } else {
-            document.getElementById('error').style.display = 'block';
+            toast.dismiss(loading);
+            toast.error('Something went wrong!');
         }
         e.preventDefault();
     }
 
     const clear = () => {
-        setPostData({ title: '', category: '', desc: '', author: '', authorImg: '', loves: 0, views: 0, status: false, featured: false });
+        setPostData({ title: '', category: '', desc: '', authorImg: '', loves: 0, views: 0, status: false, featured: false });
     };
 
     return (
@@ -74,10 +39,6 @@ const CreateTopicSection = () => {
             <section className="py-10">
                 <div className="text-center py-5">
                     <h1 className="text-4xl font-bold mt-8" style={{ color: '#3B058E' }}>Post Your Topic Here</h1>
-                </div>
-                <div className="text-center my-4 text-lg">
-                    <p style={{ color: '#3B058E', display: 'none' }} id="success">Successfully added the Forum Post!</p>
-                    <p style={{ color: '#F43F5E', display: 'none' }} id="error">There is a problem adding the Forum Post!</p>
                 </div>
                 <div className="grid grid-rows-2 sm:grid-rows-none sm:gid-cols-2 lg:grid-cols-[350px_minmax(600px,_1fr)] gap-2 pb-20 px-8 sm:px-12 md:px-20">
                     <div className="p-2">
@@ -116,12 +77,6 @@ const CreateTopicSection = () => {
                         </form>
                     </div>
                     <div className="h-[300px] md:h-[300px] py-2 px-2">
-                        {/* <QuillNoSSRWrapper
-                            modules={modules}
-                            formats={formats}
-                            theme="snow"
-                            className="h-[135px] sm:h-[210px] md:h-[260px] lg:h-[235px]"
-                        /> */}
                         <textarea
                             name="desc"
                             cols="30"
@@ -134,6 +89,10 @@ const CreateTopicSection = () => {
                     </div>
                 </div>
             </section>
+            <Toaster
+                position="top-center"
+                reverseOrder={false}
+            />
         </div>
     );
 };

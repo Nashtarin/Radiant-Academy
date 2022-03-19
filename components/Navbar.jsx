@@ -34,7 +34,6 @@ const Navbar = () => {
     }
     const allUsers = useSelector((state) => state.users.usersList);
     const thisUser = allUsers.find(userData => userData.email === user.email);
-    console.log('all users', allUsers, 'users', thisUser)
 
     return (
         <>

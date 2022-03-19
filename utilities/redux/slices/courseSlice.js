@@ -4,7 +4,7 @@ import axios from 'axios';
 export const fetchCourses = createAsyncThunk(
     'course/fetchCourses',
     async () => {
-        const response = await fetch('https://radiant-academy.vercel.app/api/courses')
+        const response = await fetch('http://localhost:3000/api/courses')
             .then(res => res.json())
         return response.data
     }
@@ -13,22 +13,23 @@ export const fetchCourses = createAsyncThunk(
 export const deleteCourse = createAsyncThunk(
     'course/deleteCourse',
     async (id) => {
-        const response = await axios.delete(`https://radiant-academy.vercel.app/api/courses/${id}`, id);
+        const response = await axios.delete(`http://localhost:3000/api/courses/${id}`, id);
         return response.data
     }
 )
 
-// export const courseView = createAsyncThunk(
-//     'course/courseView',
-//     async (course) => {
-//         try {
-//             const response = await axios.put(`https://radiant-academy.vercel.app/api/course/views/${forum._id}`);
-//             return response
-//         } catch (error) {
-//             console.log(error);
-//         }
-//     }
-// )
+export const courseCreate = createAsyncThunk(
+    'course/courseCreate',
+    async (course) => {
+        try {
+            const response = await axios.post("http://localhost:3000/api/courses", course);
+            return response.data.data
+        } catch (error) {
+            console.log(error);
+        }
+    }
+)
+
 
 const courseSlice = createSlice({
     name: 'course',
@@ -54,6 +55,11 @@ const courseSlice = createSlice({
 
         builder.addCase(deleteCourse.fulfilled, (state, action) => {
             state.coursesList = state.coursesList.filter(course => course._id !== action.payload._id);
+            state.status = 'success';
+        })
+
+        builder.addCase(courseCreate.fulfilled, (state, action) => {
+            state.coursesList = [...state.coursesList, action.payload];
             state.status = 'success';
         })
     },

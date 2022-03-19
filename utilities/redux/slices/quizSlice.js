@@ -4,7 +4,7 @@ import axios from 'axios';
 export const fetchQuizzes = createAsyncThunk(
     'quiz/fetchQuizzes',
     async () => {
-        const response = await fetch('https://radiant-academy.vercel.app/api/quizzes')
+        const response = await fetch('http://localhost:3000/api/quizzes')
             .then(res => res.json())
         return response.data
     }

@@ -1,19 +1,19 @@
 import { ArcElement, Chart } from 'chart.js';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { BsArrowRight, BsCheck2Circle } from 'react-icons/bs';
-import { CgArrowRightO } from 'react-icons/cg';
 import { FaBookmark, FaClock, FaClone, FaCopy, FaEdit, FaEnvelope, FaEye, FaHashtag, FaHeart, FaIdCardAlt, FaInfoCircle, FaNewspaper, FaPhoneSquareAlt, FaPlus } from 'react-icons/fa';
 import { MdPending } from 'react-icons/md';
+import { CgArrowRightO } from 'react-icons/cg';
 import { useSelector } from 'react-redux';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+import DashboardSidebar from './DashboardSidebar';
 import useAuth from '../../utilities/Hooks/useAuth';
 import useCrud from '../../utilities/Hooks/useCrud';
-import DashboardSidebar from './DashboardSidebar';
+import { useRouter } from 'next/router';
 
 Chart.register(ArcElement);
 
@@ -95,17 +95,17 @@ const DashboardSection = () => {
     return (
         <>
          {(user.isSignedIn && thisUser.role === 'admin') &&
-            <div className="px-0 ">
-                <div className="grid xs:grid-cols-1 md:grid-cols-4 p-8 gap-5">
-                    <div className=''>
+            <div className="px-0 sm:px-6 lg:px-12">
+                <div className="grid grid-rows-1 md:grid-cols-[250px_minmax(300px,_1fr)] lg:grid-cols-[250px_minmax(600px,_1fr)] p-8 gap-5">
+                    <div>
                         <DashboardSidebar />
                     </div>
 
-                    <div className="bg-slate-100 dark:bg-slate-700 shadow-md rounded-md py-8 px-5 h-auto col-span-3">
+                    <div className="bg-slate-100 dark:bg-slate-700 shadow-md rounded-md py-8 px-5 h-auto">
                         <div className="rounded-md p-5 text-white bg-violet-900 dark:bg-violet-800 dark:text-slate-200" >
                             <h5 className="text-lg">Site Overview</h5>
 
-                            <div className="grid xs:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-8 pb-1 px-4">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-8 pb-1 px-4">
                                 <div className="flex flex-col items-start pl-4 border-l-2 mb-2 border-l-zinc-200 dark:border-l-slate-400">
                                     <h3 className="text-2xl">{pendingList.length}</h3>
                                     <p>Pending Submissions</p>
@@ -140,7 +140,7 @@ const DashboardSection = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="grid grid-rows-1 grid-cols-1 lg:grid-cols-2 gap-5 mt-5">
+                        <div className="grid grid-rows-1 md:grid-cols-[300px_minmax(200px,_1fr)] lg:grid-cols-[350px_minmax(400px,_1fr)] gap-5 mt-5">
                             <div>
                                 <div className="bg-slate-200 shadow-md rounded-md p-5 h-auto mb-5 course-card dark:bg-slate-600">
                                     <div className="flex items-center justify-between text-violet-900 dark:text-violet-100">
@@ -245,34 +245,34 @@ const DashboardSection = () => {
                                         <button className="px-4 py-1.5 hover:bg-stone-100 rounded-lg flex items-center uppercase hover:text-slate-800"><FaEdit className="mr-2" /> Edit</button>
                                     </div>
                                     <div className="border-[1px] border-stone-300 dark:border-stone-400 my-2"></div>
-                                    <div className=" text-slate-700 dark:text-slate-200">
-                                        <div>
-                                            <div className='flex'>
-                                                <h1 className="flex items-center">
+                                    <table className="table-compact text-slate-700 dark:text-slate-200">
+                                        <tbody>
+                                            <tr>
+                                                <td className="flex items-center">
                                                     <FaIdCardAlt /> &nbsp; Name
-                                                </h1>
-                                                <h1>:&nbsp; {user.name}</h1>
-                                            </div>
-                                            <div className='flex'>
-                                                <h1 className="flex items-center">
+                                                </td>
+                                                <td>:&nbsp; {user.name}</td>
+                                            </tr>
+                                            <tr>
+                                                <td className="flex items-center">
                                                     <FaBookmark /> &nbsp; Role
-                                                </h1>
-                                                <h1>:&nbsp; {user.role}</h1>
-                                            </div>
-                                            <div className='flex'>
-                                                <h1 className="flex items-center">
+                                                </td>
+                                                <td>:&nbsp; {user.role}</td>
+                                            </tr>
+                                            <tr>
+                                                <td className="flex items-center">
                                                     <FaPhoneSquareAlt /> &nbsp; Phone
-                                                </h1>
-                                                <h1>:&nbsp; +880 123456</h1>
-                                            </div>
-                                            <div className='flex break-all'>
-                                                <h1 className="flex items-center pr-2">
+                                                </td>
+                                                <td>:&nbsp; +880 123456</td>
+                                            </tr>
+                                            <tr>
+                                                <td className="flex items-center">
                                                     <FaEnvelope /> &nbsp; Email
-                                                </h1>
-                                                <h1>{user.email}</h1>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                </td>
+                                                <td>{user.email}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                     <div className="flex justify-end mt-3">
                                         <button className="text-sm flex items-center px-4 py-1 font-semibold rounded-full hover:bg-stone-100 text-violet-900 dark:text-violet-300 dark:hover:bg-slate-700">See More Info <BsArrowRight className="ml-2 text-[15px] text-red-600 dark:text-red-400" /></button>
                                     </div>
