@@ -23,7 +23,7 @@ const CourseSection = () => {
                         <div>
                             {
                                 allCourses.map(course => (
-                                    <div className='container flex flex-wrap align-center items-center justify-around px-3 bg-white dark:bg-slate-600 rounded-md mb-2 py-4 shadow-md dark:shadow-slate-600' key={course._id}>
+                                    <div className='container grid md:grid-cols-7 xs:grid-cols-1 align-center items-center justify-around px-3 bg-white dark:bg-slate-600 rounded-md mb-2 py-4 shadow-md dark:shadow-slate-600' key={course._id}>
                                         <div className='col-span-2'>
                                             <h2 className='inline-flex'><span className="text-orange-500 my-auto mr-1.5">
                                                 <FaBookmark />

@@ -96,12 +96,12 @@ const DashboardSection = () => {
         <>
          {(user.isSignedIn && thisUser.role === 'admin') &&
             <div className="px-0 ">
-                <div className="grid xs:grid-cols-1 md:grid-cols-4 p-8 gap-5">
+                <div className="grid xs:grid-cols-1 md:grid-cols-5 p-8 gap-5">
                     <div className=''>
                         <DashboardSidebar />
                     </div>
 
-                    <div className="bg-slate-100 dark:bg-slate-700 shadow-md rounded-md py-8 px-5 h-auto col-span-3">
+                    <div className="bg-slate-100 dark:bg-slate-700 shadow-md rounded-md py-8 px-5 h-auto col-span-4">
                         <div className="rounded-md p-5 text-white bg-violet-900 dark:bg-violet-800 dark:text-slate-200" >
                             <h5 className="text-lg">Site Overview</h5>
 

@@ -1,8 +1,8 @@
 import React from 'react';
-import { FaPenNib, FaPlus, FaTrashAlt, FaUserFriends, FaUsers, FaUsersCog, FaBuffer, FaSyncAlt } from "react-icons/fa";
-import DashboardSidebar from './DashboardSidebar';
+import { FaBuffer, FaPenNib, FaPlus, FaSyncAlt, FaTrashAlt, FaUserFriends, FaUsers, FaUsersCog } from "react-icons/fa";
 import { useSelector } from 'react-redux';
 import useCrud from '../../utilities/Hooks/useCrud';
+import DashboardSidebar from './DashboardSidebar';
 
 const AccountsSection = () => {
     const { handleRemove, handleRole } = useCrud();
@@ -24,15 +24,15 @@ const AccountsSection = () => {
                         <div>
                             {
                                 allUsers?.map(user => (
-                                    <div className='container flex flex-wrap align-center items-center justify-around px-5 bg-white dark:bg-slate-600 rounded-md mb-2 py-4 shadow-md dark:shadow-slate-600' key={user._id}>
-                                        <h2 className='text-white inline-flex col-span-1'>
+                                    <div className='container grid md:grid-cols-7 xs:grid-cols-1 align-center items-center justify-around px-5 bg-white dark:bg-slate-600 rounded-md mb-2 py-4 shadow-md dark:shadow-slate-600' key={user._id}>
+                                        <h2 className='text-white inline-flex md:col-span-2'>
                                             <span className="text-orange-500 my-auto mr-1.5">
                                                 <FaUserFriends />
                                             </span>
                                             {user.displayName}
                                         </h2>
 
-                                        <h2 className='inline-flex col-span-2'>
+                                        <h2 className='inline-flex md:col-span-2'>
                                             <span className="flex items-center justify-center">
                                                 <FaPenNib className="mr-1.5 text-orange-500 dark:text-orange-400"/>
                                             </span>
