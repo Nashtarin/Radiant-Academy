@@ -1,6 +1,4 @@
 import Image from 'next/image';
-// import Lottie from 'react-lottie';
-// import animationData from '../../public/img/loading.json';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { FaBookmark, FaClock, FaHeart, FaPenNib } from "react-icons/fa";
@@ -11,7 +9,7 @@ import { fetchQuizzes } from '../../utilities/redux/slices/quizSlice';
 import ProfileDetailsSection from './ProfileDetailsSection';
 
 const ProfileSection = ({ account }) => {
-    const [rating, setRating] = useState(4.5);
+    const [rating, setRating] = useState(0);
     const { user, isLoading } = useAuth();
     const router = useRouter();
     const dispatch = useDispatch();
@@ -19,15 +17,6 @@ const ProfileSection = ({ account }) => {
     useEffect(() => {
         dispatch(fetchQuizzes());
     }, [dispatch]);
-
-    // const defaultOptions = {
-    //     loop: true,
-    //     autoplay: true,
-    //     animationData: animationData,
-    //     rendererSettings: {
-    //         preserveAspectRatio: 'xMidYMid slice'
-    //     }
-    // };
 
     if (isLoading && !user.isSignedIn) {
         return <div className="loading flex justify-center items-center min-h-screen m-auto">
@@ -87,13 +76,13 @@ const ProfileSection = ({ account }) => {
                                     <FaHeart className="mr-2 text-rose-700 dark:text-rose-500" />Reputations: 1214
                                 </p>
                                 <p className="flex items-center mb-1">
-                                    <FaBookmark className="mr-2 text-orange-500 dark:text-orange-400" />Rank: Collaborator
+                                    <FaBookmark className="mr-2 text-orange-500 dark:text-orange-400" />Rank: Newbie
                                 </p>
                             </div>
                             <div className="py-3 text-center">
                                 <h5 className="text-lg">Overall Rating</h5>
                                 <div className="ratings flex">
-                                    <ReactStars {...ratingCount} value={rating} edit={false} /> (50)
+                                    <ReactStars {...ratingCount} value={rating} edit={false} /> (0)
                                     <style jsx global>
                                         {`
                                         .ratings {

@@ -27,7 +27,7 @@ const SingleForumPage = ({ forum }) => {
             {/* SINGLE FORUM CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
             <ForumPostDetails forum={forum} />
             <ReviewSection forum={forum} />
-            <RelatedTopicSection />
+            <RelatedTopicSection forum={forum} />
 
         </div>
     );

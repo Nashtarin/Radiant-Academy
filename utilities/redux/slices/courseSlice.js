@@ -18,17 +18,30 @@ export const deleteCourse = createAsyncThunk(
     }
 )
 
-// export const courseView = createAsyncThunk(
-//     'course/courseView',
-//     async (course) => {
-//         try {
-//             const response = await axios.put(`http://localhost:3000/api/course/views/${forum._id}`);
-//             return response
-//         } catch (error) {
-//             console.log(error);
-//         }
-//     }
-// )
+export const courseCreate = createAsyncThunk(
+    'course/courseCreate',
+    async (course) => {
+        try {
+            const response = await axios.post("http://localhost:3000/api/courses", course);
+            return response.data.data
+        } catch (error) {
+            console.log(error);
+        }
+    }
+)
+
+export const updateCourse = createAsyncThunk(
+    'course/updateCourse',
+    async (course) => {
+        try {
+            const response = await axios.put(`http://localhost:3000/api/courses/edit/${course._id}`, course);
+            return course
+        } catch (error) {
+            console.log(error);
+        }
+    }
+)
+
 
 const courseSlice = createSlice({
     name: 'course',
@@ -54,6 +67,23 @@ const courseSlice = createSlice({
 
         builder.addCase(deleteCourse.fulfilled, (state, action) => {
             state.coursesList = state.coursesList.filter(course => course._id !== action.payload._id);
+            state.status = 'success';
+        })
+
+        builder.addCase(courseCreate.fulfilled, (state, action) => {
+            state.coursesList = [...state.coursesList, action.payload];
+            state.status = 'success';
+        })
+
+        builder.addCase(updateCourse.fulfilled, (state, action) => {
+            state.coursesList = state.coursesList.map(course => course._id === action.payload._id ? {
+                ...course,
+                title: action.payload.title,
+                subtitle: action.payload.subtitle,
+                category: action.payload.category,
+                desc: action.payload.desc,
+                price: action.payload.price,
+            } : course);
             state.status = 'success';
         })
     },

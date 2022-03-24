@@ -14,6 +14,7 @@ const ReviewSection = ({ forum }) => {
     const [reviews, setReviews] = useState([]);
     const allReviews = useSelector((state) => state.reviews.reviewsList);
     const { user } = useAuth();
+    console.log(forum)
 
     useEffect(() => {
         const thisReview = allReviews.filter(review => review.forumId === _id);
@@ -63,7 +64,9 @@ const ReviewSection = ({ forum }) => {
     return (
         <div className="px-12 lg:px-20">
             <div className="lg:px-12 pb-10 h-full">
-                <button className="px-8 py-2 text-white rounded-lg text-lg mb-4 bg-[#F05133]">Review ({reviews.length})</button>
+            {reviews.length > 0 ? <button className="px-8 py-2 text-white rounded-lg text-lg mb-4 bg-[#F05133]">Comments ({reviews.length})</button>
+            : <button className="px-8 py-2 text-white rounded-lg text-lg mb-4 bg-[#F05133]">Comment ({reviews.length})</button>}
+                
                 <div className="bg-slate-100 pb-12 dark:bg-slate-700">
                     {/* Display Comment */}
                     <div>

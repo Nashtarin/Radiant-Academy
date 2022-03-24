@@ -7,7 +7,7 @@ import { ImCross } from "react-icons/im";
 const PackageSection = () => {
     return (
         <div className='bg-white dark:bg-slate-800'>
-            <div className="w-5/6 xl:w-3/5 mx-auto pt-10" >
+            <div className="w-5/6 lg:5/6 xl:w-3/5x mx-auto pt-10" >
                 <div className="text-center ">
                     <h1 className="font-bold text-violet-800 dark:text-violet-400 text-4xl py-7">Take the best Package</h1>
                 </div>

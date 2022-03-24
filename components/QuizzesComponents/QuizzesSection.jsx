@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import { MdTimer } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
-// import Lottie from 'react-lottie';
-// import animationData from '../../public/img/success.json';
 import { useRouter } from 'next/router';
 import QuizOptions from './QuizOptions';
 import { addToAnsweredList, addToScore } from '../../utilities/redux/slices/quizSlice';
@@ -103,8 +101,6 @@ const QuizzesSection = () => {
     }
 
     const validateScreen = () => {
-        console.log(score);
-        dispatch(addToScore(score));
         isValidated(true);
         document.getElementById('questionText').style.display = 'none';
         setTimeout(() => {
@@ -112,27 +108,17 @@ const QuizzesSection = () => {
         }, 1500);
         setTimeout(() => {
             router.push('/quiz/quiz-result');
-        }, 6500);
+        }, 3000);
     }
-
-    // const defaultOptions = {
-    //     loop: true,
-    //     autoplay: true,
-    //     animationData: animationData,
-    //     rendererSettings: {
-    //         preserveAspectRatio: 'xMidYMid slice'
-    //     }
-    // };
 
 
     const handleOnScore = (isCorrect) => {
         if (isCorrect) {
             setScore(score + 1);
+            dispatch(addToScore(score + 1));
         }
         nextQuestion(nextId);
     };
-    // console.log(thisUser._id, course.data._id);
-    // const { user } = useAuth();
 
     return (
         <div>
@@ -194,11 +180,6 @@ const QuizzesSection = () => {
                         </div>
                         {validated &&
                             <div className="loading flex justify-center items-center m-auto">
-                                {/* <div>
-                                    <Lottie options={defaultOptions}
-                                        height={300}
-                                        width={300} />
-                                </div> */}
                                 <InfinitySpin color="grey" />
                             </div>
                         }

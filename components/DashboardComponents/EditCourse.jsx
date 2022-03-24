@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
 import { FaClone } from 'react-icons/fa';
-import { useDispatch } from 'react-redux';
-import useAuth from '../../utilities/Hooks/useAuth';
+import { useDispatch, useSelector } from 'react-redux';
 import DashboardSidebar from './DashboardSidebar';
 import toast, { Toaster } from 'react-hot-toast';
 import { useRouter } from "next/router";
-import axios from 'axios';
-import { courseCreate } from '../../utilities/redux/slices/courseSlice';
+import { updateCourse } from '../../utilities/redux/slices/courseSlice';
 
-const AddNewCourse = () => {
+const EditCourse = ({course}) => {
     const router = useRouter();
-    const [imageStore, setImageStore] = useState({});
 
     const categories = [
         {
@@ -39,46 +36,23 @@ const AddNewCourse = () => {
         },
     ]
 
-    const [postData, setPostData] = useState({ title: '', subtitle: '', category: '', description: '', image: '', price: 0, rating: 4.5, enrolled: 0, contents: [] });
-    console.log(postData);
+    const [postData, setPostData] = useState({ _id: `${course._id}`, title: `${course.title}`, subtitle: `${course.subtitle}`, category: `${course.category}`, description: `${course.description}`, image: `${course.image}`, price: `${course.price}`, rating: `${course.rating}`, enrolled: `${course.enrolled}`});
 
     const dispatch = useDispatch();
-    const postTopic = e => {
+    const editCourse = e => {
         const loading = toast.loading('Please wait ...');
-        axios.post('https://api.imgbb.com/1/upload', imageStore)
-        .then(function (response) {
-            postData.image = response.data.data.display_url;
-            if (dispatch(courseCreate(postData))) {
-                toast.dismiss(loading);
-                toast.success("Successfully added a new topic!", {
-                    position: "top-center"
-                });
-                clear();
-                router.replace('/dashboard/courses');
-            } else {
-                toast.dismiss(loading);
-                toast.error('Something went wrong!');
-            }
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-        
+        if (dispatch(updateCourse(postData))) {
+            toast.dismiss(loading);
+            toast.success("Successfully updated the course!", {
+                position: "top-center"
+            });
+            router.replace('/dashboard/courses');
+        } else {
+            toast.dismiss(loading);
+            toast.error('Something went wrong!');
+        }
         e.preventDefault();
     }
-
-    const handleImageUpload = e => {
-        const imageData = new FormData();
-        imageData.set('key', '82e5344b858660378c234022265f1537');
-        imageData.append('image', e.target.files[0]);
-
-        setImageStore(imageData);
-        e.preventDefault();
-    }
-
-    const clear = () => {
-        setPostData({ title: '', subtitle: '', category: '', description: '', image: '', price: 0, rating: 0, enrolled: 0, contents: [] });
-    };
 
     return (
         <div className='px-0 sm:px-6 lg:px-12 bg-white dark:bg-slate-800 text-slate-700'>
@@ -88,12 +62,12 @@ const AddNewCourse = () => {
                 </section>
                 <section className='bg-white dark:bg-slate-700 shadow-md rounded-md py-8 px-5 h-auto'>
                     <div className="flex justify-between items-center px-3 mb-4">
-                        <h3 className="text-2xl flex items-center dark:text-slate-200"><FaClone className="mr-3" /> Add New Course</h3>
+                        <h3 className="text-2xl flex items-center dark:text-slate-200"><FaClone className="mr-3" /> Edit Course</h3>
                     </div>
                     <section className="overflow-x-auto pt-10">
                         <div className="grid grid-rows-2 sm:grid-rows-none sm:gid-cols-2 lg:grid-cols-[350px_minmax(600px,_1fr)] gap-2 pb-20 px-8 sm:px-12 md:px-20">
                             <div className="p-2">
-                                <form className="flex justify-center flex-col" onSubmit={postTopic}>
+                                <form className="flex justify-center flex-col" onSubmit={editCourse}>
                                     <input
                                         type="text"
                                         name="title"
@@ -102,14 +76,6 @@ const AddNewCourse = () => {
                                         required
                                         value={postData.title}
                                         onChange={(e) => setPostData({ ...postData, title: e.target.value })}
-                                    />
-                                    <input
-                                        type="file"
-                                        multiple={false}
-                                        name="hashtags"
-                                        placeholder="image"
-                                        className="bg-slate-200 w-full py-2 px-3 outline-none text-lg rounded-lg"
-                                        onChange={handleImageUpload}
                                     />
                                     <input
                                         type="number"
@@ -135,7 +101,7 @@ const AddNewCourse = () => {
                                         }
                                     </select>
                                     <button type="submit" className="bg-rose-500 text-white font-bold px-12 py-2 text-lg rounded-lg tracking-wider w-2/4 lg:w-full mx-auto"
-                                    >POST</button>
+                                    >UPDATE</button>
                                 </form>
                             </div>
                             <div className="h-[300px] md:h-[300px] py-2 px-2">
@@ -170,4 +136,4 @@ const AddNewCourse = () => {
     );
 };
 
-export default AddNewCourse;
+export default EditCourse;

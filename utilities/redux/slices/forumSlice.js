@@ -66,6 +66,18 @@ export const deleteTopic = createAsyncThunk(
     }
 )
 
+export const updateTopic = createAsyncThunk(
+    'forum/updateTopic',
+    async (forum) => {
+        try {
+            const response = await axios.put(`http://localhost:3000/api/forums/edit/${forum._id}`, forum);
+            return forum
+        } catch (error) {
+            console.log(error);
+        }
+    }
+)
+
 const forumSlice = createSlice({
     name: 'forum',
     initialState: {
@@ -109,6 +121,16 @@ const forumSlice = createSlice({
 
         builder.addCase(deleteTopic.fulfilled, (state, action) => {
             state.forumsList = state.forumsList.filter(forum => forum._id !== action.payload._id);
+            state.status = 'success';
+        })
+
+        builder.addCase(updateTopic.fulfilled, (state, action) => {
+            state.forumsList = state.forumsList.map(forum => forum._id === action.payload._id ? {
+                ...forum,
+                title: action.payload.title,
+                category: action.payload.category,
+                desc: action.payload.desc,
+            } : forum);
             state.status = 'success';
         })
     },

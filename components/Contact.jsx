@@ -17,8 +17,11 @@ const contact = () => {
     return (
         <div>
             <div className="grid grid-cols-1 mx-auto py-[5rem] bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200">
-                <div className="pb-6">
-                    <h1 className="text-4xl font-bold text-center">Contact with us!</h1>
+                <div className="py-5 mx-auto">
+                    <div>
+                        <h2 className="text-rose-500 text-2xl font-semibold">Subscribe To Our Newsletter Today</h2>
+                        <p className="text-slate-400 text-sm">No bloats and zero spams. Be the first to join.</p>
+                    </div>
                 </div>
                 <div className="px-7 md:w-3/5 lg:w-3/6 xl:w-2/6 flex flex-col mx-auto">
                     <form onSubmit={sendEmail}>
@@ -49,7 +52,7 @@ const contact = () => {
                             placeholder="Type your comment here!"
                             required
                         ></textarea>
-                        <button type="submit" className="px-4 md:px-8 py-2 text-lg font-bold rounded-full shadow-md w-[100px] sm:w-[120px] md:w-[150px] lg:w-[150px] float-right dark:text-slate-700 text-black" style={{ backgroundColor: '#FFCA30' }}>SEND</button>
+                        <button type="submit" className="px-4 md:px-8 py-2 text-lg font-bold rounded-full shadow-md w-[100px] sm:w-[120px] md:w-[150px] lg:w-[150px] text-center dark:text-slate-700 text-black" style={{ backgroundColor: '#FFCA30' }}>SEND</button>
                     </form>
                 </div>
             </div>

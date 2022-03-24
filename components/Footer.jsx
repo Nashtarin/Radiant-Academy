@@ -4,6 +4,12 @@ import { BsArrowUpCircleFill } from 'react-icons/bs';
 import { FaHeadset } from "react-icons/fa";
 
 const Footer = () => {
+    window.onload = (function () {
+        setTimeout(() => {
+            const chatBtn = document.getElementById("chat-icon");
+            chatBtn.classList.toggle("expanded");
+        }, 3000);
+    });
 
     function helpLine(){
         const chatBtn = document.getElementById("chat-icon");

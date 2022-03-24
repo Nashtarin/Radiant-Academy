@@ -1,59 +1,62 @@
 [
     {
-        "courseId": "62208035e85b8f5e72f2aec6",
-        "questionText":
-          "Fill in the blank. Javascript is a ____?",
-        "surveyStep": 1,
+        "courseId": "62210778b2708b4fc8ba9c64",
+        "questionText": "Fill in the blank. Javascript is a ____?",
         "totalSurveySteps": 2,
+        "surveyStep": 1,
         "isFinalQuestion": false,
         "options": [
-          {
-            "id": 1,
-            "answerText": "Framework",
-            "answerNo": 1
-          },
-          {
-            "id": 2,
-            "answerText": "Compiler",
-            "answerNo": 2
-          },
-          {
-            "id": 3,
-            "answerText": "Programming Language",
-            "answerNo": 3
-          },
-          {
-            "id": 4,
-            "answerText": "Library",
-            "answerNo": 4
-          }
+            {
+                "answerText": "Framework",
+                "answerNo": 1,
+                "isCorrect": false
+            },
+            {
+                "answerText": "Compiler",
+                "answerNo": 2,
+                "isCorrect": false
+            },
+            {
+                "answerText": "Programming Language",
+                "answerNo": 3,
+                "isCorrect": true
+            },
+            {
+                "answerText": "Library",
+                "answerNo": 4,
+                "isCorrect": false
+            }
         ],
         "answer": 3
     },
     {
-        "id": 2,
-        "questionText":
-          "Do you feel that large Wholesale Stores provide good value for your money?",
+        "courseId": "62210778b2708b4fc8ba9c64",
+        "questionText": "State can be managed by ____?",
         "totalSurveySteps": 2,
         "surveyStep": 2,
         "isFinalQuestion": true,
-        "answers": [
+        "options": [
             {
-                "id": 1,
-                "answerText": "Definitely"
+                "answerText": "Redux",
+                "answerNo": 1,
+                "isCorrect": false
             },
             {
-                "id": 2,
-                "answerText": "Somewhat"
+                "answerText": "Props",
+                "answerNo": 2,
+                "isCorrect": false
             },
             {
-                "id": 3,
-                "answerText": "Not Really"
+                "answerText": "Context API",
+                "answerNo": 3,
+                "isCorrect": false
             },
             {
-                "id": 4,
-                "answerText": "Definitely Not"
+                "answerText": "All of them above",
+                "answerNo": 4,
+                "isCorrect": true
             }
-        ]
+        ],
+        "answer": 4
     }
 ]

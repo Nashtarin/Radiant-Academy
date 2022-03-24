@@ -3,10 +3,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { FaCalendarAlt, FaEye, FaHashtag, FaHeart } from "react-icons/fa";
+import { useSelector } from 'react-redux';
 import Linkify from 'react-linkify';
 
 const ForumPostDetails = ({ forum }) => {
-    const { _id, title, author, authorImg, category, createdAt, desc, loves, views } = forum;
+    const { _id, title, author, authorImg, authorEmail, category, createdAt, desc, loves, views } = forum;
+    const allTopics = useSelector((state) => state.forums.forumsList);
+    const userTopics = allTopics.filter(topic => topic.authorEmail === authorEmail);
+    const filtered = userTopics.filter(topic => (_id !== topic._id && topic.status !== false));
 
     return (
         <div>
@@ -61,20 +65,25 @@ const ForumPostDetails = ({ forum }) => {
                     </div>
                     <div className="px-5 pb-5">
                         <div className="bg-slate-100 dark:bg-slate-700 drop-shadow-md py-3 px-4 flex justify-center items-center flex-col rounded-lg">
-                            <div className="border-b-2" style={{ borderColor: '#F05133' }}>
-                                <h2 className="text-xl mb-3 text-slate-700 dark:text-slate-200">More Post From <span style={{ color: '#F05133' }}>{author.split(' ').slice(-1).join(' ')}</span></h2>
-                            </div>
+                            {
+                                filtered.length > 0 ?
+                                    <div className="border-b-2" style={{ borderColor: '#A78BFA' }}>
+                                        <h2 className="text-xl mb-3 text-slate-700 dark:text-slate-200">More Post From <span className="text-purple-900 dark:text-violet-400">{author.split(' ').slice(-1).join(' ')}</span></h2>
+                                    </div>
+                                    : <div className="border-b-2" style={{ borderColor: '#A78BFA' }}>
+                                        <h2 className="text-xl mb-3 text-slate-700 dark:text-slate-200"><span className="text-purple-900 dark:text-violet-400">{author.split(' ').slice(-1).join(' ')}</span> Posted only once!</h2>
+                                    </div>
+                            }
+                            
                             <div className="my-2">
-                                <div className="my-3">
-                                    <h3 className="text-xl text-slate-700 dark:text-slate-200">Read About Facebook</h3>
-                                    <p className="text-sm my-1 text-slate-700 dark:text-slate-200">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste, maiores.</p>
-                                    <Link href="/forum/5064" passHref><button className="px-4 py-1 rounded-full mt-2" style={{ backgroundColor: '#FFCA30' }}>Read More!</button></Link>
-                                </div>
-                                <div>
-                                    <h3 className="text-xl text-slate-700 dark:text-slate-200">Read About Twitter</h3>
-                                    <p className="text-sm my-1 text-slate-700 dark:text-slate-200">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste, maiores.</p>
-                                    <Link href="/forum/9829" passHref><button className="px-4 py-1 rounded-full mt-2" style={{ backgroundColor: '#FFCA30' }}>Read More!</button></Link>
-                                </div>
+                                {
+                                    filtered.slice(0, 2).map(topic => (
+                                        <div className="my-3" key={topic._id}>
+                                            <h3 className="text-md text-slate-700 dark:text-slate-200">{topic.title.split(' ').slice(0, 10).toString().replace(/,/g, ' ')} . .</h3>
+                                            <Link href={`/forum/${topic._id}`} passHref><button className="px-4 py-1 rounded-full mt-2" style={{ backgroundColor: '#FFCA30' }}>Read More!</button></Link>
+                                        </div>
+                                    ))
+                                }
                             </div>
                         </div>
                     </div>
