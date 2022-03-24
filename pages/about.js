@@ -236,7 +236,7 @@ const about = () => {
                     <div className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
                         <div className="grid place-content-center relative bottom-12">
                             <Image
-                                src="/img/iftakher.jpg"
+                                src="https://drive.google.com/file/d/16NHrDExF-Uetqn7TR5vr5Os0NkXkXvy_/view?usp=drivesdk"
                                 height="150"
                                 width="150"
                                 alt="User"
@@ -255,7 +255,7 @@ const about = () => {
                             </h4>
                         </div>
                         <div>
-                            <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-3">“I worked here as a main Frontend Developer on our team. And also helped my team to Research & Developement.”</p>
+                            <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-3">I worked as a main Frontend Developer in our team. And also helped my team to research & developement</p>
                         </div>
                         <div className="flex justify-center pb-5">
                             <a href="https://www.linkedin.com/in/iftakher-hossen/" target="_new" className="mr-3">
