@@ -30,6 +30,18 @@ export const courseCreate = createAsyncThunk(
     }
 )
 
+export const updateCourse = createAsyncThunk(
+    'course/updateCourse',
+    async (course) => {
+        try {
+            const response = await axios.put(`http://localhost:3000/api/courses/edit/${course._id}`, course);
+            return course
+        } catch (error) {
+            console.log(error);
+        }
+    }
+)
+
 
 const courseSlice = createSlice({
     name: 'course',
@@ -60,6 +72,18 @@ const courseSlice = createSlice({
 
         builder.addCase(courseCreate.fulfilled, (state, action) => {
             state.coursesList = [...state.coursesList, action.payload];
+            state.status = 'success';
+        })
+
+        builder.addCase(updateCourse.fulfilled, (state, action) => {
+            state.coursesList = state.coursesList.map(course => course._id === action.payload._id ? {
+                ...course,
+                title: action.payload.title,
+                subtitle: action.payload.subtitle,
+                category: action.payload.category,
+                desc: action.payload.desc,
+                price: action.payload.price,
+            } : course);
             state.status = 'success';
         })
     },

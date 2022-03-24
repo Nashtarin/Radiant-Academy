@@ -85,7 +85,7 @@ const CourseDetailsSection = ({ course }) => {
                         </div>
                         <hr className="my-3" />
                         <div>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&apos;t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn&apos;t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&apos;t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn&apos;t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&apos;t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn&apos;t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+                            <p>{course?.data?.description}</p>
                         </div>
                     </section>
                 </div>
@@ -195,24 +195,6 @@ const CourseDetailsSection = ({ course }) => {
                     </section>
                 </div>
                 <div className="mt-1 pb-20 py-8">
-                    {/* <section id="related-course">
-                        <div className="flex items-center">
-                            <div>
-                                <a href="#related-course"><FaLink className="hover:text-purple-900 mr-3 text-xl" /></a>
-                            </div>
-                            <div>
-                                <h3 className="text-2xl font-medium text-rose-500 pb-5">Related Course</h3>
-                            </div>
-                        </div>
-                        <div>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-                                <CourseCard />
-                                <CourseCard />
-                                <CourseCard />
-                                <CourseCard />
-                            </div>
-                        </div>
-                    </section> */}
                 </div>
             </div>
         </div>

@@ -236,7 +236,7 @@ const about = () => {
                     <div className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
                         <div className="grid place-content-center relative bottom-12">
                             <Image
-                                src="/img/iftakher.png"
+                                src="/img/iftakher.jpg"
                                 height="150"
                                 width="150"
                                 alt="User"
@@ -255,7 +255,7 @@ const about = () => {
                             </h4>
                         </div>
                         <div>
-                            <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-3">“I received my certificate, and I would like to thank you for your support. Your course was challenging, but you were always there supporting me and ready to help. I enjoyed your class tremendously.”</p>
+                            <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-3">“I worked here as a main Frontend Developer on our team. And also helped my team to Research & Developement.”</p>
                         </div>
                         <div className="flex justify-center pb-5">
                             <a href="https://www.linkedin.com/in/iftakher-hossen/" target="_new" className="mr-3">
@@ -369,7 +369,7 @@ const about = () => {
                             </a>
                             <a href="https://ashadujjaman-emon.web.app/" target="_new" className="mr-3">
                                 <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-blue-600 hover:text-blue-600 duration-300">
-                                    <FaTwitter />
+                                    <FaLink />
                                 </span>
                             </a>
                         </div>
