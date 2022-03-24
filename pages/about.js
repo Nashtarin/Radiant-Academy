@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from 'react';
 import { Fade, Zoom } from 'react-awesome-reveal';
-import { FaFacebook, FaGithub, FaLinkedinIn, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
@@ -226,8 +226,13 @@ const about = () => {
                                 Md. Jahidul Islam
                             </h1>
                         </div>
+                        <div className="flex justify-center">
+                            <h4 className="text-slate-700 dark:text-slate-200  text-md">
+                                Team Leader
+                            </h4>
+                        </div>
                         <div>
-                            <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-3">“I received my certificate, and I would like to thank you for your support. Your course was challenging, but you were always there supporting me and ready to help. I enjoyed your class tremendously.”</p>
+                            <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-3">“In this project i served as the Team Leader, and led the team of total seven members. I maintained the administrative actions and together build this production ready web app.”</p>
                         </div>
                         <div className="flex justify-center pb-5">
                             <a href="https://www.linkedin.com/in/jahidul-islam-076a8b216/" target="_new" className="mr-3">
