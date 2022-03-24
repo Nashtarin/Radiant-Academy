@@ -142,7 +142,7 @@ const about = () => {
                     <div className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
                         <div className="grid place-content-center relative bottom-12">
                             <Image
-                                src="/img/person1.png"
+                                src="/img/shahriar.jpg"
                                 height="150"
                                 width="150"
                                 alt="User"
