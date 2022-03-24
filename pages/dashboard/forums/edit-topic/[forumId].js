@@ -14,7 +14,7 @@ const EditTopicPage = ({ forum }) => {
 
             <Script src="https://kit.fontawesome.com/9dbb72da13.js" />
 
-            <EditTopic forum={forum}/>
+            <EditTopic forum={forum} />
 
         </div>
     );
