@@ -5,7 +5,7 @@ const CounterSection = () => {
 
     return (
         <div className="p-20 bg-white dark:bg-slate-800">
-            <div className="w-5/6 grid pb-14 pt-10 px-5 lg:grid-cols-4 gap-2 h-full mx-auto">
+            <div className="w-6/6 grid pb-14 pt-10 px-5 lg:grid-cols-4 gap-2 h-full mx-auto">
                 <div className="flex justify-center">
                     <div className="text-center px-3 mb-8 sm:mb-3">
                         <h1 className="text-5xl text-rose-500 font-bold mb-3">

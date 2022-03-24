@@ -101,8 +101,6 @@ const QuizzesSection = () => {
     }
 
     const validateScreen = () => {
-        console.log(score);
-        dispatch(addToScore(score));
         isValidated(true);
         document.getElementById('questionText').style.display = 'none';
         setTimeout(() => {
@@ -110,13 +108,14 @@ const QuizzesSection = () => {
         }, 1500);
         setTimeout(() => {
             router.push('/quiz/quiz-result');
-        }, 6500);
+        }, 3000);
     }
 
 
     const handleOnScore = (isCorrect) => {
         if (isCorrect) {
             setScore(score + 1);
+            dispatch(addToScore(score + 1));
         }
         nextQuestion(nextId);
     };
