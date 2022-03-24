@@ -5,7 +5,7 @@ const PrivacyPolicySection = () => {
     return (
         <div className='bg-white dark:bg-slate-800'>
             <div className="pt-12 pb-[10.5rem]">
-                <div className="h-[300px] w-5/6 sm:4/6 lg:w-3/6 bg-slate-200 dark:bg-slate-700 mx-auto overflow-auto px-2.5 border-[2rem] border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-400">
+                <div className="h-[300px] w-5/6 sm:4/6 lg:w-5/6 bg-slate-200 dark:bg-slate-700 mx-auto overflow-auto px-2.5 border-[2rem] border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-400">
                     <div>
                         <h2 className="text-xl"><strong>Terms and Conditions</strong></h2>
                         <br />

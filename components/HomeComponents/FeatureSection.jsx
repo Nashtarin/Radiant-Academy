@@ -23,7 +23,7 @@ const FeatureSection = () => {
                         </div>
                         <h3 className="text-center text-3xl	font-bold text-slate-700 dark:text-slate-100 mb-4">Quiz System</h3>
                         <p className="text-center w-5/6 mx-auto text-slate-500 dark:text-slate-400">Interactive Quiz features for learners to judge your coding skill in a time based quiz answering.</p>
-                        <Link href="/quiz" passHref>
+                        <Link href="/courses" passHref>
                             <p className="text-center text-1xl font-bold text-violet-800 dark:text-violet-400 my-4 flex justify-center items-center cursor-pointer">
                                 Learn More &nbsp; <FaArrowRight style={{ fontSize: '12px', marginTop: '3px' }} />
                             </p>
@@ -41,7 +41,7 @@ const FeatureSection = () => {
                         </div>
                         <h3 className="text-center text-3xl	font-bold text-slate-700 dark:text-slate-100 mb-4">Code Editor</h3>
                         <p className="text-center w-5/6 mx-auto text-slate-500 dark:text-slate-400">In built code editor for the purpose of practicing problems without leaving our site.</p>
-                        <Link href="/codeeditor" passHref>
+                        <Link href="/code-editor" passHref>
                             <p className="text-center text-1xl font-bold text-violet-800 dark:text-violet-400 my-4 flex justify-center items-center cursor-pointer">
                                 Learn More &nbsp; <FaArrowRight style={{ fontSize: '12px', marginTop: '3px' }} />
                             </p>
