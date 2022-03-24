@@ -12,7 +12,7 @@ const AddNewTopic = () => {
     const router = useRouter();
     const categories = useSelector((state) => state.categories.categoriesList);
 
-    const [postData, setPostData] = useState({ title: '', category: '', desc: '', author: `${user.name}`, authorEmail: `${user.email}`, authorImg: 'https://i.postimg.cc/4dNK0r0W/people-1.png', loves: 0, views: 0, status: false, featured: false });
+    const [postData, setPostData] = useState({ title: '', category: '', desc: '', author: `${user.name}`, authorEmail: `${user.email}`, authorImg: `${user.photo}`, loves: 0, views: 0, status: false, featured: false });
 
     const dispatch = useDispatch();
     const postTopic = e => {
@@ -32,7 +32,7 @@ const AddNewTopic = () => {
     }
 
     const clear = () => {
-        setPostData({ title: '', category: '', desc: '', authorImg: '', loves: 0, views: 0, status: false, featured: false });
+        setPostData({ title: '', category: '', desc: '', loves: 0, views: 0, status: false, featured: false });
     };
 
     return (

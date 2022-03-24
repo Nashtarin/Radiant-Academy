@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import forum from "../../utilities/FakeData/forum.json";
+import React from 'react';
+import { useSelector } from 'react-redux';
 import TopicCard from './TopicCard';
 
-const RelatedTopicSection = () => {
-    const [forumData, isForumData] = useState([]);
+const RelatedTopicSection = ({forum}) => {
+    const allTopic = useSelector((state) => state.forums.forumsList);
 
-    useEffect(() => {
-        isForumData(forum);
-    }, [])
+    const relatedList = allTopic.filter(related => {
+        if (forum.category.toLowerCase() === related.category.toLowerCase()) {
+            return related;
+        }
+    }).map(related => <TopicCard
+        key={related._id}
+        forum={related}
+    />)
 
     return (
         <section className='container mx-auto mt-[8.5rem] pb-20 px-2 lg:px-4'>
-            <h1 className='text-5xl font-bold text-center mb-10 text-violet-800 px-2 dark:text-violet-400'>Featured Topics</h1>
-            {
-                forumData.slice(0, 2).map(forum => <TopicCard
-                    key={forum.no}
-                    forum={forum}
-                />)
-            }
+            <h1 className='text-4xl font-bold text-center mb-10 text-slate-800 px-2 dark:text-white'>Topics you may also like</h1>
+            {relatedList}
         </section>
     );
 };

@@ -9,8 +9,9 @@ const CreateTopicSection = () => {
     const { user } = useAuth();
     const router = useRouter();
     const categories = useSelector((state) => state.categories.categoriesList);
+    console.log(user.email);
 
-    const [postData, setPostData] = useState({ title: '', category: '', desc: '', author: `${user.name}`, authorEmail: `${user.email}`, authorImg: 'https://i.postimg.cc/4dNK0r0W/people-1.png', loves: 0, views: 0, status: false, featured: false });
+    const [postData, setPostData] = useState({ title: '', category: '', desc: '', author: `${user.name}`, authorEmail: `${user.email}`, authorImg: `${user.photo}`, loves: 0, views: 0, status: false, featured: false });
 
     const dispatch = useDispatch();
     const postTopic = e => {
@@ -31,7 +32,7 @@ const CreateTopicSection = () => {
     }
 
     const clear = () => {
-        setPostData({ title: '', category: '', desc: '', authorImg: '', loves: 0, views: 0, status: false, featured: false });
+        setPostData({ title: '', category: '', desc: '', loves: 0, views: 0, status: false, featured: false });
     };
 
     return (
