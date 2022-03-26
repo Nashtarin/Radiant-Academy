@@ -2,7 +2,7 @@ import Head from "next/head";
 import CourseDetailsSection from "../../components/CourseComponents/CourseDetailsSection";
 import Script from 'next/script';
 
-const Courses = ({ course }) => {
+const CourseInner = ({ course }) => {
 
     return (
         <div>
@@ -65,4 +65,4 @@ export async function getServerSideProps({ params }) {
 //     return { props: { course } }
 // }
 
-export default Courses;
+export default CourseInner;

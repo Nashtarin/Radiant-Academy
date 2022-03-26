@@ -2,7 +2,7 @@ import Head from "next/head";
 import React from 'react';
 import EditorSection from "../../components/EditorComponents/EditorSection";
 
-const index = () => {
+const CodeEditor = () => {
   return (
     <div>
       <Head>
@@ -18,4 +18,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default CodeEditor;

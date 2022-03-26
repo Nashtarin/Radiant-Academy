@@ -2,7 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 import AddNewTopic from '../../../../components/DashboardComponents/AddNewTopic';
 
-const index = () => {
+const DashAddTopic = () => {
     return (
         <div>
             <Head>
@@ -17,4 +17,4 @@ const index = () => {
     );
 };
 
-export default index;
+export default DashAddTopic;

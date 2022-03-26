@@ -1,7 +1,7 @@
 import Head from "next/head";
 import QuizzesSection from "../../components/QuizzesComponents/QuizzesSection";
 
-const Courses = () => {
+const Quiz = () => {
   return (
     <div>
       <Head>
@@ -17,4 +17,4 @@ const Courses = () => {
   );
 };
 
-export default Courses;
+export default Quiz;

@@ -3,7 +3,7 @@ import Head from "next/head";
 import Script from 'next/script';
 import EditTopic from "../../../../components/DashboardComponents/EditTopic";
 
-const EditTopicPage = ({ forum }) => {
+const DashEditTopic = ({ forum }) => {
     return (
         <div className="bg-white dark:bg-slate-800">
             <Head>
@@ -27,4 +27,4 @@ export async function getServerSideProps({ params }) {
     return { props: { forum } }
 }
 
-export default EditTopicPage;
+export default DashEditTopic;

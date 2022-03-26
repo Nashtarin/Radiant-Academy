@@ -11,7 +11,7 @@ import FeatureSection from "../components/HomeComponents/FeatureSection";
 import CounterSection from "../components/HomeComponents/CounterSection";
 import PrivacyPolicySection from "../components/HomeComponents/PrivacyPolicySection";
 
-export default function Home() {
+const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -36,5 +36,7 @@ export default function Home() {
       <CounterSection />
       <PrivacyPolicySection />
     </div>
-  )
-}
+  );
+};
+
+export default Home;

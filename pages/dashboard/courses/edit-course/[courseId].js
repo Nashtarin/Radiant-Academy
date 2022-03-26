@@ -3,7 +3,7 @@ import Head from "next/head";
 import Script from 'next/script';
 import EditCourse from "../../../../components/DashboardComponents/EditCourse";
 
-const EditCoursePage = ({ course }) => {
+const DashEditNewCourse = ({ course }) => {
     return (
         <div className="bg-white dark:bg-slate-800">
             <Head>
@@ -27,4 +27,4 @@ export async function getServerSideProps({ params }) {
     return { props: { course } }
 }
 
-export default EditCoursePage;
+export default DashEditNewCourse;

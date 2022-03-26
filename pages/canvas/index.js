@@ -2,7 +2,7 @@ import Head from "next/head";
 import React from 'react';
 import CanvasBoard from "../../components/CanvasComponents/CanvasBoard";
 
-const index = () => {
+const Canvas = () => {
     return (
         <div>
             <Head>
@@ -17,4 +17,4 @@ const index = () => {
     );
 };
 
-export default index;
+export default Canvas;

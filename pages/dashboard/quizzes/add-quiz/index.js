@@ -2,7 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 import AddNewQuiz from '../../../../components/DashboardComponents/AddNewQuiz';
 
-const index = () => {
+const DashAddNewQuiz = () => {
     return (
         <div>
             <Head>
@@ -16,4 +16,4 @@ const index = () => {
     );
 };
 
-export default index;
+export default DashAddNewQuiz;

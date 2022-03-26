@@ -8,37 +8,6 @@ import "slick-carousel/slick/slick.css";
 import Contact from '../components/Contact';
 
 const about = () => {
-    const settings = {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        dots: true,
-        arrows: true,
-        infinite: false,
-        autoplay: false,
-        autoplaySpeed: 3000,
-        speed: 700,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: true,
-                },
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    dots: true,
-                    arrows: false,
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                },
-            },
-        ],
-    };
-
     return (
         <section className="bg-white dark:bg-slate-800 text-slate-700 dark:text-white">
             {/* Team section  */}
