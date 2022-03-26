@@ -67,7 +67,7 @@ const about = () => {
                             </h4>
                         </div>
                         <div>
-                            <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-3">“I received my certificate, and I would like to thank you for your support. Your course was challenging, but you were always there supporting me and ready to help. I enjoyed your class tremendously.”</p>
+                            <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-3">“In this project i served as the Team Leader, and led the team of total seven members. I maintained the administrative actions and together build this production ready web app.”</p>
                         </div>
                         <div className="flex justify-center pb-5">
                             <a href="https://www.linkedin.com/in/jahidul-islam-076a8b216/" target="_new" className="mr-3">
@@ -142,7 +142,7 @@ const about = () => {
                     <div className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
                         <div className="grid place-content-center relative bottom-12">
                             <Image
-                                src="/img/person1.png"
+                                src="/img/shahriar.jpg"
                                 height="150"
                                 width="150"
                                 alt="User"

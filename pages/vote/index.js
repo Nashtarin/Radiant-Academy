@@ -17,7 +17,7 @@ const index = () => {
 };
 
 export const getServerSideProps = async () => {
-    const res = await fetch('http://localhost:3000/api/vote')
+    const res = await fetch('https://radiant-academy-vert.vercel.app/api/vote')
     const vote = await res.json()
     return {
         props: {
