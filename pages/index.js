@@ -1,9 +1,7 @@
 import Head from "next/head";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { fetchReviews } from "../utilities/redux/slices/reviewSlice";
 import { fetchUsers } from "../utilities/redux/slices/userSlice";
-import { fetchVotes } from "../utilities/redux/slices/voteSlice";
 import PackageSection from "../components/HomeComponents/PackageSection";
 import QuizSection from "../components/HomeComponents/QuizSection";
 import HeroSection from "../components/HomeComponents/HeroSection";
@@ -17,9 +15,7 @@ export default function Home() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchReviews());
     dispatch(fetchUsers());
-    dispatch(fetchVotes());
   }, [dispatch]);
 
   return (

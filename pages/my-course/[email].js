@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import MyCourseSection from '../../components/MyCourseComponents/MyCourseSection';
+import { useDispatch } from 'react-redux';
+import { fetchCourses } from '../../utilities/redux/slices/courseSlice';
+import MyCourseLoading from '../../components/LoadingComponents/CourseLoaders/MyCourseLoading';
 
 const MyCourse = (account) => {
+    const dispatch = useDispatch();
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        if(dispatch(fetchCourses())){
+            setLoading(false);
+        }
+    }, [dispatch]);
+
     return (
         <div>
             <Head>
@@ -11,7 +23,10 @@ const MyCourse = (account) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <MyCourseSection account={account} />
+            {
+                loading ? <MyCourseLoading/> : <MyCourseSection account={account}/>
+            }
+            
         </div>
     );
 };
