@@ -1,9 +1,6 @@
 import Head from "next/head";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { fetchCourses } from "../utilities/redux/slices/courseSlice";
-import { fetchForums } from "../utilities/redux/slices/forumSlice";
-import { fetchCategories } from "../utilities/redux/slices/categorySlice";
 import { fetchReviews } from "../utilities/redux/slices/reviewSlice";
 import { fetchUsers } from "../utilities/redux/slices/userSlice";
 import { fetchVotes } from "../utilities/redux/slices/voteSlice";
@@ -20,9 +17,6 @@ export default function Home() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // dispatch(fetchCourses());
-    dispatch(fetchForums());
-    dispatch(fetchCategories());
     dispatch(fetchReviews());
     dispatch(fetchUsers());
     dispatch(fetchVotes());

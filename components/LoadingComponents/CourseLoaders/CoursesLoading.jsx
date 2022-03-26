@@ -1,7 +1,7 @@
 import React from 'react';
 import Styles from '../../styles/Home.module.css';
 
-const CoursesLoader = () => {
+const CoursesLoading = () => {
     return (
         <>
             <div className="bg-white dark:bg-slate-800">
@@ -95,4 +95,4 @@ const CoursesLoader = () => {
     );
 };
 
-export default CoursesLoader;
+export default CoursesLoading;
