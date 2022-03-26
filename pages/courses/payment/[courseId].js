@@ -19,7 +19,7 @@ const Payment = ({ course }) => {
 // // This function gets called at build time
 // export async function getStaticPaths() {
 //     // Call an external API endpoint to get forums
-//     const res = await fetch('https://radiant-academy-vert.vercel.app/api/courses')
+//     const res = await fetch('http://localhost:3000/api/courses')
 //     const courses = await res.json()
 
 //     // Get the paths we want to pre-render based on forums
@@ -33,7 +33,7 @@ const Payment = ({ course }) => {
 // }
 
 export async function getServerSideProps({ params }) {
-    const res = await fetch(`https://radiant-academy-vert.vercel.app/api/courses/${params.courseId}`)
+    const res = await fetch(`http://localhost:3000/api/courses/${params.courseId}`)
     const course = await res.json()
 
     // Pass forum data to the page via props

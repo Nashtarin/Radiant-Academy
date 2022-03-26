@@ -4,7 +4,7 @@ import axios from 'axios';
 export const fetchQuizzes = createAsyncThunk(
     'quiz/fetchQuizzes',
     async () => {
-        const response = await fetch('https://radiant-academy-vert.vercel.app/api/quizzes')
+        const response = await fetch('http://localhost:3000/api/quizzes')
             .then(res => res.json())
         return response.data
     }
@@ -13,7 +13,7 @@ export const fetchQuizzes = createAsyncThunk(
 export const deleteQuiz = createAsyncThunk(
     'quiz/deleteQuiz',
     async (id) => {
-        const response = await axios.delete(`https://radiant-academy-vert.vercel.app/api/quizzes/${id}`, id);
+        const response = await axios.delete(`http://localhost:3000/api/quizzes/${id}`, id);
         return response.data
     }
 )
@@ -22,7 +22,7 @@ export const quizCreate = createAsyncThunk(
     'quiz/quizCreate',
     async (quiz) => {
         try {
-            const response = await axios.post("https://radiant-academy-vert.vercel.app/api/quizzes", quiz);
+            const response = await axios.post("http://localhost:3000/api/quizzes", quiz);
             console.log(response.data.data);
             return response.data.data
         } catch (error) {

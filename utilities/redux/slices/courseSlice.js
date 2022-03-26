@@ -4,7 +4,7 @@ import axios from 'axios';
 export const fetchCourses = createAsyncThunk(
     'course/fetchCourses',
     async () => {
-        const response = await fetch('https://radiant-academy-vert.vercel.app/api/courses')
+        const response = await fetch('http://localhost:3000/api/courses')
             .then(res => res.json())
         return response.data
     }
@@ -13,7 +13,7 @@ export const fetchCourses = createAsyncThunk(
 export const deleteCourse = createAsyncThunk(
     'course/deleteCourse',
     async (id) => {
-        const response = await axios.delete(`https://radiant-academy-vert.vercel.app/api/courses/${id}`, id);
+        const response = await axios.delete(`http://localhost:3000/api/courses/${id}`, id);
         return response.data
     }
 )
@@ -22,7 +22,7 @@ export const courseCreate = createAsyncThunk(
     'course/courseCreate',
     async (course) => {
         try {
-            const response = await axios.post("https://radiant-academy-vert.vercel.app/api/courses", course);
+            const response = await axios.post("http://localhost:3000/api/courses", course);
             return response.data.data
         } catch (error) {
             console.log(error);
@@ -34,7 +34,7 @@ export const updateCourse = createAsyncThunk(
     'course/updateCourse',
     async (course) => {
         try {
-            const response = await axios.put(`https://radiant-academy-vert.vercel.app/api/courses/edit/${course._id}`, course);
+            const response = await axios.put(`http://localhost:3000/api/courses/edit/${course._id}`, course);
             return course
         } catch (error) {
             console.log(error);
