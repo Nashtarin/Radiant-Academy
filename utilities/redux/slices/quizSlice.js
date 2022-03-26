@@ -18,6 +18,19 @@ export const deleteQuiz = createAsyncThunk(
     }
 )
 
+export const quizCreate = createAsyncThunk(
+    'quiz/quizCreate',
+    async (quiz) => {
+        try {
+            const response = await axios.post("http://localhost:3000/api/quizzes", quiz);
+            console.log(response.data.data);
+            return response.data.data
+        } catch (error) {
+            console.log(error);
+        }
+    }
+)
+
 const quizSlice = createSlice({
     name: 'quiz',
     initialState: {
@@ -57,6 +70,11 @@ const quizSlice = createSlice({
 
         builder.addCase(deleteQuiz.fulfilled, (state, action) => {
             state.quizzesList = state.quizzesList.filter(quiz => quiz._id !== action.payload._id);
+            state.status = 'success';
+        })
+
+        builder.addCase(quizCreate.fulfilled, (state, action) => {
+            state.quizzesList = [...state.quizzesList, action.payload];
             state.status = 'success';
         })
     },

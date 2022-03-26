@@ -1,17 +1,24 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import Head from "next/head";
 import Script from 'next/script';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import ForumPostDetails from "../../components/ForumComponents/ForumPostDetails";
 import RelatedTopicSection from "../../components/ForumComponents/RelatedTopicSection";
 import ReviewSection from "../../components/ForumComponents/ReviewSection";
+import ReviewsLoading from "../../components/LoadingComponents/ForumsLoaders/ReviewsLoading";
 import { topicView } from "../../utilities/redux/slices/forumSlice";
+import { fetchReviews } from "../../utilities/redux/slices/reviewSlice";
 
 const SingleForumPage = ({ forum }) => {
     const dispatch = useDispatch();
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
-        dispatch(topicView(forum))
+        dispatch(topicView(forum));
+        if (dispatch(fetchReviews())) {
+            setLoading(false);
+        }
     }, [forum, dispatch]);
 
     return (
@@ -26,7 +33,9 @@ const SingleForumPage = ({ forum }) => {
 
             {/* SINGLE FORUM CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
             <ForumPostDetails forum={forum} />
-            <ReviewSection forum={forum} />
+            {
+                loading ? <ReviewsLoading /> : <ReviewSection forum={forum} />
+            }
             <RelatedTopicSection forum={forum} />
 
         </div>

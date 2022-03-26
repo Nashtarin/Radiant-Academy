@@ -1,22 +1,15 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { FaBookmark, FaClock, FaHeart, FaPenNib } from "react-icons/fa";
 import ReactStars from "react-rating-stars-component";
-import { useDispatch } from 'react-redux';
 import useAuth from '../../utilities/Hooks/useAuth';
-import { fetchQuizzes } from '../../utilities/redux/slices/quizSlice';
 import ProfileDetailsSection from './ProfileDetailsSection';
 
 const ProfileSection = ({ account }) => {
     const [rating, setRating] = useState(0);
     const { user, isLoading } = useAuth();
     const router = useRouter();
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(fetchQuizzes());
-    }, [dispatch]);
 
     if (isLoading && !user.isSignedIn) {
         return <div className="loading flex justify-center items-center min-h-screen m-auto">

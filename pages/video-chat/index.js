@@ -2,7 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 import VideoSection from '../../components/VideoComponents/VideoSection';
 
-const index = () => {
+const HelpLine = () => {
     return (
         <div className='bg-white dark:bg-slate-800'>
             <Head>
@@ -16,4 +16,4 @@ const index = () => {
     );
 };
 
-export default index;
+export default HelpLine;

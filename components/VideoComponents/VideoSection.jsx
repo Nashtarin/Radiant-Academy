@@ -7,7 +7,15 @@ import { HiOutlinePhoneMissedCall } from "react-icons/hi";
 
 // const socket = io.connect('http://localhost:5000')
 // const socket = io.connect('https://cors-anywhare.herokuapp.com/http://mysterious-citadel-77081.herokuapp.com/')
-const socket = io.connect('https://warm-wildwood-81069.herokuapp.com/')
+
+const socket = io.connect('https://warm-wildwood-81069.herokuapp.com/',
+    {
+        cors: {
+            origin: "*",
+            methods: ["GET", "POST"]
+        }
+    }
+)
 export default function App() {
 
     const [me, setMe] = useState("");

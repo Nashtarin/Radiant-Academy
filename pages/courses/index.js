@@ -1,7 +1,20 @@
 import Head from "next/head";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import CourseSection from "../../components/CourseComponents/CourseSection";
+import CoursesLoading from "../../components/LoadingComponents/CourseLoaders/CoursesLoading";
+import { fetchCourses } from "../../utilities/redux/slices/courseSlice";
 
-const Courses = () => {
+const Courses = () => { 
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if(dispatch(fetchCourses())){
+        setLoading(false);
+    }
+  }, [dispatch]);
+
   return (
     <div>
       <Head>
@@ -11,8 +24,9 @@ const Courses = () => {
       </Head>
 
       {/* COURSES CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
-      <CourseSection/>
-
+      {
+        loading ? <CoursesLoading/> : <CourseSection />
+      }
     </div>
   );
 };

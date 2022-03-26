@@ -1,8 +1,20 @@
 import Head from 'next/head';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import VoteLoading from '../../components/LoadingComponents/VoteLoaders/VoteLoading';
 import VoteNewCourses from '../../components/VoteComponents/VoteNewCourses';
+import { fetchVotes } from '../../utilities/redux/slices/voteSlice';
 
-const index = () => {
+const Vote = () => {
+    const dispatch = useDispatch();
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        if (dispatch(fetchVotes())) {
+            setLoading(false);
+        }
+    }, [dispatch]);
+
     return (
         <div className='bg-white dark:bg-slate-800'>
             <Head>
@@ -11,7 +23,9 @@ const index = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <VoteNewCourses />
+            {
+                loading ? <VoteLoading /> : <VoteNewCourses />
+            }
         </div>
     );
 };
@@ -26,4 +40,4 @@ export const getServerSideProps = async () => {
     }
 }
 
-export default index;
+export default Vote;

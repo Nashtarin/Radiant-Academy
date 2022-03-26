@@ -1,20 +1,19 @@
 import Head from 'next/head';
 import React from 'react';
-import AddNewTopic from '../../../../components/DashboardComponents/AddNewTopic';
+import AddNewQuiz from '../../../../components/DashboardComponents/AddNewQuiz';
 
-const DashAddTopic = () => {
+const DashAddNewQuiz = () => {
     return (
         <div>
             <Head>
-                <title>Radiant Academy | Add Topic</title>
+                <title>Radiant Academy | Add Quiz</title>
                 <meta name="Your learning partner" content="Best learning app for the curious learners" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            {/* COURSES CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
-            <AddNewTopic />
+            <AddNewQuiz />
         </div>
     );
 };
 
-export default DashAddTopic;
+export default DashAddNewQuiz;

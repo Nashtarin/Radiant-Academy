@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaBookmark, FaClone, FaDollarSign, FaEdit, FaHeart, FaPlus, FaTrashAlt, FaUserFriends } from 'react-icons/fa';
+import Link from 'next/link';
 import { useSelector } from 'react-redux';
 import useCrud from '../../utilities/Hooks/useCrud';
 import DashboardSidebar from './DashboardSidebar';
@@ -17,7 +18,9 @@ const QuizzesSection = () => {
                 <section className='bg-white dark:bg-slate-700 shadow-md rounded-md py-8 px-5 h-auto'>
                     <div className="flex justify-between items-center px-3 mb-4">
                         <h3 className="text-2xl flex items-center"><FaClone className="mr-3" /> Quizzes</h3>
-                        <button className="flex items-center btn"><FaPlus className="text-sm mr-2" /> Add Quizzes</button>
+                        <Link href="/dashboard/quizzes/add-quiz" passHref>
+                            <button className="flex items-center btn"><FaPlus className="text-sm mr-2" /> Add Quizzes</button>
+                        </Link>
                     </div>
                     <section className="overflow-x-auto">
                         <div>
@@ -28,15 +31,23 @@ const QuizzesSection = () => {
                                             <h2 className='inline-flex'><span className="text-orange-500 my-auto mr-1.5">
                                                 <FaBookmark />
                                                 </span>
-                                                {quiz.questionText}
+                                                {quiz.questionText.split(' ').slice(0, 5).toString().replace(/,/g, ' ')}..
                                             </h2>
                                         </div>
                                         <div className='flex justify-center'>
                                             <h2 className='inline-flex'>
                                                 <span className='text-rose-500 dark:text-rose-400 my-auto mr-1'>
-                                                    <FaDollarSign />
+                                                    Answer No:
                                                 </span>
                                                 {quiz.answer}
+                                            </h2>
+                                        </div>
+                                        <div className='flex justify-center'>
+                                            <h2 className='inline-flex font-base'>
+                                                <span className='my-auto text-rose-600 dark:text-rose-400 mr-1'>
+                                                    Steps:
+                                                </span>
+                                                {quiz.totalSurveySteps}
                                             </h2>
                                         </div>
                                         <div className='flex justify-center'>
@@ -44,20 +55,12 @@ const QuizzesSection = () => {
                                                 <span className='text-violet-800 dark:text-violet-400 my-auto mr-1'>
                                                     <FaUserFriends />
                                                 </span>
-                                                1648
-                                            </h2>
-                                        </div>
-                                        <div className='flex justify-center'>
-                                            <h2 className='inline-flex font-base'>
-                                                <span className='my-auto text-rose-600 dark:text-rose-400 mr-1'>
-                                                    <FaHeart />
-                                                </span>
-                                                {quiz.totalSurveySteps}
+                                                0
                                             </h2>
                                         </div>
                                         <div className='flex justify-center'>
                                             <h2 className='text-green-700 dark:text-green-500 font-semibold'>
-                                                PREMIUM
+                                                NEW
                                             </h2>
                                         </div>
                                         <div className='flex justify-end'>

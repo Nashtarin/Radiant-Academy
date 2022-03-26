@@ -26,10 +26,6 @@ const ProfileDetailsSection = ({ account }) => {
         return 0;
     }): '';
 
-    const handleDelete = () => {
-        console.log('clicked')
-    }
-
     const handleQuiz = (course) => {
         dispatch(setWhichCourse(course._id));
         router.push(`/my-course/course-contents/${course._id}`);
@@ -113,7 +109,7 @@ const ProfileDetailsSection = ({ account }) => {
                                                         {topic.status === false ? <h2 className="text-center text-orange-500">Pending</h2> : <h2 className="text-center text-green-500">Approved</h2>}
                                                         
                                                         <h2 className='text-right'>
-                                                            <button onClick={handleDelete}>
+                                                            <button>
                                                                 <FaTrash className="hover:text-red-500" onClick={() => handleRemove(topic._id, 'topic')}/>
                                                             </button>
                                                         </h2>

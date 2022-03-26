@@ -208,16 +208,6 @@ const Navbar = () => {
                                     <a className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3">PLAYGROUND </a>
                                 </Link>
                             </li>
-                            {/* <li>
-                                <Link href="/blogs">
-                                    <a className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3">BLOGS </a>
-                                </Link>
-                            </li> */}
-                            {/* <li>
-                                <Link href="/contact">
-                                    <a className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3">CONTACT </a>
-                                </Link>
-                            </li>  */}
                             {!user.isSignedIn &&
                                 <li className="text-white mt-3">
                                     <Link passHref href="/register">

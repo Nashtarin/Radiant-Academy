@@ -2,7 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 import CoursesSection from '../../../components/DashboardComponents/CourseSection';
 
-const index = () => {
+const DashCourses = () => {
     return (
         <div>
             <Head>
@@ -11,10 +11,10 @@ const index = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            {/* COURSES CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
+            {/* DASHBOARD COURSES CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
             <CoursesSection />
         </div>
     );
 };
 
-export default index;
+export default DashCourses;

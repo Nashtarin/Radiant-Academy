@@ -1,10 +1,21 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BsArrowRight } from "react-icons/bs";
 import TopicSearch from '../ForumComponents/TopicSearch';
 import BlogCard from './BlogCard';
 
-const BlogSection = ({ blogs }) => {
+const BlogSection = () => {
+    const [allBlogs, setAllBlogs] = useState([]);
+    console.log(allBlogs);
+
+    useEffect(() => {
+        fetch('https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=7dcdae5174374026b19e0a5b076096a3')
+        .then(response => response.json())
+        .then(data => {
+            setAllBlogs(data);
+        })
+    }, []);
+
     return (
         <div className='bg-white dark:bg-slate-800'>
             <div>
@@ -17,7 +28,7 @@ const BlogSection = ({ blogs }) => {
                 <div className="grid grid-rows-1 px-1 sm:px-10 md:px-20 pt-5 p-20">
                     <div className=''>
                         {
-                            blogs.articles.map(blog => <BlogCard
+                            allBlogs?.articles?.map(blog => <BlogCard
                                 key={blog.publishedAt}
                                 blog={blog}
                             />)

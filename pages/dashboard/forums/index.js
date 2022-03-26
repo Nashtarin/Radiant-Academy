@@ -2,7 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 import ForumSection from '../../../components/DashboardComponents/ForumSection';
 
-const index = () => {
+const DashForums = () => {
     return (
         <div>
             <Head>
@@ -11,10 +11,10 @@ const index = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            {/* COURSES CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
+            {/* DASHBOARD FORUMS CONTENT GOES HERE (WITHOUT NAVBAR & FOOTER) */}
             <ForumSection />
         </div>
     );
 };
 
-export default index;
+export default DashForums;

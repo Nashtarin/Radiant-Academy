@@ -1,9 +1,23 @@
 import Head from 'next/head';
 import Script from 'next/script';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import ProfileLoading from '../../components/LoadingComponents/ProfileLoaders/ProfileLoading';
 import ProfileSection from '../../components/ProfileComponent/ProfileSection';
+import { fetchCourses } from '../../utilities/redux/slices/courseSlice';
+import { fetchForums } from '../../utilities/redux/slices/forumSlice';
+import { fetchQuizzes } from '../../utilities/redux/slices/quizSlice';
 
 const Profile = ({ account }) => {
+    const dispatch = useDispatch();
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        if (dispatch(fetchCourses()) && dispatch(fetchForums()) && dispatch(fetchQuizzes())) {
+            setLoading(false);
+        }
+    }, [dispatch]);
+
     return (
         <div>
             <Head>
@@ -14,7 +28,9 @@ const Profile = ({ account }) => {
 
             <Script src="https://kit.fontawesome.com/9dbb72da13.js" />
 
-            <ProfileSection account={account} />
+            {
+                loading ? <ProfileLoading /> : <ProfileSection account={account} />
+            }
         </div>
     );
 };

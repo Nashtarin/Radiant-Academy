@@ -1,12 +1,7 @@
 import Head from "next/head";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { fetchCourses } from "../utilities/redux/slices/courseSlice";
-import { fetchForums } from "../utilities/redux/slices/forumSlice";
-import { fetchCategories } from "../utilities/redux/slices/categorySlice";
-import { fetchReviews } from "../utilities/redux/slices/reviewSlice";
 import { fetchUsers } from "../utilities/redux/slices/userSlice";
-import { fetchVotes } from "../utilities/redux/slices/voteSlice";
 import PackageSection from "../components/HomeComponents/PackageSection";
 import QuizSection from "../components/HomeComponents/QuizSection";
 import HeroSection from "../components/HomeComponents/HeroSection";
@@ -16,16 +11,11 @@ import FeatureSection from "../components/HomeComponents/FeatureSection";
 import CounterSection from "../components/HomeComponents/CounterSection";
 import PrivacyPolicySection from "../components/HomeComponents/PrivacyPolicySection";
 
-export default function Home() {
+const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchCourses());
-    dispatch(fetchForums());
-    dispatch(fetchCategories());
-    dispatch(fetchReviews());
     dispatch(fetchUsers());
-    dispatch(fetchVotes());
   }, [dispatch]);
 
   return (
@@ -46,5 +36,7 @@ export default function Home() {
       <CounterSection />
       <PrivacyPolicySection />
     </div>
-  )
-}
+  );
+};
+
+export default Home;

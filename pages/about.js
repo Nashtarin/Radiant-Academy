@@ -8,37 +8,6 @@ import "slick-carousel/slick/slick.css";
 import Contact from '../components/Contact';
 
 const about = () => {
-    const settings = {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        dots: true,
-        arrows: true,
-        infinite: false,
-        autoplay: false,
-        autoplaySpeed: 3000,
-        speed: 700,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: true,
-                },
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    dots: true,
-                    arrows: false,
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                },
-            },
-        ],
-    };
-
     return (
         <section className="bg-white dark:bg-slate-800 text-slate-700 dark:text-white">
             {/* Team section  */}
@@ -67,7 +36,7 @@ const about = () => {
                             </h4>
                         </div>
                         <div>
-                            <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-3">“I received my certificate, and I would like to thank you for your support. Your course was challenging, but you were always there supporting me and ready to help. I enjoyed your class tremendously.”</p>
+                            <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-3">“In this project i served as the Team Leader, and led the team of total seven members. I maintained the administrative actions and together build this production ready web app.”</p>
                         </div>
                         <div className="flex justify-center pb-5">
                             <a href="https://www.linkedin.com/in/jahidul-islam-076a8b216/" target="_new" className="mr-3">
