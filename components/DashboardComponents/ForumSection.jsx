@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import { FaBookmark, FaClone, FaEdit, FaEye, FaHeart, FaPlus, FaTrashAlt } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
@@ -9,15 +10,17 @@ const ForumSection = () => {
     const allTopics = useSelector((state) => state.forums.forumsList);
     
     return (
-        <div className='px-5 sm:px-6 lg:px-12 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200'>
-            <div className='grid grid-rows-1 md:grid-cols-[250px_minmax(300px,_1fr)] lg:grid-cols-[250px_minmax(600px,_1fr)] py-8 gap-5'>
+        <div className='px-0 sm:px-6 lg:px-12 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200'>
+            <div className='grid grid-rows-1 md:grid-cols-[250px_minmax(300px,_1fr)] lg:grid-cols-[250px_minmax(600px,_1fr)] p-8 gap-5'>
                 <section>
                     <DashboardSidebar />
                 </section>
                 <section className='bg-white dark:bg-slate-700 shadow-md rounded-md py-8 px-5 h-auto'>
                     <div className="flex justify-between items-center px-3 mb-4">
                         <h3 className="text-2xl flex items-center"><FaClone className="mr-3" /> Forum Topics</h3>
-                        <button className="flex items-center btn"><FaPlus className="text-sm mr-2" /> Add Topics</button>
+                        <Link href="/dashboard/forums/add-topic" passHref>
+                            <button className="flex items-center btn"><FaPlus className="text-sm mr-2" /> Add Topics</button>
+                        </Link>
                     </div>
                     <section className="overflow-x-auto">
                         <div>
@@ -59,8 +62,10 @@ const ForumSection = () => {
                                         </div>
                                         <div className='flex justify-end'>
                                             <h2 className='inline-flex'>
-                                                <span className='text-slate-700 dark:text-slate-200 mr-3'>
-                                                    <FaEdit />
+                                                <span className='text-slate-700 dark:text-slate-200 mr-3 cursor-pointer'>
+                                                    <Link href={`/dashboard/forums/edit-topic/${forum._id}`} passHref>
+                                                        <FaEdit />
+                                                    </Link>
                                                 </span>
                                                 <span className='text-red-500 dark:text-red-400 cursor-pointer'>
                                                     <FaTrashAlt  onClick={() => handleRemove(forum._id, 'topic')}/>

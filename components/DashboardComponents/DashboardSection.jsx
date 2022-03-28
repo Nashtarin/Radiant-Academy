@@ -101,11 +101,11 @@ const DashboardSection = () => {
                         <DashboardSidebar />
                     </div>
 
-                    <div className="bg-slate-100 dark:bg-slate-700 shadow-md rounded-md py-8 px-5 h-auto col-span-4">
+                    <div className="bg-slate-100 dark:bg-slate-700 shadow-md rounded-md py-8 px-5 h-auto md:col-span-4">
                         <div className="rounded-md p-5 text-white bg-violet-900 dark:bg-violet-800 dark:text-slate-200" >
                             <h5 className="text-lg">Site Overview</h5>
 
-                            <div className="grid xs:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-8 pb-1 px-4">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-8 pb-1 px-4">
                                 <div className="flex flex-col items-start pl-4 border-l-2 mb-2 border-l-zinc-200 dark:border-l-slate-400">
                                     <h3 className="text-2xl">{pendingList.length}</h3>
                                     <p>Pending Submissions</p>
@@ -140,7 +140,7 @@ const DashboardSection = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="grid grid-rows-1 grid-cols-1 lg:grid-cols-2 gap-5 mt-5">
+                        <div className="grid grid-cols-3 gap-5 mt-5">
                             <div>
                                 <div className="bg-slate-200 shadow-md rounded-md p-5 h-auto mb-5 course-card dark:bg-slate-600">
                                     <div className="flex items-center justify-between text-violet-900 dark:text-violet-100">
@@ -265,9 +265,9 @@ const DashboardSection = () => {
                                                 </h1>
                                                 <h1>:&nbsp; +880 123456</h1>
                                             </div>
-                                            <div className='flex break-all'>
-                                                <h1 className="flex items-center pr-2">
-                                                    <FaEnvelope /> &nbsp; Email
+                                            <div className='flex'>
+                                                <h1 className="flex items-center mr-1">
+                                                    <FaEnvelope /> &nbsp; Email: 
                                                 </h1>
                                                 <h1>{user.email}</h1>
                                             </div>
@@ -278,7 +278,7 @@ const DashboardSection = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div>
+                            <div className='col-span-2'>
                                 <div className="bg-slate-200 shadow-md rounded-md p-5 h-auto mb-5 dark:bg-slate-600">
                                     <div className="flex items-center text-xl font-semibold pt-1 pb-4 border-b-2 text-violet-900 dark:text-violet-100 border-stone-300 dark:border-stone-400">
                                         <MdPending className="mr-2" />

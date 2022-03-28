@@ -2,8 +2,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { BsArrowUpCircleFill } from 'react-icons/bs';
 import { FaHeadset } from "react-icons/fa";
+import useAuth from "../utilities/Hooks/useAuth";
 
 const Footer = () => {
+
+    const { user, logout } = useAuth();
 
     function helpLine(){
         const chatBtn = document.getElementById("chat-icon");
@@ -65,7 +68,7 @@ const Footer = () => {
                                         </Link>
                                     </div>
                                     <div className="text-left">
-                                        <Link href="/profile" passHref>
+                                        <Link href={`/profile/${user.email}`} passHref>
                                             <span className="mb-1 hover:text-rose-600 cursor-pointer">Account</span>
                                         </Link><br />
                                         <Link href="" passHref>

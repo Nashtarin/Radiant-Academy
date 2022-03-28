@@ -9,8 +9,8 @@ const AccountsSection = () => {
     const allUsers = useSelector((state) => state.users.usersList);
 
     return (
-        <div className="px-6 bg-white dark:bg-slate-800">
-            <div className="grid grid-rows-1 md:grid-cols-[200px_minmax(300px,_1fr)] lg:grid-cols-[250px_minmax(600px,_1fr)] py-8 gap-5">
+        <div className="px-0 sm:px-6 lg:px-12 bg-white dark:bg-slate-800">
+            <div className="grid grid-rows-1 md:grid-cols-[250px_minmax(300px,_1fr)] lg:grid-cols-[250px_minmax(600px,_1fr)] p-8 gap-5">
                 <div>
                     <DashboardSidebar />
                 </div>
